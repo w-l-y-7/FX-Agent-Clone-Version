@@ -243,7 +243,12 @@ def main() -> int:
     )
     parser.add_argument(
         "--optimize", action="store_true",
-        help="预测改用「Optuna 调参 + SHAP 解释」那套服务（默认是固定超参的 Ridge）。",
+        help=(
+            "预测改用「Optuna 调参 + SHAP 解释」那套服务（默认是固定超参的 Ridge）。"
+            "调的是 Ridge/随机森林/梯度提升/MLP 四类表格模型，几秒跑完。"
+            "注意：作者实际是用 Optuna 调**深度模型**的，那条路在 "
+            "scripts/optimize_deep_model.py，见 docs/运行指南.md 第八节。"
+        ),
     )
     parser.add_argument(
         "--trials", type=int, default=30,

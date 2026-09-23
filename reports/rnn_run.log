@@ -13,27 +13,27 @@ Loading the paper's USD/CNY dataset...
 Preparing data...
   训练 (1509, 30, 9) / 测试 (385, 30, 9)，序列长度 30，特征 9 个
 Starting model training...
-Epoch [20/300], Loss: 0.025129
-Epoch [40/300], Loss: 0.014025
-Epoch [60/300], Loss: 0.011241
-Epoch [80/300], Loss: 0.010703
-Epoch [100/300], Loss: 0.010155
-Epoch [120/300], Loss: 0.009560
-Epoch [140/300], Loss: 0.009688
-Epoch [160/300], Loss: 0.009461
-Epoch [180/300], Loss: 0.009378
-Epoch [200/300], Loss: 0.009452
-Epoch [220/300], Loss: 0.009240
-Epoch [240/300], Loss: 0.009203
-Epoch [260/300], Loss: 0.009208
-Epoch [280/300], Loss: 0.009862
-Epoch [300/300], Loss: 0.010144
+Epoch [20/300], Loss: 0.051704
+Epoch [40/300], Loss: 0.021349
+Epoch [60/300], Loss: 0.010805
+Epoch [80/300], Loss: 0.009625
+Epoch [100/300], Loss: 0.009094
+Epoch [120/300], Loss: 0.008335
+Epoch [140/300], Loss: 0.007389
+Epoch [160/300], Loss: 0.007693
+Epoch [180/300], Loss: 0.007448
+Epoch [200/300], Loss: 0.006892
+Epoch [220/300], Loss: 0.007511
+Epoch [240/300], Loss: 0.006869
+Epoch [260/300], Loss: 0.007357
+Epoch [280/300], Loss: 0.007227
+Epoch [300/300], Loss: 0.006749
 Evaluating model...
 
 Test Set Evaluation Results:
-  RMSE    0.2716（人民币元）
-  MAE     0.2630（人民币元）
-  MAPE    3.6406%（论文报的就是这个口径）
+  RMSE    0.2506（人民币元）
+  MAE     0.2375（人民币元）
+  MAPE    3.2873%（论文报的就是这个口径）
   朴素基准 RMSE 0.0813 / MAPE 0.8438%
   对比结论：没跑赢「假设价格不变」的朴素基准
 

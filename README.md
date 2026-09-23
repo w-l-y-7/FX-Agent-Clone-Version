@@ -15,10 +15,13 @@ Mining and Analytics* 9(4), 2026, pp. 1009–1025）公开代码
 
 **框架部分已完整重构并能端到端跑通；实验部分没能还原。**
 
-原因很具体：论文公开了数据和框架，但**没有公开实验代码**——公开仓库里
-`src/legacy_models/` 下的模型文件是造随机数据的模板，论文 Table 7 评的 5 个模型里
-还有 2 个连模板都没有。所以 Table 7 那组精度无法直接复现，本仓库是按论文正文
-重新实现的一套。
+原因很具体：论文公开了数据和框架，但**没有公开跑实验的那套脚本**——公开仓库
+现在的 `main` 分支是被精简过的，模型文件只剩造随机数据的模板；作者真正写过的东西
+（Optuna 调参、FAISS 向量检索、RNN 与 LSTM+Attention 的网络结构）在 2025-07-16 的
+提交 `a838298` 里被删掉了，**已从 git 历史恢复并保存在 `author_original_code/`**。
+
+仍然缺的是把那些零件串起来、真正跑出论文那次实验的脚本。所以 Table 7 那组精度
+无法复现，本仓库是按论文正文 + 从历史恢复的实现重新搭的一套。
 
 **请不要把本仓库当作"论文实验的复现"来读**，它是"按论文正文做的一个合理实现"。
 
@@ -31,8 +34,8 @@ Mining and Analytics* 9(4), 2026, pp. 1009–1025）公开代码
 | 四智能体流程 PA1 → PA2 → DA → FA | ✅ 完整实现，端到端跑通 | `python main.py` |
 | DA 的证据三步循环（检索 / 自评 / 迭代精炼） | ✅ 实现，含 RAG 与磁盘缓存 | `scripts/run_da_selection.py` |
 | PA2：新闻 → 日频事件特征聚合 | ✅ 与论文口径一致 | `scripts/verify_pa2_aggregation.py` |
-| FA：Optuna 调参 + SHAP 解释 + LLM 解读 | ✅ 实现 | `python main.py --optimize` |
-| **Table 7 的全部 5 个模型** | ✅ 全部实现并跑出结果 | 见下文「模型结果」 |
+| FA：Optuna 调参 + SHAP 解释 + LLM 解读 | ✅ 两条路都实现了：深度模型（作者的搜索空间）/ 表格模型（快，带 SHAP） | `scripts/optimize_deep_model.py`、`python main.py --optimize` |
+| **Table 7 的全部 5 个模型** | ✅ 全部实现并跑出结果；**RNN 与 LSTM+Attention 的网络结构取自作者被删除的原始实现** | 见下文「模型结果」 |
 | **§4.4 传统特征工程基线** | ✅ 实现，Table 8 的 4 个特征全部算得出来 | `scripts/verify_traditional_baseline.py` |
 | Table 7 的精度 | ❌ 复现不出 | 见下文「为什么复现不出」 |
 | PA1 实采 1030 条事件 | ⚠️ 改为读现成的 `Data.xlsx` | 历史新闻源无法重新采集 |
@@ -74,8 +77,8 @@ Mining and Analytics* 9(4), 2026, pp. 1009–1025）公开代码
 | 模型 | 本机 RMSE | 本机 MAPE | 论文 RMSE | 论文 MAPE |
 |---|---|---|---|---|
 | Transformer | 0.3238 | 3.8719% | 0.0566 | 0.6532% |
-| LSTM + Attention | 0.3120 | 3.9712% | 0.0599 | 0.7205% |
-| RNN | 0.2716 | 3.6406% | 0.0650 | 0.8121% |
+| LSTM + Attention | 0.2667 | 3.4820% | 0.0599 | 0.7205% |
+| RNN | 0.2506 | 3.2873% | 0.0650 | 0.8121% |
 | TFT | 0.3721 | 4.9051% | 0.0330 | 0.3427% |
 | TimesNet | 0.2035 | 2.6077% | 0.0436 | 0.4874% |
 | **朴素基准（价格不变）** | **0.0813** | **0.8438%** | — | — |
@@ -86,7 +89,8 @@ Mining and Analytics* 9(4), 2026, pp. 1009–1025）公开代码
 
 ## 为什么复现不出 Table 7
 
-公开仓库里 `src/legacy_models/` 的模型文件**原始版本都只造随机数据**：
+**公开仓库是"被精简过"的版本。** 现在 `main` 分支上的 `src/legacy_models/` 里，
+三个模型文件的驱动代码都只造随机数据：
 
 ```python
 sample_data = {
@@ -98,16 +102,22 @@ FEATURES = ['feature1', 'feature2']   # 占位
 TARGET = 'target_variable'            # 占位
 ```
 
-三个文件都没有读 `Data.xlsx`；论文 Table 7 评的 5 个模型里，`RNN` 和
-`LSTM + Attention` 连模板都没有。
+**但作者真正写过的东西在 git 历史里还在。** 2025-07-16 的提交 `a838298` 把
+`src/models/`、`src/rag/`、`src/utils/` 三个目录删掉了，被删的内容包括：
 
+| 被删的文件 | 内容 | 本项目怎么处理的 |
+|---|---|---|
+| `src/utils/hyperparameter_optimizer.py` | **真的 Optuna**：搜索 `learning_rate` / `hidden_dim` / `num_layers` / `dropout`，**`batch_size = 32`**，每 trial 50 轮 | 按它实现了 `src/core/deep_optimization.py` |
+| `src/rag/knowledge_base_handler.py` | **真的向量 RAG**：SentenceTransformer + FAISS | 作为参考（本项目用自己的三层降级实现） |
+| `src/models/RNN.py`、`LSTM_Attention.py` | **真的网络结构**（驱动代码是模板） | 本项目的这两个模型已按作者结构对齐 |
+| `src/utils/event_extractor.py`、`model_explainer.py` | **模拟桩**（返回随机事件 / 假的 SHAP 值） | 本项目另做了真实现 |
+
+原件全部保存在 `author_original_code/`，逐个标注了来源提交，没有改动一个字符。
+
+**所以仍然缺的是**：把上面这些零件串起来、真正跑出论文那次实验的脚本。
 论文只交代了 4 个核心超参数（隐藏维度 64、dropout 0.1、学习率 0.001、300 轮），
-其余——**批次大小、优化器、学习率调度、早停、预测步长 HORIZON、切分比例、
-目标变量口径、随机种子**——都没有写。那些细节只存在于未公开的训练脚本里。
-
-本仓库的做法是**按论文正文 + `Data.xlsx` 重新实现一套**，并把过程中每一个需要
-做判断的地方都写进注释。补写的 `RNN.py` 和 `LSTM_Attention.py` 尤其要注意：
-论文只给了名字和四个超参，**网络结构是本项目自己定的**。
+其余——**优化器、学习率调度、早停、预测步长 HORIZON、切分比例、目标变量口径、
+随机种子**——都没有写。**`batch_size = 32` 是唯一从作者代码里捡回来的训练参数。**
 
 ---
 
@@ -171,6 +181,12 @@ python -m venv venv
 .\venv\Scripts\python.exe src\legacy_models\TFT.py              # 约 25~30 分钟
 ```
 
+**按作者的搜索空间调深度模型超参**（论文 §3.3.4 的 FA，10 组约 2 分钟）：
+
+```powershell
+.\venv\Scripts\python.exe scripts\optimize_deep_model.py --trials 10
+```
+
 ---
 
 ## 目录结构
@@ -195,7 +211,7 @@ src/
 ├── tools/                   数据获取工具
 └── legacy_models/           论文 Table 7 的全部五个模型
     ├── Transformer.py / Timesnet.py / TFT.py    已补全，能跑
-    └── RNN.py / LSTM_Attention.py               ★ 原仓库里没有，从零补写
+    └── RNN.py / LSTM_Attention.py               ★ 结构取自作者的原始实现
 
 data/knowledge_base/notes/   ★ DA 检索用的机制说明（项目自行整理）
 scripts/                     独立跑的脚本
@@ -212,6 +228,7 @@ docs/                        中文补充文档，见下
 |---|---|
 | [`docs/运行指南.md`](docs/运行指南.md) | 怎么用、每个模块在做什么、哪里和论文对不上以及为什么 |
 | [`docs/进度记录.md`](docs/进度记录.md) | 复现到哪一步了、交付边界、待确认问题清单 |
+| [`author_original_code/README.md`](author_original_code/README.md) | **从作者 git 历史恢复的原始实现**：每个文件是真实现还是模拟桩、从哪个提交恢复的 |
 
 ### 运行结果在哪里看
 

@@ -1,21 +1,27 @@
 """循环神经网络（RNN），论文 Table 7 的五个基准模型之一。
 
-# 这个文件的状态：**按论文正文补全的，不属于原公开代码**
+# 这个文件的状态：**网络结构取自作者被删除的原始实现**
 
-原仓库 `legacy_models/` 里**没有**这个文件。论文 Table 7 评了五个模型
-（Transformer、LSTM+Attention、RNN、TFT、TimesNet），公开代码只给了三个模板，
-RNN 和 LSTM+Attention 是缺的。这里按论文 §4.1 的设定补齐，补的依据只有两条：
+原仓库当前的 `legacy_models/` 里没有这个文件；但作者的 git 历史里**有**
+`src/models/RNN.py`，在 2025-07-16 的提交 `a838298` 里被删掉了。本文件的
+网络结构是从那个版本恢复的，原件保存在 `author_original_code/models/RNN.py`。
 
-* **超参数**：隐藏维度 64、dropout 0.1、学习率 0.001、训练 300 轮（论文明写）；
-* **网络类型**：论文只说是 "RNN"，没有给层数、有没有投影层等结构细节。
+从作者版本里取到的结构特征（**这三条和"常见写法"都不一样，是作者的选择**）：
 
-**所以这个模型的"结构"是项目自己定的，不是论文的结构。** 层数（3 层）、输入投影
-这些属于常见做法，但不是从论文里读出来的。要跟论文作者确认就得连这一条一起问。
+* `nn.RNN` **直接吃原始特征**，没有输入投影层；
+* `nonlinearity='relu'`，不是 torch 默认的 `tanh`；
+* 输出头是 `Linear → ReLU → Dropout → Linear`，没有 LayerNorm。
 
-一个刻意的选择：RNN 和 LSTM+Attention 都**沿用 Transformer.py 的训练循环**
-（整批全量梯度、Adam + ReduceLROnPlateau、梯度裁剪 1.0），而不是自己另写一套。
-这样三个模型之间只差网络结构，指标才有可比性；论文用什么优化器、批次多大都没写，
-统一口径比自己猜三套要诚实。
+作者版本里的驱动代码是模板（`FEATURES = [...]`、随机数据），所以**训练循环、
+数据管道、指标口径**仍沿用本项目的统一实现（和 `Transformer.py` / `Timesnet.py`
+一致：整批全量梯度、Adam + ReduceLROnPlateau、梯度裁剪 1.0）。这样五个模型之间
+只差网络结构，指标才有可比性。
+
+## 一处取自作者模板的取值
+
+`NUM_LAYERS = 2`——作者 `LSTM_Attention.py` 模板里写的是 2（`RNN.py` 模板里
+那一行是 `...` 占位符，没给值）。论文 §4.1 只交代了隐藏维度、dropout、学习率、
+训练轮数，没提层数，所以这里用作者模板给的值。
 
 ## 和论文的对照值
 
@@ -55,42 +61,35 @@ from src.core.sequence_dataset import (
 # ============================================================================
 
 class RNNModel(nn.Module):
-    """标准的多层 RNN：输入投影 → RNN → 取最后一步 → 全连接。
+    """多层 RNN，结构照搬作者被删除的 `src/models/RNN.py`。
 
     `dropout` 只在 `num_layers > 1` 时传给 `nn.RNN`——单层 RNN 之间没有可丢弃的
-    连接，torch 会为此发一条警告。层间 dropout 之外，输出头里也保留了一路。
+    连接，torch 会为此发一条警告。这一行和作者原版一致。
     """
 
     def __init__(self, input_dim, hidden_dim, num_layers, output_dim, dropout=0.1):
         super().__init__()
-        self.input_proj = nn.Linear(input_dim, hidden_dim)
+        self.hidden_dim = hidden_dim
+        self.num_layers = num_layers
         self.rnn = nn.RNN(
-            input_size=hidden_dim,
-            hidden_size=hidden_dim,
-            num_layers=num_layers,
+            input_dim,
+            hidden_dim,
+            num_layers,
             batch_first=True,
-            dropout=dropout if num_layers > 1 else 0.0,
+            dropout=dropout if num_layers > 1 else 0,
+            nonlinearity="relu",
         )
         self.output_layer = nn.Sequential(
             nn.Linear(hidden_dim, hidden_dim // 2),
-            nn.LayerNorm(hidden_dim // 2),
             nn.ReLU(),
             nn.Dropout(dropout),
             nn.Linear(hidden_dim // 2, output_dim),
         )
-        self.apply(self._init_weights)
-
-    def _init_weights(self, module):
-        if isinstance(module, nn.Linear):
-            nn.init.kaiming_normal_(module.weight, mode="fan_in", nonlinearity="relu")
-            if module.bias is not None:
-                nn.init.constant_(module.bias, 0)
 
     def forward(self, x):
-        x = self.input_proj(x)
-        output, _ = self.rnn(x)
+        rnn_out, _ = self.rnn(x)
         # 和 Transformer.py 取同样的位置：窗口最后一天的表征
-        return self.output_layer(output[:, -1, :])
+        return self.output_layer(rnn_out[:, -1, :])
 
 
 def train_model(X_train, y_train, input_dim, hidden_dim, num_layers, output_dim,
@@ -204,7 +203,8 @@ if __name__ == "__main__":
     TEST_SIZE = 0.2
 
     HIDDEN_DIM = 64
-    NUM_LAYERS = 3
+    # 取自作者 LSTM_Attention 模板里的取值（见文件开头说明）；论文没交代层数
+    NUM_LAYERS = 2
     DROPOUT = 0.1
     LEARNING_RATE = 0.001
     EPOCHS = 300

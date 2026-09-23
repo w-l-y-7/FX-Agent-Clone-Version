@@ -1,9 +1,7 @@
 """FA（预测智能体）的两块自动化：**Optuna 调参** 和 **SHAP 解释**。
 
-README 里把这两件写成 FA 的核心能力（"Automates Hyperparameter Optimization
-(with Optuna)" / "Ensures Interpretability ... like SHAP"），`requirements.txt`
-里也确实装了 `optuna` 和 `shap`——但公开代码里这两个包**一次都没被 import 过**。
-本模块把这块补上。
+README 把这两件写成 FA 的核心能力（"Automates Hyperparameter Optimization
+(with Optuna)" / "Ensures Interpretability ... like SHAP"），本模块实现它们。
 
 ## 一、调参的验证口径
 
@@ -14,16 +12,30 @@ Optuna 需要一个「哪组超参更好」的判据。**绝不能拿最终测�
 里的 `chronological_holdout`），Optuna 只在验证段上比较。选完之后用**全部**
 训练段重新拟合，最后才碰测试集。测试集从头到尾只被用来算最终指标一次。
 
-## 二、搜索空间里为什么是表格模型，不是 RNN/LSTM/Transformer
+**这条约定和作者的原始实现不一样**：作者的
+`author_original_code/utils/hyperparameter_optimizer.py` 里，`_objective`
+返回的是 `criterion(model(X_test), y_test)`——拿最终测试集当判据。这里没有照做，
+因为它会让报出来的误差无法解释。
 
-README 举的例子是 RNN / LSTM / Transformer，但那类模型在单次请求拿得到的数据量
-（几百到两千行）上站不住脚，而且本项目的 `legacy_models/` 里**已经有**论文真正
-用的那三个深度模型了——用 Optuna 去调它们的代价太高（一轮几十分钟，CPU 上
-要跑几十轮）。
+## 二、本模块搜的是表格模型，而作者调的是深度模型
 
-所以这里搜的是四类表格模型：Ridge、随机森林、梯度提升、小 MLP。它们在这个
-数据量下才是合理选择，而且调参快、结果稳定。**这个口径值得跟论文作者确认**：
-论文 §FA 部分提到 Optuna，但公开代码里没说是对哪个模型调的。
+**这一条是查过作者 git 历史之后才弄清楚的**（早先的版本在这里写的是
+"论文没说对哪个模型调的"，那是错的）：
+
+* 作者的 `src/utils/hyperparameter_optimizer.py`（2025-07-16 的 `a838298` 里被删）
+  通过 `ModelFactory.create_model(model_name, **params)` 造模型，而那个工厂支持的是
+  **`LSTM`（LSTM + Attention）和 `Transformer`**；
+* 搜索空间是 `learning_rate` / `hidden_dim` / `num_layers` / `dropout`，
+  **`batch_size = 32`**，每个 trial 训 50 轮。
+
+所以论文的 Optuna 调的是**深度模型**。那条路在本项目的
+`src/core/deep_optimization.py` + `scripts/optimize_deep_model.py` 里实现，
+搜索空间和批大小都照作者的取值。
+
+**本模块为什么还留着**：它搜的是 Ridge / 随机森林 / 梯度提升 / MLP 四类表格模型，
+几秒钟跑完，而且能顺手出 SHAP 解释（`explain_with_shap`）。深度模型调一轮要训
+50 轮、CPU 上几十分钟，拿不到这种"随手就跑"的体验。两条路都保留，各有各的用途——
+要保真用 `optimize_deep_model.py`，要快速看 SHAP 用 `main.py --optimize`。
 """
 
 import time

@@ -158,6 +158,53 @@ def inverse_target(values: np.ndarray, scaler_y: MinMaxScaler) -> np.ndarray:
     return scaler_y.inverse_transform(np.asarray(values).reshape(-1, 1)).ravel()
 
 
+def chronological_train_val_split(
+    dataset: "SequenceDataset",
+    *,
+    val_fraction: float = 0.2,
+    gap: int = 0,
+) -> Tuple["SequenceDataset", "SequenceDataset"]:
+    """把训练段再按时间顺序切成「拟合段 + 验证段（靠后的那段）」。
+
+    调超参需要一个"哪组超参更好"的判据，而这个判据**不能是测试集**——拿测试集
+    选超参，最后报出来的误差是乐观偏差。所以从训练段里再切一段出来专门做判据，
+    测试集留到最后只碰一次。这个函数就是干这个的。
+
+    两个细节：
+
+    * **按时间顺序切，不 shuffle**。序列样本本来就是按起点时间排好序的
+      （`build_sequence_dataset` 里按 `i` 递增生成），直接按下标切就是按时间切。
+    * **`gap` 用来隔开两段**。相邻的序列样本窗口高度重叠，如果拟合段的最后几个
+      样本和验证段的头几个样本共用大部分输入天数，验证分数会偏乐观。
+      传 `gap=sequence_length` 就跳过这么多个样本，把重叠部分让出去。
+
+    缩放器不做第二次拟合——验证段必须用拟合段的缩放参数，否则就又是泄漏。
+    """
+    total = len(dataset.X_train)
+    cut = int(total * (1.0 - val_fraction)) - int(gap)
+    if cut <= 0 or cut >= total:
+        raise ValueError(
+            f"训练段只有 {total} 个序列样本，切不出验证段"
+            f"（val_fraction={val_fraction}, gap={gap}）。"
+        )
+
+    def subset(start: int, end: int) -> "SequenceDataset":
+        return SequenceDataset(
+            X_train=dataset.X_train[start:end],
+            X_test=dataset.X_test,
+            y_train=dataset.y_train[start:end],
+            y_test=dataset.y_test,
+            scaler_X=dataset.scaler_X,
+            scaler_y=dataset.scaler_y,
+            feature_names=dataset.feature_names,
+            target_name=dataset.target_name,
+            dates_test=dataset.dates_test,
+            y_prev_test=dataset.y_prev_test,
+        )
+
+    return subset(0, cut), subset(cut + int(gap), total)
+
+
 def regression_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> Dict[str, float]:
     """回归误差指标。
 

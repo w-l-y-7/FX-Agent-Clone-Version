@@ -1,21 +1,29 @@
 """LSTM + Attention，论文 Table 7 的五个基准模型之一。
 
-# 这个文件的状态：**按论文正文补全的，不属于原公开代码**
+# 这个文件的状态：**网络结构取自作者被删除的原始实现**
 
-原仓库 `legacy_models/` 里**没有**这个文件。论文 Table 7 评了五个模型
-（Transformer、LSTM+Attention、RNN、TFT、TimesNet），公开代码只给了三个模板，
-RNN 和 LSTM+Attention 是缺的。这里按论文 §4.1 的设定补齐，补的依据只有两条：
+原仓库当前的 `legacy_models/` 里没有这个文件；但作者的 git 历史里**有**
+`src/models/LSTM_Attention.py`，在 2025-07-16 的提交 `a838298` 里被删掉了。
+本文件的网络结构（含注意力那一段）是从那个版本恢复的，原件保存在
+`author_original_code/models/LSTM_Attention.py`。
 
-* **超参数**：隐藏维度 64、dropout 0.1、学习率 0.001、训练 300 轮（论文明写）；
-* **网络类型**：论文只写了 "LSTM + Attention"，没有说注意力怎么算、接在哪一层。
+从作者版本里取到的结构特征：
 
-**所以注意力那一段的结构是项目自己定的，不是论文的结构。** 这里用的是时间步上的
-加性注意力（Bahdanau 式打分后 softmax 加权求和），属于这类模型最常见的做法，
-但不是从论文里读出来的。
+* `nn.LSTM` **直接吃原始特征**，没有输入投影层；
+* 注意力是 `Linear(hidden, hidden)` → `tanh` → 与一个**可学习的 attention vector**
+  做点积 → softmax → 对时间步加权求和。不是 2 层打分式的那种加性注意力；
+* 输出头是 `Linear → ReLU → Dropout → Linear`，没有 LayerNorm。
 
-训练循环、数据管道、指标口径都和 `Transformer.py` / `RNN.py` 完全一致
-（整批全量梯度、Adam + ReduceLROnPlateau、梯度裁剪 1.0），这样四个模型之间
-只差网络结构。理由见 `RNN.py` 开头的说明。
+作者版本里的驱动代码是模板（`FEATURES = [...]`、随机数据），所以**训练循环、
+数据管道、指标口径**仍沿用本项目的统一实现（和 `Transformer.py` / `Timesnet.py`
+一致：整批全量梯度、Adam + ReduceLROnPlateau、梯度裁剪 1.0）。
+
+## 两处取自作者模板的取值
+
+`NUM_LAYERS = 2`、`SEQUENCE_LENGTH = 15`——作者这个模板里给的是 2 和 15
+（它也是五个模板里唯一把参数填全了的）。本文件**采用了 `NUM_LAYERS = 2`**，
+但 `SEQUENCE_LENGTH` 仍取 30，和另外四个模型保持一致——序列长度不一致就没法比。
+这两个选择都写在这里，改哪个都会影响结果。
 
 ## 和论文的对照值
 
@@ -54,65 +62,56 @@ from src.core.sequence_dataset import (
 # PART 1: ALGORITHM FRAMEWORK DEFINITION
 # ============================================================================
 
-class TemporalAttention(nn.Module):
-    """时间步上的加性注意力：给每个时间步打分，softmax 归一化后加权求和。
+class Attention(nn.Module):
+    """时间步注意力，结构照搬作者被删除的 `src/models/LSTM_Attention.py`。
 
-    返回 (上下文向量, 每一步的权重)。权重不是必需的，但留着可以让"模型在看哪几天"
-    变得可查——TFT 那边的变量选择权重是同一个道理。
+    打分方式：先过一层 `Linear(hidden, hidden)` 再 `tanh`，然后与一个**可学习的
+    attention vector** 做点积得到每个时间步的分数，softmax 归一化后对时间步加权求和。
+
+    这是一个"固定查询向量"的注意力（没有 query 输入），和常见的 Bahdanau 加性
+    注意力（两个线性层打分）不同。作者原版就是这样。
     """
 
     def __init__(self, hidden_dim):
         super().__init__()
-        self.score = nn.Sequential(
-            nn.Linear(hidden_dim, hidden_dim),
-            nn.Tanh(),
-            nn.Linear(hidden_dim, 1),
-        )
+        self.attn = nn.Linear(hidden_dim, hidden_dim)
+        self.attention_vector = nn.Parameter(torch.rand(hidden_dim))
+        self.softmax = nn.Softmax(dim=1)
 
-    def forward(self, hidden_states):
-        # hidden_states: (B, T, H)
-        weights = torch.softmax(self.score(hidden_states), dim=1)  # (B, T, 1)
-        context = torch.sum(weights * hidden_states, dim=1)        # (B, H)
-        return context, weights.squeeze(-1)
+    def forward(self, lstm_output):
+        # lstm_output: (B, T, H)
+        energy = torch.tanh(self.attn(lstm_output))
+        attn_scores = torch.einsum("bsh,h->bs", energy, self.attention_vector)
+        attention_weights = self.softmax(attn_scores)
+        return torch.einsum("bs,bsh->bh", attention_weights, lstm_output)
 
 
 class LSTMAttentionModel(nn.Module):
-    """输入投影 → LSTM → 时间步注意力 → 全连接输出。"""
+    """LSTM → 时间步注意力 → 全连接输出。结构照搬作者的原始实现。"""
 
     def __init__(self, input_dim, hidden_dim, num_layers, output_dim, dropout=0.1):
         super().__init__()
-        self.input_proj = nn.Linear(input_dim, hidden_dim)
+        self.hidden_dim = hidden_dim
+        self.num_layers = num_layers
         self.lstm = nn.LSTM(
-            input_size=hidden_dim,
-            hidden_size=hidden_dim,
-            num_layers=num_layers,
+            input_dim,
+            hidden_dim,
+            num_layers,
             batch_first=True,
-            dropout=dropout if num_layers > 1 else 0.0,
+            dropout=dropout if num_layers > 1 else 0,
         )
-        self.attention = TemporalAttention(hidden_dim)
+        self.attention = Attention(hidden_dim)
         self.output_layer = nn.Sequential(
             nn.Linear(hidden_dim, hidden_dim // 2),
-            nn.LayerNorm(hidden_dim // 2),
             nn.ReLU(),
             nn.Dropout(dropout),
             nn.Linear(hidden_dim // 2, output_dim),
         )
-        self.apply(self._init_weights)
 
-    def _init_weights(self, module):
-        if isinstance(module, nn.Linear):
-            nn.init.kaiming_normal_(module.weight, mode="fan_in", nonlinearity="relu")
-            if module.bias is not None:
-                nn.init.constant_(module.bias, 0)
-
-    def forward(self, x, *, return_attention=False):
-        x = self.input_proj(x)
-        hidden_states, _ = self.lstm(x)
-        context, weights = self.attention(hidden_states)
-        output = self.output_layer(context)
-        if return_attention:
-            return output, weights
-        return output
+    def forward(self, x):
+        lstm_out, _ = self.lstm(x)
+        context_vector = self.attention(lstm_out)
+        return self.output_layer(context_vector)
 
 
 def train_model(X_train, y_train, input_dim, hidden_dim, num_layers, output_dim,
@@ -226,7 +225,8 @@ if __name__ == "__main__":
     TEST_SIZE = 0.2
 
     HIDDEN_DIM = 64
-    NUM_LAYERS = 3
+    # 取自作者这个模板里给的取值（见文件开头说明）；论文没交代层数
+    NUM_LAYERS = 2
     DROPOUT = 0.1
     LEARNING_RATE = 0.001
     EPOCHS = 300

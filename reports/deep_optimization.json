@@ -1,0 +1,35 @@
+{
+  "model": "LSTM_Attention",
+  "feature_set": "pa1_pa2_da",
+  "include_price_history": true,
+  "horizon": 20,
+  "sequence_length": 30,
+  "best_params": {
+    "learning_rate": 0.0003379182879462604,
+    "hidden_dim": 64,
+    "num_layers": 1,
+    "dropout": 0.2900631243903353
+  },
+  "search": {
+    "n_trials": 10,
+    "seconds": 116.8,
+    "epochs_per_trial": 50,
+    "batch_size": 32,
+    "best_val_rmse_scaled": 0.1253746598958969,
+    "n_fit_rows": 1177,
+    "n_val_rows": 302
+  },
+  "test_metrics": {
+    "rmse": 0.240221,
+    "mae": 0.220719,
+    "mape": 0.030525,
+    "mape_pct": 3.052525
+  },
+  "naive_baseline": {
+    "rmse": 0.081256,
+    "mae": 0.060704,
+    "mape": 0.008438,
+    "mape_pct": 0.843846
+  },
+  "total_seconds": 128.7
+}

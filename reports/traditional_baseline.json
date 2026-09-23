@@ -1,0 +1,113 @@
+{
+  "time_series_selected": [
+    "USD_Index",
+    "CN_1Y_GovBond_Yield"
+  ],
+  "time_series_dropped": [
+    {
+      "dropped": "US_1Y_Treasury_Yield",
+      "kept": "USD_Index",
+      "correlation": 0.7556
+    }
+  ],
+  "target_correlations": {
+    "USD_Index": 0.7397,
+    "CN_1Y_GovBond_Yield": -0.5303,
+    "US_1Y_Treasury_Yield": 0.6486,
+    "China_FX_Reserves": -0.0713,
+    "CN_CPI_MoM": -0.1043,
+    "US_CPI_MoM": 0.0546,
+    "WTI_Futures_Price": -0.022
+  },
+  "event_weights": {
+    "Negative_Events": 0.16576826572418213,
+    "Positive_Events": 0.12311144918203354,
+    "China_Restrictions_on_US_Enterprises": 0.09090446680784225,
+    "China_Tariff_Increases_on_the_US": 0.08788659423589706,
+    "US_Restrictions_on_Chinese_Enterprises": 0.07851918041706085,
+    "Negative_Events_from_China": 0.05357595533132553,
+    "Sino_US_Dialogue": 0.05070262774825096,
+    "Negative_Events_from_the_US": 0.04577677324414253,
+    "China_Tariff_Relief_Policies_for_the_US": 0.04491320252418518,
+    "China_Litigation_or_Investigation_against_the_US": 0.043081074953079224,
+    "US_Criticizing_China": 0.042955126613378525,
+    "Positive_Events_from_the_US": 0.04189653694629669,
+    "US_Tariff_Relief_Policies_for_China": 0.04153857007622719,
+    "China_Reducing_Restrictions_on_US_Enterprises": 0.03976305574178696,
+    "US_Reducing_Restrictions_on_Chinese_Enterprises": 0.03545713797211647,
+    "Positive_Events_from_China": 0.031249811872839928,
+    "US_Tariff_Increases_on_China": 0.02989404834806919,
+    "US_Litigation_or_Investigation_against_China": 0.028061432763934135,
+    "US_Designating_China_as_Currency_Manipulator": 0.01511073112487793,
+    "China_Criticizing_the_US": 0.014831526204943657,
+    "China_Increasing_Purchases_of_US_Goods": 0.010938647203147411,
+    "US_Removing_China_from_Currency_Manipulator_List": 0.001592688262462616
+  },
+  "event_mean_weight": 0.0508,
+  "event_selected": [
+    "Negative_Events",
+    "Positive_Events",
+    "China_Restrictions_on_US_Enterprises",
+    "China_Tariff_Increases_on_the_US",
+    "US_Restrictions_on_Chinese_Enterprises",
+    "Negative_Events_from_China"
+  ],
+  "computed_feature_set": [
+    "USD_Index",
+    "CN_1Y_GovBond_Yield",
+    "Negative_Events",
+    "Positive_Events",
+    "China_Restrictions_on_US_Enterprises",
+    "China_Tariff_Increases_on_the_US",
+    "US_Restrictions_on_Chinese_Enterprises",
+    "Negative_Events_from_China"
+  ],
+  "paper_feature_set": [
+    "USD_Index",
+    "CN_1Y_GovBond_Yield",
+    "Positive_Events",
+    "Negative_Events"
+  ],
+  "importance_type": "gain",
+  "literal_weight_variant": {
+    "note": "论文公式 (4) 字面写法（分裂次数），复现不出 Fig. 6",
+    "importance_type": "weight",
+    "event_weights": {
+      "Sino_US_Dialogue": 139.0,
+      "US_Restrictions_on_Chinese_Enterprises": 133.0,
+      "US_Tariff_Increases_on_China": 119.0,
+      "China_Tariff_Increases_on_the_US": 113.0,
+      "Positive_Events": 105.0,
+      "US_Reducing_Restrictions_on_Chinese_Enterprises": 104.0,
+      "US_Criticizing_China": 97.0,
+      "China_Reducing_Restrictions_on_US_Enterprises": 95.0,
+      "China_Tariff_Relief_Policies_for_the_US": 92.0,
+      "China_Litigation_or_Investigation_against_the_US": 92.0,
+      "Negative_Events_from_the_US": 86.0,
+      "US_Litigation_or_Investigation_against_China": 73.0,
+      "China_Criticizing_the_US": 72.0,
+      "US_Tariff_Relief_Policies_for_China": 65.0,
+      "China_Restrictions_on_US_Enterprises": 63.0,
+      "Negative_Events_from_China": 56.0,
+      "Positive_Events_from_China": 48.0,
+      "China_Increasing_Purchases_of_US_Goods": 44.0,
+      "Positive_Events_from_the_US": 38.0,
+      "Negative_Events": 38.0,
+      "US_Designating_China_as_Currency_Manipulator": 37.0,
+      "US_Removing_China_from_Currency_Manipulator_List": 3.0
+    },
+    "event_selected": [
+      "Sino_US_Dialogue",
+      "US_Restrictions_on_Chinese_Enterprises",
+      "US_Tariff_Increases_on_China",
+      "China_Tariff_Increases_on_the_US",
+      "Positive_Events",
+      "US_Reducing_Restrictions_on_Chinese_Enterprises",
+      "US_Criticizing_China",
+      "China_Reducing_Restrictions_on_US_Enterprises",
+      "China_Tariff_Relief_Policies_for_the_US",
+      "China_Litigation_or_Investigation_against_the_US",
+      "Negative_Events_from_the_US"
+    ]
+  }
+}

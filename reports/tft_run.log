@@ -1,0 +1,50 @@
+﻿Using device: cpu
+
+Loading the paper's USD/CNY dataset...
+
+目标：预测 20 个交易日后的 USD/CNY 收盘价
+序列长度 30，静态 1 个 / 历史 33 个 / 未来 4 个协变量
+  历史协变量含汇率自身价格：True
+总样本 1875 个，训练 1500 个，测试 375 个
+模型参数量：704,494
+
+开始训练……
+Epoch [20/300], Loss: 0.0507
+Epoch [40/300], Loss: 0.0326
+Epoch [60/300], Loss: 0.0271
+Epoch [80/300], Loss: 0.0229
+Epoch [100/300], Loss: 0.0236
+Epoch [120/300], Loss: 0.0179
+Epoch [140/300], Loss: 0.0182
+Epoch [160/300], Loss: 0.0150
+Epoch [180/300], Loss: 0.0157
+Epoch [200/300], Loss: 0.0134
+Epoch [220/300], Loss: 0.0139
+Epoch [240/300], Loss: 0.0123
+Epoch [260/300], Loss: 0.0118
+Epoch [280/300], Loss: 0.0110
+Epoch [300/300], Loss: 0.0107
+.\venv\Scripts\python.exe : D:\git仓库\FX-Agent-Clone-Version\src\legacy_models\TFT.py:338: UserWarning: The given NumPy 
+array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result
+ in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to 
+a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at C:\actions-run
+ner\_work\pytorch\pytorch\torch\csrc\utils\tensor_numpy.cpp:219.)
+At line:1 char:302
++ ... tch {} } }; .\venv\Scripts\python.exe -u src\legacy_models\TFT.py 2>& ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (D:\git仓库\FX-Age...numpy.cpp:219.):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  x_static = torch.FloatTensor(item[0]).unsqueeze(0).to(device)
+
+Test Loss: 0.5143
+
+Test Set Evaluation Results（P50 中位数，起点后第 0 步）：
+  RMSE    0.3721（人民币元）
+  MAE     0.3537（人民币元）
+  MAPE    4.9051%（论文报的就是这个口径）
+  朴素基准 RMSE 0.0853 / MAPE 0.8849%
+  对比结论：没跑赢「假设价格不变」的朴素基准
+
+（论文 TFT + 完整流程的对照值：RMSE 0.0330，MAPE 0.3427%）
+图已保存到：D:\git仓库\FX-Agent-Clone-Version\reports\tft_predictions.png

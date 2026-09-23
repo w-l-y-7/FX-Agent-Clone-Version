@@ -19,6 +19,8 @@ PyYAML>=6.0
 # Data Collection
 requests
 beautifulsoup4
+akshare # Exchange rates and Chinese market data (no API key required)
+# Firecrawl is called over its REST API via `requests`, no SDK needed
 # scrapy # Uncomment if needed for more complex scraping
 
 # Machine Learning - Forecasting
@@ -31,6 +33,10 @@ optuna
 
 # Model Interpretability
 shap
+
+# Traditional feature-engineering baseline (paper §4.4 uses XGBoost for the
+# event-feature importance weights, Eq. 4).
+xgboost
 
 # Vector Database for RAG
 faiss-cpu # or faiss-gpu if you have a compatible GPU

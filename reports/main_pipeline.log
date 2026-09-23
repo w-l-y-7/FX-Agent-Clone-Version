@@ -1,0 +1,84 @@
+﻿.\venv\Scripts\python.exe : 
+At line:1 char:333
++ ... NG='utf-8'; .\venv\Scripts\python.exe -u main.py --limit 4 2>&1 | Tee ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Loading weights:   0%|          | 0/71 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 71/71 [00:00<00:00, 1460.37it/s]
+Tool 'research_data_fetcher' registered.
+--- Planning Agent Running ---
+Plan generated: {'plan': "# Step-by-Step Plan: Forecast USD/CNY Exchange Rate for Next Trading Day\n\n## Step 1: Clarify Requirements & Scope\n- Confirm the forecast horizon (next trading day only).\n- Determine output format (point estimate, range, confidence interval).\n- Identify acceptable data sources and any constraints (real-time vs. historical data).\n- Note that this is a financial forecast — include appropriate disclaimers.\n\n## Step 2: Gather Historical Data\n- Collect historical USD/CNY daily exchange rate data (e.g., last 1–3 years).\n- Sources: central bank (PBOC), Federal Reserve (FRED), Bloomberg, Reuters, Yahoo Finance.\n- Include OHLC (open, high, low, close) and volume if available.\n- Ensure data is adjusted for weekends/holidays (trading-day calendar).\n\n## Step 3: Collect Relevant Exogenous Variables\n- **Macro/Policy factors:**\n  - PBOC daily fixing rate (central parity).\n  - US–China interest rate differentials (Fed funds vs. PBOC rates).\n  - US Dollar Index (DXY).\n  - Trade balance / capital flow data.\n- **Market factors:**\n  - Recent volatility (ATR, implied vol).\n  - News sentiment (tariffs, geopolitical events).\n- **Calendar factors:**\n  - Upcoming economic releases (CPI, NFP, PMI).\n  - Central bank meetings or holidays.\n\n## Step 4: Data Preprocessing\n- Handle missing values and align timestamps across sources.\n- Check for stationarity (ADF test); apply differencing/log returns if needed.\n- Normalize/scale features if using ML models.\n- Split into training and validation sets (time-series aware, no leakage).\n\n## Step 5: Select Forecasting Approach\nChoose one or combine:\n- **Naive/random walk** (baseline — often strong for FX).\n- **Statistical models:** ARIMA, GARCH (for volatility), VAR (with exogenous vars).\n- **ML models:** XGBoost, LSTM, Prophet.\n- **Hybrid:** Combine statistical + sentiment signals.\n\n## Step 6: Train & Validate the Model\n- Fit model on training data.\n- Validate using walk-forward / rolling-origin cross-validation.\n- Evaluate with metrics: RMSE, MAE, MAPE, directional accuracy.\n- Compare against the naive baseline; keep only if it adds value.\n\n## Step 7: Generate the Forecast\n- Produce a point estimate for the next trading day's close.\n- Compute a confidence/prediction interval (e.g., 80% or 95%).\n- Optionally provide a directional call (appreciate/depreciate) with probability.\n\n## Step 8: Sanity Check & Contextualize\n- Cross-check against PBOC fixing and overnight offshore CNH rate.\n- Flag any major scheduled events that could invalidate the forecast.\n- Note model limitations (FX is near-random-walk short-term).\n\n## Step 9: Present the Output\n- Deliver: forecast value, interval, key drivers, and assumptions.\n- Include a short methodology summary and data timestamp.\n- Add a clear disclaimer: not financial advice; forecasts are probabilistic.\n\n## Step 10: Monitor & Update\n- Re-run the model after new data (e.g., next PBOC fixing).\n- Track forecast error to refine the model over time.\n\n---\n\n**Key caveat:** Short-horizon FX forecasting is inherently noisy; even good models often barely beat a random walk. The plan emphasizes transparency, validation, and probabilistic output rather than false precision."}
+--- Perception Agent Running ---
+Structured: 1944 rows of USD/CNY (2017-01-03 → 2024-12-31)
+Unstructured: 0 articles scraped
+--- Decision Agent Running ---
+[1/4] 评估 USD_Index … 得分 84.0（2 轮）
+[2/4] 评估 CN_1Y_GovBond_Yield … 得分 40.0（3 轮）
+[3/4] 评估 US_1Y_Treasury_Yield … 得分 76.0（3 轮）
+[4/4] 评估 China_FX_Reserves … 得分 84.0（1 轮）
+
+特征评审结果（归一化方式 theoretical，阈值 80.0（折算到原始分为 4.00））：
+特征                                                    相关    支持    实用     得分  结论
+USD_Index                                            5.0   4.0   4.0   84.0  采纳
+China_FX_Reserves                                    5.0   4.0   4.0   84.0  采纳
+US_1Y_Treasury_Yield                                 5.0   4.0   3.0   76.0  淘汰
+CN_1Y_GovBond_Yield                                  2.0   2.0   2.0   40.0  淘汰
+
+共采纳 2 个，淘汰 2 个。
+
+市场评述：本次特征筛选的候选集来自论文候选集（USD/CNY，含 7 个宏观特征与 25 个事件特征），归一化方式为 theoretical，阈值设为 80.0 分（折算到原始分为 4.00）。最终有 2 个特征入选，2 个特征被淘汰。
+
+入选特征一：USD_Index（84.0 分，经 2 轮评审）。它的相关性拿到满分 5.0，依据是证据 3 专门以"美元指数"为条目，直接说明其机制——美元相对一篮子货币走强时 USD/CNY 同向上行，并给出与 USD/CNY 的实测相关系数约 +0.74；证据 2 还补充了它与美国 1 年期国债收益率高度相关（约 0.76），以及论文基线只保留美元指数的信息。支持度 4.0，因为证据给出了明确的正相关方向与"七个时序变量里相关性最高（约 +0.74）"的量化结论，并指出论文传统特征工程基线保留美元指数，但未提供检索问题所问的领先/滞后天数、回归系数、样本外 RMSE 或方向准确率提升等实证结果。实用性 4.0，因为它作为"外部环境"的总体代理且与 USD/CNY 相关性最高，机制清晰、方向明确；但证据提示它与美国 1 年期国债收益率信息重叠（约 0.76），与利差类特征同时入模可能带来多重共线性，增量贡献需谨慎评估。证据出处：notes/01_time_series_features.md。
+
+入选特征二：China_FX_Reserves（84.0 分，经 1 轮评审）。相关性同样满分 5.0，依据是证据 1、2 均以"中国外汇储备"为专门条目，直接讨论其通过央行干预能力、资本流动压力与贬值预期自我实现机制对 USD/CNY 的传导，并给出实测相关系数约 −0.07。支持度 4.0，因为证据明确论证该特征提供"政策反应函数"这一其他变量没有的信息，并指出线性相关低不等于无用、压力时期作用决定性，机制链条完整，但未提供压力时期预测增益的实证结果。实用性 4.0，因为存量月度指标日频前向填充后信息量低、线性相关仅约 −0.07，日频主力作用有限，但作为非线性/状态型变量在压力期可能带来增量预测价值。证据出处：notes/01_time_series_features.md、notes/03_transmission_channels.md。
+
+被淘汰特征一：US_1Y_Treasury_Yield（76.0 分，经 3 轮评审，未达 80.0 阈值）。它的相关性为 5.0，证据 1、2 均直接以美国 1 年期国债收益率为核心讨论对象，给出其通过 CIP/利差渠道与 USD/CNY 正相关的机制及实测相关系数约 +0.65；支持度 4.0，但证据 1 同时指出它与美元指数高度相关（0.76）、存在多重共线性，基线模型因此只保留美元指数，削弱了其独立增量价值；实用性仅 3.0，因为证据 2 指出该通道变化缓慢、无法解释日频高频波动，且与美元指数信息重叠，实际增量贡献可能有限。综合下来总分未过阈值。证据出处：notes/01_time_series_features.md、notes/03_transmission_channels.md。
+
+被淘汰特征二：CN_1Y_GovBond_Yield（40.0 分，经 3 轮评审，未达阈值）。相关性仅 2.0，虽然证据 1 直接点名"中国 1 年期国债收益率与 USD/CNY 负相关（实测约 −0.53）"并给出 CIP 机制，但证据 2、3 只谈利差主导、事件时变性与外汇储备，未涉及该特征本身。支持度与实用性均为 2.0，机制上说得通（利差一端、资本流入渠道），但证据未提供任何样本外预测增益的证据，反而给出被剔除/冗余的线索，且未讨论高持续性（近似单位根）对预测的影响。证据出处：notes/01_time_series_features.md、notes/04_sino_us_timeline.md。
+
+需要如实说明的是：本次评审中，凡检索不到直接证据的环节，相关结论的牢靠程度都会打折扣。例如 USD_Index 与 China_FX_Reserves 虽入选，但都因缺少领先/滞后天数、回归系数、样本外 RMSE/方向准确率提升，或压力时期预测增益等实证结果，支持度未能给到满分；CN_1Y_GovBond_Yield 更是因为证据 2、3 完全未涉及该特征本身，相关性只拿到 2.0 分。也就是说，知识库中证据覆盖不足的部分，会直接体现为得分偏低、结论不够稳固，用户在解读这些特征时应保留相应谨慎。
+--- Forecasting Agent Running ---
+USD/CNY 最新收盘 7.2988（2024-12-31）
+预测 1 个交易日后（约 2025-01-01）：7.3018 （+0.0410%）
+回测：MAE 0.01151 / RMSE 0.017 vs 朴素基准 MAE 0.01092（训练 1554 行 / 测试 389 行）
+警告：模型没有跑赢「假设价格不变」的朴素基准，该预测只能当作参考，不具备实际指导意义（置信度 0.0）
+
+【模型解读】本次预测使用的是 StandardScaler + Ridge(alpha=1.0) 模型，直接预测变化量，且采用固定超参、没有跑 Optuna 搜索，因此不存在「调参选中哪个模型」的问题。预测对象是 USD/CNY 一个交易日后的收盘价，从最新收盘 7.2988 微升到 7.3018，幅度仅 +0.0410%。这次没有算出 SHAP 贡献，所以无法说明哪些特征对本次预测影响最大、方向是推高还是压低。回测显示模型 MAE 0.01151、RMSE 0.017，而「假设价格不变」的朴素基准 MAE 为 0.01092，模型没有跑赢朴素基准，因此这次预测不具备实际指导意义。
+
+======================================================================
+运行结束
+======================================================================
+
+【DA 选出的特征】共 2 个：['USD_Index', 'China_FX_Reserves']
+  评审口径：归一化方式 theoretical，阈值 80.0（折算到原始分为 4.00）
+
+  得分前 5：
+     84.0  USD_Index（相关 5.0 / 支持 4.0 / 实用 4.0）
+     84.0  China_FX_Reserves（相关 5.0 / 支持 4.0 / 实用 4.0）
+     76.0  US_1Y_Treasury_Yield（相关 5.0 / 支持 4.0 / 实用 3.0）
+     40.0  CN_1Y_GovBond_Yield（相关 2.0 / 支持 2.0 / 实用 2.0）
+
+【市场评述】
+本次特征筛选的候选集来自论文候选集（USD/CNY，含 7 个宏观特征与 25 个事件特征），归一化方式为 theoretical，阈值设为 80.0 分（折算到原始分为 4.00）。最终有 2 个特征入选，2 个特征被淘汰。
+
+入选特征一：USD_Index（84.0 分，经 2 轮评审）。它的相关性拿到满分 5.0，依据是证据 3 专门以"美元指数"为条目，直接说明其机制——美元相对一篮子货币走强时 USD/CNY 同向上行，并给出与 USD/CNY 的实测相关系数约 +0.74；证据 2 还补充了它与美国 1 年期国债收益率高度相关（约 0.76），以及论文基线只保留美元指数的信息。支持度 4.0，因为证据给出了明确的正相关方向与"七个时序变量里相关性最高（约 +0.74）"的量化结论，并指出论文传统特征工程基线保留美元指数，但未提供检索问题所问的领先/滞后天数、回归系数、样本外 RMSE 或方向准确率提升等实证结果。实用性 4.0，因为它作为"外部环境"的总体代理且与 USD/CNY 相关性最高，机制清晰、方向明确；但证据提示它与美国 1 年期国债收益率信息重叠（约 0.76），与利差类特征同时入模可能带来多重共线性，增量贡献需谨慎评估。证据出处：notes/01_time_series_features.md。
+
+入选特征二：China_FX_Reserves（84.0 分，经 1 轮评审）。相关性同样满分 5.0，依据是证据 1、2 均以"中国外汇储备"为专门条目，直接讨论其通过央行干预能力、资本流动压力与贬值预期自我实现机制对 USD/CNY 的传导，并给出实测相关系数约 −0.07。支持度 4.0，因为证据明确论证该特征提供"政策反应函数"这一其他变量没有的信息，并指出线性相关低不等于无用、压力时期作用决定性，机制链条完整，但未提供压力时期预测增益的实证结果。实用性 4.0，因为存量月度指标日频前向填充后信息量低、线性相关仅约 −0.07，日频主力作用有限，但作为非线性/状态型变量在压力期可能带来增量预测价值。证据出处：notes/01_time_series_features.md、notes/03_transmission_channels.md。
+
+被淘汰特征一：US_1Y_Treasury_Yield（76.0 分，经 3 轮评审，未达 80.0 阈值）。它的相关性为 5.0，证据 1、2 均直接以美国 1 年期国债收益率为核心讨论对象，给出其通过 CIP/利差渠道与 USD/CNY 正相关的机制及实测相关系数约 +0.65；支持度 4.0，但证据 1 同时指出它与美元指数高度相关（0.76）、存在多重共线性，基线模型因此只保留美元指数，削弱了其独立增量价值；实用性仅 3.0，因为证据 2 指出该通道变化缓慢、无法解释日频高频波动，且与美元指数信息重叠，实际增量贡献可能有限。综合下来总分未过阈值。证据出处：notes/01_time_series_features.md、notes/03_transmission_channels.md。
+
+被淘汰特征二：CN_1Y_GovBond_Yield（40.0 分，经 3 轮评审，未达阈值）。相关性仅 2.0，虽然证据 1 直接点名"中国 1 年期国债收益率与 USD/CNY 负相关（实测约 −0.53）"并给出 CIP 机制，但证据 2、3 只谈利差主导、事件时变性与外汇储备，未涉及该特征本身。支持度与实用性均为 2.0，机制上说得通（利差一端、资本流入渠道），但证据未提供任何样本外预测增益的证据，反而给出被剔除/冗余的线索，且未讨论高持续性（近似单位根）对预测的影响。证据出处：notes/01_time_series_features.md、notes/04_sino_us_timeline.md。
+
+需要如实说明的是：本次评审中，凡检索不到直接证据的环节，相关结论的牢靠程度都会打折扣。例如 USD_Index 与 China_FX_Reserves 虽入选，但都因缺少领先/滞后天数、回归系数、样本外 RMSE/方向准确率提升，或压力时期预测增益等实证结果，支持度未能给到满分；CN_1Y_GovBond_Yield 更是因为证据 2、3 完全未涉及该特征本身，相关性只拿到 2.0 分。也就是说，知识库中证据覆盖不足的部分，会直接体现为得分偏低、结论不够稳固，用户在解读这些特征时应保留相应谨慎。
+
+【预测结果】
+  USD/CNY 最新收盘 7.2988（2024-12-31）
+  预测 2025-01-01：7.3018（+0.0410%）
+  回测 MAE 0.01151 / RMSE 0.017 vs 朴素基准 MAE 0.01092，置信度 0.0
+  注意：模型没跑赢「假设价格不变」的朴素基准，这个预测仅供参考。
+
+【模型解读】本次预测使用的是 StandardScaler + Ridge(alpha=1.0) 模型，直接预测变化量，且采用固定超参、没有跑 Optuna 搜索，因此不存在「调参选中哪个模型」的问题。预测对象是 USD/CNY 一个交易日后的收盘价，从最新收盘 7.2988 微升到 7.3018，幅度仅 +0.0410%。这次没有算出 SHAP 贡献，所以无法说明哪些特征对本次预测影响最大、方向是推高还是压低。回测显示模型 MAE 0.01151、RMSE 0.017，而「假设价格不变」的朴素基准 MAE 为 0.01092，模型没有跑赢朴素基准，因此这次预测不具备实际指导意义。
+
+完整运行记录已写入：D:\git仓库\FX-Agent-Clone-Version\reports\last_run.json

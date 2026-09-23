@@ -1,111 +1,232 @@
-# FX-Agents: A Multi-Agent Framework for Exchange Rate Forecasting
+# FX-Agents 复现工作
 
-![Python Version](https://img.shields.io/badge/Python-3.12%2B-blue)![License](https://img.shields.io/badge/License-MIT-green)![Status](https://img.shields.io/badge/status-in%20progress-orange)
+本仓库是论文 **《A Novel Exchange Rate Forecasting Paradigm Based on Multi-Agent
+Collaboration and Multimodal Big Data-Driven Methods》**（Di Han 等，*Big Data
+Mining and Analytics* 9(4), 2026, pp. 1009–1025）公开代码
+<https://github.com/Kon-Kwok/FX-Agent> 的克隆，并在此基础上完成了复现工作。
+论文 PDF 在仓库根目录。
 
-## Overview
+![FX-Agents 框架](./figure1.png)
+*图 1：FX-Agents 的多智能体协作流程（论文原图）。本仓库复现的对象就是这条流水线。*
 
-FX-Agents is a novel, multi-agent paradigm designed to revolutionize exchange rate forecasting. Traditional forecasting methods often suffer from limited data scope, manual and inefficient data processing, subjective feature selection, and a lack of automated optimization. FX-Agents systematically overcomes these challenges by decomposing the forecasting workflow into four specialized, coordinated agents. This framework leverages intelligent automation to provide a more robust, transparent, and efficient solution for financial market prediction.
+---
 
-Based on LangGraph, FX-Agents implements a modular and collaborative system where each agent handles a specific stage of the forecasting process, from data perception to final prediction, ensuring a seamless and adaptable workflow.
+## 一句话结论
 
-## Framework
+**框架部分已完整重构并能端到端跑通；实验部分没能还原。**
 
-![FX-Agents Framework](./figure1.png)
-*Figure 1: The FX-Agents Framework*
+原因很具体：论文公开了数据和框架，但**没有公开实验代码**——公开仓库里
+`src/legacy_models/` 下的模型文件是造随机数据的模板，论文 Table 7 评的 5 个模型里
+还有 2 个连模板都没有。所以 Table 7 那组精度无法直接复现，本仓库是按论文正文
+重新实现的一套。
 
-The core of FX-Agents is a multi-agent system where each agent has a distinct role, designed to address a specific limitation of traditional forecasting processes. This collaborative structure enhances adaptability and efficiency in complex forecasting tasks.
+**请不要把本仓库当作"论文实验的复现"来读**，它是"按论文正文做的一个合理实现"。
 
-## Key Features
+---
 
--   **🧩 Modular Agent-based Design:** Based on LangGraph, the system is divided into four specialized agents for a clear and maintainable workflow.
--   **Perception Agent (PA1):** Automates the collection of multimodal data from diverse sources, including APIs for structured data and web scraping for unstructured information, overcoming the narrow scope of traditional methods.
--   **Planning Agent (PA2):** Replaces cumbersome manual workflows by automating complex data preprocessing and feature engineering for both structured and unstructured data.
--   **Decision Agent (DA):** Implements a dynamic, evidence-based feature selection mechanism using Retrieval-Augmented Generation (RAG) to replace subjective expert judgment, ensuring transparency and robustness.
--   **Forecasting Agent (FA):** Automates model training, hyperparameter optimization (with Optuna), and provides interpretable results (with SHAP), overcoming the inefficiencies of manual model handling.
+## 做了什么：逐项对照
 
-## Project Structure
+| 论文里的东西 | 状态 | 验证方式 |
+|---|---|---|
+| 四智能体流程 PA1 → PA2 → DA → FA | ✅ 完整实现，端到端跑通 | `python main.py` |
+| DA 的证据三步循环（检索 / 自评 / 迭代精炼） | ✅ 实现，含 RAG 与磁盘缓存 | `scripts/run_da_selection.py` |
+| PA2：新闻 → 日频事件特征聚合 | ✅ 与论文口径一致 | `scripts/verify_pa2_aggregation.py` |
+| FA：Optuna 调参 + SHAP 解释 + LLM 解读 | ✅ 实现 | `python main.py --optimize` |
+| **Table 7 的全部 5 个模型** | ✅ 全部实现并跑出结果 | 见下文「模型结果」 |
+| **§4.4 传统特征工程基线** | ✅ 实现，Table 8 的 4 个特征全部算得出来 | `scripts/verify_traditional_baseline.py` |
+| Table 7 的精度 | ❌ 复现不出 | 见下文「为什么复现不出」 |
+| PA1 实采 1030 条事件 | ⚠️ 改为读现成的 `Data.xlsx` | 历史新闻源无法重新采集 |
+| 论文的知识库（学术文献 + 官方报告） | ⚠️ 换成 4 份自行整理的机制说明 | 说明写在 `data/knowledge_base/README.md` |
+
+---
+
+## 能对上论文的部分
+
+这些是跑出来的实测结果，不是照抄的：
+
+**数据层**
+- `Data.xlsx` 里 25 个事件列的求和，与论文 Table 5 的 sample size 列**逐列吻合**
+  （248 / 181 / 215 / 160 / 114 / 45 / 39 / 34 / 1 / 1）
+- 2017-02-28 那一行与论文 Table 4 **逐位吻合**
+- 论文 §4.2 说"落在非交易日的事件顺延到之后最近的交易日"——用三种口径实测，
+  `next` 口径最优（25 列平均交并比 0.948）
+
+**PA2 事件聚合**
+- 论文说 PA2 过滤后剩 **429 条**。实测：`Data` 的 25 个事件列按行求或，
+  **恰好 429 天**不为零——429 是"有事件发生的交易日数"，不是新闻条数
+- `Sheet1` 的 445 条新闻按同样规则折叠，覆盖 **426 个**交易日，只差 3 天
+
+**DA 特征筛选**
+- 32 个候选特征全部评完，与论文 Table 8 的 4 个特征**交集 3 个**
+- 排序结构对得上：论文 Table 6 排第一的 `Negative events`，本次也是第一；
+  论文垫底（8 分）的 `US removal from currency manipulator list`，本次也是最后一名
+
+**传统特征工程基线（论文 §4.4 的对照组）**
+- 时序线（Pearson 相关 + 0.7 去重）：`{USD_Index, CN_1Y_GovBond_Yield}`，
+  与论文 Table 8 **完全一致**
+- 事件线（XGBoost 重要度 + 均值阈值）：论文的 2 个特征正是算出来的**前两名**，
+  且 Table 8 的 4 个特征**全部**出现在算出的集合里
+
+---
+
+## 模型结果（HORIZON=20，论文 Table 7 的 `FA(χ)+PA1+PA2+DA` 列）
+
+| 模型 | 本机 RMSE | 本机 MAPE | 论文 RMSE | 论文 MAPE |
+|---|---|---|---|---|
+| Transformer | 0.3238 | 3.8719% | 0.0566 | 0.6532% |
+| LSTM + Attention | 0.3120 | 3.9712% | 0.0599 | 0.7205% |
+| RNN | 0.2716 | 3.6406% | 0.0650 | 0.8121% |
+| TFT | 0.3721 | 4.9051% | 0.0330 | 0.3427% |
+| TimesNet | 0.2035 | 2.6077% | 0.0436 | 0.4874% |
+| **朴素基准（价格不变）** | **0.0813** | **0.8438%** | — | — |
+
+**五个模型都没跑赢朴素基准**，而论文里它们分别赢 30%~60%。差距的来源见下。
+
+---
+
+## 为什么复现不出 Table 7
+
+公开仓库里 `src/legacy_models/` 的模型文件**原始版本都只造随机数据**：
+
+```python
+sample_data = {
+    'feature1': np.random.uniform(low=0, high=100, size=200),
+    'feature2': np.random.uniform(low=50, high=150, size=200),
+    'target_variable': np.sin(np.linspace(0, 10, 200)) * 50 + np.random.normal(0, 5, 200)
+}
+FEATURES = ['feature1', 'feature2']   # 占位
+TARGET = 'target_variable'            # 占位
+```
+
+三个文件都没有读 `Data.xlsx`；论文 Table 7 评的 5 个模型里，`RNN` 和
+`LSTM + Attention` 连模板都没有。
+
+论文只交代了 4 个核心超参数（隐藏维度 64、dropout 0.1、学习率 0.001、300 轮），
+其余——**批次大小、优化器、学习率调度、早停、预测步长 HORIZON、切分比例、
+目标变量口径、随机种子**——都没有写。那些细节只存在于未公开的训练脚本里。
+
+本仓库的做法是**按论文正文 + `Data.xlsx` 重新实现一套**，并把过程中每一个需要
+做判断的地方都写进注释。补写的 `RNN.py` 和 `LSTM_Attention.py` 尤其要注意：
+论文只给了名字和四个超参，**网络结构是本项目自己定的**。
+
+---
+
+## 核对时发现的三处待确认问题
+
+1. **公式 (2) 与 Table 6 对不上。** 公式写的是最大最小值归一化，但 Table 6 的
+   分数（100 / 92 / 90 / 80 / 8）只有按理论满分 5.0 归一化才算得出来。
+2. **公式 (4) 与 Fig. 6 对不上。** 公式写的是"特征当分裂变量的次数"，但按它算，
+   Fig. 6 排第 3 的 `Negative_Events` 会掉到第 20 名；换成 XGBoost 默认的 `gain`
+   才对得上。
+3. **§4.4「信息重叠」那一步的剔除规则**只有一句描述，没有可执行判据。
+
+另外 **HORIZON 论文没有写明**。可以反推确认的是：论文的 RMSE 与 MAPE 之比约 8.5，
+而随机游走下该比值 ≈ 1.25 × 价格 ≈ 8.6，所以目标变量是**人民币计价的价格水平**。
+
+这三条加上缺失的训练参数，都写在 `docs/进度记录.md` 的问题清单里。
+
+---
+
+## 怎么跑
+
+```powershell
+# 1. 建虚拟环境并装依赖
+python -m venv venv
+.\venv\Scripts\pip.exe install -r requirements.txt
+
+# 2. 配置密钥：复制 .env.example 为 .env，填上 DEEPSEEK_API_KEY
+#    想按论文口径用 R1，加一行 DEEPSEEK_MODEL="deepseek-reasoner"
+
+# 3. 建知识库索引（第一次要下载约 95MB 的向量模型）
+.\venv\Scripts\python.exe scripts\build_knowledge_base.py
+
+# 4. 跑完整流程（先用 --limit 8 试水，约 3 分钟）
+.\venv\Scripts\python.exe main.py --limit 8
+.\venv\Scripts\python.exe main.py              # 完整 32 个候选特征
+.\venv\Scripts\python.exe main.py --optimize   # 换用 Optuna 调参 + SHAP 解释
+```
+
+**两个不需要密钥、不联网的验证脚本**（几秒钟，适合直接看结果）：
+
+```powershell
+.\venv\Scripts\python.exe scripts\verify_pa2_aggregation.py        # PA2 事件聚合，逐列对照
+.\venv\Scripts\python.exe scripts\verify_traditional_baseline.py   # §4.4 传统基线，对照 Table 8
+```
+
+只跑 DA 的特征筛选（不跑预测）也可以。它**需要密钥**：第一次跑约 15 分钟、
+142 次 API 调用；之后结果会缓存在本机 `.cache/da/`（该目录不进版本库），
+同一批特征重跑只花几秒钟、不再产生调用。
+
+```powershell
+.\venv\Scripts\python.exe scripts\run_da_selection.py
+```
+
+**跑五个深度模型**（`--` 之后的耗时是本机 CPU 实测）：
+
+```powershell
+.\venv\Scripts\python.exe src\legacy_models\Timesnet.py         # 约 1 分钟
+.\venv\Scripts\python.exe src\legacy_models\RNN.py              # 约 3 分钟
+.\venv\Scripts\python.exe src\legacy_models\LSTM_Attention.py   # 约 3 分钟
+.\venv\Scripts\python.exe src\legacy_models\Transformer.py      # 约 4 分钟
+.\venv\Scripts\python.exe src\legacy_models\TFT.py              # 约 25~30 分钟
+```
+
+---
+
+## 目录结构
 
 ```
-FX-Agent/
-├── data/                     # Raw data and knowledge base
-│   └── knowledge_base/       # Knowledge base for RAG
-├── src/                      # Main source code
-│   ├── agents/               # Implementation of PA1, PA2, DA, FA
-│   ├── configs/              # Configuration files (e.g., prompts, settings)
-│   ├── core/                 # Core workflow graph, state, and abstractions
-│   ├── legacy_models/        # Legacy forecasting model implementations
-│   ├── services/             # Services for LLM, RAG, Tools, and Forecasting
-│   └── utils/                # Utility scripts (e.g., config loader)
-├── .env.example              # Environment variable template
-├── main.py                   # Main entry point to run the workflow
-├── requirements.txt          # Python dependencies
-└── README.md                 # This file
+src/
+├── core/                    核心逻辑（不依赖网络，纯计算）
+│   ├── research_dataset.py      读 Data.xlsx，修掉原表的四个坑
+│   ├── event_aggregation.py     ★ PA2 的复现：新闻 → 日频事件哑变量
+│   ├── traditional_baseline.py  ★ 论文 §4.4 的传统特征工程基线
+│   ├── da_engine.py             ★ DA 的三步循环 + 打分归一化
+│   ├── backtest.py              ★ 两个预测服务共用的回测口径
+│   ├── model_optimization.py    ★ FA 的 Optuna 调参 + SHAP 解释
+│   ├── sequence_dataset.py      给深度模型准备序列数据（防信息泄漏）
+│   └── feature_engineering.py   技术指标特征（另一条线用）
+├── services/                对外的能力（会调网络/模型）
+│   ├── vector_rag_service.py           向量检索，三层降级
+│   ├── deepseek_llm_service.py         大模型调用
+│   ├── sklearn_forecasting_service.py  Ridge，固定超参
+│   └── optimized_forecasting_service.py ★ Optuna 调参 + SHAP
+├── agents/                  四个智能体
+├── tools/                   数据获取工具
+└── legacy_models/           论文 Table 7 的全部五个模型
+    ├── Transformer.py / Timesnet.py / TFT.py    已补全，能跑
+    └── RNN.py / LSTM_Attention.py               ★ 原仓库里没有，从零补写
+
+data/knowledge_base/notes/   ★ DA 检索用的机制说明（项目自行整理）
+scripts/                     独立跑的脚本
+docs/                        中文补充文档，见下
 ```
 
-## Installation & Setup
+标 ★ 的是原公开代码里**没有**、本次补上的部分。
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/your-username/FX-Agent.git
-    cd FX-Agent
-    ```
+---
 
-2.  **Create and activate a virtual environment (recommended):**
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-    ```
+## 进一步阅读
 
-3.  **Install dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
+| 文档 | 内容 |
+|---|---|
+| [`docs/运行指南.md`](docs/运行指南.md) | 怎么用、每个模块在做什么、哪里和论文对不上以及为什么 |
+| [`docs/进度记录.md`](docs/进度记录.md) | 复现到哪一步了、交付边界、待确认问题清单 |
 
-4.  **Configure environment variables:**
-    Copy the `.env.example` file to a new file named `.env` and fill in the necessary API keys and configurations.
-    ```bash
-    cp .env.example .env
-    ```
+### 运行结果在哪里看
 
-## How to Run
+**`reports/` 里的运行结果都在版本库里**，不用自己跑就能看到：
 
-To start the entire forecasting workflow, run the main script from the root directory:
+| 文件 | 内容 |
+|---|---|
+| `reports/da_selection.json` | DA 的完整评审记录：32 个特征的分数、理由、检索到的证据出处 |
+| `reports/pa2_aggregation.json` | PA2 事件聚合的逐列对照结果 |
+| `reports/traditional_baseline.json` | 传统基线结果（相关系数、XGBoost 重要度、两种口径对比） |
+| `reports/main_pipeline.log` | 完整流程 `main.py` 的运行输出 |
+| `reports/main_pipeline_optimize.log` | `main.py --optimize` 的运行输出（含 Optuna 与 SHAP） |
+| `reports/*_run.log` | 五个深度模型各自的原始运行日志 |
+| `reports/*_predictions.png` | 五个模型预测 vs 实际的曲线图 |
 
-```bash
-python main.py
-```
-
-The framework will execute the agent-based workflow, and the final forecast results and analysis will be generated as per the configuration.
-
-## The FX-Agents Workflow in Detail
-
-### Perception Agent (PA1)
-
-The Perception Agent (PA1) is the framework's automated, multimodal data perception and acquisition module. It addresses the inefficiency of acquiring heterogeneous, multi-source data. PA1 uses a dual-track strategy:
--   **Function Calling:** For sources with stable interfaces like APIs (e.g., FRED, Yahoo Finance), PA1 uses function calls to fetch structured data.
--   **Model Context Protocol (MCP):** For unstructured sources without official APIs (e.g., news sites, government statements), PA1 uses the MCP standard to interact with scraping services like Firecrawl, which returns clean, "AI-Ready" data.
-This approach decouples the agent's reasoning from the data execution details, ensuring efficient, broad, and robust data acquisition.
-
-### Planning Agent (PA2)
-
-The Planning Agent (PA2) handles the complex data processing stage. It receives multimodal data from PA1 and employs a hybrid strategy:
--   **For structured data:** It uses deterministic tools for cleaning, resampling, handling missing values, and normalization.
--   **For unstructured text:** It leverages its core LLM to perform intelligent semantic transformation, such as converting news text into quantitative sentiment scores using specialized internal tools.
-PA2 consolidates all processed information into a unified, structured candidate feature set for the next stage.
-
-### Decision Agent (DA)
-
-The Decision Agent (DA) introduces an evidence-based evaluation framework for intelligent feature selection, replacing opaque or subjective traditional methods. Inspired by SELF-RAG, the DA operates in a three-stage workflow:
-1.  **Evidence Retrieval:** For each candidate feature, the DA generates a query and retrieves relevant evidence from a curated, domain-specific knowledge base (containing academic literature, official reports, etc.).
-2.  **Prompt-driven Evaluation with Self-Critique:** The DA uses the retrieved evidence to evaluate the feature across three dimensions: *Relevance*, *Supportiveness*, and *Utility*. This process is transparent, generating both scores and qualitative justifications.
-3.  **Iterative Refinement:** If a feature scores low, the DA doesn't immediately discard it. Instead, it reflects on the reasoning, refines its query, and re-attempts retrieval to find better evidence, ensuring a rigorous and flexible selection process.
-
-### Forecasting Agent (FA)
-
-The Forecasting Agent (FA) is the final orchestrator, responsible for generating forecasts and evaluating performance. Upon receiving the high-quality feature set from the DA, the FA:
-1.  **Automates Hyperparameter Optimization:** It uses Optuna to efficiently search for the best hyperparameters for various forecasting models (e.g., RNN, LSTM, Transformer).
-2.  **Trains and Forecasts:** It trains the optimal model on the selected features to generate the final exchange rate forecast.
-3.  **Ensures Interpretability:** It integrates model explanation techniques like SHAP to quantify the contribution of each feature. It then uses an LLM to translate these technical insights into accessible, natural language reports, explaining the key drivers behind the forecast.
-
-
-
+另外三个目录**不进版本库**（能重新生成、体积也大）：`.cache/`（DA 调用缓存）、
+`data/knowledge_base/index/`（向量索引）、`reports/last_run.json`（单次流程的完整
+状态，3.3MB）。

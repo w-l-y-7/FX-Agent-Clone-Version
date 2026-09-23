@@ -1,0 +1,726 @@
+{
+  "note": "PA2 聚合复现的对照结果。Sheet1 的 445 条新闻与 Data sheet 的 429 个事件日不是同一口径，两边不可能完全一致；本文件记录的是差多少、差在哪。",
+  "best_policy": "next",
+  "policies": {
+    "exact": {
+      "policy": "exact",
+      "news_total": 445,
+      "news_mapped": 380,
+      "mean_jaccard": 0.8623,
+      "matched_columns": [
+        "China_Reducing_Restrictions_on_US_Enterprises",
+        "US_Litigation_or_Investigation_against_China",
+        "US_Removing_China_from_Currency_Manipulator_List",
+        "US_Designating_China_as_Currency_Manipulator"
+      ],
+      "columns": [
+        {
+          "column": "China_Increasing_Purchases_of_US_Goods",
+          "reconstructed": 3,
+          "observed": 4,
+          "both_one": 3,
+          "only_reconstructed": 0,
+          "only_observed": 1,
+          "jaccard": 0.75
+        },
+        {
+          "column": "China_Restrictions_on_US_Enterprises",
+          "reconstructed": 20,
+          "observed": 23,
+          "both_one": 20,
+          "only_reconstructed": 0,
+          "only_observed": 3,
+          "jaccard": 0.8696
+        },
+        {
+          "column": "China_Reducing_Restrictions_on_US_Enterprises",
+          "reconstructed": 3,
+          "observed": 3,
+          "both_one": 3,
+          "only_reconstructed": 0,
+          "only_observed": 0,
+          "jaccard": 1.0
+        },
+        {
+          "column": "China_Tariff_Increases_on_the_US",
+          "reconstructed": 9,
+          "observed": 12,
+          "both_one": 9,
+          "only_reconstructed": 0,
+          "only_observed": 3,
+          "jaccard": 0.75
+        },
+        {
+          "column": "China_Litigation_or_Investigation_against_the_US",
+          "reconstructed": 6,
+          "observed": 8,
+          "both_one": 6,
+          "only_reconstructed": 0,
+          "only_observed": 2,
+          "jaccard": 0.75
+        },
+        {
+          "column": "China_Tariff_Relief_Policies_for_the_US",
+          "reconstructed": 22,
+          "observed": 28,
+          "both_one": 22,
+          "only_reconstructed": 0,
+          "only_observed": 6,
+          "jaccard": 0.7857
+        },
+        {
+          "column": "China_Criticizing_the_US",
+          "reconstructed": 6,
+          "observed": 11,
+          "both_one": 6,
+          "only_reconstructed": 0,
+          "only_observed": 5,
+          "jaccard": 0.5455
+        },
+        {
+          "column": "Sino_US_Dialogue",
+          "reconstructed": 96,
+          "observed": 114,
+          "both_one": 96,
+          "only_reconstructed": 0,
+          "only_observed": 18,
+          "jaccard": 0.8421
+        },
+        {
+          "column": "US_Restrictions_on_Chinese_Enterprises",
+          "reconstructed": 148,
+          "observed": 160,
+          "both_one": 148,
+          "only_reconstructed": 0,
+          "only_observed": 12,
+          "jaccard": 0.925
+        },
+        {
+          "column": "US_Reducing_Restrictions_on_Chinese_Enterprises",
+          "reconstructed": 12,
+          "observed": 15,
+          "both_one": 12,
+          "only_reconstructed": 0,
+          "only_observed": 3,
+          "jaccard": 0.8
+        },
+        {
+          "column": "US_Tariff_Increases_on_China",
+          "reconstructed": 22,
+          "observed": 24,
+          "both_one": 22,
+          "only_reconstructed": 0,
+          "only_observed": 2,
+          "jaccard": 0.9167
+        },
+        {
+          "column": "US_Litigation_or_Investigation_against_China",
+          "reconstructed": 13,
+          "observed": 13,
+          "both_one": 13,
+          "only_reconstructed": 0,
+          "only_observed": 0,
+          "jaccard": 1.0
+        },
+        {
+          "column": "US_Tariff_Relief_Policies_for_China",
+          "reconstructed": 22,
+          "observed": 24,
+          "both_one": 22,
+          "only_reconstructed": 0,
+          "only_observed": 2,
+          "jaccard": 0.9167
+        },
+        {
+          "column": "US_Removing_China_from_Currency_Manipulator_List",
+          "reconstructed": 1,
+          "observed": 1,
+          "both_one": 1,
+          "only_reconstructed": 0,
+          "only_observed": 0,
+          "jaccard": 1.0
+        },
+        {
+          "column": "US_Designating_China_as_Currency_Manipulator",
+          "reconstructed": 1,
+          "observed": 1,
+          "both_one": 1,
+          "only_reconstructed": 0,
+          "only_observed": 0,
+          "jaccard": 1.0
+        },
+        {
+          "column": "US_Criticizing_China",
+          "reconstructed": 20,
+          "observed": 23,
+          "both_one": 20,
+          "only_reconstructed": 0,
+          "only_observed": 3,
+          "jaccard": 0.8696
+        },
+        {
+          "column": "China",
+          "reconstructed": 66,
+          "observed": 79,
+          "both_one": 66,
+          "only_reconstructed": 0,
+          "only_observed": 13,
+          "jaccard": 0.8354
+        },
+        {
+          "column": "Sino_US",
+          "reconstructed": 97,
+          "observed": 115,
+          "both_one": 97,
+          "only_reconstructed": 0,
+          "only_observed": 18,
+          "jaccard": 0.8435
+        },
+        {
+          "column": "US",
+          "reconstructed": 232,
+          "observed": 254,
+          "both_one": 232,
+          "only_reconstructed": 0,
+          "only_observed": 22,
+          "jaccard": 0.9134
+        },
+        {
+          "column": "Positive_Events",
+          "reconstructed": 154,
+          "observed": 181,
+          "both_one": 154,
+          "only_reconstructed": 0,
+          "only_observed": 27,
+          "jaccard": 0.8508
+        },
+        {
+          "column": "Negative_Events",
+          "reconstructed": 226,
+          "observed": 248,
+          "both_one": 226,
+          "only_reconstructed": 0,
+          "only_observed": 22,
+          "jaccard": 0.9113
+        },
+        {
+          "column": "Positive_Events_from_China",
+          "reconstructed": 28,
+          "observed": 34,
+          "both_one": 28,
+          "only_reconstructed": 0,
+          "only_observed": 6,
+          "jaccard": 0.8235
+        },
+        {
+          "column": "Negative_Events_from_China",
+          "reconstructed": 38,
+          "observed": 45,
+          "both_one": 38,
+          "only_reconstructed": 0,
+          "only_observed": 7,
+          "jaccard": 0.8444
+        },
+        {
+          "column": "Positive_Events_from_the_US",
+          "reconstructed": 35,
+          "observed": 39,
+          "both_one": 35,
+          "only_reconstructed": 0,
+          "only_observed": 4,
+          "jaccard": 0.8974
+        },
+        {
+          "column": "Negative_Events_from_the_US",
+          "reconstructed": 197,
+          "observed": 215,
+          "both_one": 197,
+          "only_reconstructed": 0,
+          "only_observed": 18,
+          "jaccard": 0.9163
+        }
+      ]
+    },
+    "next": {
+      "policy": "next",
+      "news_total": 445,
+      "news_mapped": 445,
+      "mean_jaccard": 0.9476,
+      "matched_columns": [
+        "China_Increasing_Purchases_of_US_Goods",
+        "China_Reducing_Restrictions_on_US_Enterprises",
+        "China_Tariff_Relief_Policies_for_the_US",
+        "US_Litigation_or_Investigation_against_China",
+        "US_Removing_China_from_Currency_Manipulator_List",
+        "US_Designating_China_as_Currency_Manipulator",
+        "Positive_Events_from_China"
+      ],
+      "columns": [
+        {
+          "column": "China_Increasing_Purchases_of_US_Goods",
+          "reconstructed": 4,
+          "observed": 4,
+          "both_one": 4,
+          "only_reconstructed": 0,
+          "only_observed": 0,
+          "jaccard": 1.0
+        },
+        {
+          "column": "China_Restrictions_on_US_Enterprises",
+          "reconstructed": 22,
+          "observed": 23,
+          "both_one": 22,
+          "only_reconstructed": 0,
+          "only_observed": 1,
+          "jaccard": 0.9565
+        },
+        {
+          "column": "China_Reducing_Restrictions_on_US_Enterprises",
+          "reconstructed": 3,
+          "observed": 3,
+          "both_one": 3,
+          "only_reconstructed": 0,
+          "only_observed": 0,
+          "jaccard": 1.0
+        },
+        {
+          "column": "China_Tariff_Increases_on_the_US",
+          "reconstructed": 11,
+          "observed": 12,
+          "both_one": 11,
+          "only_reconstructed": 0,
+          "only_observed": 1,
+          "jaccard": 0.9167
+        },
+        {
+          "column": "China_Litigation_or_Investigation_against_the_US",
+          "reconstructed": 7,
+          "observed": 8,
+          "both_one": 7,
+          "only_reconstructed": 0,
+          "only_observed": 1,
+          "jaccard": 0.875
+        },
+        {
+          "column": "China_Tariff_Relief_Policies_for_the_US",
+          "reconstructed": 28,
+          "observed": 28,
+          "both_one": 28,
+          "only_reconstructed": 0,
+          "only_observed": 0,
+          "jaccard": 1.0
+        },
+        {
+          "column": "China_Criticizing_the_US",
+          "reconstructed": 7,
+          "observed": 11,
+          "both_one": 7,
+          "only_reconstructed": 0,
+          "only_observed": 4,
+          "jaccard": 0.6364
+        },
+        {
+          "column": "Sino_US_Dialogue",
+          "reconstructed": 114,
+          "observed": 114,
+          "both_one": 113,
+          "only_reconstructed": 1,
+          "only_observed": 1,
+          "jaccard": 0.9826
+        },
+        {
+          "column": "US_Restrictions_on_Chinese_Enterprises",
+          "reconstructed": 162,
+          "observed": 160,
+          "both_one": 158,
+          "only_reconstructed": 4,
+          "only_observed": 2,
+          "jaccard": 0.9634
+        },
+        {
+          "column": "US_Reducing_Restrictions_on_Chinese_Enterprises",
+          "reconstructed": 13,
+          "observed": 15,
+          "both_one": 12,
+          "only_reconstructed": 1,
+          "only_observed": 3,
+          "jaccard": 0.75
+        },
+        {
+          "column": "US_Tariff_Increases_on_China",
+          "reconstructed": 25,
+          "observed": 24,
+          "both_one": 24,
+          "only_reconstructed": 1,
+          "only_observed": 0,
+          "jaccard": 0.96
+        },
+        {
+          "column": "US_Litigation_or_Investigation_against_China",
+          "reconstructed": 13,
+          "observed": 13,
+          "both_one": 13,
+          "only_reconstructed": 0,
+          "only_observed": 0,
+          "jaccard": 1.0
+        },
+        {
+          "column": "US_Tariff_Relief_Policies_for_China",
+          "reconstructed": 25,
+          "observed": 24,
+          "both_one": 24,
+          "only_reconstructed": 1,
+          "only_observed": 0,
+          "jaccard": 0.96
+        },
+        {
+          "column": "US_Removing_China_from_Currency_Manipulator_List",
+          "reconstructed": 1,
+          "observed": 1,
+          "both_one": 1,
+          "only_reconstructed": 0,
+          "only_observed": 0,
+          "jaccard": 1.0
+        },
+        {
+          "column": "US_Designating_China_as_Currency_Manipulator",
+          "reconstructed": 1,
+          "observed": 1,
+          "both_one": 1,
+          "only_reconstructed": 0,
+          "only_observed": 0,
+          "jaccard": 1.0
+        },
+        {
+          "column": "US_Criticizing_China",
+          "reconstructed": 25,
+          "observed": 23,
+          "both_one": 22,
+          "only_reconstructed": 3,
+          "only_observed": 1,
+          "jaccard": 0.8462
+        },
+        {
+          "column": "China",
+          "reconstructed": 78,
+          "observed": 79,
+          "both_one": 78,
+          "only_reconstructed": 0,
+          "only_observed": 1,
+          "jaccard": 0.9873
+        },
+        {
+          "column": "Sino_US",
+          "reconstructed": 115,
+          "observed": 115,
+          "both_one": 114,
+          "only_reconstructed": 1,
+          "only_observed": 1,
+          "jaccard": 0.9828
+        },
+        {
+          "column": "US",
+          "reconstructed": 254,
+          "observed": 254,
+          "both_one": 252,
+          "only_reconstructed": 2,
+          "only_observed": 2,
+          "jaccard": 0.9844
+        },
+        {
+          "column": "Positive_Events",
+          "reconstructed": 180,
+          "observed": 181,
+          "both_one": 179,
+          "only_reconstructed": 1,
+          "only_observed": 2,
+          "jaccard": 0.9835
+        },
+        {
+          "column": "Negative_Events",
+          "reconstructed": 248,
+          "observed": 248,
+          "both_one": 247,
+          "only_reconstructed": 1,
+          "only_observed": 1,
+          "jaccard": 0.992
+        },
+        {
+          "column": "Positive_Events_from_China",
+          "reconstructed": 34,
+          "observed": 34,
+          "both_one": 34,
+          "only_reconstructed": 0,
+          "only_observed": 0,
+          "jaccard": 1.0
+        },
+        {
+          "column": "Negative_Events_from_China",
+          "reconstructed": 44,
+          "observed": 45,
+          "both_one": 44,
+          "only_reconstructed": 0,
+          "only_observed": 1,
+          "jaccard": 0.9778
+        },
+        {
+          "column": "Positive_Events_from_the_US",
+          "reconstructed": 39,
+          "observed": 39,
+          "both_one": 38,
+          "only_reconstructed": 1,
+          "only_observed": 1,
+          "jaccard": 0.95
+        },
+        {
+          "column": "Negative_Events_from_the_US",
+          "reconstructed": 216,
+          "observed": 215,
+          "both_one": 214,
+          "only_reconstructed": 2,
+          "only_observed": 1,
+          "jaccard": 0.9862
+        }
+      ]
+    },
+    "previous": {
+      "policy": "previous",
+      "news_total": 445,
+      "news_mapped": 445,
+      "mean_jaccard": 0.7841,
+      "matched_columns": [
+        "China_Reducing_Restrictions_on_US_Enterprises",
+        "US_Litigation_or_Investigation_against_China",
+        "US_Removing_China_from_Currency_Manipulator_List",
+        "US_Designating_China_as_Currency_Manipulator"
+      ],
+      "columns": [
+        {
+          "column": "China_Increasing_Purchases_of_US_Goods",
+          "reconstructed": 4,
+          "observed": 4,
+          "both_one": 3,
+          "only_reconstructed": 1,
+          "only_observed": 1,
+          "jaccard": 0.6
+        },
+        {
+          "column": "China_Restrictions_on_US_Enterprises",
+          "reconstructed": 22,
+          "observed": 23,
+          "both_one": 20,
+          "only_reconstructed": 2,
+          "only_observed": 3,
+          "jaccard": 0.8
+        },
+        {
+          "column": "China_Reducing_Restrictions_on_US_Enterprises",
+          "reconstructed": 3,
+          "observed": 3,
+          "both_one": 3,
+          "only_reconstructed": 0,
+          "only_observed": 0,
+          "jaccard": 1.0
+        },
+        {
+          "column": "China_Tariff_Increases_on_the_US",
+          "reconstructed": 12,
+          "observed": 12,
+          "both_one": 9,
+          "only_reconstructed": 3,
+          "only_observed": 3,
+          "jaccard": 0.6
+        },
+        {
+          "column": "China_Litigation_or_Investigation_against_the_US",
+          "reconstructed": 6,
+          "observed": 8,
+          "both_one": 6,
+          "only_reconstructed": 0,
+          "only_observed": 2,
+          "jaccard": 0.75
+        },
+        {
+          "column": "China_Tariff_Relief_Policies_for_the_US",
+          "reconstructed": 28,
+          "observed": 28,
+          "both_one": 22,
+          "only_reconstructed": 6,
+          "only_observed": 6,
+          "jaccard": 0.6471
+        },
+        {
+          "column": "China_Criticizing_the_US",
+          "reconstructed": 6,
+          "observed": 11,
+          "both_one": 6,
+          "only_reconstructed": 0,
+          "only_observed": 5,
+          "jaccard": 0.5455
+        },
+        {
+          "column": "Sino_US_Dialogue",
+          "reconstructed": 114,
+          "observed": 114,
+          "both_one": 96,
+          "only_reconstructed": 18,
+          "only_observed": 18,
+          "jaccard": 0.7273
+        },
+        {
+          "column": "US_Restrictions_on_Chinese_Enterprises",
+          "reconstructed": 162,
+          "observed": 160,
+          "both_one": 148,
+          "only_reconstructed": 14,
+          "only_observed": 12,
+          "jaccard": 0.8506
+        },
+        {
+          "column": "US_Reducing_Restrictions_on_Chinese_Enterprises",
+          "reconstructed": 13,
+          "observed": 15,
+          "both_one": 12,
+          "only_reconstructed": 1,
+          "only_observed": 3,
+          "jaccard": 0.75
+        },
+        {
+          "column": "US_Tariff_Increases_on_China",
+          "reconstructed": 26,
+          "observed": 24,
+          "both_one": 22,
+          "only_reconstructed": 4,
+          "only_observed": 2,
+          "jaccard": 0.7857
+        },
+        {
+          "column": "US_Litigation_or_Investigation_against_China",
+          "reconstructed": 13,
+          "observed": 13,
+          "both_one": 13,
+          "only_reconstructed": 0,
+          "only_observed": 0,
+          "jaccard": 1.0
+        },
+        {
+          "column": "US_Tariff_Relief_Policies_for_China",
+          "reconstructed": 25,
+          "observed": 24,
+          "both_one": 22,
+          "only_reconstructed": 3,
+          "only_observed": 2,
+          "jaccard": 0.8148
+        },
+        {
+          "column": "US_Removing_China_from_Currency_Manipulator_List",
+          "reconstructed": 1,
+          "observed": 1,
+          "both_one": 1,
+          "only_reconstructed": 0,
+          "only_observed": 0,
+          "jaccard": 1.0
+        },
+        {
+          "column": "US_Designating_China_as_Currency_Manipulator",
+          "reconstructed": 1,
+          "observed": 1,
+          "both_one": 1,
+          "only_reconstructed": 0,
+          "only_observed": 0,
+          "jaccard": 1.0
+        },
+        {
+          "column": "US_Criticizing_China",
+          "reconstructed": 24,
+          "observed": 23,
+          "both_one": 20,
+          "only_reconstructed": 4,
+          "only_observed": 3,
+          "jaccard": 0.7407
+        },
+        {
+          "column": "China",
+          "reconstructed": 77,
+          "observed": 79,
+          "both_one": 66,
+          "only_reconstructed": 11,
+          "only_observed": 13,
+          "jaccard": 0.7333
+        },
+        {
+          "column": "Sino_US",
+          "reconstructed": 115,
+          "observed": 115,
+          "both_one": 97,
+          "only_reconstructed": 18,
+          "only_observed": 18,
+          "jaccard": 0.7293
+        },
+        {
+          "column": "US",
+          "reconstructed": 255,
+          "observed": 254,
+          "both_one": 232,
+          "only_reconstructed": 23,
+          "only_observed": 22,
+          "jaccard": 0.8375
+        },
+        {
+          "column": "Positive_Events",
+          "reconstructed": 181,
+          "observed": 181,
+          "both_one": 154,
+          "only_reconstructed": 27,
+          "only_observed": 27,
+          "jaccard": 0.7404
+        },
+        {
+          "column": "Negative_Events",
+          "reconstructed": 249,
+          "observed": 248,
+          "both_one": 226,
+          "only_reconstructed": 23,
+          "only_observed": 22,
+          "jaccard": 0.8339
+        },
+        {
+          "column": "Positive_Events_from_China",
+          "reconstructed": 34,
+          "observed": 34,
+          "both_one": 28,
+          "only_reconstructed": 6,
+          "only_observed": 6,
+          "jaccard": 0.7
+        },
+        {
+          "column": "Negative_Events_from_China",
+          "reconstructed": 43,
+          "observed": 45,
+          "both_one": 38,
+          "only_reconstructed": 5,
+          "only_observed": 7,
+          "jaccard": 0.76
+        },
+        {
+          "column": "Positive_Events_from_the_US",
+          "reconstructed": 39,
+          "observed": 39,
+          "both_one": 35,
+          "only_reconstructed": 4,
+          "only_observed": 4,
+          "jaccard": 0.814
+        },
+        {
+          "column": "Negative_Events_from_the_US",
+          "reconstructed": 216,
+          "observed": 215,
+          "both_one": 197,
+          "only_reconstructed": 19,
+          "only_observed": 18,
+          "jaccard": 0.8419
+        }
+      ]
+    }
+  }
+}

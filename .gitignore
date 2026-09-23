@@ -1,0 +1,53 @@
+# Secrets
+# `.env*` 是为了把 .env.local / .env.bak / .env.save 这类变体一起挡住——
+# 只写 `.env` 的话，随手备份出来的副本会被提交上去。模板文件要显式放行。
+.env
+.env.*
+!.env.example
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Logs（一般日志不进版本库；reports/ 下的运行日志是例外，见文件末）
+*.log
+
+# 能重新生成、体积又大的运行产物，不进版本库。
+# DA 的调用缓存、向量索引都在这里。
+.cache/
+data/knowledge_base/index/
+*.faiss
+
+# reports/ 里的运行结果**要提交**——它们是"做了什么"最直接的证据：
+# DA 每个特征的评分与证据出处、PA2 的逐列对照、传统基线、五个模型的日志和曲线图。
+# 两条例外：
+#   ① last_run.json 有 3.3MB，而且跑一次就重新生成；
+#   ② 上面的 `*.log` 会误伤运行日志，这里显式放行。
+# 注意 `!` 规则必须写在对应的排除规则**之后**才生效。
+reports/last_run.json
+!reports/*.log
+
+# Excel / WPS 打开文件时会生成的隐藏锁文件。
+# `Data.xlsx` 在版本库里，编辑它的时候就可能在旁边留下 `~$Data.xlsx`。
+~$*
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# 论文 PDF（2.3MB）。默认**不**忽略——它开放获取（CC BY 4.0），
+# 而且 docs/ 里的对照结论都指向它，留在仓库里方便查。
+# 如果希望仓库更干净，把下面这行的注释去掉即可。
+# A Novel Exchange Rate Forecasting Paradigm*.pdf

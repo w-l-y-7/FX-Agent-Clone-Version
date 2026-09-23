@@ -1,0 +1,42 @@
+﻿Using device: cpu
+Loading the paper's USD/CNY dataset...
+读入 Data.xlsx / Data：1944 行 × 34 列，2017-01-03 → 2024-12-31
+  China_FX_Reserves：1880 个空缺已补（原表用字面 0 占位）
+  CN_CPI_MoM：1881 个空缺已补（原表用字面 0 占位）
+  US_CPI_MoM：1880 个空缺已补（原表用字面 0 占位）
+
+目标：预测 20 个交易日后的 USD/CNY 收盘价
+特征集：pa1_pa2_da，共 9 个特征
+  ['close', 'USD_Index', 'CN_1Y_GovBond_Yield', 'US_1Y_Treasury_Yield', 'China_FX_Reserves', 'CN_CPI_MoM', 'US_CPI_MoM', 'WTI_Futures_Price', 'Negative_Events']
+  输入含汇率自身价格：True
+
+Preparing data...
+  训练 (1509, 30, 9) / 测试 (385, 30, 9)，序列长度 30，特征 9 个
+Starting model training...
+Epoch [20/300], Loss: 0.041260
+Epoch [40/300], Loss: 0.021502
+Epoch [60/300], Loss: 0.015825
+Epoch [80/300], Loss: 0.010491
+Epoch [100/300], Loss: 0.007494
+Epoch [120/300], Loss: 0.006268
+Epoch [140/300], Loss: 0.005630
+Epoch [160/300], Loss: 0.004805
+Epoch [180/300], Loss: 0.004395
+Epoch [200/300], Loss: 0.004351
+Epoch [220/300], Loss: 0.004181
+Epoch [240/300], Loss: 0.003980
+Epoch [260/300], Loss: 0.004246
+Epoch [280/300], Loss: 0.004069
+Epoch [300/300], Loss: 0.004288
+Evaluating model...
+
+Test Set Evaluation Results:
+  RMSE    0.3120（人民币元）
+  MAE     0.2867（人民币元）
+  MAPE    3.9712%（论文报的就是这个口径）
+  朴素基准 RMSE 0.0813 / MAPE 0.8438%
+  对比结论：没跑赢「假设价格不变」的朴素基准
+
+（论文 LSTM + Attention + 完整流程的对照值：RMSE 0.0599，MAPE 0.7205%）
+Plotting results...
+图已保存到：D:\git仓库\FX-Agent-Clone-Version\reports\lstm_attention_predictions.png

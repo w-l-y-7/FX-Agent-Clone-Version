@@ -1,0 +1,23 @@
+{
+  "key": "nber_w20386",
+  "source_title": "International Reserves Before and After the Global Crisis: Is There No End to Hoarding?",
+  "source_url": "https://www.nber.org/papers/w20386",
+  "published_at": "2014-01-01",
+  "evidence_type": "working_paper",
+  "methodology": "1999-2012 年 95 国年度面板分时段估计国际储备需求方程，再把储备实际值相对模型预测值的偏差与 2012-2013 年对美元贬值幅度做横截面回归",
+  "sample_period": "1999-2012（分 1999-2006、2007-2009、2010-2012 三段）；预测检验用 2012-2013",
+  "extraction_note": "claim_text 是从英文原文读出的中文转述；evidence_span 是论文原句，可逐字核对。方向判定由人工做出，不是规则抽取。",
+  "claims": [
+    {
+      "feature_id": "China_FX_Reserves",
+      "feature_name": "中国外汇储备",
+      "effect_direction": "negative",
+      "claim_text": "储备相对模型预测值不足的新兴市场（中国是其中最大的储备持有国），在 2013 年 QE 缩减预期冲击下更倾向于对美元贬值；反过来，储备相对充足对应更小的对美元贬值压力。据此外推：中国外汇储备上升 → USD/CNY 下降（人民币相对美元升值）。",
+      "evidence_span": "Our predictive exercise affirms that an emerging market economy with insufficient IR holdings in 2012 tends to experience exchange rate depreciation against the U.S. dollar when many emerging markets were adjusted to the news of tapering quantitative easing (QE) in 2013.",
+      "currency_pair": "USD/CNY",
+      "forecast_horizon": 250,
+      "market_regime": "2012-2013 年 QE 缩减预期与新兴市场资本外流期",
+      "policy_condition": "结论原为新兴市场整体（样本含中国），非中国单国估计；储备充足度按储备需求模型的预测误差度量"
+    }
+  ]
+}

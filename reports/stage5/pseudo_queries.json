@@ -1,0 +1,125 @@
+{
+  "horizons": {
+    "5": {
+      "n_rows": 260,
+      "n_skipped": 3,
+      "skip_reasons": {
+        "成熟候选只有 18 条 < 20": 1,
+        "成熟候选只有 19 条 < 20": 2
+      },
+      "by_year": {
+        "2018": 40,
+        "2019": 79,
+        "2020": 50,
+        "2021": 44,
+        "2022": 47
+      },
+      "by_family": {
+        "tariff": 65,
+        "litigation": 10,
+        "entity_restrictions": 94,
+        "rhetoric": 20,
+        "dialogue": 65,
+        "purchases": 4,
+        "fx_manipulator": 2
+      },
+      "dropped_immature_total": 390,
+      "pool_size_range": [
+        20,
+        279
+      ],
+      "skipped_sample": [
+        {
+          "event_id": "hist_0018",
+          "date": "2018-01-19",
+          "reason": "成熟候选只有 18 条 < 20",
+          "mature_candidates": 18
+        },
+        {
+          "event_id": "hist_0019",
+          "date": "2018-02-27",
+          "reason": "成熟候选只有 19 条 < 20",
+          "mature_candidates": 19
+        },
+        {
+          "event_id": "hist_0020",
+          "date": "2018-03-01",
+          "reason": "成熟候选只有 19 条 < 20",
+          "mature_candidates": 19
+        }
+      ]
+    },
+    "20": {
+      "n_rows": 257,
+      "n_skipped": 6,
+      "skip_reasons": {
+        "成熟候选只有 18 条 < 20": 1,
+        "成熟候选只有 19 条 < 20": 5
+      },
+      "by_year": {
+        "2018": 37,
+        "2019": 79,
+        "2020": 50,
+        "2021": 44,
+        "2022": 47
+      },
+      "by_family": {
+        "tariff": 62,
+        "litigation": 10,
+        "entity_restrictions": 94,
+        "rhetoric": 20,
+        "dialogue": 65,
+        "purchases": 4,
+        "fx_manipulator": 2
+      },
+      "dropped_immature_total": 1304,
+      "pool_size_range": [
+        21,
+        275
+      ],
+      "skipped_sample": [
+        {
+          "event_id": "hist_0018",
+          "date": "2018-01-19",
+          "reason": "成熟候选只有 18 条 < 20",
+          "mature_candidates": 18
+        },
+        {
+          "event_id": "hist_0019",
+          "date": "2018-02-27",
+          "reason": "成熟候选只有 19 条 < 20",
+          "mature_candidates": 19
+        },
+        {
+          "event_id": "hist_0020",
+          "date": "2018-03-01",
+          "reason": "成熟候选只有 19 条 < 20",
+          "mature_candidates": 19
+        },
+        {
+          "event_id": "hist_0021",
+          "date": "2018-03-08",
+          "reason": "成熟候选只有 19 条 < 20",
+          "mature_candidates": 19
+        },
+        {
+          "event_id": "hist_0022",
+          "date": "2018-03-22",
+          "reason": "成熟候选只有 19 条 < 20",
+          "mature_candidates": 19
+        },
+        {
+          "event_id": "hist_0023",
+          "date": "2018-03-23",
+          "reason": "成熟候选只有 19 条 < 20",
+          "mature_candidates": 19
+        }
+      ]
+    }
+  },
+  "min_mature_candidates": 20,
+  "train_years": [
+    2018,
+    2022
+  ]
+}

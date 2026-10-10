@@ -1,0 +1,480 @@
+{
+  "total_events": 445,
+  "date_range": [
+    "2017-01-19T00:00:00",
+    "2024-12-13T00:00:00"
+  ],
+  "by_year": {
+    "2017": 18,
+    "2018": 44,
+    "2019": 79,
+    "2020": 51,
+    "2021": 45,
+    "2022": 48,
+    "2023": 67,
+    "2024": 93
+  },
+  "by_event_type": {
+    "us_restrict_cn_firms": 160,
+    "us_tariff_increase": 19,
+    "us_litigation_cn": 13,
+    "bilateral_dialogue": 117,
+    "us_criticize_cn": 23,
+    "cn_tariff_increase": 10,
+    "cn_litigation_us": 7,
+    "us_ease_restrictions_cn_firms": 13,
+    "cn_restrict_us_firms": 20,
+    "us_tariff_relief": 23,
+    "cn_tariff_relief": 27,
+    "cn_criticize_us": 6,
+    "cn_increase_purchases": 4,
+    "us_designate_cn_fx_manipulator": 1,
+    "cn_ease_restrictions_us_firms": 1,
+    "us_remove_cn_fx_manipulator": 1
+  },
+  "thin_types": [
+    {
+      "type": "us_litigation_cn",
+      "count": 13
+    },
+    {
+      "type": "us_ease_restrictions_cn_firms",
+      "count": 13
+    },
+    {
+      "type": "cn_tariff_increase",
+      "count": 10
+    },
+    {
+      "type": "cn_litigation_us",
+      "count": 7
+    },
+    {
+      "type": "cn_criticize_us",
+      "count": 6
+    },
+    {
+      "type": "cn_increase_purchases",
+      "count": 4
+    },
+    {
+      "type": "us_designate_cn_fx_manipulator",
+      "count": 1
+    },
+    {
+      "type": "cn_ease_restrictions_us_firms",
+      "count": 1
+    },
+    {
+      "type": "us_remove_cn_fx_manipulator",
+      "count": 1
+    }
+  ],
+  "multi_label_events": 22,
+  "split": {
+    "retrieval_pool": 285,
+    "evaluation": 160,
+    "eval_from_year": 2023
+  },
+  "return_labels": {
+    "ret_1d": {
+      "available": 445,
+      "missing": 0,
+      "mean": 0.0002864769651709516,
+      "std": 0.00271614237566722,
+      "share_up": 0.5775280898876405
+    },
+    "ret_5d": {
+      "available": 445,
+      "missing": 0,
+      "mean": 0.0006851625627687519,
+      "std": 0.005892973442542877,
+      "share_up": 0.5707865168539326
+    },
+    "ret_20d": {
+      "available": 440,
+      "missing": 5,
+      "mean": 0.001984674146537244,
+      "std": 0.013885091559951454,
+      "share_up": 0.5303370786516854
+    }
+  },
+  "eval_direction_base_rate_20d": 0.6967741935483871,
+  "rule_parser": {
+    "accuracy": 0.6404494382022472,
+    "correct": 285,
+    "total": 445,
+    "per_type": {
+      "us_restrict_cn_firms": {
+        "correct": 114,
+        "total": 160
+      },
+      "us_tariff_increase": {
+        "correct": 13,
+        "total": 19
+      },
+      "us_litigation_cn": {
+        "correct": 9,
+        "total": 13
+      },
+      "bilateral_dialogue": {
+        "correct": 86,
+        "total": 117
+      },
+      "us_criticize_cn": {
+        "correct": 3,
+        "total": 23
+      },
+      "cn_tariff_increase": {
+        "correct": 10,
+        "total": 10
+      },
+      "cn_litigation_us": {
+        "correct": 7,
+        "total": 7
+      },
+      "us_ease_restrictions_cn_firms": {
+        "correct": 3,
+        "total": 13
+      },
+      "cn_restrict_us_firms": {
+        "correct": 14,
+        "total": 20
+      },
+      "us_tariff_relief": {
+        "correct": 10,
+        "total": 23
+      },
+      "cn_tariff_relief": {
+        "correct": 13,
+        "total": 27
+      },
+      "cn_criticize_us": {
+        "correct": 1,
+        "total": 6
+      },
+      "cn_increase_purchases": {
+        "correct": 0,
+        "total": 4
+      },
+      "us_designate_cn_fx_manipulator": {
+        "correct": 1,
+        "total": 1
+      },
+      "cn_ease_restrictions_us_firms": {
+        "correct": 0,
+        "total": 1
+      },
+      "us_remove_cn_fx_manipulator": {
+        "correct": 1,
+        "total": 1
+      }
+    },
+    "errors": [
+      {
+        "date": "2017-01-19",
+        "gold": "us_restrict_cn_firms",
+        "predicted": "us_litigation_cn",
+        "text": "美国商务部终裁中国产碳钢(CLT)等存在倾销和补贴行为,基于倾销幅度和补贴幅度的终裁结果，美国商务部"
+      },
+      {
+        "date": "2017-01-23",
+        "gold": "us_restrict_cn_firms",
+        "predicted": "other",
+        "text": "美国商务部裁定从中国进口的卡车和公共汽车轮胎存在倾销和补贴行为"
+      },
+      {
+        "date": "2017-02-02",
+        "gold": "us_restrict_cn_firms",
+        "predicted": "us_litigation_cn",
+        "text": "美国商务部就对华不锈钢板带材反倾销和反补贴调查作出终裁"
+      },
+      {
+        "date": "2017-03-03",
+        "gold": "us_tariff_increase",
+        "predicted": "other",
+        "text": "美国决定对中国输美钢材产品征收“双反”关税"
+      },
+      {
+        "date": "2017-08-15",
+        "gold": "us_litigation_cn",
+        "predicted": "us_restrict_cn_firms",
+        "text": "特朗普签署行政备忘录授权审查“中国贸易行为”"
+      },
+      {
+        "date": "2017-09-18",
+        "gold": "bilateral_dialogue",
+        "predicted": "cn_litigation_us",
+        "text": "据中国商务部18日消息，继与美商务部举行工作会谈，就美对华301调查交换意见后，商务部副部长兼国际贸"
+      },
+      {
+        "date": "2017-11-13",
+        "gold": "us_restrict_cn_firms",
+        "predicted": "us_litigation_cn",
+        "text": "美国商务部公布对华胶合板产品反倾销与反补贴调查最终裁定，裁定中国企业倾销幅度为183.36%；补贴幅"
+      },
+      {
+        "date": "2018-01-19",
+        "gold": "us_criticize_cn",
+        "predicted": "other",
+        "text": "美国贸易代表办公室发布中国入世贸组织合规年度报告称中国没有履行加入WTO时做出的重要承诺"
+      },
+      {
+        "date": "2018-04-27",
+        "gold": "us_criticize_cn",
+        "predicted": "us_restrict_cn_firms",
+        "text": "美国贸易代表办公室（USTR）公布了知识产权《特别301报告》，将中国列入“优先观察名单”。"
+      },
+      {
+        "date": "2018-05-14",
+        "gold": "bilateral_dialogue",
+        "predicted": "cn_ease_restrictions_us_firms",
+        "text": "中国国务院副总理刘鹤率领中方代表团赴美，与美国财政部长姆努钦率领的美方经济团队就两国经贸问题进行磋商"
+      },
+      {
+        "date": "2018-05-29",
+        "gold": "us_tariff_increase",
+        "predicted": "us_restrict_cn_firms",
+        "text": "美国白宫宣布对从中国进口的价值500亿美元的商品征收25%关税，包括与“中国制造2025”计划相关的"
+      },
+      {
+        "date": "2018-06-07",
+        "gold": "us_ease_restrictions_cn_firms",
+        "predicted": "other",
+        "text": "美国商务部与中兴公司达成新和解协议"
+      },
+      {
+        "date": "2018-07-02",
+        "gold": "us_restrict_cn_firms",
+        "predicted": "other",
+        "text": "美国国家电信和信息管理局阻止中国移动向美国电信市场提供服务"
+      },
+      {
+        "date": "2018-08-22",
+        "gold": "bilateral_dialogue",
+        "predicted": "other",
+        "text": "中国商务部副部长王受文率中方代表团在华盛顿与美国财政部副部长马尔帕斯率领的美方代表团进行经贸问题交流"
+      },
+      {
+        "date": "2018-09-12",
+        "gold": "bilateral_dialogue",
+        "predicted": "us_tariff_increase",
+        "text": "美国财政部长姆努钦邀请中方派出部级代表团在特朗普对华加征新一轮关税前进行贸易谈判。"
+      },
+      {
+        "date": "2018-11-20",
+        "gold": "us_criticize_cn",
+        "predicted": "us_litigation_cn",
+        "text": "美国贸易代表办公室（USTR）更新了301调查报告，指责中国政府支持的知识产权和技术偷窃活动还在继续"
+      },
+      {
+        "date": "2018-11-28",
+        "gold": "us_criticize_cn",
+        "predicted": "other",
+        "text": "美国贸易代表罗伯特·莱特希泽于11月28日发表声明称，美方将考虑采取一切可能的对抗措施，以解决中国对"
+      },
+      {
+        "date": "2018-12-02",
+        "gold": "bilateral_dialogue",
+        "predicted": "other",
+        "text": "美国白宫发表声明称，美国总统特朗普与中国国家主席习近平在阿根廷布宜诺斯艾利斯的工作晚宴是一次“非常成"
+      },
+      {
+        "date": "2018-12-09",
+        "gold": "us_ease_restrictions_cn_firms",
+        "predicted": "other",
+        "text": "杰瑞股份与美国财政部外国资产控制办公室（OFAC）签署和解协议，支付277.5万美元罚款。杰瑞股份与"
+      },
+      {
+        "date": "2019-02-04",
+        "gold": "us_criticize_cn",
+        "predicted": "other",
+        "text": "美国贸易代表办公室发布2018年度《中国履行WTO承诺情况报告》，认为合规记录很差"
+      },
+      {
+        "date": "2019-04-19",
+        "gold": "us_criticize_cn",
+        "predicted": "other",
+        "text": "美国发现中国政府对粮食关税税率配额违反了WTO承诺"
+      },
+      {
+        "date": "2019-04-25",
+        "gold": "us_restrict_cn_firms",
+        "predicted": "other",
+        "text": "美国贸易代表办公室发布2019特别301报告及恶名市场名单，对全球贸易和知识产权发展情况进行总结和回"
+      },
+      {
+        "date": "2019-05-06",
+        "gold": "us_criticize_cn",
+        "predicted": "cn_restrict_us_firms",
+        "text": "美中经济和安全审查委员会发布了题为《中国企业如何促进从美国转移技术》的报告，指出中国企业使用各种方法"
+      },
+      {
+        "date": "2019-05-10",
+        "gold": "us_restrict_cn_firms",
+        "predicted": "other",
+        "text": "美国FCC一致投票反对中国移动向美国提供电信服务的申请，理由是中国移动可能利用其访问美国通信网络的机"
+      },
+      {
+        "date": "2019-05-17",
+        "gold": "us_restrict_cn_firms",
+        "predicted": "us_tariff_increase",
+        "text": "美国商务部将华为及其附属公司列入实体名单/美国贸易代表莱特希泽宣布特朗普总统指示拟将对从中国进口的剩"
+      },
+      {
+        "date": "2019-05-21",
+        "gold": "us_ease_restrictions_cn_firms",
+        "predicted": "other",
+        "text": "美国商务部工业安全局（BIS）宣布给华为及其68家子公司颁发了一张为期90天的临时通用许可证。"
+      },
+      {
+        "date": "2019-05-31",
+        "gold": "cn_criticize_us",
+        "predicted": "cn_restrict_us_firms",
+        "text": "中国商务部新闻发言人高峰称，中国将建立不可靠实体清单制度，针对近期一些外国实体出于非商业目的对中国企"
+      },
+      {
+        "date": "2019-06-02",
+        "gold": "cn_criticize_us",
+        "predicted": "cn_tariff_increase",
+        "text": "国务院新闻办公室发布《关于中美经贸磋商的中方立场》白皮书,白皮书指出，美国近期宣布提高对华加征关税，"
+      },
+      {
+        "date": "2019-06-14",
+        "gold": "bilateral_dialogue",
+        "predicted": "other",
+        "text": "美国要求暂停处理中国知识产权争端(DS542)，中国同意。"
+      },
+      {
+        "date": "2019-06-18",
+        "gold": "bilateral_dialogue",
+        "predicted": "other",
+        "text": "中国国家主席习近平应约同美国总统特朗普通电话"
+      },
+      {
+        "date": "2019-06-22",
+        "gold": "us_restrict_cn_firms",
+        "predicted": "other",
+        "text": "美国商务部宣布新增5家中国实体进入实体名单通知"
+      },
+      {
+        "date": "2019-06-29",
+        "gold": "bilateral_dialogue",
+        "predicted": "us_tariff_relief",
+        "text": "习近平与特朗普在G20峰会上会晤，就中美关系、经贸摩擦等问题交换意见，同意重启经贸磋商，特朗普表示不"
+      },
+      {
+        "date": "2019-07-25",
+        "gold": "cn_criticize_us",
+        "predicted": "other",
+        "text": "中国商务部新闻发言人高峰透露2019年上半年中国对美国非金融类直接投资额下降约20%，呼吁美方公平公"
+      },
+      {
+        "date": "2019-07-29",
+        "gold": "cn_increase_purchases",
+        "predicted": "bilateral_dialogue",
+        "text": "中美两国元首大阪会晤之后，已有数百万吨美国大豆装船运往中国。"
+      },
+      {
+        "date": "2019-08-13",
+        "gold": "bilateral_dialogue",
+        "predicted": "cn_tariff_relief",
+        "text": "中共中央政治局委员、国务院副总理、中美全面经济对话中方牵头人刘鹤与美国贸易代表莱特希泽、财政部长姆努"
+      },
+      {
+        "date": "2019-08-23",
+        "gold": "us_restrict_cn_firms",
+        "predicted": "other",
+        "text": "美国总统特朗普命令美国快递企业拒收从中国运来的芬太尼，引发美国快递公司采取措施阻止毒品贩运者使用其服"
+      },
+      {
+        "date": "2019-09-10",
+        "gold": "us_ease_restrictions_cn_firms",
+        "predicted": "us_litigation_cn",
+        "text": "美国政府归还华为被扣押的电信设备，华为美国子公司撤回诉讼。"
+      },
+      {
+        "date": "2019-09-12",
+        "gold": "cn_increase_purchases",
+        "predicted": "cn_tariff_relief",
+        "text": "中国商务部新闻发言人表示中方企业已经开始就采购美国农产品进行询价，大豆、猪肉都在询价范围内。/美国总"
+      },
+      {
+        "date": "2019-09-27",
+        "gold": "us_litigation_cn",
+        "predicted": "us_restrict_cn_firms",
+        "text": "美国国际贸易委员会对半导体产品发起两起337调查,指控对美出口、在美进口和在美销售的上述产品侵犯其专"
+      },
+      {
+        "date": "2019-10-13",
+        "gold": "cn_increase_purchases",
+        "predicted": "us_tariff_increase",
+        "text": "美国总统特朗普宣布中美第一阶段贸易协议进展，中国将立即增加购买美国农产品，暂停提高关税。"
+      }
+    ]
+  },
+  "llm_parser_sample": {
+    "accuracy": 0.8666666666666667,
+    "correct": 52,
+    "sample": 60,
+    "fallbacks": 0,
+    "errors": [
+      {
+        "date": "2019-04-25",
+        "gold": "us_restrict_cn_firms",
+        "predicted": "us_criticize_cn",
+        "method": "llm",
+        "text": "美国贸易代表办公室发布2019特别301报告及恶名市场名单，对全球贸易和知识产权发展情况进行总结和回"
+      },
+      {
+        "date": "2024-02-27",
+        "gold": "us_litigation_cn",
+        "predicted": "us_restrict_cn_firms",
+        "method": "llm",
+        "text": "拜登命令美国商务部调查中国电动汽车构成的安全威胁。/美国商务部产业安全局（BIS）以违反美国国家安全"
+      },
+      {
+        "date": "2023-06-08",
+        "gold": "us_criticize_cn",
+        "predicted": "us_restrict_cn_firms",
+        "method": "llm",
+        "text": "美国会参院外委会通过“结束中国发展中国家地位法案”，要求取消中国发展中国家地位。"
+      },
+      {
+        "date": "2020-12-02",
+        "gold": "us_ease_restrictions_cn_firms",
+        "predicted": "us_restrict_cn_firms",
+        "method": "llm",
+        "text": "美国土安全部海关和边境保护局宣布对新疆生产建设兵团及其下属实体生产的棉花和棉制品发布预扣令，禁止相关"
+      },
+      {
+        "date": "2019-11-14",
+        "gold": "cn_ease_restrictions_us_firms",
+        "predicted": "other",
+        "method": "llm",
+        "text": "美国家禽养殖户重新进入中国市场"
+      },
+      {
+        "date": "2023-06-13",
+        "gold": "bilateral_dialogue",
+        "predicted": "us_criticize_cn",
+        "method": "llm",
+        "text": "美国财政部长耶伦强调美国与中国保持关系符合最佳利益，称停止对华贸易将是“灾难性”，寻求国会支持为国际"
+      },
+      {
+        "date": "2023-06-16",
+        "gold": "bilateral_dialogue",
+        "predicted": "other",
+        "method": "llm",
+        "text": "中国国家主席习近平在北京会见美国比尔及梅琳达·盖茨基金会联席主席比尔·盖茨。"
+      },
+      {
+        "date": "2022-12-08",
+        "gold": "us_litigation_cn",
+        "predicted": "us_restrict_cn_firms",
+        "method": "llm",
+        "text": "美国商务部宣布对中国太阳能设备制造商逃避关税展开调查。"
+      }
+    ]
+  }
+}

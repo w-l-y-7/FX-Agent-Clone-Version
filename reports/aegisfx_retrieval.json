@@ -1,0 +1,129 @@
+{
+  "modes": {
+    "E1": "E1-semantic",
+    "E2": "E2-fixed-reranker",
+    "E3": "E3-adaptive-conflict-rag"
+  },
+  "n_queries": 18,
+  "top_k": 10,
+  "utility_scale_sd": 0.012571792416431854,
+  "offline_outcome_utility": {
+    "precision@3": {
+      "E1-semantic": 0.5555555555555555,
+      "E2-fixed-reranker": 0.6666666666666665,
+      "E3-adaptive-conflict-rag": 0.5555555555555556,
+      "E3_minus_E1": 1.1102230246251565e-16
+    },
+    "precision@5": {
+      "E1-semantic": 0.5333333333333333,
+      "E2-fixed-reranker": 0.6000000000000001,
+      "E3-adaptive-conflict-rag": 0.5555555555555556,
+      "E3_minus_E1": 0.022222222222222254
+    },
+    "precision@10": {
+      "E1-semantic": 0.5722222222222222,
+      "E2-fixed-reranker": 0.5777777777777777,
+      "E3-adaptive-conflict-rag": 0.5833333333333334,
+      "E3_minus_E1": 0.011111111111111183
+    },
+    "pooled_recall@3": {
+      "E1-semantic": 0.007954666672368231,
+      "E2-fixed-reranker": 0.009578171968550266,
+      "E3-adaptive-conflict-rag": 0.008263305737292786,
+      "E3_minus_E1": 0.00030863906492455476
+    },
+    "pooled_recall@5": {
+      "E1-semantic": 0.012629541503812654,
+      "E2-fixed-reranker": 0.014214445697120822,
+      "E3-adaptive-conflict-rag": 0.013519199467755899,
+      "E3_minus_E1": 0.000889657963943245
+    },
+    "pooled_recall@10": {
+      "E1-semantic": 0.028820821756341857,
+      "E2-fixed-reranker": 0.028258532108234972,
+      "E3-adaptive-conflict-rag": 0.02925889237098209,
+      "E3_minus_E1": 0.0004380706146402333
+    },
+    "ndcg@3": {
+      "E1-semantic": 0.47862867253787644,
+      "E2-fixed-reranker": 0.5391065605018963,
+      "E3-adaptive-conflict-rag": 0.434469039518853,
+      "E3_minus_E1": -0.044159633019023425
+    },
+    "ndcg@5": {
+      "E1-semantic": 0.4585012681054306,
+      "E2-fixed-reranker": 0.5010713243469977,
+      "E3-adaptive-conflict-rag": 0.43640921688013923,
+      "E3_minus_E1": -0.022092051225291398
+    },
+    "ndcg@10": {
+      "E1-semantic": 0.4700734218801021,
+      "E2-fixed-reranker": 0.49234763533083625,
+      "E3-adaptive-conflict-rag": 0.44886835879519815,
+      "E3_minus_E1": -0.02120506308490394
+    },
+    "by_family": {
+      "dialogue": {
+        "E1-semantic": 0.5751400468149257,
+        "E2-fixed-reranker": 0.34286321341415527,
+        "E3-adaptive-conflict-rag": 0.3735542763802867
+      },
+      "entity_restrictions": {
+        "E1-semantic": 0.4864456783517864,
+        "E2-fixed-reranker": 0.5797402263960808,
+        "E3-adaptive-conflict-rag": 0.5240561132806688
+      },
+      "litigation": {
+        "E1-semantic": 0.6817930109452875,
+        "E2-fixed-reranker": 1.0,
+        "E3-adaptive-conflict-rag": 0.6817930109452875
+      },
+      "rhetoric": {
+        "E1-semantic": 0.24802704939762676,
+        "E2-fixed-reranker": 0.564510872815692,
+        "E3-adaptive-conflict-rag": 0.24802704939762676
+      },
+      "tariff": {
+        "E1-semantic": 0.3423739451087506,
+        "E2-fixed-reranker": 0.36515691354634716,
+        "E3-adaptive-conflict-rag": 0.37872722390403424
+      }
+    }
+  },
+  "topic_relevance": null,
+  "human_labels": {
+    "rows": 326,
+    "complete": 0,
+    "primary": 169,
+    "queries": 20
+  },
+  "paired_bootstrap": {
+    "offline_outcome_utility:E2-fixed-reranker_minus_E1": {
+      "n": 18,
+      "mean": 0.04257005624156716,
+      "median": 0.01021583122619523,
+      "low": -0.07090856126458463,
+      "high": 0.16156136923350117,
+      "n_better": 9,
+      "n_worse": 9,
+      "n_tie": 0,
+      "confidence": 0.95,
+      "seed": 20260928,
+      "n_resamples": 5000
+    },
+    "offline_outcome_utility:E3-adaptive-conflict-rag_minus_E1": {
+      "n": 18,
+      "mean": -0.022092051225291374,
+      "median": 0.0,
+      "low": -0.10610996950700315,
+      "high": 0.04832104997437979,
+      "n_better": 7,
+      "n_worse": 8,
+      "n_tie": 3,
+      "confidence": 0.95,
+      "seed": 20260928,
+      "n_resamples": 5000
+    }
+  },
+  "note": "offline_outcome_utility 使用查询事件发生后的真实结果，只用于离线回测，不能用于在线排序。"
+}

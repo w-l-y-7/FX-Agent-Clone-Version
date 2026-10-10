@@ -1,0 +1,32 @@
+{
+  "key": "nber_w27654",
+  "source_title": "To What Extent Are Tariffs Offset By Exchange Rates?",
+  "source_url": "https://www.nber.org/papers/w27654",
+  "published_at": "2020-07-01",
+  "evidence_type": "working_paper",
+  "methodology": "calibrated two-country model + high-frequency event study of 2018-19 tariff announcements",
+  "sample_period": "2018-2019",
+  "extraction_note": "claim_text 是从英文原文读出的中文转述；evidence_span 是论文原句，可逐字核对。方向判定由人工做出，不是规则抽取。",
+  "claims": [
+    {
+      "feature_id": "Event_Types",
+      "feature_name": "美国对华加征关税",
+      "effect_direction": "negative",
+      "claim_text": "美国对中国出口加征关税后，人民币对美元贬值；该效应在各期限上统计显著且较为持续。",
+      "evidence_span": "the renminbi depreciates against the dollar in response to an increase in US tariffs on Chinese exports",
+      "currency_pair": "USD/CNY",
+      "forecast_horizon": 20,
+      "market_regime": "",
+      "policy_condition": "2018-19 年关税战期间，人民币汇率由中间价管理"
+    },
+    {
+      "feature_id": "Event_Types",
+      "feature_name": "美国对华加征关税",
+      "effect_direction": "negative",
+      "claim_text": "2018-19 年的关税约解释美元有效升值的五分之一、人民币有效贬值的三分之二——关税对人民币的冲击远大于对美元的冲击。",
+      "evidence_span": "tariffs explained at most one fifth of the dollar effective appreciation but around two thirds of the renminbi effective depreciation observed in 2018-19",
+      "currency_pair": "USD/CNY",
+      "forecast_horizon": 20
+    }
+  ]
+}

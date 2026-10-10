@@ -1,0 +1,3627 @@
+{
+  "split": "final",
+  "config_hash": "7baa207a81f0fea8",
+  "horizons": {
+    "5": {
+      "horizon": 5,
+      "split": "final",
+      "n": 81,
+      "n_oof_prefix": 141,
+      "excluded_seen_queries": [
+        "hist_0353",
+        "hist_0360",
+        "hist_0370",
+        "hist_0382",
+        "hist_0392",
+        "hist_0400",
+        "hist_0411",
+        "hist_0419",
+        "hist_0429",
+        "hist_0435",
+        "hist_0436"
+      ],
+      "majority_baseline": 0.556,
+      "metrics": {
+        "e1": {
+          "n": 81,
+          "mae": 0.0029936362985629006,
+          "median_ae": 0.0025939688242448433,
+          "rmse": 0.0039351637713718225,
+          "direction_accuracy": 0.5555555555555556,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.0029936362985629006,
+            "low": 0.0021063857567808885,
+            "high": 0.0038692316377361806,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        },
+        "e2": {
+          "n": 81,
+          "mae": 0.00308893906086743,
+          "median_ae": 0.0026200549617748045,
+          "rmse": 0.004092901079165234,
+          "direction_accuracy": 0.5308641975308642,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.00308893906086743,
+            "low": 0.002216743563843315,
+            "high": 0.003889248252651414,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        },
+        "e3": {
+          "n": 81,
+          "mae": 0.0031318173041450627,
+          "median_ae": 0.0025334710960552755,
+          "rmse": 0.00408885030649565,
+          "direction_accuracy": 0.49382716049382713,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.0031318173041450627,
+            "low": 0.002181334966696746,
+            "high": 0.00405516940365888,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        },
+        "e4": {
+          "n": 81,
+          "mae": 0.0029441406889684344,
+          "median_ae": 0.002310761347684616,
+          "rmse": 0.003907246462972058,
+          "direction_accuracy": 0.5679012345679012,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.0029441406889684344,
+            "low": 0.0020371635116860957,
+            "high": 0.0037857211858164904,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        }
+      },
+      "comparisons": {
+        "strongest_baseline": "e1",
+        "baseline_fold_mean_mae": {
+          "E1": 0.004245099331564479,
+          "E2": 0.004297196230546031
+        },
+        "e4_minus_strongest": {
+          "strongest_baseline": "e1",
+          "mean_delta_mae": -4.949560959446548e-05,
+          "bootstrap": {
+            "n_blocks": 12,
+            "mean": -4.949560959446548e-05,
+            "low": -0.00019389473022737058,
+            "high": 0.00010826667514428429,
+            "share_favourable": 0.7448,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        }
+      },
+      "conformal": {
+        "固定历史分位": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 81,
+              "n_with_interval": 81,
+              "n_evaluable": 81,
+              "coverage": 0.9135802469135802,
+              "mean_width": 0.013263747687038587,
+              "median_width": 0.013263747687038589,
+              "interval_score": 0.015013381867390763
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 81,
+              "n_with_interval": 81,
+              "n_evaluable": 81,
+              "coverage": 0.9753086419753086,
+              "mean_width": 0.01941642461572926,
+              "median_width": 0.019416424615729257,
+              "interval_score": 0.01988601612781346
+            }
+          },
+          "method": "固定历史分位"
+        },
+        "CP0": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 81,
+              "n_with_interval": 81,
+              "n_evaluable": 81,
+              "coverage": 0.8395061728395061,
+              "mean_width": 0.01282046351148442,
+              "median_width": 0.01230976570238839,
+              "interval_score": 0.016490148881348865
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 81,
+              "n_with_interval": 81,
+              "n_evaluable": 81,
+              "coverage": 0.9506172839506173,
+              "mean_width": 0.01917868783678904,
+              "median_width": 0.020757570995389128,
+              "interval_score": 0.02030720581888049
+            }
+          },
+          "method": "CP0",
+          "degrade_reason": ""
+        },
+        "CP0+ACI": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 81,
+              "n_with_interval": 81,
+              "n_evaluable": 81,
+              "coverage": 0.7654320987654321,
+              "mean_width": 0.010142384622060326,
+              "median_width": 0.009144251374343503,
+              "interval_score": 0.016787260986774716
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 81,
+              "n_with_interval": 81,
+              "n_evaluable": 81,
+              "coverage": 0.9876543209876543,
+              "mean_width": 0.025534970385287237,
+              "median_width": 0.02691971847529272,
+              "interval_score": 0.02586173038652267
+            }
+          },
+          "method": "CP0+ACI",
+          "degrade_reason": ""
+        },
+        "CP1": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 81,
+              "n_with_interval": 81,
+              "n_evaluable": 81,
+              "coverage": 0.8395061728395061,
+              "mean_width": 0.01282046351148442,
+              "median_width": 0.01230976570238839,
+              "interval_score": 0.016490148881348865
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 81,
+              "n_with_interval": 81,
+              "n_evaluable": 81,
+              "coverage": 0.9506172839506173,
+              "mean_width": 0.01917868783678904,
+              "median_width": 0.020757570995389128,
+              "interval_score": 0.02030720581888049
+            }
+          },
+          "method": "CP0（CP1 已降级）",
+          "degrade_reason": "冲突有效性检验未通过（四条判据未全部满足），CP1 自动降级为 CP0"
+        }
+      },
+      "gate_mean": 0.422600505439595,
+      "gate_std": 0.07423730932231154,
+      "sample_ids": [
+        "hist_0345",
+        "hist_0346",
+        "hist_0347",
+        "hist_0348",
+        "hist_0349",
+        "hist_0350",
+        "hist_0351",
+        "hist_0352",
+        "hist_0354",
+        "hist_0355",
+        "hist_0356",
+        "hist_0357",
+        "hist_0358",
+        "hist_0359",
+        "hist_0361",
+        "hist_0362",
+        "hist_0363",
+        "hist_0364",
+        "hist_0365",
+        "hist_0366",
+        "hist_0367",
+        "hist_0368",
+        "hist_0369",
+        "hist_0371",
+        "hist_0372",
+        "hist_0373",
+        "hist_0374",
+        "hist_0375",
+        "hist_0376",
+        "hist_0377",
+        "hist_0378",
+        "hist_0379",
+        "hist_0380",
+        "hist_0381",
+        "hist_0383",
+        "hist_0384",
+        "hist_0385",
+        "hist_0386",
+        "hist_0387",
+        "hist_0388",
+        "hist_0389",
+        "hist_0390",
+        "hist_0391",
+        "hist_0393",
+        "hist_0394",
+        "hist_0395",
+        "hist_0396",
+        "hist_0397",
+        "hist_0398",
+        "hist_0399",
+        "hist_0401",
+        "hist_0402",
+        "hist_0403",
+        "hist_0404",
+        "hist_0405",
+        "hist_0406",
+        "hist_0407",
+        "hist_0408",
+        "hist_0409",
+        "hist_0410",
+        "hist_0412",
+        "hist_0413",
+        "hist_0414",
+        "hist_0415",
+        "hist_0416",
+        "hist_0417",
+        "hist_0418",
+        "hist_0420",
+        "hist_0421",
+        "hist_0422",
+        "hist_0423",
+        "hist_0424",
+        "hist_0425",
+        "hist_0426",
+        "hist_0427",
+        "hist_0428",
+        "hist_0430",
+        "hist_0431",
+        "hist_0432",
+        "hist_0433",
+        "hist_0434"
+      ],
+      "observations": [
+        {
+          "event_id": "hist_0345",
+          "query_date": "2024-01-02",
+          "event_family": "dialogue",
+          "realized_abret": 0.0022969541831532993,
+          "raw_return": 0.0037857543466068844,
+          "prediction": -0.0012479189342086796,
+          "e1_prediction": -0.0008430572701262136,
+          "interval_80": [
+            -0.009123405665398187,
+            0.00743729112514576
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.6691979590648215,
+          "neutral_mass": 0.10909449673723641,
+          "pairwise_dispersion_norm": 1.630483430674737,
+          "effective_sample_size": 9.977400481381558
+        },
+        {
+          "event_id": "hist_0346",
+          "query_date": "2024-01-08",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.00109481014958589,
+          "raw_return": 0.0017039344124916145,
+          "prediction": 0.0011523146561443886,
+          "e1_prediction": 0.0018412771368235942,
+          "interval_80": [
+            -0.006439071258448378,
+            0.010121625532095568
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.8860176229087604,
+          "neutral_mass": 0.10546930573304021,
+          "pairwise_dispersion_norm": 1.914419820810729,
+          "effective_sample_size": 9.98657812662658
+        },
+        {
+          "event_id": "hist_0347",
+          "query_date": "2024-01-11",
+          "event_family": "dialogue",
+          "realized_abret": -7.419401179393006e-05,
+          "raw_return": 0.0049166131240048205,
+          "prediction": -0.0007943171099647273,
+          "e1_prediction": -0.0011311183399090213,
+          "interval_80": [
+            -0.009411466735180994,
+            0.0071492300553629515
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.8836585892512113,
+          "neutral_mass": 0.10022357009521471,
+          "pairwise_dispersion_norm": 1.6713500523679845,
+          "effective_sample_size": 9.988854910865989
+        },
+        {
+          "event_id": "hist_0348",
+          "query_date": "2024-01-17",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.005285634358141299,
+          "raw_return": -0.004516021454575969,
+          "prediction": 0.0009797482062354045,
+          "e1_prediction": 0.000939478448606852,
+          "interval_80": [
+            -0.007340869946665121,
+            0.009219826843878825
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.9982029717878446,
+          "neutral_mass": 0.395282071237395,
+          "pairwise_dispersion_norm": 1.7018879043293402,
+          "effective_sample_size": 9.981195907193236
+        },
+        {
+          "event_id": "hist_0349",
+          "query_date": "2024-01-19",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0037438302612920844,
+          "raw_return": -0.0018071116795018716,
+          "prediction": 0.0015951483626779309,
+          "e1_prediction": 0.0013993524594909047,
+          "interval_80": [
+            -0.006880995935781068,
+            0.009679700854762878
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.6546828917372809,
+          "neutral_mass": 0.10506596342290053,
+          "pairwise_dispersion_norm": 1.6986019008797344,
+          "effective_sample_size": 9.942979541450534
+        },
+        {
+          "event_id": "hist_0350",
+          "query_date": "2024-01-26",
+          "event_family": "dialogue",
+          "realized_abret": -0.0038363485588078037,
+          "raw_return": -0.00020889037433158286,
+          "prediction": 0.00027654278769731185,
+          "e1_prediction": 0.0005329402094333773,
+          "interval_80": [
+            -0.007747408185838595,
+            0.00881328860470535
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.9164494551647113,
+          "neutral_mass": 0.09711810757225571,
+          "pairwise_dispersion_norm": 1.1104652680952924,
+          "effective_sample_size": 9.989796209405894
+        },
+        {
+          "event_id": "hist_0351",
+          "query_date": "2024-01-31",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.001773545568884277,
+          "raw_return": 0.0018942823316385748,
+          "prediction": 0.001423372931429069,
+          "e1_prediction": 0.0008205636758879354,
+          "interval_80": [
+            -0.007459784719384037,
+            0.009100912071159909
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.8178828224913404,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.6571600891214548,
+          "effective_sample_size": 9.983754045537603
+        },
+        {
+          "event_id": "hist_0352",
+          "query_date": "2024-02-19",
+          "event_family": "dialogue",
+          "realized_abret": -0.001734185535227712,
+          "raw_return": 6.946760031101284e-05,
+          "prediction": 0.0016799792211044853,
+          "e1_prediction": 0.0016746124821517864,
+          "interval_80": [
+            -0.006605735913120187,
+            0.00995496087742376
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.8053510325138123,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.487045235462506,
+          "effective_sample_size": 9.990318506658916
+        },
+        {
+          "event_id": "hist_0354",
+          "query_date": "2024-02-26",
+          "event_family": "rhetoric",
+          "realized_abret": -0.0010263140956614715,
+          "raw_return": 0.00012503299481814167,
+          "prediction": -0.00026877535440180355,
+          "e1_prediction": -0.00021314039963434545,
+          "interval_80": [
+            -0.008493488794906318,
+            0.008067207995637628
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.9826069064826874,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 0.8737287338090248,
+          "effective_sample_size": 9.963163038691132
+        },
+        {
+          "event_id": "hist_0355",
+          "query_date": "2024-02-27",
+          "event_family": "litigation",
+          "realized_abret": -0.0003708764261663532,
+          "raw_return": 0.00018061074217112782,
+          "prediction": 0.0026496261225682884,
+          "e1_prediction": 0.0030750663192361575,
+          "interval_80": [
+            -0.005205282076035815,
+            0.011355414714508131
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.2830233476839772,
+          "neutral_mass": 0.29721633197542086,
+          "pairwise_dispersion_norm": 1.136442726519913,
+          "effective_sample_size": 9.992347298249936
+        },
+        {
+          "event_id": "hist_0356",
+          "query_date": "2024-02-28",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0008180839989247823,
+          "raw_return": 8.334954018840435e-05,
+          "prediction": 0.001164721478203019,
+          "e1_prediction": 0.000493548153437026,
+          "interval_80": [
+            -0.007786800241834947,
+            0.008773896548708998
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.748639511358886,
+          "neutral_mass": 0.19853900991476822,
+          "pairwise_dispersion_norm": 0.9431277296210149,
+          "effective_sample_size": 9.997687590531555
+        },
+        {
+          "event_id": "hist_0357",
+          "query_date": "2024-02-29",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.003995668124461421,
+          "raw_return": 0.000778534686500798,
+          "prediction": 0.0007241949767781581,
+          "e1_prediction": 0.0006811573387731699,
+          "interval_80": [
+            -0.007599191056498803,
+            0.008961505734045142
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.3479706965998576,
+          "neutral_mass": 0.40531895386217104,
+          "pairwise_dispersion_norm": 1.4995483452673952,
+          "effective_sample_size": 9.992577782581167
+        },
+        {
+          "event_id": "hist_0358",
+          "query_date": "2024-03-01",
+          "event_family": "rhetoric",
+          "realized_abret": 0.0016281720270847461,
+          "raw_return": -0.0009307494616933587,
+          "prediction": 0.00035849730663485406,
+          "e1_prediction": -0.001293058331303483,
+          "interval_80": [
+            -0.009573406726575456,
+            0.00698729006396849
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.8867672725904434,
+          "neutral_mass": 0.09985825195245883,
+          "pairwise_dispersion_norm": 1.8098304769785107,
+          "effective_sample_size": 9.999046044020293
+        },
+        {
+          "event_id": "hist_0359",
+          "query_date": "2024-03-06",
+          "event_family": "entity_restrictions",
+          "realized_abret": 6.071862093576556e-05,
+          "raw_return": -0.0006528503167019251,
+          "prediction": 0.0013702209684244393,
+          "e1_prediction": 0.002008653215793243,
+          "interval_80": [
+            -0.0062716951794787295,
+            0.010289001611065217
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.2868283254622701,
+          "neutral_mass": 0.30122811102887403,
+          "pairwise_dispersion_norm": 1.0405640364322366,
+          "effective_sample_size": 9.989740416060773
+        },
+        {
+          "event_id": "hist_0361",
+          "query_date": "2024-03-14",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0018063045117666164,
+          "raw_return": 0.0011542045027881365,
+          "prediction": 0.000274374741257396,
+          "e1_prediction": -0.000601969142967213,
+          "interval_80": [
+            -0.008882317538239187,
+            0.00767837925230476
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.7913425820789487,
+          "neutral_mass": 0.20274124420627926,
+          "pairwise_dispersion_norm": 1.7137280570978841,
+          "effective_sample_size": 9.884102083044755
+        },
+        {
+          "event_id": "hist_0362",
+          "query_date": "2024-03-27",
+          "event_family": "dialogue",
+          "realized_abret": -0.0005865843958789093,
+          "raw_return": 0.0009960710530685368,
+          "prediction": 0.0007606438061818605,
+          "e1_prediction": 0.0007499158373829535,
+          "interval_80": [
+            -0.00753043255788902,
+            0.009030264232654926
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.7213625367135897,
+          "neutral_mass": 0.19417198326005544,
+          "pairwise_dispersion_norm": 2.2221087472105774,
+          "effective_sample_size": 9.966557635710272
+        },
+        {
+          "event_id": "hist_0363",
+          "query_date": "2024-03-29",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0014353576484688242,
+          "raw_return": 0.0014674936316312337,
+          "prediction": 0.0011923045043618727,
+          "e1_prediction": 0.0016512857424309183,
+          "interval_80": [
+            -0.0066290626528410545,
+            0.00993163413770289
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.5904439947205282,
+          "neutral_mass": 0.3015850916505707,
+          "pairwise_dispersion_norm": 1.0988834275048844,
+          "effective_sample_size": 9.968728277816703
+        },
+        {
+          "event_id": "hist_0364",
+          "query_date": "2024-04-02",
+          "event_family": "dialogue",
+          "realized_abret": -0.0034387738467681547,
+          "raw_return": 0.00020731403930640546,
+          "prediction": -0.0010208727663470554,
+          "e1_prediction": -0.0024337591430640317,
+          "interval_80": [
+            -0.010714107538336005,
+            0.005846589252207941
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.3098014623287477,
+          "neutral_mass": 0.29884203156474937,
+          "pairwise_dispersion_norm": 0.966959614371958,
+          "effective_sample_size": 9.979396314481425
+        },
+        {
+          "event_id": "hist_0365",
+          "query_date": "2024-04-08",
+          "event_family": "dialogue",
+          "realized_abret": -0.006814061215262216,
+          "raw_return": 0.0006635608333218634,
+          "prediction": -0.000492603187739715,
+          "e1_prediction": -0.0006591783640680206,
+          "interval_80": [
+            -0.008939526759339993,
+            0.007621170031203953
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.9810399950778269,
+          "neutral_mass": 0.19192132290555353,
+          "pairwise_dispersion_norm": 0.9528283966391654,
+          "effective_sample_size": 9.975536212505007
+        },
+        {
+          "event_id": "hist_0366",
+          "query_date": "2024-04-10",
+          "event_family": "dialogue",
+          "realized_abret": -0.0019439901766918348,
+          "raw_return": 0.00024885595387869053,
+          "prediction": -2.0722289388300116e-05,
+          "e1_prediction": 0.00027013659608761956,
+          "interval_80": [
+            -0.008010211799184354,
+            0.008550484991359592
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.8837118471924745,
+          "neutral_mass": 0.0993736261902875,
+          "pairwise_dispersion_norm": 1.1123161343130152,
+          "effective_sample_size": 9.995852736673886
+        },
+        {
+          "event_id": "hist_0367",
+          "query_date": "2024-04-11",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0027996924322554614,
+          "raw_return": 0.0002901794967460347,
+          "prediction": 0.0009066372101219757,
+          "e1_prediction": 0.0013852558667586596,
+          "interval_80": [
+            -0.006895092528513313,
+            0.009665604262030633
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.786391848658248,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.8028639494545586,
+          "effective_sample_size": 9.982684939518235
+        },
+        {
+          "event_id": "hist_0368",
+          "query_date": "2024-04-16",
+          "event_family": "dialogue",
+          "realized_abret": 0.002117376472006173,
+          "raw_return": 0.000966904248853373,
+          "prediction": -0.00038265303459686,
+          "e1_prediction": -0.00014544925355124182,
+          "interval_80": [
+            -0.008425797648823214,
+            0.008134899141720732
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.8955160356290095,
+          "neutral_mass": 0.09828028040204868,
+          "pairwise_dispersion_norm": 0.7938799361424499,
+          "effective_sample_size": 9.989634970495159
+        },
+        {
+          "event_id": "hist_0369",
+          "query_date": "2024-04-17",
+          "event_family": "rhetoric",
+          "realized_abret": 0.0008181188317589978,
+          "raw_return": 0.0015342299133369597,
+          "prediction": 0.001120672471993896,
+          "e1_prediction": 0.0012941262929842127,
+          "interval_80": [
+            -0.00698622210228776,
+            0.009574474688256186
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.41161264695347155,
+          "neutral_mass": 0.49487413939142283,
+          "pairwise_dispersion_norm": 0.7323724276819171,
+          "effective_sample_size": 9.992376968932865
+        },
+        {
+          "event_id": "hist_0371",
+          "query_date": "2024-04-22",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0014561436586670606,
+          "raw_return": 0.00042796399580335986,
+          "prediction": -0.0008455809774744025,
+          "e1_prediction": -0.0020839110913783267,
+          "interval_80": [
+            -0.0103642594866503,
+            0.006196437303893646
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.5719962570222387,
+          "neutral_mass": 0.2928482859733035,
+          "pairwise_dispersion_norm": 1.1226190636753264,
+          "effective_sample_size": 9.978439693169365
+        },
+        {
+          "event_id": "hist_0372",
+          "query_date": "2024-04-24",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0027900504573362917,
+          "raw_return": -0.004457631796853545,
+          "prediction": -0.0018418329587571367,
+          "e1_prediction": -0.003299419733612522,
+          "interval_80": [
+            -0.011579768128884494,
+            0.004980928661659451
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.30500176817173397,
+          "neutral_mass": 0.30471273622030026,
+          "pairwise_dispersion_norm": 1.3604331169619222,
+          "effective_sample_size": 9.973302046977754
+        },
+        {
+          "event_id": "hist_0373",
+          "query_date": "2024-04-26",
+          "event_family": "dialogue",
+          "realized_abret": -0.0005479017558615356,
+          "raw_return": -0.0027876295488733493,
+          "prediction": 0.0011231923988981613,
+          "e1_prediction": 0.0016333552114350261,
+          "interval_80": [
+            -0.006646993183836947,
+            0.009913703606707
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.9815897463481541,
+          "neutral_mass": 0.19050882326352825,
+          "pairwise_dispersion_norm": 1.6888194331086037,
+          "effective_sample_size": 9.972362380110006
+        },
+        {
+          "event_id": "hist_0374",
+          "query_date": "2024-04-29",
+          "event_family": "dialogue",
+          "realized_abret": -0.002209655591237665,
+          "raw_return": -0.0028840713704170184,
+          "prediction": -0.0016188994217723896,
+          "e1_prediction": -0.0012045699526775564,
+          "interval_80": [
+            -0.008782806405099177,
+            0.006373666499744065
+          ],
+          "interval_width": 0.015156472904843243,
+          "n_calibration": 60,
+          "directional_conflict": 0.6422928085245356,
+          "neutral_mass": 0.09527092987492994,
+          "pairwise_dispersion_norm": 1.4647610026216227,
+          "effective_sample_size": 9.98096026099582
+        },
+        {
+          "event_id": "hist_0375",
+          "query_date": "2024-04-29",
+          "event_family": "tariff",
+          "realized_abret": -0.002209655591237665,
+          "raw_return": -0.0028840713704170184,
+          "prediction": -0.0002767693665931021,
+          "e1_prediction": -0.0003400263298147333,
+          "interval_80": [
+            -0.007918262782236354,
+            0.007238210122606888
+          ],
+          "interval_width": 0.015156472904843243,
+          "n_calibration": 60,
+          "directional_conflict": 0.8814871276435581,
+          "neutral_mass": 0.10244171636399269,
+          "pairwise_dispersion_norm": 2.2063999846131894,
+          "effective_sample_size": 9.992925066834394
+        },
+        {
+          "event_id": "hist_0376",
+          "query_date": "2024-05-06",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0014117054898771606,
+          "raw_return": 0.0029111274380695384,
+          "prediction": 0.0007952624012714139,
+          "e1_prediction": 0.0013462368986412443,
+          "interval_80": [
+            -0.005311277570849826,
+            0.008003751368132314
+          ],
+          "interval_width": 0.013315028938982142,
+          "n_calibration": 60,
+          "directional_conflict": 0.8069448541293471,
+          "neutral_mass": 0.5040851308576938,
+          "pairwise_dispersion_norm": 1.4625395413579076,
+          "effective_sample_size": 9.989377203537742
+        },
+        {
+          "event_id": "hist_0377",
+          "query_date": "2024-05-08",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0010511712354942578,
+          "raw_return": -0.0009133557520653035,
+          "prediction": -3.49288881431874e-05,
+          "e1_prediction": 0.0003479353055310974,
+          "interval_80": [
+            -0.006309579163959973,
+            0.007005449775022168
+          ],
+          "interval_width": 0.013315028938982142,
+          "n_calibration": 60,
+          "directional_conflict": 0.8733339251263539,
+          "neutral_mass": 0.295748170641664,
+          "pairwise_dispersion_norm": 1.6493208894523366,
+          "effective_sample_size": 9.98801143563613
+        },
+        {
+          "event_id": "hist_0378",
+          "query_date": "2024-05-09",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.000670515533049526,
+          "raw_return": -0.0009687508649560694,
+          "prediction": 0.00164024581463509,
+          "e1_prediction": 0.0018110912001108963,
+          "interval_80": [
+            -0.004846423269380174,
+            0.008468605669601966
+          ],
+          "interval_width": 0.013315028938982142,
+          "n_calibration": 60,
+          "directional_conflict": 0.8790034484785726,
+          "neutral_mass": 0.10626261964791299,
+          "pairwise_dispersion_norm": 1.3670225382876178,
+          "effective_sample_size": 9.982708816788593
+        },
+        {
+          "event_id": "hist_0379",
+          "query_date": "2024-05-14",
+          "event_family": "tariff",
+          "realized_abret": 0.00044057280526239807,
+          "raw_return": -9.671580750780784e-05,
+          "prediction": 0.0008269275202586224,
+          "e1_prediction": 0.00018075315546824204,
+          "interval_80": [
+            -0.006476761314022829,
+            0.006838267624959313
+          ],
+          "interval_width": 0.013315028938982142,
+          "n_calibration": 60,
+          "directional_conflict": 0.9965215695464631,
+          "neutral_mass": 0.39902478235082145,
+          "pairwise_dispersion_norm": 1.1082101942694333,
+          "effective_sample_size": 9.994284695951595
+        },
+        {
+          "event_id": "hist_0380",
+          "query_date": "2024-05-16",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0009017393008012055,
+          "raw_return": 0.00357400121903928,
+          "prediction": 9.956588455233954e-05,
+          "e1_prediction": -6.421256325617392e-05,
+          "interval_80": [
+            -0.006721727032747244,
+            0.006593301906234897
+          ],
+          "interval_width": 0.013315028938982142,
+          "n_calibration": 60,
+          "directional_conflict": 0.8832492374941111,
+          "neutral_mass": 0.10272040413695545,
+          "pairwise_dispersion_norm": 1.4761247259324153,
+          "effective_sample_size": 9.956902747357926
+        },
+        {
+          "event_id": "hist_0381",
+          "query_date": "2024-05-20",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.001388859855210595,
+          "raw_return": 0.0017422566371680936,
+          "prediction": 0.001872870040428146,
+          "e1_prediction": 0.004015885995419882,
+          "interval_80": [
+            -0.0026416284740711886,
+            0.010673400464910953
+          ],
+          "interval_width": 0.013315028938982142,
+          "n_calibration": 60,
+          "directional_conflict": 0.40504846031093145,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.6335349733927333,
+          "effective_sample_size": 9.986232718385612
+        },
+        {
+          "event_id": "hist_0383",
+          "query_date": "2024-05-28",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0013642067119461355,
+          "raw_return": -0.0003587691458535325,
+          "prediction": 0.0014631583696453065,
+          "e1_prediction": 0.002096154847511298,
+          "interval_80": [
+            -0.004128957959236852,
+            0.008321267654259449
+          ],
+          "interval_width": 0.012450225613496301,
+          "n_calibration": 60,
+          "directional_conflict": 0.46824752965594374,
+          "neutral_mass": 0.19120777907061262,
+          "pairwise_dispersion_norm": 1.2931312497288563,
+          "effective_sample_size": 9.947633123262712
+        },
+        {
+          "event_id": "hist_0384",
+          "query_date": "2024-05-31",
+          "event_family": "dialogue",
+          "realized_abret": -0.0016298051220919097,
+          "raw_return": -0.00019326339039194007,
+          "prediction": -0.0014657264753697905,
+          "e1_prediction": -0.0014199240333183706,
+          "interval_80": [
+            -0.007645036840066521,
+            0.0048051887734297805
+          ],
+          "interval_width": 0.012450225613496301,
+          "n_calibration": 60,
+          "directional_conflict": 0.754926830632625,
+          "neutral_mass": 0.203630052579559,
+          "pairwise_dispersion_norm": 1.4638740678034352,
+          "effective_sample_size": 9.997543399339246
+        },
+        {
+          "event_id": "hist_0385",
+          "query_date": "2024-06-11",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0006640530683956238,
+          "raw_return": 0.00028949146000201154,
+          "prediction": 0.0007892100303883129,
+          "e1_prediction": 0.0008057993537896215,
+          "interval_80": [
+            -0.0054193134529585294,
+            0.007030912160537772
+          ],
+          "interval_width": 0.012450225613496301,
+          "n_calibration": 60,
+          "directional_conflict": 0.7892062587224248,
+          "neutral_mass": 0.1869016981375843,
+          "pairwise_dispersion_norm": 1.0510503471548742,
+          "effective_sample_size": 9.927208148412385
+        },
+        {
+          "event_id": "hist_0386",
+          "query_date": "2024-06-12",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0008007974404314003,
+          "raw_return": 0.00045494023739611755,
+          "prediction": -1.423937515242159e-05,
+          "e1_prediction": -0.00033815375290000807,
+          "interval_80": [
+            -0.006493036604094203,
+            0.0058167290982941875
+          ],
+          "interval_width": 0.01230976570238839,
+          "n_calibration": 60,
+          "directional_conflict": 0.8572879338554189,
+          "neutral_mass": 0.2987058057565567,
+          "pairwise_dispersion_norm": 0.9893424315492082,
+          "effective_sample_size": 9.974368361621556
+        },
+        {
+          "event_id": "hist_0387",
+          "query_date": "2024-06-17",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.00018717471829198017,
+          "raw_return": 0.0008131313827368647,
+          "prediction": 0.0012119990135225096,
+          "e1_prediction": 0.0018733507080858946,
+          "interval_80": [
+            -0.004281532143108301,
+            0.00802823355928009
+          ],
+          "interval_width": 0.01230976570238839,
+          "n_calibration": 60,
+          "directional_conflict": 0.5700329285491375,
+          "neutral_mass": 0.3064516089635755,
+          "pairwise_dispersion_norm": 1.2018305621448757,
+          "effective_sample_size": 9.989229807512272
+        },
+        {
+          "event_id": "hist_0388",
+          "query_date": "2024-06-21",
+          "event_family": "entity_restrictions",
+          "realized_abret": -9.670715557440147e-05,
+          "raw_return": 0.0006334953796154341,
+          "prediction": 0.0006278591680938616,
+          "e1_prediction": 0.0006146161887368065,
+          "interval_80": [
+            -0.0047155638120383505,
+            0.005944796189511964
+          ],
+          "interval_width": 0.010660360001550314,
+          "n_calibration": 60,
+          "directional_conflict": 0.8793003426183454,
+          "neutral_mass": 0.09793965473352156,
+          "pairwise_dispersion_norm": 1.2449874036348196,
+          "effective_sample_size": 9.987106600695016
+        },
+        {
+          "event_id": "hist_0389",
+          "query_date": "2024-06-25",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.00087043926730924,
+          "raw_return": 0.0011841163187751302,
+          "prediction": 0.0005366843365816328,
+          "e1_prediction": 0.0003884947504405485,
+          "interval_80": [
+            -0.004941685250334608,
+            0.005718674751215706
+          ],
+          "interval_width": 0.010660360001550314,
+          "n_calibration": 60,
+          "directional_conflict": 0.5213733816541266,
+          "neutral_mass": 0.2027687594925881,
+          "pairwise_dispersion_norm": 1.4886416125471962,
+          "effective_sample_size": 9.990008701112231
+        },
+        {
+          "event_id": "hist_0390",
+          "query_date": "2024-07-12",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0004170400968846052,
+          "raw_return": 0.0011985947509816075,
+          "prediction": 0.00014055038854191446,
+          "e1_prediction": 0.0003304748299826298,
+          "interval_80": [
+            -0.004839487195967631,
+            0.0055004368559328914
+          ],
+          "interval_width": 0.010339924051900522,
+          "n_calibration": 60,
+          "directional_conflict": 0.7596592627666863,
+          "neutral_mass": 0.21356240794196474,
+          "pairwise_dispersion_norm": 1.0761616668171334,
+          "effective_sample_size": 9.971351303468165
+        },
+        {
+          "event_id": "hist_0391",
+          "query_date": "2024-07-19",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0018271538757222178,
+          "raw_return": -0.0018714222809335102,
+          "prediction": 0.0009617345155076801,
+          "e1_prediction": 0.0013421549117063954,
+          "interval_80": [
+            -0.003827807114243866,
+            0.006512116937656656
+          ],
+          "interval_width": 0.010339924051900522,
+          "n_calibration": 60,
+          "directional_conflict": 0.8811313687945934,
+          "neutral_mass": 0.09932234050383391,
+          "pairwise_dispersion_norm": 1.443653623939773,
+          "effective_sample_size": 9.994068103242988
+        },
+        {
+          "event_id": "hist_0393",
+          "query_date": "2024-07-22",
+          "event_family": "dialogue",
+          "realized_abret": -0.0026216036226567713,
+          "raw_return": -0.002199705789350692,
+          "prediction": 0.000423755998965777,
+          "e1_prediction": 0.0019480409378190722,
+          "interval_80": [
+            -0.003195141782963917,
+            0.007091223658602062
+          ],
+          "interval_width": 0.010286365441565979,
+          "n_calibration": 60,
+          "directional_conflict": 0.7405654508578052,
+          "neutral_mass": 0.1997652463737287,
+          "pairwise_dispersion_norm": 1.056761294529144,
+          "effective_sample_size": 9.996918768957718
+        },
+        {
+          "event_id": "hist_0394",
+          "query_date": "2024-07-24",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.005870547300267612,
+          "raw_return": -0.00685816382627813,
+          "prediction": 0.0013720827688336644,
+          "e1_prediction": 0.002040181727220562,
+          "interval_80": [
+            -0.0031030009935624275,
+            0.007183364448003551
+          ],
+          "interval_width": 0.010286365441565979,
+          "n_calibration": 60,
+          "directional_conflict": 0.43157074517972627,
+          "neutral_mass": 0.09718485193608245,
+          "pairwise_dispersion_norm": 1.2027065301092288,
+          "effective_sample_size": 9.987918002432783
+        },
+        {
+          "event_id": "hist_0395",
+          "query_date": "2024-07-25",
+          "event_family": "rhetoric",
+          "realized_abret": 0.004428326147370492,
+          "raw_return": 0.0033655111283463768,
+          "prediction": -0.0004047125073779476,
+          "e1_prediction": -0.0019799321415277845,
+          "interval_80": [
+            -0.007149894167478046,
+            0.0031900298844224767
+          ],
+          "interval_width": 0.010339924051900522,
+          "n_calibration": 60,
+          "directional_conflict": 0.4990820048063743,
+          "neutral_mass": 0.19940079456533186,
+          "pairwise_dispersion_norm": 1.7230753719172358,
+          "effective_sample_size": 9.999590908187702
+        },
+        {
+          "event_id": "hist_0396",
+          "query_date": "2024-07-29",
+          "event_family": "dialogue",
+          "realized_abret": -0.010597158743817812,
+          "raw_return": -0.016423935957672442,
+          "prediction": -0.00018720664124407057,
+          "e1_prediction": 1.2190255255580907e-05,
+          "interval_80": [
+            -0.006142692595938614,
+            0.006167073106449776
+          ],
+          "interval_width": 0.01230976570238839,
+          "n_calibration": 60,
+          "directional_conflict": 0.8853940478319559,
+          "neutral_mass": 0.09985379573842021,
+          "pairwise_dispersion_norm": 1.4103559614992036,
+          "effective_sample_size": 9.987690798332578
+        },
+        {
+          "event_id": "hist_0397",
+          "query_date": "2024-07-30",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.009195921691744297,
+          "raw_return": -0.013839827795562476,
+          "prediction": 0.00012227386458509294,
+          "e1_prediction": 0.000189621543849082,
+          "interval_80": [
+            -0.005965261307345113,
+            0.0063445043950432775
+          ],
+          "interval_width": 0.01230976570238839,
+          "n_calibration": 60,
+          "directional_conflict": 0.8455725090299608,
+          "neutral_mass": 0.09882482950825755,
+          "pairwise_dispersion_norm": 1.0862350874651567,
+          "effective_sample_size": 9.956637495495986
+        },
+        {
+          "event_id": "hist_0398",
+          "query_date": "2024-07-31",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.002908329452106702,
+          "raw_return": -0.005867618770844629,
+          "prediction": 0.0006670495574742655,
+          "e1_prediction": 0.0003892652680118419,
+          "interval_80": [
+            -0.005765617583182354,
+            0.006544148119206037
+          ],
+          "interval_width": 0.01230976570238839,
+          "n_calibration": 60,
+          "directional_conflict": 0.9954170987923997,
+          "neutral_mass": 0.19617633212318852,
+          "pairwise_dispersion_norm": 0.9911859147886851,
+          "effective_sample_size": 9.997394388434204
+        },
+        {
+          "event_id": "hist_0399",
+          "query_date": "2024-08-05",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.004848459176424138,
+          "raw_return": 0.005925614624921138,
+          "prediction": 0.0006726064827216412,
+          "e1_prediction": 0.0005972647251947538,
+          "interval_80": [
+            -0.004572697300755508,
+            0.0057672267511450145
+          ],
+          "interval_width": 0.010339924051900522,
+          "n_calibration": 60,
+          "directional_conflict": 0.5682914495826569,
+          "neutral_mass": 0.3075670493126987,
+          "pairwise_dispersion_norm": 1.3253985813253784,
+          "effective_sample_size": 9.922706944024874
+        },
+        {
+          "event_id": "hist_0401",
+          "query_date": "2024-08-15",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0009707290482888912,
+          "raw_return": -0.0032816187457234136,
+          "prediction": 0.0017191400261597721,
+          "e1_prediction": 0.001323883771449257,
+          "interval_80": [
+            -0.0038192989493337323,
+            0.006467066492232247
+          ],
+          "interval_width": 0.010286365441565979,
+          "n_calibration": 60,
+          "directional_conflict": 0.7482334447175911,
+          "neutral_mass": 0.19774704218595862,
+          "pairwise_dispersion_norm": 1.036537041767041,
+          "effective_sample_size": 9.995856286637473
+        },
+        {
+          "event_id": "hist_0402",
+          "query_date": "2024-08-23",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.00960159421621377,
+          "raw_return": -0.006823786571012347,
+          "prediction": 0.0010075233462791557,
+          "e1_prediction": 0.0011073270243830988,
+          "interval_80": [
+            -0.003462317536092745,
+            0.005676971584858943
+          ],
+          "interval_width": 0.009139289120951688,
+          "n_calibration": 60,
+          "directional_conflict": 0.5717733906527311,
+          "neutral_mass": 0.3142682545637397,
+          "pairwise_dispersion_norm": 1.419345761853204,
+          "effective_sample_size": 9.940513988890778
+        },
+        {
+          "event_id": "hist_0403",
+          "query_date": "2024-08-27",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.004636078554753708,
+          "raw_return": -0.0017532540394972207,
+          "prediction": 0.0006746481176980173,
+          "e1_prediction": 0.0002993047942430389,
+          "interval_80": [
+            -0.004270339766232805,
+            0.004868949354718883
+          ],
+          "interval_width": 0.009139289120951688,
+          "n_calibration": 60,
+          "directional_conflict": 0.9945192548002473,
+          "neutral_mass": 0.3913641705073006,
+          "pairwise_dispersion_norm": 1.0338055226332308,
+          "effective_sample_size": 9.975024362458623
+        },
+        {
+          "event_id": "hist_0404",
+          "query_date": "2024-08-29",
+          "event_family": "dialogue",
+          "realized_abret": -0.00025948981014495623,
+          "raw_return": -0.0015048803127899468,
+          "prediction": -0.0008699001783978286,
+          "e1_prediction": -0.0012087666129742445,
+          "interval_80": [
+            -0.005778411173450088,
+            0.0033608779475015997
+          ],
+          "interval_width": 0.009139289120951688,
+          "n_calibration": 60,
+          "directional_conflict": 0.9985557918732059,
+          "neutral_mass": 0.20142533130167198,
+          "pairwise_dispersion_norm": 1.1266636445405513,
+          "effective_sample_size": 9.998315973820283
+        },
+        {
+          "event_id": "hist_0405",
+          "query_date": "2024-09-05",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0032278958004872396,
+          "raw_return": 0.0033946052538909033,
+          "prediction": 0.0006129304079146972,
+          "e1_prediction": 0.0006339269762423962,
+          "interval_80": [
+            -0.003836996518013618,
+            0.00510485047049841
+          ],
+          "interval_width": 0.008941846988512029,
+          "n_calibration": 60,
+          "directional_conflict": 0.4630483954022079,
+          "neutral_mass": 0.09813131103581015,
+          "pairwise_dispersion_norm": 1.588513352541719,
+          "effective_sample_size": 9.986613675381493
+        },
+        {
+          "event_id": "hist_0406",
+          "query_date": "2024-09-06",
+          "event_family": "dialogue",
+          "realized_abret": 0.0012900824513346414,
+          "raw_return": 0.000860585197934638,
+          "prediction": -0.0021623700364977786,
+          "e1_prediction": -0.0016174696336136482,
+          "interval_80": [
+            -0.006088393127869663,
+            0.002853453860642366
+          ],
+          "interval_width": 0.008941846988512029,
+          "n_calibration": 60,
+          "directional_conflict": 0.858416035253522,
+          "neutral_mass": 0.29404225562221176,
+          "pairwise_dispersion_norm": 1.726045318509543,
+          "effective_sample_size": 9.988013273489601
+        },
+        {
+          "event_id": "hist_0407",
+          "query_date": "2024-09-09",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0015171876583757503,
+          "raw_return": -0.0035840782594029896,
+          "prediction": -0.0006493196475929801,
+          "e1_prediction": 0.00033175123247718586,
+          "interval_80": [
+            -0.0040375375357639956,
+            0.004701040000718367
+          ],
+          "interval_width": 0.008738577536482363,
+          "n_calibration": 60,
+          "directional_conflict": 0.6585115106850619,
+          "neutral_mass": 0.09759472523361669,
+          "pairwise_dispersion_norm": 1.4050009367471124,
+          "effective_sample_size": 9.986617776229496
+        },
+        {
+          "event_id": "hist_0408",
+          "query_date": "2024-09-12",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.007853636379474201,
+          "raw_return": -0.009110562075354989,
+          "prediction": -0.0008301038550108606,
+          "e1_prediction": -9.718505906280085e-05,
+          "interval_80": [
+            -0.004466473827303983,
+            0.00427210370917838
+          ],
+          "interval_width": 0.008738577536482363,
+          "n_calibration": 60,
+          "directional_conflict": 0.9989350789894474,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.1544770962795263,
+          "effective_sample_size": 9.997870678479705
+        },
+        {
+          "event_id": "hist_0409",
+          "query_date": "2024-09-13",
+          "event_family": "tariff",
+          "realized_abret": -0.005614735417420774,
+          "raw_return": -0.007865469461398655,
+          "prediction": 0.001760564702852914,
+          "e1_prediction": 0.0006943700515742884,
+          "interval_80": [
+            -0.0038752745089015556,
+            0.005264014612050132
+          ],
+          "interval_width": 0.009139289120951688,
+          "n_calibration": 60,
+          "directional_conflict": 0.7553564186302094,
+          "neutral_mass": 0.21164001051923415,
+          "pairwise_dispersion_norm": 1.5358129699690652,
+          "effective_sample_size": 9.97956575570499
+        },
+        {
+          "event_id": "hist_0410",
+          "query_date": "2024-09-18",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.00912248023471458,
+          "raw_return": -0.00952139139266217,
+          "prediction": -0.001552429073996286,
+          "e1_prediction": -0.0021071748042872005,
+          "interval_80": [
+            -0.007042558153283947,
+            0.0028282085447095466
+          ],
+          "interval_width": 0.009870766697993494,
+          "n_calibration": 60,
+          "directional_conflict": 0.22825142044963254,
+          "neutral_mass": 0.2007589779518446,
+          "pairwise_dispersion_norm": 0.7058607765269027,
+          "effective_sample_size": 9.938597645256351
+        },
+        {
+          "event_id": "hist_0412",
+          "query_date": "2024-09-23",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.005394740794445612,
+          "raw_return": -0.006105940187286718,
+          "prediction": -0.00023805713022930094,
+          "e1_prediction": 0.000238988901112762,
+          "interval_80": [
+            -0.004696394447883985,
+            0.0051743722501095095
+          ],
+          "interval_width": 0.009870766697993494,
+          "n_calibration": 60,
+          "directional_conflict": 0.9816598103283247,
+          "neutral_mass": 0.19627332126063546,
+          "pairwise_dispersion_norm": 1.0317026502681519,
+          "effective_sample_size": 9.987469664298796
+        },
+        {
+          "event_id": "hist_0413",
+          "query_date": "2024-09-24",
+          "event_family": "litigation",
+          "realized_abret": -0.003299774156083929,
+          "raw_return": 0.0021311358954325677,
+          "prediction": 0.0009075987394730157,
+          "e1_prediction": 0.0017177942869076987,
+          "interval_80": [
+            -0.0034253884338752904,
+            0.006860977007690688
+          ],
+          "interval_width": 0.010286365441565979,
+          "n_calibration": 60,
+          "directional_conflict": 0.0,
+          "neutral_mass": 0.6114870273956151,
+          "pairwise_dispersion_norm": 0.9374007142957335,
+          "effective_sample_size": 9.978688356770009
+        },
+        {
+          "event_id": "hist_0414",
+          "query_date": "2024-09-30",
+          "event_family": "dialogue",
+          "realized_abret": 0.0031085733102040394,
+          "raw_return": 0.00910827299161876,
+          "prediction": -0.0013937272573150425,
+          "e1_prediction": -0.0014635523769677124,
+          "interval_80": [
+            -0.0066067350977507015,
+            0.003679630343815277
+          ],
+          "interval_width": 0.010286365441565979,
+          "n_calibration": 60,
+          "directional_conflict": 0.6626167860921531,
+          "neutral_mass": 0.09458922342131268,
+          "pairwise_dispersion_norm": 1.6367714285863286,
+          "effective_sample_size": 9.966796021604502
+        },
+        {
+          "event_id": "hist_0415",
+          "query_date": "2024-10-08",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.007363096501902961,
+          "raw_return": 0.008676543559934746,
+          "prediction": -6.363100031926798e-05,
+          "e1_prediction": 0.0001542419900058696,
+          "interval_80": [
+            -0.00498894073077712,
+            0.0052974247107888586
+          ],
+          "interval_width": 0.010286365441565979,
+          "n_calibration": 60,
+          "directional_conflict": 0.9627963489771861,
+          "neutral_mass": 0.4222148268600761,
+          "pairwise_dispersion_norm": 0.6682467026977871,
+          "effective_sample_size": 9.893178292934317
+        },
+        {
+          "event_id": "hist_0416",
+          "query_date": "2024-10-10",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.004416068058722362,
+          "raw_return": 0.006300591916594822,
+          "prediction": -0.00010504042925107943,
+          "e1_prediction": 0.0006263221277113193,
+          "interval_80": [
+            -0.00451686059307167,
+            0.005769504848494309
+          ],
+          "interval_width": 0.010286365441565979,
+          "n_calibration": 60,
+          "directional_conflict": 0.9988406519290095,
+          "neutral_mass": 0.22665824412770025,
+          "pairwise_dispersion_norm": 1.8525764576224983,
+          "effective_sample_size": 9.942387059500241
+        },
+        {
+          "event_id": "hist_0417",
+          "query_date": "2024-10-17",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0018311353175423624,
+          "raw_return": -0.0014038437241167268,
+          "prediction": -0.0008210484629316709,
+          "e1_prediction": -0.0008397579757147216,
+          "interval_80": [
+            -0.0058573264187063495,
+            0.004177810467276906
+          ],
+          "interval_width": 0.010035136885983256,
+          "n_calibration": 60,
+          "directional_conflict": 0.8931758201647994,
+          "neutral_mass": 0.3072680512314333,
+          "pairwise_dispersion_norm": 1.127747906001994,
+          "effective_sample_size": 9.963476798029948
+        },
+        {
+          "event_id": "hist_0418",
+          "query_date": "2024-10-23",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.00028291234572291185,
+          "raw_return": -0.0006454509737890968,
+          "prediction": 1.2602065720499476e-05,
+          "e1_prediction": 0.00041856267269067544,
+          "interval_80": [
+            -0.004599005770300952,
+            0.0054361311156823034
+          ],
+          "interval_width": 0.010035136885983256,
+          "n_calibration": 60,
+          "directional_conflict": 0.9940557633888792,
+          "neutral_mass": 0.20489099098829003,
+          "pairwise_dispersion_norm": 1.1280068478605854,
+          "effective_sample_size": 9.988233407180239
+        },
+        {
+          "event_id": "hist_0420",
+          "query_date": "2024-10-30",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.003508353778189493,
+          "raw_return": 0.005995338518996807,
+          "prediction": -0.001003435199576608,
+          "e1_prediction": -0.0016066143056401934,
+          "interval_80": [
+            -0.006624182748631821,
+            0.0034109541373514344
+          ],
+          "interval_width": 0.010035136885983256,
+          "n_calibration": 60,
+          "directional_conflict": 0.7192698367126088,
+          "neutral_mass": 0.20913916457415344,
+          "pairwise_dispersion_norm": 1.2782933299603643,
+          "effective_sample_size": 9.968788432149585
+        },
+        {
+          "event_id": "hist_0421",
+          "query_date": "2024-11-01",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.00416782433344884,
+          "raw_return": 0.005585964912280694,
+          "prediction": 0.00018842199666622454,
+          "e1_prediction": 0.00012910988754103413,
+          "interval_80": [
+            -0.004985858196288652,
+            0.005244077971370721
+          ],
+          "interval_width": 0.010229936167659373,
+          "n_calibration": 60,
+          "directional_conflict": 0.9935568717848098,
+          "neutral_mass": 0.4294964827544914,
+          "pairwise_dispersion_norm": 1.329659707443432,
+          "effective_sample_size": 9.827915767179345
+        },
+        {
+          "event_id": "hist_0422",
+          "query_date": "2024-11-04",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.00895693777224562,
+          "raw_return": 0.01303294164060076,
+          "prediction": 0.0009779463558110958,
+          "e1_prediction": 0.0023814660837212917,
+          "interval_80": [
+            -0.0027335020001083947,
+            0.007496434167550978
+          ],
+          "interval_width": 0.010229936167659373,
+          "n_calibration": 60,
+          "directional_conflict": 0.597998013676616,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.4460843851781762,
+          "effective_sample_size": 9.998156608642534
+        },
+        {
+          "event_id": "hist_0423",
+          "query_date": "2024-11-11",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.005850946235668632,
+          "raw_return": 0.0075383524110210764,
+          "prediction": 0.0002364183272707569,
+          "e1_prediction": 0.0013065999056323004,
+          "interval_80": [
+            -0.004327129789926074,
+            0.006940329601190675
+          ],
+          "interval_width": 0.011267459391116749,
+          "n_calibration": 60,
+          "directional_conflict": 0.5551263008271634,
+          "neutral_mass": 0.2792128892998025,
+          "pairwise_dispersion_norm": 1.2896909070245979,
+          "effective_sample_size": 9.951401189281095
+        },
+        {
+          "event_id": "hist_0424",
+          "query_date": "2024-11-18",
+          "event_family": "dialogue",
+          "realized_abret": -0.0017411992785259555,
+          "raw_return": 0.00028989108377852624,
+          "prediction": 0.0004253769474236368,
+          "e1_prediction": 0.0011412516461759544,
+          "interval_80": [
+            -0.00449247804938242,
+            0.006774981341734329
+          ],
+          "interval_width": 0.011267459391116749,
+          "n_calibration": 60,
+          "directional_conflict": 0.8943759207267099,
+          "neutral_mass": 0.11233234947297699,
+          "pairwise_dispersion_norm": 2.0245733711897165,
+          "effective_sample_size": 9.957194717133268
+        },
+        {
+          "event_id": "hist_0425",
+          "query_date": "2024-11-19",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0003888860691753553,
+          "raw_return": 0.002472409839914924,
+          "prediction": -0.0005561041179064764,
+          "e1_prediction": -0.00021720247479468566,
+          "interval_80": [
+            -0.00585093217035306,
+            0.0054165272207636886
+          ],
+          "interval_width": 0.011267459391116749,
+          "n_calibration": 60,
+          "directional_conflict": 0.8890810743015897,
+          "neutral_mass": 0.09921025561774342,
+          "pairwise_dispersion_norm": 1.8827478600826983,
+          "effective_sample_size": 9.984502450710904
+        },
+        {
+          "event_id": "hist_0426",
+          "query_date": "2024-11-21",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.004432489130659616,
+          "raw_return": 0.0015881784283939826,
+          "prediction": -0.0005085495545092137,
+          "e1_prediction": 1.5897695142540454e-05,
+          "interval_80": [
+            -0.005617832000415834,
+            0.005649627390700915
+          ],
+          "interval_width": 0.011267459391116749,
+          "n_calibration": 60,
+          "directional_conflict": 0.8691836966300319,
+          "neutral_mass": 0.2958222830694616,
+          "pairwise_dispersion_norm": 1.283297285504949,
+          "effective_sample_size": 9.987165197329022
+        },
+        {
+          "event_id": "hist_0427",
+          "query_date": "2024-11-25",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.004975270686508758,
+          "raw_return": 0.0033672821616848037,
+          "prediction": 0.0018306721566858084,
+          "e1_prediction": 0.002344476961992958,
+          "interval_80": [
+            -0.0032892527335654166,
+            0.007978206657551333
+          ],
+          "interval_width": 0.011267459391116749,
+          "n_calibration": 60,
+          "directional_conflict": 0.5839748130109584,
+          "neutral_mass": 0.3159161385770894,
+          "pairwise_dispersion_norm": 1.173511233802548,
+          "effective_sample_size": 9.921798935392149
+        },
+        {
+          "event_id": "hist_0428",
+          "query_date": "2024-11-26",
+          "event_family": "tariff",
+          "realized_abret": 0.004764220147141654,
+          "raw_return": 0.0029347736228610977,
+          "prediction": 0.003271771946872761,
+          "e1_prediction": 0.004121555006973431,
+          "interval_80": [
+            -0.0015121746885849432,
+            0.009755284702531807
+          ],
+          "interval_width": 0.011267459391116749,
+          "n_calibration": 60,
+          "directional_conflict": 0.5604443845319569,
+          "neutral_mass": 0.29997274483670355,
+          "pairwise_dispersion_norm": 2.2026102088306927,
+          "effective_sample_size": 9.99338480265711
+        },
+        {
+          "event_id": "hist_0430",
+          "query_date": "2024-12-02",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0015455510534647366,
+          "raw_return": 0.0007427172447940222,
+          "prediction": 0.0013835757564998861,
+          "e1_prediction": 0.0015095649067149476,
+          "interval_80": [
+            -0.004124164788843427,
+            0.007143294602273322
+          ],
+          "interval_width": 0.011267459391116749,
+          "n_calibration": 60,
+          "directional_conflict": 0.6703751427490312,
+          "neutral_mass": 0.40147276338393706,
+          "pairwise_dispersion_norm": 1.15146702980534,
+          "effective_sample_size": 9.999414493032715
+        },
+        {
+          "event_id": "hist_0431",
+          "query_date": "2024-12-03",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.004386735246386207,
+          "raw_return": -0.004093912708988956,
+          "prediction": 0.000842909577406083,
+          "e1_prediction": 0.0006180559066879609,
+          "interval_80": [
+            -0.0050156737888704134,
+            0.006251785602246335
+          ],
+          "interval_width": 0.011267459391116749,
+          "n_calibration": 60,
+          "directional_conflict": 0.591507219404203,
+          "neutral_mass": 0.2961773807025243,
+          "pairwise_dispersion_norm": 0.7941459299898955,
+          "effective_sample_size": 9.984468799350731
+        },
+        {
+          "event_id": "hist_0432",
+          "query_date": "2024-12-05",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0036544950558234047,
+          "raw_return": 0.0002754441536978458,
+          "prediction": -0.0011462980128876946,
+          "e1_prediction": -0.0015172319548053751,
+          "interval_80": [
+            -0.00715096165036375,
+            0.004116497740752999
+          ],
+          "interval_width": 0.011267459391116749,
+          "n_calibration": 60,
+          "directional_conflict": 0.49665965577938476,
+          "neutral_mass": 0.22524131895063662,
+          "pairwise_dispersion_norm": 1.0979936769170906,
+          "effective_sample_size": 9.944876146274847
+        },
+        {
+          "event_id": "hist_0433",
+          "query_date": "2024-12-06",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.00021356614548779986,
+          "raw_return": 0.0029346118872448645,
+          "prediction": -0.0012403910162751797,
+          "e1_prediction": -0.002346929046030166,
+          "interval_80": [
+            -0.007461897129859852,
+            0.0027680390377995204
+          ],
+          "interval_width": 0.010229936167659373,
+          "n_calibration": 60,
+          "directional_conflict": 0.5011087050051412,
+          "neutral_mass": 0.1943972227961821,
+          "pairwise_dispersion_norm": 1.7406489150659543,
+          "effective_sample_size": 9.936524633150373
+        },
+        {
+          "event_id": "hist_0434",
+          "query_date": "2024-12-10",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0028017997130456323,
+          "raw_return": 0.0047866690577023085,
+          "prediction": 0.0008276980692371076,
+          "e1_prediction": 0.0026360102702673413,
+          "interval_80": [
+            -0.002478957813562345,
+            0.007750978354097028
+          ],
+          "interval_width": 0.010229936167659373,
+          "n_calibration": 60,
+          "directional_conflict": 0.2567320963619375,
+          "neutral_mass": 0.2022292697454629,
+          "pairwise_dispersion_norm": 0.9704111450951012,
+          "effective_sample_size": 9.995967897016127
+        }
+      ]
+    },
+    "20": {
+      "horizon": 20,
+      "split": "final",
+      "n": 78,
+      "n_oof_prefix": 141,
+      "excluded_seen_queries": [
+        "hist_0353",
+        "hist_0360",
+        "hist_0370",
+        "hist_0382",
+        "hist_0392",
+        "hist_0400",
+        "hist_0411",
+        "hist_0419",
+        "hist_0429",
+        "hist_0435",
+        "hist_0436"
+      ],
+      "majority_baseline": 0.556,
+      "metrics": {
+        "e1": {
+          "n": 78,
+          "mae": 0.006395816657029846,
+          "median_ae": 0.005276981098142742,
+          "rmse": 0.007929384156495143,
+          "direction_accuracy": 0.5256410256410257,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.006395816657029846,
+            "low": 0.004925930392171641,
+            "high": 0.008018072936770579,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        },
+        "e2": {
+          "n": 78,
+          "mae": 0.007337698232064695,
+          "median_ae": 0.0057347663488244004,
+          "rmse": 0.009237482680690436,
+          "direction_accuracy": 0.5128205128205128,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.007337698232064695,
+            "low": 0.005463004472841788,
+            "high": 0.009685518481441488,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        },
+        "e3": {
+          "n": 78,
+          "mae": 0.0062771435055775674,
+          "median_ae": 0.005499984729208906,
+          "rmse": 0.0077280974851775906,
+          "direction_accuracy": 0.48717948717948717,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.0062771435055775674,
+            "low": 0.004962683267159767,
+            "high": 0.007804579871414971,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        },
+        "e4": {
+          "n": 78,
+          "mae": 0.006278219104792722,
+          "median_ae": 0.005602219338020116,
+          "rmse": 0.007842168865800553,
+          "direction_accuracy": 0.5,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.006278219104792722,
+            "low": 0.004702940814550194,
+            "high": 0.008024113743584794,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        }
+      },
+      "comparisons": {
+        "strongest_baseline": "e1",
+        "baseline_fold_mean_mae": {
+          "E1": 0.012187651983227146,
+          "E2": 0.013479532565006192
+        },
+        "e4_minus_strongest": {
+          "strongest_baseline": "e1",
+          "mean_delta_mae": -0.00011759755223712406,
+          "bootstrap": {
+            "n_blocks": 12,
+            "mean": -0.00011759755223712406,
+            "low": -0.00029945086368410827,
+            "high": 0.0001009768983746295,
+            "share_favourable": 0.855,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        }
+      },
+      "conformal": {
+        "固定历史分位": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 78,
+              "n_with_interval": 78,
+              "n_evaluable": 78,
+              "coverage": 0.9871794871794872,
+              "mean_width": 0.04353788776226299,
+              "median_width": 0.043537887762263,
+              "interval_score": 0.04385974571139869
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 78,
+              "n_with_interval": 78,
+              "n_evaluable": 78,
+              "coverage": 1.0,
+              "mean_width": 0.05269858333187727,
+              "median_width": 0.05269858333187725,
+              "interval_score": 0.05269858333187727
+            }
+          },
+          "method": "固定历史分位"
+        },
+        "CP0": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 78,
+              "n_with_interval": 77,
+              "n_evaluable": 77,
+              "coverage": 0.8961038961038961,
+              "mean_width": 0.03562359689836205,
+              "median_width": 0.04480800822494649,
+              "interval_score": 0.03846327046654849
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 78,
+              "n_with_interval": 77,
+              "n_evaluable": 77,
+              "coverage": 0.948051948051948,
+              "mean_width": 0.0483192093493957,
+              "median_width": 0.06143126621968967,
+              "interval_score": 0.0510877278500613
+            }
+          },
+          "method": "CP0",
+          "degrade_reason": ""
+        },
+        "CP0+ACI": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 78,
+              "n_with_interval": 77,
+              "n_evaluable": 77,
+              "coverage": 0.8441558441558441,
+              "mean_width": 0.0335222387146307,
+              "median_width": 0.0406451843390909,
+              "interval_score": 0.0375213108746196
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 78,
+              "n_with_interval": 77,
+              "n_evaluable": 77,
+              "coverage": 0.948051948051948,
+              "mean_width": 0.04913018902850975,
+              "median_width": 0.061790841782601025,
+              "interval_score": 0.05189870752917534
+            }
+          },
+          "method": "CP0+ACI",
+          "degrade_reason": ""
+        },
+        "CP1": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 78,
+              "n_with_interval": 77,
+              "n_evaluable": 77,
+              "coverage": 0.8961038961038961,
+              "mean_width": 0.03562359689836205,
+              "median_width": 0.04480800822494649,
+              "interval_score": 0.03846327046654849
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 78,
+              "n_with_interval": 77,
+              "n_evaluable": 77,
+              "coverage": 0.948051948051948,
+              "mean_width": 0.0483192093493957,
+              "median_width": 0.06143126621968967,
+              "interval_score": 0.0510877278500613
+            }
+          },
+          "method": "CP0（CP1 已降级）",
+          "degrade_reason": "冲突有效性检验未通过（四条判据未全部满足），CP1 自动降级为 CP0"
+        }
+      },
+      "gate_mean": 0.1757491639219103,
+      "gate_std": 0.04418721184322901,
+      "sample_ids": [
+        "hist_0345",
+        "hist_0346",
+        "hist_0347",
+        "hist_0348",
+        "hist_0349",
+        "hist_0350",
+        "hist_0351",
+        "hist_0352",
+        "hist_0354",
+        "hist_0355",
+        "hist_0356",
+        "hist_0357",
+        "hist_0358",
+        "hist_0359",
+        "hist_0361",
+        "hist_0362",
+        "hist_0363",
+        "hist_0364",
+        "hist_0365",
+        "hist_0366",
+        "hist_0367",
+        "hist_0368",
+        "hist_0369",
+        "hist_0371",
+        "hist_0372",
+        "hist_0373",
+        "hist_0374",
+        "hist_0375",
+        "hist_0376",
+        "hist_0377",
+        "hist_0378",
+        "hist_0379",
+        "hist_0380",
+        "hist_0381",
+        "hist_0383",
+        "hist_0384",
+        "hist_0385",
+        "hist_0386",
+        "hist_0387",
+        "hist_0388",
+        "hist_0389",
+        "hist_0390",
+        "hist_0391",
+        "hist_0393",
+        "hist_0394",
+        "hist_0395",
+        "hist_0396",
+        "hist_0397",
+        "hist_0398",
+        "hist_0399",
+        "hist_0401",
+        "hist_0402",
+        "hist_0403",
+        "hist_0404",
+        "hist_0405",
+        "hist_0406",
+        "hist_0407",
+        "hist_0408",
+        "hist_0409",
+        "hist_0410",
+        "hist_0412",
+        "hist_0413",
+        "hist_0414",
+        "hist_0415",
+        "hist_0416",
+        "hist_0417",
+        "hist_0418",
+        "hist_0420",
+        "hist_0421",
+        "hist_0422",
+        "hist_0423",
+        "hist_0424",
+        "hist_0425",
+        "hist_0426",
+        "hist_0427",
+        "hist_0428",
+        "hist_0430",
+        "hist_0431"
+      ],
+      "observations": [
+        {
+          "event_id": "hist_0345",
+          "query_date": "2024-01-02",
+          "event_family": "dialogue",
+          "realized_abret": -0.0032247386952039304,
+          "raw_return": 0.006351654514862526,
+          "prediction": -0.0030836649733620683,
+          "e1_prediction": -0.003676403852443433,
+          "interval_80": [
+            -0.02635892923390892,
+            0.019006121529022053
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.5056056691860111,
+          "neutral_mass": 0.6148395463075172,
+          "pairwise_dispersion_norm": 0.7117076321969835,
+          "effective_sample_size": 9.977400481381558
+        },
+        {
+          "event_id": "hist_0346",
+          "query_date": "2024-01-08",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.01089600507027548,
+          "raw_return": 0.005349236721183148,
+          "prediction": 0.0023207642660944532,
+          "e1_prediction": 0.0008436025788076726,
+          "interval_80": [
+            -0.021838922802657812,
+            0.02352612796027316
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.9862444888996978,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.7433753656544055,
+          "effective_sample_size": 9.98657812662658
+        },
+        {
+          "event_id": "hist_0347",
+          "query_date": "2024-01-11",
+          "event_family": "dialogue",
+          "realized_abret": -0.00971872713448496,
+          "raw_return": 0.005126127887811638,
+          "prediction": -0.003625957835226178,
+          "e1_prediction": -0.00442110915768078,
+          "interval_80": [
+            -0.027103634539146267,
+            0.018261416223784705
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.6590605849151279,
+          "neutral_mass": 0.10022357009521471,
+          "pairwise_dispersion_norm": 0.8557911287542479,
+          "effective_sample_size": 9.988854910865989
+        },
+        {
+          "event_id": "hist_0348",
+          "query_date": "2024-01-17",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.01257856932040467,
+          "raw_return": -0.001097740599727559,
+          "prediction": 0.011270333064007865,
+          "e1_prediction": 0.011700866563985265,
+          "interval_80": [
+            -0.01098165881748022,
+            0.03438339194545075
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.26914753256601087,
+          "neutral_mass": 0.1987795130802487,
+          "pairwise_dispersion_norm": 1.1817078985150515,
+          "effective_sample_size": 9.981195907193236
+        },
+        {
+          "event_id": "hist_0349",
+          "query_date": "2024-01-19",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.011598081858392584,
+          "raw_return": 0.000639439517362117,
+          "prediction": 0.001153828587837515,
+          "e1_prediction": -1.1885845254853381e-05,
+          "interval_80": [
+            -0.02369559296630628,
+            0.023671821275796576
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.867523373085141,
+          "neutral_mass": 0.3083728007819348,
+          "pairwise_dispersion_norm": 0.9546022990307275,
+          "effective_sample_size": 9.942979576344019
+        },
+        {
+          "event_id": "hist_0350",
+          "query_date": "2024-01-26",
+          "event_family": "dialogue",
+          "realized_abret": -0.007951155159726397,
+          "raw_return": 0.002464906417112278,
+          "prediction": 0.003783728985756725,
+          "e1_prediction": 0.004909150147070911,
+          "interval_80": [
+            -0.018774556973980516,
+            0.02859285726812234
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.7785068211747069,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.6448845918923871,
+          "effective_sample_size": 9.989796209405894
+        },
+        {
+          "event_id": "hist_0351",
+          "query_date": "2024-01-31",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.005800763135300632,
+          "raw_return": 0.0027439236715647297,
+          "prediction": 0.0031492344710310725,
+          "e1_prediction": 0.002191895808985857,
+          "interval_80": [
+            -0.02149181131206557,
+            0.025875602930037284
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.7660719229174476,
+          "neutral_mass": 0.19922649607942852,
+          "pairwise_dispersion_norm": 1.2958089981714884,
+          "effective_sample_size": 9.982163411472172
+        },
+        {
+          "event_id": "hist_0352",
+          "query_date": "2024-02-19",
+          "event_family": "dialogue",
+          "realized_abret": -0.006193982784277321,
+          "raw_return": 8.336112037343746e-05,
+          "prediction": 0.00520538271234766,
+          "e1_prediction": 0.006786696232335859,
+          "interval_80": [
+            -0.01689701088871557,
+            0.030470403353387285
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.6624260957675205,
+          "neutral_mass": 0.0953870856237558,
+          "pairwise_dispersion_norm": 1.7308423700831408,
+          "effective_sample_size": 9.990318506658916
+        },
+        {
+          "event_id": "hist_0354",
+          "query_date": "2024-02-26",
+          "event_family": "rhetoric",
+          "realized_abret": -0.003683509803032518,
+          "raw_return": 0.001430933162918091,
+          "prediction": -0.003575574703489977,
+          "e1_prediction": -0.0052388373435327045,
+          "interval_80": [
+            -0.028922544464584133,
+            0.018444869777518722
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.0,
+          "neutral_mass": 0.49768291508171153,
+          "pairwise_dispersion_norm": 0.6331429712328744,
+          "effective_sample_size": 9.963163038691132
+        },
+        {
+          "event_id": "hist_0355",
+          "query_date": "2024-02-27",
+          "event_family": "litigation",
+          "realized_abret": -0.0021075463273305074,
+          "raw_return": 0.0030009169468450114,
+          "prediction": 0.010634737146915698,
+          "e1_prediction": 0.010837488501639632,
+          "interval_80": [
+            -0.012846218619411796,
+            0.034521195622691056
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.2205613463716446,
+          "neutral_mass": 0.09819109425098974,
+          "pairwise_dispersion_norm": 1.2019899878944988,
+          "effective_sample_size": 9.992347298249936
+        },
+        {
+          "event_id": "hist_0356",
+          "query_date": "2024-02-28",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0010239312124135976,
+          "raw_return": 0.0041396938293556396,
+          "prediction": 0.004547220124919488,
+          "e1_prediction": 0.0038696472128357546,
+          "interval_80": [
+            -0.01981405990821567,
+            0.027553354333887184
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.8518964232111045,
+          "neutral_mass": 0.2997177126686031,
+          "pairwise_dispersion_norm": 1.2809029927844395,
+          "effective_sample_size": 9.997687590531555
+        },
+        {
+          "event_id": "hist_0357",
+          "query_date": "2024-02-29",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.001293478252857353,
+          "raw_return": 0.0048241345752815246,
+          "prediction": 0.014747362491269695,
+          "e1_prediction": 0.015653909421643502,
+          "interval_80": [
+            -0.008029797699407926,
+            0.03933761654269493
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.4142730627364757,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.8107697105020855,
+          "effective_sample_size": 9.992577782581167
+        },
+        {
+          "event_id": "hist_0358",
+          "query_date": "2024-03-01",
+          "event_family": "rhetoric",
+          "realized_abret": -0.004183712848760913,
+          "raw_return": 0.003431270403556397,
+          "prediction": 0.006116790785838271,
+          "e1_prediction": 0.005466758942672769,
+          "interval_80": [
+            -0.01821694817837866,
+            0.029150466063724196
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.668409829578823,
+          "neutral_mass": 0.10058943104472715,
+          "pairwise_dispersion_norm": 1.4584810735372262,
+          "effective_sample_size": 9.999046044020293
+        },
+        {
+          "event_id": "hist_0359",
+          "query_date": "2024-03-06",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0031376667118868037,
+          "raw_return": 0.00505611734637168,
+          "prediction": 0.0020582335709912044,
+          "e1_prediction": 0.0009087198757876823,
+          "interval_80": [
+            -0.022774987245263747,
+            0.02459242699683911
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.658436415247177,
+          "neutral_mass": 0.10575058497306182,
+          "pairwise_dispersion_norm": 1.1032624962824114,
+          "effective_sample_size": 9.988065080357478
+        },
+        {
+          "event_id": "hist_0361",
+          "query_date": "2024-03-14",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.010368003303618034,
+          "raw_return": 0.006591481136404731,
+          "prediction": 0.0009974993751206416,
+          "e1_prediction": -0.0001681825329632523,
+          "interval_80": [
+            -0.02385188965401468,
+            0.023515524588088175
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.9300013341751275,
+          "neutral_mass": 0.183285530456518,
+          "pairwise_dispersion_norm": 1.5051826486673852,
+          "effective_sample_size": 9.884102083044755
+        },
+        {
+          "event_id": "hist_0362",
+          "query_date": "2024-03-27",
+          "event_family": "dialogue",
+          "realized_abret": -0.011925653430261298,
+          "raw_return": 0.0024763433124896927,
+          "prediction": 0.0005600100412821064,
+          "e1_prediction": 0.0012681623771348457,
+          "interval_80": [
+            -0.022415544743916584,
+            0.02495186949818627
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.9863488421285176,
+          "neutral_mass": 0.3966084744887884,
+          "pairwise_dispersion_norm": 1.002412466065158,
+          "effective_sample_size": 9.966557635710272
+        },
+        {
+          "event_id": "hist_0363",
+          "query_date": "2024-03-29",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.010014919997392756,
+          "raw_return": 0.002547347436039349,
+          "prediction": 0.0010147547992386983,
+          "e1_prediction": 8.286253532172696e-05,
+          "interval_80": [
+            -0.0236008445857297,
+            0.023766569656373155
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.8439952658040717,
+          "neutral_mass": 0.2992227742572353,
+          "pairwise_dispersion_norm": 1.2290138716381174,
+          "effective_sample_size": 9.968728277816703
+        },
+        {
+          "event_id": "hist_0364",
+          "query_date": "2024-04-02",
+          "event_family": "dialogue",
+          "realized_abret": -0.00922384201713531,
+          "raw_return": -0.002860933742433014,
+          "prediction": -0.005482547469294976,
+          "e1_prediction": -0.00604469967917883,
+          "interval_80": [
+            -0.029728406800230256,
+            0.0176390074418726
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.31333850198155844,
+          "neutral_mass": 0.30675686973993677,
+          "pairwise_dispersion_norm": 0.8503522290012904,
+          "effective_sample_size": 9.979396314481425
+        },
+        {
+          "event_id": "hist_0365",
+          "query_date": "2024-04-08",
+          "event_family": "dialogue",
+          "realized_abret": -0.007671265354621275,
+          "raw_return": -0.0010921105381753726,
+          "prediction": -0.0020617732761259154,
+          "e1_prediction": -0.0018294636365245747,
+          "interval_80": [
+            -0.025513170757576004,
+            0.02185424348452685
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.6587739883814452,
+          "neutral_mass": 0.09657537498176283,
+          "pairwise_dispersion_norm": 0.8820839825761491,
+          "effective_sample_size": 9.975536212505007
+        },
+        {
+          "event_id": "hist_0366",
+          "query_date": "2024-04-10",
+          "event_family": "dialogue",
+          "realized_abret": -0.0019700737528956665,
+          "raw_return": 0.0002212052923367125,
+          "prediction": -0.004712260771346606,
+          "e1_prediction": -0.005183144870215663,
+          "interval_80": [
+            -0.02886685199126709,
+            0.018500562250835764
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.5007890872028522,
+          "neutral_mass": 0.20204060189249734,
+          "pairwise_dispersion_norm": 0.966499845625807,
+          "effective_sample_size": 9.995852736673886
+        },
+        {
+          "event_id": "hist_0367",
+          "query_date": "2024-04-11",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0019069903083135447,
+          "raw_return": 0.00011054457018899733,
+          "prediction": 0.004713770018408622,
+          "e1_prediction": 0.005285228894565645,
+          "interval_80": [
+            -0.018398478226485784,
+            0.02896893601561707
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.582625985723084,
+          "neutral_mass": 0.2988968720558014,
+          "pairwise_dispersion_norm": 1.5752842151841044,
+          "effective_sample_size": 9.982684939518235
+        },
+        {
+          "event_id": "hist_0368",
+          "query_date": "2024-04-16",
+          "event_family": "dialogue",
+          "realized_abret": 0.001169317900605895,
+          "raw_return": -0.002127189347477798,
+          "prediction": -0.002207310546139791,
+          "e1_prediction": -0.002854586193292469,
+          "interval_80": [
+            -0.026538293314343896,
+            0.02082912092775896
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.7940183586342213,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.1039264856125521,
+          "effective_sample_size": 9.989634970495159
+        },
+        {
+          "event_id": "hist_0369",
+          "query_date": "2024-04-17",
+          "event_family": "rhetoric",
+          "realized_abret": 0.00029424042377192193,
+          "raw_return": -0.00040083484222308563,
+          "prediction": 0.0025238791029819447,
+          "e1_prediction": 0.002293844576502439,
+          "interval_80": [
+            -0.02138986254454899,
+            0.025977551697553867
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.9905575409129895,
+          "neutral_mass": 0.6062163512764813,
+          "pairwise_dispersion_norm": 0.7872221163115591,
+          "effective_sample_size": 9.992376968932865
+        },
+        {
+          "event_id": "hist_0371",
+          "query_date": "2024-04-22",
+          "event_family": "entity_restrictions",
+          "realized_abret": 4.703117528954189e-05,
+          "raw_return": 0.00013805290187196562,
+          "prediction": 0.0004464697830017573,
+          "e1_prediction": -0.0006457972624847835,
+          "interval_80": [
+            -0.02432950438353621,
+            0.023037909858566644
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.8305967309426232,
+          "neutral_mass": 0.2948484503642162,
+          "pairwise_dispersion_norm": 1.0293299456993847,
+          "effective_sample_size": 9.978439693169365
+        },
+        {
+          "event_id": "hist_0372",
+          "query_date": "2024-04-24",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0013634750893965024,
+          "raw_return": -0.00019321004692252064,
+          "prediction": -0.0017662458468131635,
+          "e1_prediction": -0.002752790500822825,
+          "interval_80": [
+            -0.026436497621874253,
+            0.020930916620228602
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.7471264364713729,
+          "neutral_mass": 0.19293400350543383,
+          "pairwise_dispersion_norm": 1.2875831795503943,
+          "effective_sample_size": 9.973302048300834
+        },
+        {
+          "event_id": "hist_0373",
+          "query_date": "2024-04-26",
+          "event_family": "dialogue",
+          "realized_abret": 0.002267013417134292,
+          "raw_return": 0.00033120351075721643,
+          "prediction": 0.004425608480125615,
+          "e1_prediction": 0.006012260680591684,
+          "interval_80": [
+            -0.017671446440459745,
+            0.02969596780164311
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.6619784052156619,
+          "neutral_mass": 0.09431710959070824,
+          "pairwise_dispersion_norm": 1.6988712125280716,
+          "effective_sample_size": 9.969679637731122
+        },
+        {
+          "event_id": "hist_0374",
+          "query_date": "2024-04-29",
+          "event_family": "dialogue",
+          "realized_abret": -0.0008556752064779805,
+          "raw_return": -0.00016559261456938756,
+          "prediction": -0.0007927792154135564,
+          "e1_prediction": 6.16057191085912e-05,
+          "interval_80": [
+            -0.022620919662356895,
+            0.022744131100574078
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.829859754444934,
+          "neutral_mass": 0.29265432228634286,
+          "pairwise_dispersion_norm": 0.8308773863434277,
+          "effective_sample_size": 9.97769210103348
+        },
+        {
+          "event_id": "hist_0375",
+          "query_date": "2024-04-29",
+          "event_family": "tariff",
+          "realized_abret": -0.0008556752064779805,
+          "raw_return": -0.00016559261456938756,
+          "prediction": 0.006558272313085908,
+          "e1_prediction": 0.006413309976652082,
+          "interval_80": [
+            -0.016269215404813405,
+            0.029095835358117567
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.6705388685553588,
+          "neutral_mass": 0.10244171636399269,
+          "pairwise_dispersion_norm": 2.043541694345945,
+          "effective_sample_size": 9.992925066834394
+        },
+        {
+          "event_id": "hist_0376",
+          "query_date": "2024-05-06",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.005199958738555355,
+          "raw_return": 0.004491453761592545,
+          "prediction": -0.0019660035066555673,
+          "e1_prediction": -0.0023375405687841777,
+          "interval_80": [
+            -0.024741544681257423,
+            0.020066463543689066
+          ],
+          "interval_width": 0.04480800822494649,
+          "n_calibration": 60,
+          "directional_conflict": 0.7603580875726126,
+          "neutral_mass": 0.20972095058507623,
+          "pairwise_dispersion_norm": 1.4662140067057257,
+          "effective_sample_size": 9.989377203537742
+        },
+        {
+          "event_id": "hist_0377",
+          "query_date": "2024-05-08",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.004898219502161045,
+          "raw_return": 0.0028230995972930994,
+          "prediction": 0.007306216204872137,
+          "e1_prediction": 0.008406632784968261,
+          "interval_80": [
+            -0.013997371327504983,
+            0.030810636897441505
+          ],
+          "interval_width": 0.04480800822494649,
+          "n_calibration": 60,
+          "directional_conflict": 0.5104759471551106,
+          "neutral_mass": 0.20336423631504,
+          "pairwise_dispersion_norm": 1.4618474307616058,
+          "effective_sample_size": 9.98801143563613
+        },
+        {
+          "event_id": "hist_0378",
+          "query_date": "2024-05-09",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.004004276140568565,
+          "raw_return": 0.0029754490852222926,
+          "prediction": 0.003537531470107053,
+          "e1_prediction": 0.003745614059969635,
+          "interval_80": [
+            -0.01865839005250361,
+            0.02614961817244288
+          ],
+          "interval_width": 0.04480800822494649,
+          "n_calibration": 60,
+          "directional_conflict": 0.6780554196787684,
+          "neutral_mass": 0.38858709189353013,
+          "pairwise_dispersion_norm": 1.0495608186621028,
+          "effective_sample_size": 9.982708816788593
+        },
+        {
+          "event_id": "hist_0379",
+          "query_date": "2024-05-14",
+          "event_family": "tariff",
+          "realized_abret": 0.0022685688426627563,
+          "raw_return": 0.0022106470287521773,
+          "prediction": 0.005239571282573968,
+          "e1_prediction": 0.004623291620466894,
+          "interval_80": [
+            -0.01778071249200635,
+            0.02702729573294014
+          ],
+          "interval_width": 0.04480800822494649,
+          "n_calibration": 60,
+          "directional_conflict": 0.9909733477053604,
+          "neutral_mass": 0.19969452109180938,
+          "pairwise_dispersion_norm": 1.5548364425510488,
+          "effective_sample_size": 9.994284695951595
+        },
+        {
+          "event_id": "hist_0380",
+          "query_date": "2024-05-16",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.002216054680147121,
+          "raw_return": 0.005111652906300224,
+          "prediction": 0.002191242941908888,
+          "e1_prediction": 0.0016740504164470449,
+          "interval_80": [
+            -0.0207299536960262,
+            0.024078054528920288
+          ],
+          "interval_width": 0.04480800822494649,
+          "n_calibration": 60,
+          "directional_conflict": 0.6317858203558754,
+          "neutral_mass": 0.3891638034140702,
+          "pairwise_dispersion_norm": 1.317819016812268,
+          "effective_sample_size": 9.956902747357926
+        },
+        {
+          "event_id": "hist_0381",
+          "query_date": "2024-05-20",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.00204308845926495,
+          "raw_return": 0.00334623893805297,
+          "prediction": 0.004474633242443751,
+          "e1_prediction": 0.004637366433048399,
+          "interval_80": [
+            -0.017766637679424845,
+            0.027041370545521644
+          ],
+          "interval_width": 0.04480800822494649,
+          "n_calibration": 60,
+          "directional_conflict": 0.4853918260258966,
+          "neutral_mass": 0.20617662535113,
+          "pairwise_dispersion_norm": 1.739356139498872,
+          "effective_sample_size": 9.986232718385612
+        },
+        {
+          "event_id": "hist_0383",
+          "query_date": "2024-05-28",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.00277241095404456,
+          "raw_return": 0.00270456740720304,
+          "prediction": 0.000902624673174719,
+          "e1_prediction": -0.00044475768519093356,
+          "interval_80": [
+            -0.022848761797664176,
+            0.021959246427282312
+          ],
+          "interval_width": 0.04480800822494649,
+          "n_calibration": 60,
+          "directional_conflict": 0.850619079824518,
+          "neutral_mass": 0.09426933317810514,
+          "pairwise_dispersion_norm": 1.4275511200820803,
+          "effective_sample_size": 9.947633123262712
+        },
+        {
+          "event_id": "hist_0384",
+          "query_date": "2024-05-31",
+          "event_family": "dialogue",
+          "realized_abret": -0.0014427176819058526,
+          "raw_return": 0.0033683048039756525,
+          "prediction": 0.0006897349077907592,
+          "e1_prediction": 0.0017212199869736174,
+          "interval_80": [
+            -0.020682784125499627,
+            0.02412522409944686
+          ],
+          "interval_width": 0.04480800822494649,
+          "n_calibration": 60,
+          "directional_conflict": 0.8984997045753222,
+          "neutral_mass": 0.09866970376402374,
+          "pairwise_dispersion_norm": 1.579897358624009,
+          "effective_sample_size": 9.997543399339246
+        },
+        {
+          "event_id": "hist_0385",
+          "query_date": "2024-06-11",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0043460040674535355,
+          "raw_return": 0.002467570063826141,
+          "prediction": 0.007000542652408227,
+          "e1_prediction": 0.008174465983150789,
+          "interval_80": [
+            -0.014229538129322455,
+            0.030578470095624033
+          ],
+          "interval_width": 0.04480800822494649,
+          "n_calibration": 60,
+          "directional_conflict": 0.0,
+          "neutral_mass": 0.2912827611464655,
+          "pairwise_dispersion_norm": 0.8105480289281337,
+          "effective_sample_size": 9.927208148412385
+        },
+        {
+          "event_id": "hist_0386",
+          "query_date": "2024-06-12",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0030054428619847263,
+          "raw_return": 0.003060507051573902,
+          "prediction": -0.0006455627062939934,
+          "e1_prediction": -0.0013233494141590958,
+          "interval_80": [
+            -0.02372735352663234,
+            0.021080654698314147
+          ],
+          "interval_width": 0.04480800822494649,
+          "n_calibration": 60,
+          "directional_conflict": 0.8441373948786441,
+          "neutral_mass": 0.30602182105227044,
+          "pairwise_dispersion_norm": 1.3110042067436167,
+          "effective_sample_size": 9.97436838201074
+        },
+        {
+          "event_id": "hist_0387",
+          "query_date": "2024-06-17",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.007014975701491458,
+          "raw_return": 0.0009371683733239156,
+          "prediction": 0.005512605503143546,
+          "e1_prediction": 0.005979699495057499,
+          "interval_80": [
+            -0.016424304617415744,
+            0.028383703607530744
+          ],
+          "interval_width": 0.04480800822494649,
+          "n_calibration": 60,
+          "directional_conflict": 0.5165252885966027,
+          "neutral_mass": 0.2007441975258412,
+          "pairwise_dispersion_norm": 0.9443772184185562,
+          "effective_sample_size": 9.989229807512272
+        },
+        {
+          "event_id": "hist_0388",
+          "query_date": "2024-06-21",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.006900228558976391,
+          "raw_return": 0.0008125266825500521,
+          "prediction": 0.006658718720347031,
+          "e1_prediction": 0.007518420826010813,
+          "interval_80": [
+            -0.013716286342028459,
+            0.028753127994050085
+          ],
+          "interval_width": 0.042469414336078544,
+          "n_calibration": 60,
+          "directional_conflict": 0.5557013517582976,
+          "neutral_mass": 0.298913122208808,
+          "pairwise_dispersion_norm": 1.5082981675694858,
+          "effective_sample_size": 9.987106600695016
+        },
+        {
+          "event_id": "hist_0389",
+          "query_date": "2024-06-25",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.007058115385249903,
+          "raw_return": 0.0015558737676928391,
+          "prediction": 0.0010839770906222717,
+          "e1_prediction": 0.0010570875765517497,
+          "interval_80": [
+            -0.020177619591487523,
+            0.02229179474459102
+          ],
+          "interval_width": 0.042469414336078544,
+          "n_calibration": 60,
+          "directional_conflict": 0.5653795557256363,
+          "neutral_mass": 0.2999136217257089,
+          "pairwise_dispersion_norm": 1.00973892393431,
+          "effective_sample_size": 9.990008701112231
+        },
+        {
+          "event_id": "hist_0390",
+          "query_date": "2024-07-12",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.004272879557134795,
+          "raw_return": -0.01155886202383416,
+          "prediction": -0.0018599664546004983,
+          "e1_prediction": -0.002394947786425719,
+          "interval_80": [
+            -0.02271753995597117,
+            0.017927644383119733
+          ],
+          "interval_width": 0.0406451843390909,
+          "n_calibration": 60,
+          "directional_conflict": 0.9896575813370669,
+          "neutral_mass": 0.21375060980174815,
+          "pairwise_dispersion_norm": 1.277556657364265,
+          "effective_sample_size": 9.971351303468165
+        },
+        {
+          "event_id": "hist_0391",
+          "query_date": "2024-07-19",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0025439545633833063,
+          "raw_return": -0.013650374284456146,
+          "prediction": 0.0013675187277733976,
+          "e1_prediction": 0.0009637704393436648,
+          "interval_80": [
+            -0.018596904832148372,
+            0.0205244457108357
+          ],
+          "interval_width": 0.039121350542984074,
+          "n_calibration": 60,
+          "directional_conflict": 0.7836743976142424,
+          "neutral_mass": 0.49571383786091167,
+          "pairwise_dispersion_norm": 1.2865689807526735,
+          "effective_sample_size": 9.994068103242988
+        },
+        {
+          "event_id": "hist_0393",
+          "query_date": "2024-07-22",
+          "event_family": "dialogue",
+          "realized_abret": -0.0052470336001545735,
+          "raw_return": -0.01861501024237977,
+          "prediction": 0.0028995936922951754,
+          "e1_prediction": 0.004014755873840021,
+          "interval_80": [
+            -0.01378294405144142,
+            0.021812455799121465
+          ],
+          "interval_width": 0.035595399850562884,
+          "n_calibration": 60,
+          "directional_conflict": 0.74455726225372,
+          "neutral_mass": 0.20177134621273668,
+          "pairwise_dispersion_norm": 0.9468178195577595,
+          "effective_sample_size": 9.996918768957718
+        },
+        {
+          "event_id": "hist_0394",
+          "query_date": "2024-07-24",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0025893007502988535,
+          "raw_return": -0.019529961517317118,
+          "prediction": 0.0022529159331328486,
+          "e1_prediction": 0.0019053959420838806,
+          "interval_80": [
+            -0.015041991732416975,
+            0.018852783616584736
+          ],
+          "interval_width": 0.03389477534900171,
+          "n_calibration": 60,
+          "directional_conflict": 0.663404106078759,
+          "neutral_mass": 0.39466932365346796,
+          "pairwise_dispersion_norm": 1.3173852269355584,
+          "effective_sample_size": 9.987918002432783
+        },
+        {
+          "event_id": "hist_0395",
+          "query_date": "2024-07-25",
+          "event_family": "rhetoric",
+          "realized_abret": 0.0034793532976684603,
+          "raw_return": -0.01145381770840559,
+          "prediction": -0.0025482365886836133,
+          "e1_prediction": -0.003213635771938269,
+          "interval_80": [
+            -0.017819183248225796,
+            0.01139191170434926
+          ],
+          "interval_width": 0.029211094952575057,
+          "n_calibration": 60,
+          "directional_conflict": 0.6691782293171407,
+          "neutral_mass": 0.4005754913377727,
+          "pairwise_dispersion_norm": 1.2149579899536649,
+          "effective_sample_size": 9.999590908187702
+        },
+        {
+          "event_id": "hist_0396",
+          "query_date": "2024-07-29",
+          "event_family": "dialogue",
+          "realized_abret": -0.0017533363299372072,
+          "raw_return": -0.019138294501012565,
+          "prediction": 0.0040864491076205225,
+          "e1_prediction": 0.005338553668552739,
+          "interval_80": [
+            -0.007855262138843404,
+            0.018532369475948884
+          ],
+          "interval_width": 0.026387631614792288,
+          "n_calibration": 60,
+          "directional_conflict": 0.7490001966048564,
+          "neutral_mass": 0.19661142361825698,
+          "pairwise_dispersion_norm": 1.8232749073001862,
+          "effective_sample_size": 9.987690798332578
+        },
+        {
+          "event_id": "hist_0397",
+          "query_date": "2024-07-30",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0021154078729214015,
+          "raw_return": -0.016226956617728328,
+          "prediction": 0.001667089900337061,
+          "e1_prediction": 0.0012519911480472496,
+          "interval_80": [
+            -0.01172868786856593,
+            0.014232670164660429
+          ],
+          "interval_width": 0.02596135803322636,
+          "n_calibration": 60,
+          "directional_conflict": 0.8459854304509953,
+          "neutral_mass": 0.3032705441555722,
+          "pairwise_dispersion_norm": 0.966130922375202,
+          "effective_sample_size": 9.956637495495986
+        },
+        {
+          "event_id": "hist_0398",
+          "query_date": "2024-07-31",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0008352219511438448,
+          "raw_return": -0.013852562239658917,
+          "prediction": -0.0005958551267524049,
+          "e1_prediction": -0.001609936731568557,
+          "interval_80": [
+            -0.014554971560538697,
+            0.011335098097401583
+          ],
+          "interval_width": 0.02589006965794028,
+          "n_calibration": 60,
+          "directional_conflict": 0.9889255032872685,
+          "neutral_mass": 0.4006038925784785,
+          "pairwise_dispersion_norm": 1.1446723576999602,
+          "effective_sample_size": 9.995450680547206
+        },
+        {
+          "event_id": "hist_0399",
+          "query_date": "2024-08-05",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0007464574645816091,
+          "raw_return": -0.0037823072073963626,
+          "prediction": 0.004071261879137976,
+          "e1_prediction": 0.004106719926888439,
+          "interval_80": [
+            -0.008838314902081701,
+            0.01705175475585858
+          ],
+          "interval_width": 0.02589006965794028,
+          "n_calibration": 60,
+          "directional_conflict": 0.2592534533586227,
+          "neutral_mass": 0.2926117110414234,
+          "pairwise_dispersion_norm": 0.46082941365727487,
+          "effective_sample_size": 9.922706944024874
+        },
+        {
+          "event_id": "hist_0401",
+          "query_date": "2024-08-15",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.003429243090567951,
+          "raw_return": -0.0052366256580693715,
+          "prediction": 0.005094374323825481,
+          "e1_prediction": 0.004069459175237942,
+          "interval_80": [
+            -0.008796936113986551,
+            0.016935854464462434
+          ],
+          "interval_width": 0.025732790578448985,
+          "n_calibration": 60,
+          "directional_conflict": 0.24097610944441994,
+          "neutral_mass": 0.1998871446392955,
+          "pairwise_dispersion_norm": 0.8807867919273775,
+          "effective_sample_size": 9.994688144362504
+        },
+        {
+          "event_id": "hist_0402",
+          "query_date": "2024-08-23",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.00860931648967857,
+          "raw_return": -0.013773680080708561,
+          "prediction": -1.2475150591547335e-05,
+          "e1_prediction": -0.001254363429716374,
+          "interval_80": [
+            -0.014120758718940866,
+            0.01161203185950812
+          ],
+          "interval_width": 0.025732790578448985,
+          "n_calibration": 60,
+          "directional_conflict": 0.9509944687569815,
+          "neutral_mass": 0.20684577548097877,
+          "pairwise_dispersion_norm": 1.3906552070177796,
+          "effective_sample_size": 9.940513988890778
+        },
+        {
+          "event_id": "hist_0403",
+          "query_date": "2024-08-27",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.012416636706233043,
+          "raw_return": -0.015372531418312407,
+          "prediction": 0.002476209369776548,
+          "e1_prediction": 0.00187158414519896,
+          "interval_80": [
+            -0.01098872116159835,
+            0.014731889451996268
+          ],
+          "interval_width": 0.025720610613594617,
+          "n_calibration": 60,
+          "directional_conflict": 0.5647357696061475,
+          "neutral_mass": 0.30077166989265686,
+          "pairwise_dispersion_norm": 0.948998530130478,
+          "effective_sample_size": 9.975024362458623
+        },
+        {
+          "event_id": "hist_0404",
+          "query_date": "2024-08-29",
+          "event_family": "dialogue",
+          "realized_abret": -0.0075692119012677386,
+          "raw_return": -0.013304829681302865,
+          "prediction": -0.0019742653037228683,
+          "e1_prediction": -0.0018907467120770807,
+          "interval_80": [
+            -0.014751052018874389,
+            0.010969558594720229
+          ],
+          "interval_width": 0.025720610613594617,
+          "n_calibration": 60,
+          "directional_conflict": 0.8849200310328563,
+          "neutral_mass": 0.09991268353206677,
+          "pairwise_dispersion_norm": 0.7794889958362168,
+          "effective_sample_size": 9.998315973820283
+        },
+        {
+          "event_id": "hist_0405",
+          "query_date": "2024-09-05",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.009178467128581797,
+          "raw_return": -0.0028170997957602806,
+          "prediction": -0.00048031688498113585,
+          "e1_prediction": -0.0012697963995391456,
+          "interval_80": [
+            -0.013840511397907759,
+            0.011300918598829469
+          ],
+          "interval_width": 0.025141429996737227,
+          "n_calibration": 60,
+          "directional_conflict": 0.9040358194928575,
+          "neutral_mass": 0.09608478026224183,
+          "pairwise_dispersion_norm": 1.5529772483877269,
+          "effective_sample_size": 9.986613675381493
+        },
+        {
+          "event_id": "hist_0406",
+          "query_date": "2024-09-06",
+          "event_family": "dialogue",
+          "realized_abret": -0.0029242495378320014,
+          "raw_return": 0.003738607827093121,
+          "prediction": 0.006275357692576229,
+          "e1_prediction": 0.008062278152537357,
+          "interval_80": [
+            -0.004508436845831257,
+            0.02063299315090597
+          ],
+          "interval_width": 0.025141429996737227,
+          "n_calibration": 60,
+          "directional_conflict": 0.49624320808456046,
+          "neutral_mass": 0.2053810346931675,
+          "pairwise_dispersion_norm": 1.9709969476061664,
+          "effective_sample_size": 9.988013273489601
+        },
+        {
+          "event_id": "hist_0407",
+          "query_date": "2024-09-09",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.005445041588055195,
+          "raw_return": 2.8110417720883518e-05,
+          "prediction": 0.0006363440261422523,
+          "e1_prediction": -0.00024352097636584955,
+          "interval_80": [
+            -0.011983128625449002,
+            0.011496086672717303
+          ],
+          "interval_width": 0.023479215298166305,
+          "n_calibration": 60,
+          "directional_conflict": 0.9103969406687815,
+          "neutral_mass": 0.1001043794774812,
+          "pairwise_dispersion_norm": 1.6231509566885698,
+          "effective_sample_size": 9.986617776229496
+        },
+        {
+          "event_id": "hist_0408",
+          "query_date": "2024-09-12",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.009636599690734814,
+          "raw_return": -0.0016564658318827252,
+          "prediction": -0.0009878161977805093,
+          "e1_prediction": -0.001868473176280353,
+          "interval_80": [
+            -0.013454669189418084,
+            0.009717722836857377
+          ],
+          "interval_width": 0.02317239202627546,
+          "n_calibration": 60,
+          "directional_conflict": 0.9938668048630819,
+          "neutral_mass": 0.4016276385566377,
+          "pairwise_dispersion_norm": 1.2982663824564358,
+          "effective_sample_size": 9.997870678479705
+        },
+        {
+          "event_id": "hist_0409",
+          "query_date": "2024-09-13",
+          "event_family": "tariff",
+          "realized_abret": -0.005912031497526995,
+          "raw_return": 0.0037917764966242107,
+          "prediction": 0.004547285837117169,
+          "e1_prediction": 0.003909995764126987,
+          "interval_80": [
+            -0.0070765319262423715,
+            0.014896523454496345
+          ],
+          "interval_width": 0.021973055380738717,
+          "n_calibration": 60,
+          "directional_conflict": 0.5799257023305355,
+          "neutral_mass": 0.310675873805179,
+          "pairwise_dispersion_norm": 1.855582756753093,
+          "effective_sample_size": 9.97956575570499
+        },
+        {
+          "event_id": "hist_0410",
+          "query_date": "2024-09-18",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.006944428490041357,
+          "raw_return": 0.005289661884812391,
+          "prediction": -0.00010644505571546906,
+          "e1_prediction": -0.0006061684876900234,
+          "interval_80": [
+            -0.010805989258344804,
+            0.009593652282964759
+          ],
+          "interval_width": 0.020399641541309563,
+          "n_calibration": 60,
+          "directional_conflict": 0.8052860903586213,
+          "neutral_mass": 0.5089853829145761,
+          "pairwise_dispersion_norm": 0.9769540057090241,
+          "effective_sample_size": 9.938597645256351
+        },
+        {
+          "event_id": "hist_0412",
+          "query_date": "2024-09-23",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0031677462819443593,
+          "raw_return": 0.009718503407142753,
+          "prediction": 0.0070610241183717,
+          "e1_prediction": 0.007764048130042784,
+          "interval_80": [
+            -0.0023337344026716994,
+            0.017861830662757268
+          ],
+          "interval_width": 0.020195565065428966,
+          "n_calibration": 60,
+          "directional_conflict": 0.9752295167750902,
+          "neutral_mass": 0.19952087970684995,
+          "pairwise_dispersion_norm": 1.7746103021754733,
+          "effective_sample_size": 9.984526400842315
+        },
+        {
+          "event_id": "hist_0413",
+          "query_date": "2024-09-24",
+          "event_family": "litigation",
+          "realized_abret": -0.0005079109992254249,
+          "raw_return": 0.01466221496057396,
+          "prediction": -0.004478003949685191,
+          "e1_prediction": -0.005717116874547952,
+          "interval_80": [
+            -0.015916937645202734,
+            0.00448270389610683
+          ],
+          "interval_width": 0.020399641541309563,
+          "n_calibration": 60,
+          "directional_conflict": 0.775967866676452,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.3765308842106747,
+          "effective_sample_size": 9.978688356770009
+        },
+        {
+          "event_id": "hist_0414",
+          "query_date": "2024-09-30",
+          "event_family": "dialogue",
+          "realized_abret": 3.639821445417142e-05,
+          "raw_return": 0.011659729745139513,
+          "prediction": 0.003848863359034545,
+          "e1_prediction": 0.0052186299219028134,
+          "interval_80": [
+            -0.00487915261081167,
+            0.015316412454617297
+          ],
+          "interval_width": 0.020195565065428966,
+          "n_calibration": 60,
+          "directional_conflict": 0.7521798077434173,
+          "neutral_mass": 0.20763357069703425,
+          "pairwise_dispersion_norm": 1.9107543909476397,
+          "effective_sample_size": 9.966796021604502
+        },
+        {
+          "event_id": "hist_0415",
+          "query_date": "2024-10-08",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0059438449678218975,
+          "raw_return": 0.007939320904515323,
+          "prediction": 0.002426979875456582,
+          "e1_prediction": 0.003263020401611386,
+          "interval_80": [
+            -0.006834762131103097,
+            0.013360802934325868
+          ],
+          "interval_width": 0.020195565065428966,
+          "n_calibration": 60,
+          "directional_conflict": 0.0,
+          "neutral_mass": 0.511264450532099,
+          "pairwise_dispersion_norm": 0.312077382977479,
+          "effective_sample_size": 9.893178292934317
+        },
+        {
+          "event_id": "hist_0416",
+          "query_date": "2024-10-10",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.007074326217240565,
+          "raw_return": 0.011527540367581635,
+          "prediction": -0.0028615894566609325,
+          "e1_prediction": -0.0032964844507820325,
+          "interval_80": [
+            -0.013118511712436014,
+            0.00652554281087195
+          ],
+          "interval_width": 0.019644054523307964,
+          "n_calibration": 60,
+          "directional_conflict": 0.4323925788695623,
+          "neutral_mass": 0.11918473397281742,
+          "pairwise_dispersion_norm": 1.2697001633278067,
+          "effective_sample_size": 9.939505904103633
+        },
+        {
+          "event_id": "hist_0417",
+          "query_date": "2024-10-17",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.006442343005088709,
+          "raw_return": 0.016509202195611472,
+          "prediction": -0.0009352975108159484,
+          "e1_prediction": -0.0017197024748391739,
+          "interval_80": [
+            -0.011541729736493155,
+            0.008102324786814809
+          ],
+          "interval_width": 0.019644054523307964,
+          "n_calibration": 60,
+          "directional_conflict": 0.9948893685639723,
+          "neutral_mass": 0.20119249590333807,
+          "pairwise_dispersion_norm": 1.2628290655115264,
+          "effective_sample_size": 9.963476798029948
+        },
+        {
+          "event_id": "hist_0418",
+          "query_date": "2024-10-23",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.009165337105164179,
+          "raw_return": 0.016192400516360728,
+          "prediction": 0.0007929756697040533,
+          "e1_prediction": 0.001102893760878163,
+          "interval_80": [
+            -0.00854757803055552,
+            0.010753365552311846
+          ],
+          "interval_width": 0.019300943582867366,
+          "n_calibration": 60,
+          "directional_conflict": 0.753452932896612,
+          "neutral_mass": 0.19345241747077915,
+          "pairwise_dispersion_norm": 1.1681230152063982,
+          "effective_sample_size": 9.988233407180239
+        },
+        {
+          "event_id": "hist_0420",
+          "query_date": "2024-10-30",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.013063829718432406,
+          "raw_return": 0.017761365870096357,
+          "prediction": 0.00033321553453234605,
+          "e1_prediction": 6.811591469285651e-05,
+          "interval_80": [
+            -0.009582355876740827,
+            0.00971858770612654
+          ],
+          "interval_width": 0.019300943582867366,
+          "n_calibration": 60,
+          "directional_conflict": 0.8659492902581706,
+          "neutral_mass": 0.3061902428110284,
+          "pairwise_dispersion_norm": 0.8564089969251509,
+          "effective_sample_size": 9.956163911907982
+        },
+        {
+          "event_id": "hist_0421",
+          "query_date": "2024-11-01",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.01229256986623703,
+          "raw_return": 0.015185964912280747,
+          "prediction": 0.0008388114295780437,
+          "e1_prediction": 0.0011680676986233084,
+          "interval_80": [
+            -0.008482404092810375,
+            0.010818539490056992
+          ],
+          "interval_width": 0.019300943582867366,
+          "n_calibration": 60,
+          "directional_conflict": 0.640372132928618,
+          "neutral_mass": 0.4343427323453105,
+          "pairwise_dispersion_norm": 0.8267439856473013,
+          "effective_sample_size": 9.814132831469133
+        },
+        {
+          "event_id": "hist_0422",
+          "query_date": "2024-11-04",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.017818283851058207,
+          "raw_return": 0.024403302617860057,
+          "prediction": 0.0004691872384843612,
+          "e1_prediction": 0.0007681442374887972,
+          "interval_80": [
+            -0.009053883024165184,
+            0.01059017149914278
+          ],
+          "interval_width": 0.019644054523307964,
+          "n_calibration": 60,
+          "directional_conflict": 0.9959160020558013,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.772008189975028,
+          "effective_sample_size": 9.998156608642534
+        },
+        {
+          "event_id": "hist_0423",
+          "query_date": "2024-11-11",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.012468717265536035,
+          "raw_return": 0.011975131782083093,
+          "prediction": 0.005572412235120912,
+          "e1_prediction": 0.006196250814072367,
+          "interval_80": [
+            -0.003625776447581615,
+            0.01601827807572635
+          ],
+          "interval_width": 0.019644054523307964,
+          "n_calibration": 60,
+          "directional_conflict": 0.9859665884477055,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 2.2447764261466223,
+          "effective_sample_size": 9.951401189281095
+        },
+        {
+          "event_id": "hist_0424",
+          "query_date": "2024-11-18",
+          "event_family": "dialogue",
+          "realized_abret": 0.002714236288839299,
+          "raw_return": 0.005259452519981611,
+          "prediction": 0.0005377233079933972,
+          "e1_prediction": 0.0006772688172515526,
+          "interval_80": [
+            -0.00914475844440243,
+            0.010499296078905535
+          ],
+          "interval_width": 0.019644054523307964,
+          "n_calibration": 60,
+          "directional_conflict": 0.9809753622962671,
+          "neutral_mass": 0.6155785247524432,
+          "pairwise_dispersion_norm": 0.6594593759672912,
+          "effective_sample_size": 9.957194717133268
+        },
+        {
+          "event_id": "hist_0425",
+          "query_date": "2024-11-19",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.003054398267744619,
+          "raw_return": 0.006091244354203829,
+          "prediction": 0.002654937613726091,
+          "e1_prediction": 0.003467978761142842,
+          "interval_80": [
+            -0.006182493030290842,
+            0.013118450552576525
+          ],
+          "interval_width": 0.019300943582867366,
+          "n_calibration": 60,
+          "directional_conflict": 0.7476611290230906,
+          "neutral_mass": 0.19356714645154616,
+          "pairwise_dispersion_norm": 1.4581327063245864,
+          "effective_sample_size": 9.984502450710904
+        },
+        {
+          "event_id": "hist_0426",
+          "query_date": "2024-11-21",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0027353283208992555,
+          "raw_return": 0.008037563872393294,
+          "prediction": 0.0008963676661040843,
+          "e1_prediction": 0.0008598280238417675,
+          "interval_80": [
+            -0.008401961450152828,
+            0.010121617497836362
+          ],
+          "interval_width": 0.01852357894798919,
+          "n_calibration": 60,
+          "directional_conflict": 0.7472686137727775,
+          "neutral_mass": 0.19405633923779655,
+          "pairwise_dispersion_norm": 1.2950120681883819,
+          "effective_sample_size": 9.98716519927796
+        },
+        {
+          "event_id": "hist_0427",
+          "query_date": "2024-11-25",
+          "event_family": "entity_restrictions",
+          "realized_abret": -2.6544008989170392e-05,
+          "raw_return": 0.007258977119041665,
+          "prediction": 0.00338475333351238,
+          "e1_prediction": 0.003340568281055016,
+          "interval_80": [
+            -0.005921221192939578,
+            0.012602357755049611
+          ],
+          "interval_width": 0.01852357894798919,
+          "n_calibration": 60,
+          "directional_conflict": 0.31459704402725064,
+          "neutral_mass": 0.4190195528990673,
+          "pairwise_dispersion_norm": 1.297732773022957,
+          "effective_sample_size": 9.924181293803793
+        },
+        {
+          "event_id": "hist_0428",
+          "query_date": "2024-11-26",
+          "event_family": "tariff",
+          "realized_abret": -0.002565623006413142,
+          "raw_return": 0.005635316487089925,
+          "prediction": 0.008392433527074382,
+          "e1_prediction": 0.011006902874948507,
+          "interval_80": [
+            0.002844857395020625,
+            0.01916894835487639
+          ],
+          "interval_width": 0.016324090959855764,
+          "n_calibration": 60,
+          "directional_conflict": 0.2798900850014773,
+          "neutral_mass": 0.3002738416808468,
+          "pairwise_dispersion_norm": 1.8314073341460084,
+          "effective_sample_size": 9.99338480265711
+        },
+        {
+          "event_id": "hist_0430",
+          "query_date": "2024-12-02",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.002333696981126253,
+          "raw_return": 0.003933650592798488,
+          "prediction": 0.004778651503257729,
+          "e1_prediction": 0.0053859026237915095,
+          "interval_80": [
+            -0.0027761428561363724,
+            0.013547948103719391
+          ],
+          "interval_width": 0.016324090959855764,
+          "n_calibration": 60,
+          "directional_conflict": 0.44651317113340383,
+          "neutral_mass": 0.09944444588164911,
+          "pairwise_dispersion_norm": 1.194526473567037,
+          "effective_sample_size": 9.999414493032715
+        },
+        {
+          "event_id": "hist_0431",
+          "query_date": "2024-12-03",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.00483764320154995,
+          "raw_return": 0.0027063785358079073,
+          "prediction": 0.0005042866385003623,
+          "e1_prediction": 0.00041870101793135416,
+          "interval_80": null,
+          "interval_width": null,
+          "n_calibration": 0,
+          "directional_conflict": 0.8804079485936056,
+          "neutral_mass": 0.3016200047961609,
+          "pairwise_dispersion_norm": 0.9566879486683948,
+          "effective_sample_size": 9.984468799350731
+        }
+      ]
+    }
+  }
+}

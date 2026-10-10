@@ -1,0 +1,23 @@
+{
+  "key": "arxiv_1602.03271",
+  "source_title": "A study of co-movements between oil price, stock index and exchange rate under a cross-bicorrelation perspective: the case of Mexico",
+  "source_url": "https://arxiv.org/abs/1602.03271",
+  "published_at": "2016-01-01",
+  "evidence_type": "working_paper",
+  "methodology": "对墨西哥 Mayan 原油、USD/MXN 汇率与墨西哥 IPC 股指的日收益率做 Brooks & Hinich 交叉双相关检验，检测非线性联动与时窗",
+  "sample_period": "1998-02-01 至 2014-01-30（日频，4277 个观测）",
+  "extraction_note": "claim_text 是从英文原文读出的中文转述；evidence_span 是论文原句，可逐字核对。方向判定由人工做出，不是规则抽取。",
+  "claims": [
+    {
+      "feature_id": "WTI_Futures_Price",
+      "feature_name": "WTI 原油期货价格（论文实际用墨西哥 Mayan 原油）",
+      "effect_direction": "conditional",
+      "claim_text": "论文发现墨西哥原油价格与 USD/MXN 存在显著非线性联动，并把联动解释为：油价上升推动石油出口国本币升值，即 USD/本币下降。但中国是石油净进口国，论文的机制前提（出口国）不成立，因此该方向不能直接外推到 USD/CNY，只作条件性记录。",
+      "evidence_span": "The periods of co-movement might be due to the fact that when there is an increase in oil prices it impacts financial markets, appreciating the exchange rate in oil exporting economies, as is the case of Mexico.",
+      "currency_pair": "USD/CNY",
+      "forecast_horizon": 28,
+      "market_regime": "",
+      "policy_condition": "仅适用于石油出口国；论文基于墨西哥与 USD/MXN，未检验中国或 USD/CNY"
+    }
+  ]
+}

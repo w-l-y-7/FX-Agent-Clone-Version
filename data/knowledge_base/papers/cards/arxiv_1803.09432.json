@@ -1,0 +1,22 @@
+{
+  "key": "arxiv_1803.09432",
+  "source_title": "Time-dependent lead-lag relationship between the onshore and offshore Renminbi exchange rates",
+  "source_url": "https://arxiv.org/abs/1803.09432",
+  "published_at": "2018-03-26",
+  "evidence_type": "working_paper",
+  "methodology": "thermal optimal path / lead-lag analysis on CNY and CNH daily rates",
+  "sample_period": "2012-2016",
+  "extraction_note": "claim_text 是从英文原文读出的中文转述；evidence_span 是论文原句，可逐字核对。方向判定由人工做出，不是规则抽取。",
+  "claims": [
+    {
+      "feature_id": "Transmission_Channels",
+      "feature_name": "在岸离岸传导",
+      "effect_direction": "conditional",
+      "claim_text": "传导方向随市场状态翻转：美元升值时离岸（CNH）领先在岸（CNY），人民币升值时反过来由在岸领先离岸。",
+      "evidence_span": "US dollar appreciation is associated with a lead-lag relationship running from",
+      "currency_pair": "USD/CNY",
+      "forecast_horizon": 20,
+      "market_regime": "depends on appreciation vs depreciation state"
+    }
+  ]
+}

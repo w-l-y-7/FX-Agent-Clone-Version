@@ -37,6 +37,15 @@ data/knowledge_base/index/
 reports/last_run.json
 !reports/*.log
 
+# AegisFX-Agent 的运行产物：投递记录、解析结果、闸门判定。
+# 它们是运行时状态（换台机器重新投递即可），消息原文也不适合当仓库内容。
+data/aegisfx/
+
+# 人工投递目录：说明文件进版本库，投递内容本身和 processed/ failed/ 不进。
+# 注意 `!` 规则必须写在对应的排除规则**之后**才生效。
+data/inbox/*
+!data/inbox/README.md
+
 # Excel / WPS 打开文件时会生成的隐藏锁文件。
 # `Data.xlsx` 在版本库里，编辑它的时候就可能在旁边留下 `~$Data.xlsx`。
 ~$*
@@ -51,3 +60,20 @@ Thumbs.db
 # 而且 docs/ 里的对照结论都指向它，留在仓库里方便查。
 # 如果希望仓库更干净，把下面这行的注释去掉即可。
 # A Novel Exchange Rate Forecasting Paradigm*.pdf
+
+# 抓下来的文献。**开放获取不等于可以再分发全文**，而且 21 篇 PDF 有十几 MB，
+# 所以正文不进版本库；本机重新跑一次 fetch_literature.py 就能拿回来。
+# 进版本库的是：manifest.json（元数据）与 cards/（结构化观点卡片）——
+# 卡片里只保留判定方向用的**短引用**，不是整段正文。
+data/knowledge_base/papers/pdf/
+data/knowledge_base/papers/raw/
+data/knowledge_base/papers/zotero_import.json
+
+# Zotero 本地 API 的授权凭据（含 API key）
+data/knowledge_base/zotero_credentials.json
+
+# 探测用的一次性脚本与中间产物
+data/knowledge_base/_tmp/
+
+# 一次性工作区：PDF 逐页渲染出来的审阅图之类，36MB 且随手可重生成。
+tmp/

@@ -1,0 +1,793 @@
+{
+  "split": "dev",
+  "horizon": 20,
+  "stage5_config_hash": "7baa207a81f0fea8",
+  "risk_config_hash": "21eb0f4342749415",
+  "limits": {
+    "max_conflict": 0.8690449641814774,
+    "max_interval_width": 0.04536505076293097,
+    "min_effective_sample_size": 2.0
+  },
+  "n_signals": 64,
+  "n_allowed": 0,
+  "rejection_rate": 1.0,
+  "spread_bps_assumption": 2.0,
+  "blocked_reason_counts": {
+    "interval_excludes_zero": 64,
+    "conflict_index": 16,
+    "interval_width": 14
+  },
+  "always_execute": {
+    "raw": {
+      "n_trades": 64,
+      "total_pnl": 0.09660120799760848,
+      "mean_pnl": 0.0015093938749626324,
+      "win_rate": 0.609375,
+      "max_drawdown": 0.08637140607597131,
+      "worst_trade": -0.03176382379950817
+    },
+    "drift_adjusted": {
+      "n_trades": 64,
+      "total_pnl": 0.10835903504051828,
+      "mean_pnl": 0.001693109922508098,
+      "win_rate": 0.546875,
+      "max_drawdown": 0.07210766762345812,
+      "worst_trade": -0.021193191966169513
+    }
+  },
+  "risk_gated": {
+    "raw": {
+      "n_trades": 0,
+      "total_pnl": 0.0,
+      "mean_pnl": null,
+      "win_rate": null,
+      "max_drawdown": 0.0,
+      "worst_trade": null
+    },
+    "drift_adjusted": {
+      "n_trades": 0,
+      "total_pnl": 0.0,
+      "mean_pnl": null,
+      "win_rate": null,
+      "max_drawdown": 0.0,
+      "worst_trade": null
+    }
+  },
+  "trades": [
+    {
+      "event_id": "hist_0281",
+      "query_date": "2023-01-10",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.005598854984359281,
+      "drift_adjusted_pnl": 0.0025881166862158486
+    },
+    {
+      "event_id": "hist_0282",
+      "query_date": "2023-01-18",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "conflict_index"
+      ],
+      "side": "short_usd",
+      "raw_pnl": -0.01986786448397717,
+      "drift_adjusted_pnl": -0.005345728077693324
+    },
+    {
+      "event_id": "hist_0283",
+      "query_date": "2023-01-30",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "short_usd",
+      "raw_pnl": -0.03176382379950817,
+      "drift_adjusted_pnl": -0.016068264653866654
+    },
+    {
+      "event_id": "hist_0284",
+      "query_date": "2023-02-07",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.02030798514939012,
+      "drift_adjusted_pnl": 0.005925917943853872
+    },
+    {
+      "event_id": "hist_0285",
+      "query_date": "2023-02-10",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "conflict_index"
+      ],
+      "side": "short_usd",
+      "raw_pnl": -0.024523887115986763,
+      "drift_adjusted_pnl": -0.018181309238676883
+    },
+    {
+      "event_id": "hist_0286",
+      "query_date": "2023-02-13",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "conflict_index"
+      ],
+      "side": "short_usd",
+      "raw_pnl": -0.01095127067129511,
+      "drift_adjusted_pnl": -0.011168388258516524
+    },
+    {
+      "event_id": "hist_0287",
+      "query_date": "2023-02-16",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "short_usd",
+      "raw_pnl": -0.007526755794266892,
+      "drift_adjusted_pnl": -0.007079435394702863
+    },
+    {
+      "event_id": "hist_0288",
+      "query_date": "2023-02-27",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "conflict_index"
+      ],
+      "side": "long_usd",
+      "raw_pnl": -0.01204578936032732,
+      "drift_adjusted_pnl": -4.9632124454362074e-05
+    },
+    {
+      "event_id": "hist_0289",
+      "query_date": "2023-03-02",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "short_usd",
+      "raw_pnl": 0.004214787366470941,
+      "drift_adjusted_pnl": -0.013120871171886527
+    },
+    {
+      "event_id": "hist_0290",
+      "query_date": "2023-03-09",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "short_usd",
+      "raw_pnl": 0.013358300692979918,
+      "drift_adjusted_pnl": -0.0070199566475148524
+    },
+    {
+      "event_id": "hist_0291",
+      "query_date": "2023-03-14",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.0013569297926520952,
+      "drift_adjusted_pnl": 0.010372744523506602
+    },
+    {
+      "event_id": "hist_0292",
+      "query_date": "2023-03-28",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.005058188684726717,
+      "drift_adjusted_pnl": 0.007703798635523315
+    },
+    {
+      "event_id": "hist_0293",
+      "query_date": "2023-03-31",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.006334425800067023,
+      "drift_adjusted_pnl": 0.00999099747654257
+    },
+    {
+      "event_id": "hist_0294",
+      "query_date": "2023-04-07",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "conflict_index"
+      ],
+      "side": "short_usd",
+      "raw_pnl": -0.007108688949006425,
+      "drift_adjusted_pnl": -0.007360241316929723
+    },
+    {
+      "event_id": "hist_0295",
+      "query_date": "2023-04-12",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.009867991631798944,
+      "drift_adjusted_pnl": 6.171865047415476e-05
+    },
+    {
+      "event_id": "hist_0296",
+      "query_date": "2023-04-14",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "short_usd",
+      "raw_pnl": -0.021953412657858017,
+      "drift_adjusted_pnl": -0.00964448520111852
+    },
+    {
+      "event_id": "hist_0297",
+      "query_date": "2023-04-19",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.019200864193950708,
+      "drift_adjusted_pnl": 0.006913702850924218
+    },
+    {
+      "event_id": "hist_0298",
+      "query_date": "2023-04-27",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "short_usd",
+      "raw_pnl": -0.024322141815082764,
+      "drift_adjusted_pnl": -0.003338915143411119
+    },
+    {
+      "event_id": "hist_0299",
+      "query_date": "2023-05-10",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "conflict_index"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.02913741640064147,
+      "drift_adjusted_pnl": 0.007195431962985831
+    },
+    {
+      "event_id": "hist_0300",
+      "query_date": "2023-05-17",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.022533442880617406,
+      "drift_adjusted_pnl": 0.01642210762138342
+    },
+    {
+      "event_id": "hist_0301",
+      "query_date": "2023-05-22",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.017992421483841815,
+      "drift_adjusted_pnl": 0.017403333399575838
+    },
+    {
+      "event_id": "hist_0302",
+      "query_date": "2023-05-25",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.02148746286393364,
+      "drift_adjusted_pnl": 0.025742510180453468
+    },
+    {
+      "event_id": "hist_0303",
+      "query_date": "2023-05-30",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "interval_width",
+        "conflict_index"
+      ],
+      "side": "short_usd",
+      "raw_pnl": -0.021666551952723066,
+      "drift_adjusted_pnl": -0.021193191966169513
+    },
+    {
+      "event_id": "hist_0304",
+      "query_date": "2023-05-31",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "interval_width"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.021681376204882842,
+      "drift_adjusted_pnl": 0.021824669407910995
+    },
+    {
+      "event_id": "hist_0305",
+      "query_date": "2023-06-06",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "interval_width",
+        "conflict_index"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.017938646134824522,
+      "drift_adjusted_pnl": 0.019041593876076825
+    },
+    {
+      "event_id": "hist_0306",
+      "query_date": "2023-06-08",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "interval_width"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.014615854086285495,
+      "drift_adjusted_pnl": 0.017458937744154964
+    },
+    {
+      "event_id": "hist_0307",
+      "query_date": "2023-06-09",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "interval_width",
+        "conflict_index"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.010243424432559966,
+      "drift_adjusted_pnl": 0.015579189300943918
+    },
+    {
+      "event_id": "hist_0308",
+      "query_date": "2023-06-12",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.0064222384005825145,
+      "drift_adjusted_pnl": 0.017924494248820866
+    },
+    {
+      "event_id": "hist_0309",
+      "query_date": "2023-06-13",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "conflict_index"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.0007226123909640283,
+      "drift_adjusted_pnl": 0.01600757106612131
+    },
+    {
+      "event_id": "hist_0310",
+      "query_date": "2023-06-16",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "short_usd",
+      "raw_pnl": -0.007914141187050494,
+      "drift_adjusted_pnl": -0.016371001582722047
+    },
+    {
+      "event_id": "hist_0311",
+      "query_date": "2023-06-19",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "interval_width"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.008377455541119771,
+      "drift_adjusted_pnl": 0.015578167343423049
+    },
+    {
+      "event_id": "hist_0312",
+      "query_date": "2023-07-07",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "interval_width",
+        "conflict_index"
+      ],
+      "side": "long_usd",
+      "raw_pnl": -0.007582216323822188,
+      "drift_adjusted_pnl": -0.006994027058948198
+    },
+    {
+      "event_id": "hist_0313",
+      "query_date": "2023-07-13",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "interval_width"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.0063640624563561015,
+      "drift_adjusted_pnl": -0.00849387818421331
+    },
+    {
+      "event_id": "hist_0314",
+      "query_date": "2023-07-20",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "interval_width"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.017791672584980024,
+      "drift_adjusted_pnl": 0.0026528314280745446
+    },
+    {
+      "event_id": "hist_0315",
+      "query_date": "2023-07-25",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "interval_width"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.021799579625867184,
+      "drift_adjusted_pnl": 0.006899896320432143
+    },
+    {
+      "event_id": "hist_0316",
+      "query_date": "2023-07-26",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "interval_width"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.01950243588667975,
+      "drift_adjusted_pnl": 0.004006171238686841
+    },
+    {
+      "event_id": "hist_0317",
+      "query_date": "2023-08-03",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "interval_width"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.013834355657555952,
+      "drift_adjusted_pnl": 0.005121239775302196
+    },
+    {
+      "event_id": "hist_0318",
+      "query_date": "2023-08-11",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "interval_width"
+      ],
+      "side": "short_usd",
+      "raw_pnl": -0.015060381531656142,
+      "drift_adjusted_pnl": -0.002417149530106065
+    },
+    {
+      "event_id": "hist_0319",
+      "query_date": "2023-08-21",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "interval_width"
+      ],
+      "side": "short_usd",
+      "raw_pnl": 0.0027942985274614696,
+      "drift_adjusted_pnl": 0.009701524914247814
+    },
+    {
+      "event_id": "hist_0320",
+      "query_date": "2023-08-29",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "short_usd",
+      "raw_pnl": -0.001488995543366589,
+      "drift_adjusted_pnl": 0.011682236728823986
+    },
+    {
+      "event_id": "hist_0321",
+      "query_date": "2023-08-31",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "conflict_index"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.0011442335125644077,
+      "drift_adjusted_pnl": -0.012137131781152426
+    },
+    {
+      "event_id": "hist_0322",
+      "query_date": "2023-09-06",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "short_usd",
+      "raw_pnl": 0.0017566526189043198,
+      "drift_adjusted_pnl": 0.00936650247541906
+    },
+    {
+      "event_id": "hist_0323",
+      "query_date": "2023-09-11",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "conflict_index"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.002968463500946128,
+      "drift_adjusted_pnl": -0.008622324692227668
+    },
+    {
+      "event_id": "hist_0324",
+      "query_date": "2023-09-15",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.006114399306654117,
+      "drift_adjusted_pnl": 0.0051420288674876476
+    },
+    {
+      "event_id": "hist_0325",
+      "query_date": "2023-09-22",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "short_usd",
+      "raw_pnl": -0.002638289361935242,
+      "drift_adjusted_pnl": 0.00043853436422379704
+    },
+    {
+      "event_id": "hist_0326",
+      "query_date": "2023-09-25",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.0007164398364087667,
+      "drift_adjusted_pnl": -0.004611266049365435
+    },
+    {
+      "event_id": "hist_0327",
+      "query_date": "2023-09-27",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.001140849387040377,
+      "drift_adjusted_pnl": 0.002666181610654679
+    },
+    {
+      "event_id": "hist_0328",
+      "query_date": "2023-09-28",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.0015944713843454084,
+      "drift_adjusted_pnl": 0.008109300079407666
+    },
+    {
+      "event_id": "hist_0329",
+      "query_date": "2023-10-09",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": -0.0024764049258111597,
+      "drift_adjusted_pnl": 0.0025038542798637383
+    },
+    {
+      "event_id": "hist_0330",
+      "query_date": "2023-10-09",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": -0.0024764049258111597,
+      "drift_adjusted_pnl": 0.0025038542798637383
+    },
+    {
+      "event_id": "hist_0331",
+      "query_date": "2023-10-16",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "conflict_index"
+      ],
+      "side": "long_usd",
+      "raw_pnl": -0.0027576147165427,
+      "drift_adjusted_pnl": -0.0012168806895591147
+    },
+    {
+      "event_id": "hist_0332",
+      "query_date": "2023-10-17",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": -0.002989285860781865,
+      "drift_adjusted_pnl": 0.008558065640251864
+    },
+    {
+      "event_id": "hist_0333",
+      "query_date": "2023-10-18",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "short_usd",
+      "raw_pnl": 0.0094854950136116,
+      "drift_adjusted_pnl": -0.000282700976716794
+    },
+    {
+      "event_id": "hist_0334",
+      "query_date": "2023-10-20",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": -0.009564319890635798,
+      "drift_adjusted_pnl": -0.0012994110501154447
+    },
+    {
+      "event_id": "hist_0335",
+      "query_date": "2023-10-24",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "conflict_index"
+      ],
+      "side": "long_usd",
+      "raw_pnl": -0.02397009921313733,
+      "drift_adjusted_pnl": -0.013912053745941818
+    },
+    {
+      "event_id": "hist_0336",
+      "query_date": "2023-10-25",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": -0.023070813397129374,
+      "drift_adjusted_pnl": -0.010876647163590422
+    },
+    {
+      "event_id": "hist_0337",
+      "query_date": "2023-10-30",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": -0.023362066138289193,
+      "drift_adjusted_pnl": -0.007739583547000138
+    },
+    {
+      "event_id": "hist_0338",
+      "query_date": "2023-11-16",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "short_usd",
+      "raw_pnl": 0.0165413638557542,
+      "drift_adjusted_pnl": -0.001299438614616151
+    },
+    {
+      "event_id": "hist_0339",
+      "query_date": "2023-11-30",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": -0.0037759360538493158,
+      "drift_adjusted_pnl": 0.007520924857047958
+    },
+    {
+      "event_id": "hist_0340",
+      "query_date": "2023-12-08",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": -0.00031172092113898023,
+      "drift_adjusted_pnl": 0.008621293834333615
+    },
+    {
+      "event_id": "hist_0341",
+      "query_date": "2023-12-15",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.010139921394057816,
+      "drift_adjusted_pnl": 0.010873538803261246
+    },
+    {
+      "event_id": "hist_0342",
+      "query_date": "2023-12-19",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero",
+        "conflict_index"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.007233331000209931,
+      "drift_adjusted_pnl": -0.0010109199657266743
+    },
+    {
+      "event_id": "hist_0343",
+      "query_date": "2023-12-22",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.007854010897426744,
+      "drift_adjusted_pnl": -0.005002929398259135
+    },
+    {
+      "event_id": "hist_0344",
+      "query_date": "2023-12-26",
+      "allowed": false,
+      "blocked_by": [
+        "interval_excludes_zero"
+      ],
+      "side": "long_usd",
+      "raw_pnl": 0.002543369025124176,
+      "drift_adjusted_pnl": -0.009886184150553638
+    }
+  ],
+  "paper_gate_note": "历史回测只评估信号时可知的研究闸门；完整 paper gate 还要求来源核验、实时行情、Bid/Ask、API 健康与订单幂等。缺任一项仍 BLOCKED。"
+}

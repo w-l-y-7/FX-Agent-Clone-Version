@@ -1,0 +1,429 @@
+{
+  "horizons": {
+    "5": {
+      "horizon": 5,
+      "n": 141,
+      "n_months": 36,
+      "n_missing_directional_conflict": 0,
+      "univariate": {
+        "directional_conflict": {
+          "spearman": -0.015415899653238578,
+          "p_value": 0.8560261723440217,
+          "n_used": 141,
+          "bootstrap": {
+            "n_blocks": 36,
+            "mean": -0.014264894810746477,
+            "low": -0.15542010799991482,
+            "high": 0.13581098430148728,
+            "share_positive": 0.4138
+          }
+        },
+        "neutral_mass": {
+          "spearman": 0.09188923566132666,
+          "p_value": 0.27849515875951253,
+          "n_used": 141,
+          "bootstrap": {
+            "n_blocks": 36,
+            "mean": 0.09272911391804678,
+            "low": -0.051349090082885844,
+            "high": 0.2505997358114963,
+            "share_positive": 0.8876
+          }
+        },
+        "pairwise_dispersion_norm": {
+          "spearman": -0.15643221028297444,
+          "p_value": 0.06396612020933608,
+          "n_used": 141,
+          "bootstrap": {
+            "n_blocks": 36,
+            "mean": -0.15254032040754933,
+            "low": -0.31107872396117364,
+            "high": 0.01686199243199911,
+            "share_positive": 0.0378
+          }
+        },
+        "effective_sample_size": {
+          "spearman": -0.12806198895500662,
+          "p_value": 0.13018978275165977,
+          "n_used": 141,
+          "bootstrap": {
+            "n_blocks": 36,
+            "mean": -0.12994144363728719,
+            "low": -0.27819721251665824,
+            "high": 0.018320994166877633,
+            "share_positive": 0.043
+          }
+        }
+      },
+      "quartiles": {
+        "directional_conflict": {
+          "0": {
+            "n": 36,
+            "mean_abs_error": 0.004342733420908647
+          },
+          "1": {
+            "n": 35,
+            "mean_abs_error": 0.0039028554929875256
+          },
+          "2": {
+            "n": 35,
+            "mean_abs_error": 0.005005127818085985
+          },
+          "3": {
+            "n": 35,
+            "mean_abs_error": 0.0038758645092399997
+          }
+        },
+        "neutral_mass": {
+          "0": {
+            "n": 36,
+            "mean_abs_error": 0.004308493843234836
+          },
+          "1": {
+            "n": 35,
+            "mean_abs_error": 0.0039629839770751836
+          },
+          "2": {
+            "n": 35,
+            "mean_abs_error": 0.0037596776188871623
+          },
+          "3": {
+            "n": 35,
+            "mean_abs_error": 0.0050964040756728
+          }
+        },
+        "pairwise_dispersion_norm": {
+          "0": {
+            "n": 36,
+            "mean_abs_error": 0.005107107372156017
+          },
+          "1": {
+            "n": 35,
+            "mean_abs_error": 0.004664824860080951
+          },
+          "2": {
+            "n": 35,
+            "mean_abs_error": 0.00412870265337386
+          },
+          "3": {
+            "n": 35,
+            "mean_abs_error": 0.0032041070998614055
+          }
+        },
+        "effective_sample_size": {
+          "0": {
+            "n": 36,
+            "mean_abs_error": 0.005234756090890056
+          },
+          "1": {
+            "n": 35,
+            "mean_abs_error": 0.004579462273875872
+          },
+          "2": {
+            "n": 35,
+            "mean_abs_error": 0.00337548570518468
+          },
+          "3": {
+            "n": 35,
+            "mean_abs_error": 0.003911390809272083
+          }
+        }
+      },
+      "fold_consistency": {
+        "directional_conflict": {
+          "per_year": {
+            "2020": -0.022424969987995196,
+            "2021": -0.13812544045102185,
+            "2022": 0.10175763182238669
+          },
+          "consistent": false,
+          "n_years": 3
+        },
+        "neutral_mass": {
+          "per_year": {
+            "2020": -0.13506258633804916,
+            "2021": 0.18909875061524287,
+            "2022": 0.210563167708306
+          },
+          "consistent": false,
+          "n_years": 3
+        },
+        "pairwise_dispersion_norm": {
+          "per_year": {
+            "2020": -0.28816326530612246,
+            "2021": 0.031007751937984496,
+            "2022": -0.12858464384828863
+          },
+          "consistent": false,
+          "n_years": 3
+        },
+        "effective_sample_size": {
+          "per_year": {
+            "2020": 0.010996398559423769,
+            "2021": -0.15066948555320647,
+            "2022": -0.22698889916743756
+          },
+          "consistent": false,
+          "n_years": 3
+        }
+      },
+      "by_family": {
+        "directional_conflict": {
+          "dialogue": {
+            "n": 28,
+            "spearman": -0.019157088122605366
+          },
+          "entity_restrictions": {
+            "n": 66,
+            "spearman": -0.13261663709424906
+          },
+          "tariff": {
+            "n": 35,
+            "spearman": 0.052100840336134456
+          }
+        },
+        "pairwise_dispersion_norm": {
+          "dialogue": {
+            "n": 28,
+            "spearman": -0.01696770662287904
+          },
+          "entity_restrictions": {
+            "n": 66,
+            "spearman": -0.39062728316459666
+          },
+          "tariff": {
+            "n": 35,
+            "spearman": -0.09383753501400562
+          }
+        }
+      }
+    },
+    "20": {
+      "horizon": 20,
+      "n": 141,
+      "n_months": 36,
+      "n_missing_directional_conflict": 0,
+      "univariate": {
+        "directional_conflict": {
+          "spearman": 0.021413817093322542,
+          "p_value": 0.8010098115616926,
+          "n_used": 141,
+          "bootstrap": {
+            "n_blocks": 36,
+            "mean": 0.015859915345102914,
+            "low": -0.161659682860173,
+            "high": 0.18061508444841368,
+            "share_positive": 0.5794
+          }
+        },
+        "neutral_mass": {
+          "spearman": -0.011063221385875871,
+          "p_value": 0.8964057709784196,
+          "n_used": 141,
+          "bootstrap": {
+            "n_blocks": 36,
+            "mean": -0.013393330101075282,
+            "low": -0.21255216624494144,
+            "high": 0.19493036822318216,
+            "share_positive": 0.4386
+          }
+        },
+        "pairwise_dispersion_norm": {
+          "spearman": 0.006678368080825376,
+          "p_value": 0.9373538173898451,
+          "n_used": 141,
+          "bootstrap": {
+            "n_blocks": 36,
+            "mean": 0.012140788068216246,
+            "low": -0.15137377092463108,
+            "high": 0.18271852601787159,
+            "share_positive": 0.548
+          }
+        },
+        "effective_sample_size": {
+          "spearman": -0.0382122522368252,
+          "p_value": 0.652803707255533,
+          "n_used": 141,
+          "bootstrap": {
+            "n_blocks": 36,
+            "mean": -0.04046780558388167,
+            "low": -0.19893596447382095,
+            "high": 0.1270200385083344,
+            "share_positive": 0.3086
+          }
+        }
+      },
+      "quartiles": {
+        "directional_conflict": {
+          "0": {
+            "n": 36,
+            "mean_abs_error": 0.011925522585565583
+          },
+          "1": {
+            "n": 35,
+            "mean_abs_error": 0.011808401442406741
+          },
+          "2": {
+            "n": 35,
+            "mean_abs_error": 0.011688340171736976
+          },
+          "3": {
+            "n": 35,
+            "mean_abs_error": 0.013837316816139191
+          }
+        },
+        "neutral_mass": {
+          "0": {
+            "n": 36,
+            "mean_abs_error": 0.012030359357085017
+          },
+          "1": {
+            "n": 35,
+            "mean_abs_error": 0.015703722440856844
+          },
+          "2": {
+            "n": 35,
+            "mean_abs_error": 0.009893808151043279
+          },
+          "3": {
+            "n": 35,
+            "mean_abs_error": 0.011628695730534225
+          }
+        },
+        "pairwise_dispersion_norm": {
+          "0": {
+            "n": 36,
+            "mean_abs_error": 0.01017034689014112
+          },
+          "1": {
+            "n": 35,
+            "mean_abs_error": 0.015113286148132083
+          },
+          "2": {
+            "n": 35,
+            "mean_abs_error": 0.014441078079301973
+          },
+          "3": {
+            "n": 35,
+            "mean_abs_error": 0.009585017775285446
+          }
+        },
+        "effective_sample_size": {
+          "0": {
+            "n": 36,
+            "mean_abs_error": 0.014693317000375686
+          },
+          "1": {
+            "n": 35,
+            "mean_abs_error": 0.011805620688928164
+          },
+          "2": {
+            "n": 35,
+            "mean_abs_error": 0.011068351528681748
+          },
+          "3": {
+            "n": 35,
+            "mean_abs_error": 0.01161321195743975
+          }
+        }
+      },
+      "fold_consistency": {
+        "directional_conflict": {
+          "per_year": {
+            "2020": -0.15668667466986794,
+            "2021": 0.06406145393173392,
+            "2022": 0.13512185256145057
+          },
+          "consistent": false,
+          "n_years": 3
+        },
+        "neutral_mass": {
+          "per_year": {
+            "2020": 0.12492795749302492,
+            "2021": -0.07331984006717042,
+            "2022": -0.29512464364995356
+          },
+          "consistent": false,
+          "n_years": 3
+        },
+        "pairwise_dispersion_norm": {
+          "per_year": {
+            "2020": -0.15486194477791115,
+            "2021": 0.08132487667371388,
+            "2022": 0.18501387604070305
+          },
+          "consistent": false,
+          "n_years": 3
+        },
+        "effective_sample_size": {
+          "per_year": {
+            "2020": 0.04086434573829532,
+            "2021": -0.004228329809725159,
+            "2022": -0.158418131359852
+          },
+          "consistent": false,
+          "n_years": 3
+        }
+      },
+      "by_family": {
+        "directional_conflict": {
+          "dialogue": {
+            "n": 28,
+            "spearman": -0.1439715354935839
+          },
+          "entity_restrictions": {
+            "n": 66,
+            "spearman": 0.07151728961134371
+          },
+          "tariff": {
+            "n": 35,
+            "spearman": -0.0319327731092437
+          }
+        },
+        "pairwise_dispersion_norm": {
+          "dialogue": {
+            "n": 28,
+            "spearman": 0.1981390257252326
+          },
+          "entity_restrictions": {
+            "n": 66,
+            "spearman": -0.040475941968479284
+          },
+          "tariff": {
+            "n": 35,
+            "spearman": -0.25014005602240896
+          }
+        }
+      }
+    }
+  },
+  "checks": {
+    "5": {
+      "criteria": {
+        "方向在多数折一致": false,
+        "高冲突组误差高于低冲突组": true,
+        "bootstrap 区间不跨 0": false,
+        "不是单一家族驱动": false
+      },
+      "all_passed": false,
+      "n_passed": 1
+    },
+    "20": {
+      "criteria": {
+        "方向在多数折一致": false,
+        "高冲突组误差高于低冲突组": true,
+        "bootstrap 区间不跨 0": false,
+        "不是单一家族驱动": false
+      },
+      "all_passed": false,
+      "n_passed": 1
+    }
+  },
+  "cp1_allowed": false,
+  "bootstrap": {
+    "seed": 20260929,
+    "resamples": 5000,
+    "unit": "月份分块"
+  },
+  "caveat": "使用 2020–2022 out-of-fold 预测，不是训练内拟合误差。"
+}

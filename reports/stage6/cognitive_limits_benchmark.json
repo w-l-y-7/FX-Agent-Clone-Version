@@ -1,0 +1,76 @@
+{
+  "kind": "controlled_mechanism_stress_test",
+  "uses_2024": false,
+  "n_scenarios": 8,
+  "selective_accuracy": 1.0,
+  "mean_only_accuracy": 0.375,
+  "mean_only_unsafe_accepts": 5,
+  "selective_unsafe_accepts": 0,
+  "scenarios": [
+    {
+      "scenario": "证据一致且显著增益",
+      "expected": "AUTO_ACCEPT",
+      "selective": "AUTO_ACCEPT",
+      "mean_only": "AUTO_ACCEPT",
+      "selective_correct": true,
+      "mean_only_correct": true
+    },
+    {
+      "scenario": "增益区间跨零",
+      "expected": "RESEARCH_ONLY",
+      "selective": "RESEARCH_ONLY",
+      "mean_only": "AUTO_ACCEPT",
+      "selective_correct": true,
+      "mean_only_correct": false
+    },
+    {
+      "scenario": "同条件方向冲突",
+      "expected": "HUMAN_REVIEW",
+      "selective": "HUMAN_REVIEW",
+      "mean_only": "AUTO_ACCEPT",
+      "selective_correct": true,
+      "mean_only_correct": false
+    },
+    {
+      "scenario": "不同制度条件相反",
+      "expected": "AUTO_ACCEPT",
+      "selective": "AUTO_ACCEPT",
+      "mean_only": "AUTO_ACCEPT",
+      "selective_correct": true,
+      "mean_only_correct": true
+    },
+    {
+      "scenario": "没有知识证据",
+      "expected": "RESEARCH_ONLY",
+      "selective": "RESEARCH_ONLY",
+      "mean_only": "AUTO_ACCEPT",
+      "selective_correct": true,
+      "mean_only_correct": false
+    },
+    {
+      "scenario": "显著负增益",
+      "expected": "AUTO_REJECT",
+      "selective": "AUTO_REJECT",
+      "mean_only": "AUTO_REJECT",
+      "selective_correct": true,
+      "mean_only_correct": true
+    },
+    {
+      "scenario": "转载刷屏",
+      "expected": "RESEARCH_ONLY",
+      "selective": "RESEARCH_ONLY",
+      "mean_only": "AUTO_ACCEPT",
+      "selective_correct": true,
+      "mean_only_correct": false
+    },
+    {
+      "scenario": "只有未来证据",
+      "expected": "RESEARCH_ONLY",
+      "selective": "RESEARCH_ONLY",
+      "mean_only": "AUTO_ACCEPT",
+      "selective_correct": true,
+      "mean_only_correct": false
+    }
+  ],
+  "caveat": "受控机制测试只验证规则是否按设计工作，不代表真实文献库上的外部效度。"
+}

@@ -1,0 +1,80 @@
+{
+  "checked_at": "2026-09-26T23:29:24",
+  "results": [
+    {
+      "source": "依赖 akshare",
+      "ok": true,
+      "detail": "已安装，版本 1.18.97"
+    },
+    {
+      "source": "依赖 requests",
+      "ok": true,
+      "detail": "已安装，版本 2.34.2"
+    },
+    {
+      "source": "依赖 pandas",
+      "ok": true,
+      "detail": "已安装，版本 3.0.6"
+    },
+    {
+      "source": "akshare 接口清点",
+      "ok": true,
+      "detail": "找到 34 个疑似外汇接口",
+      "candidates": [
+        "currency",
+        "currency_boc_safe",
+        "currency_boc_sina",
+        "currency_convert",
+        "currency_currencies",
+        "currency_history",
+        "currency_latest",
+        "currency_pair_map",
+        "currency_time_series",
+        "forex",
+        "forex_hist_em",
+        "forex_spot_em",
+        "fx_c_swap_cm",
+        "fx_pair_quote",
+        "fx_quote_baidu",
+        "fx_spot_quote",
+        "fx_swap_quote",
+        "macro_china_fx_gold",
+        "macro_china_fx_reserves_yearly",
+        "macro_china_international_tourism_fx",
+        "macro_fx_sentiment",
+        "macro_usa_cftc_merchant_currency_holding",
+        "stock_gdfx_free_holding_analyse_em",
+        "stock_gdfx_free_holding_change_em",
+        "stock_gdfx_free_holding_detail_em",
+        "stock_gdfx_free_holding_statistics_em",
+        "stock_gdfx_free_holding_teamwork_em",
+        "stock_gdfx_free_top_10_em",
+        "stock_gdfx_holding_analyse_em",
+        "stock_gdfx_holding_change_em",
+        "stock_gdfx_holding_detail_em",
+        "stock_gdfx_holding_statistics_em",
+        "stock_gdfx_holding_teamwork_em",
+        "stock_gdfx_top_10_em"
+      ]
+    },
+    {
+      "source": "akshare.currency_boc_sina",
+      "ok": true,
+      "detail": "返回 (23, 6)，列名 ['日期', '中行汇买价', '中行钞买价', '中行钞卖价/汇卖价', '央行中间价', '中行折算价']",
+      "function": "currency_boc_sina"
+    },
+    {
+      "source": "FRED DEXCHUS",
+      "ok": true,
+      "detail": "HTTP 200，11926 行，首行 observation_date,DEXCHUS，末行 2026-09-18,6.6975",
+      "first_row": "1981-01-02,1.5341",
+      "last_row": "2026-09-18,6.6975"
+    },
+    {
+      "source": "OANDA Practice",
+      "ok": false,
+      "detail": "未配置 OANDA_API_KEY。需要先注册 Practice 账户；注册前请确认所在地区能否开通、是否覆盖 USD/CNH、数据授权范围",
+      "needs": "OANDA_API_KEY"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "key": "nber_w34626",
+  "source_title": "The Ins & Outs of Chinese Monetary Policy Transmission",
+  "source_url": "https://www.nber.org/papers/w34626",
+  "published_at": "2026-01-01",
+  "evidence_type": "working_paper",
+  "methodology": "structural VAR on Chinese monetary policy transmission",
+  "sample_period": "2000s-2020s",
+  "extraction_note": "claim_text 是从英文原文读出的中文转述；evidence_span 是论文原句，可逐字核对。方向判定由人工做出，不是规则抽取。",
+  "claims": [
+    {
+      "feature_id": "China_FX_Reserves",
+      "feature_name": "中国外汇储备",
+      "effect_direction": "negative",
+      "claim_text": "外汇储备的持续下降与中国当局动用储备对冲人民币贬值压力一致——储备被当作逆周期的干预工具，私人资本流入下降时被动用。",
+      "evidence_span": "managing their FX reserves to counter the depreciation pressures on the renminbi",
+      "currency_pair": "USD/CNY",
+      "forecast_horizon": 20
+    },
+    {
+      "feature_id": "USD_Index",
+      "feature_name": "美元指数",
+      "effect_direction": "positive",
+      "claim_text": "全球宏观风险上升、避险动机增强时，美元延迟升值——美元走强是风险规避的伴生结果而非即时反应。",
+      "evidence_span": "the US dollar appreciates with delay",
+      "currency_pair": "USD/CNY",
+      "forecast_horizon": 20,
+      "market_regime": "risk_off"
+    }
+  ]
+}

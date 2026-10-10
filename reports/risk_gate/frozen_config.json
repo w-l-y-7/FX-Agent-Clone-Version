@@ -1,0 +1,20 @@
+{
+  "stage": "risk_gate",
+  "stage5_config_hash": "7baa207a81f0fea8",
+  "horizon": 20,
+  "threshold_source": "2023 dev 的 75% 分位；final 不参与",
+  "max_conflict": 0.8690449641814774,
+  "max_interval_width": 0.04536505076293097,
+  "min_effective_sample_size": 2.0,
+  "max_spread_bps": 5.0,
+  "max_open_positions": 1,
+  "max_daily_loss": 0.01,
+  "max_drawdown": 0.05,
+  "max_consecutive_losses": 3,
+  "calibration_counts": {
+    "conflict": 64,
+    "interval_width": 64
+  },
+  "config_hash": "21eb0f4342749415",
+  "locked_at": "2026-09-29T15:30:50.228098+00:00"
+}

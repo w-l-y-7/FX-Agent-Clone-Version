@@ -1,0 +1,457 @@
+{
+  "stage": 5,
+  "locked_at": "2026-09-27T03:28:42.783940+00:00",
+  "horizons": {
+    "5": {
+      "strongest_baseline": "E1",
+      "baseline_fold_mean_mae": {
+        "E1": 0.004245099331564479,
+        "E2": 0.004297196230546031
+      },
+      "features": [
+        "is_entity_restrictions",
+        "is_dialogue",
+        "is_tariff",
+        "is_rhetoric",
+        "is_us_initiated",
+        "is_negative",
+        "same_family_ratio_top5",
+        "mean_semantic_top5",
+        "semantic_gap_top1_top5",
+        "log1p_mature_count",
+        "rate_spread_z",
+        "usd_index_z",
+        "usd_index_20d_ret",
+        "fx_vol_percentile",
+        "fx_reserve_z",
+        "ci_gap",
+        "pd_gap"
+      ],
+      "coefficients": [
+        {
+          "feature": "intercept",
+          "coefficient": -0.3522845569978492
+        },
+        {
+          "feature": "is_entity_restrictions",
+          "coefficient": -0.03127399398160933
+        },
+        {
+          "feature": "is_dialogue",
+          "coefficient": 0.03241150286311772
+        },
+        {
+          "feature": "is_tariff",
+          "coefficient": 0.0488632959123148
+        },
+        {
+          "feature": "is_rhetoric",
+          "coefficient": 0.009370069552277724
+        },
+        {
+          "feature": "is_us_initiated",
+          "coefficient": -0.05728321982527753
+        },
+        {
+          "feature": "is_negative",
+          "coefficient": -0.049257754302887806
+        },
+        {
+          "feature": "same_family_ratio_top5",
+          "coefficient": 0.0
+        },
+        {
+          "feature": "mean_semantic_top5",
+          "coefficient": -0.05532138879268316
+        },
+        {
+          "feature": "semantic_gap_top1_top5",
+          "coefficient": -0.030731614867541238
+        },
+        {
+          "feature": "log1p_mature_count",
+          "coefficient": -0.0035790317837170347
+        },
+        {
+          "feature": "rate_spread_z",
+          "coefficient": 0.010494525391690868
+        },
+        {
+          "feature": "usd_index_z",
+          "coefficient": -0.10261182131182546
+        },
+        {
+          "feature": "usd_index_20d_ret",
+          "coefficient": -0.09541263292416499
+        },
+        {
+          "feature": "fx_vol_percentile",
+          "coefficient": -0.04473497734537195
+        },
+        {
+          "feature": "fx_reserve_z",
+          "coefficient": -0.0026018353620771034
+        },
+        {
+          "feature": "ci_gap",
+          "coefficient": -0.2037975915980479
+        },
+        {
+          "feature": "pd_gap",
+          "coefficient": 0.03730872885543144
+        }
+      ],
+      "model_config": {
+        "feature_names": [
+          "is_entity_restrictions",
+          "is_dialogue",
+          "is_tariff",
+          "is_rhetoric",
+          "is_us_initiated",
+          "is_negative",
+          "same_family_ratio_top5",
+          "mean_semantic_top5",
+          "semantic_gap_top1_top5",
+          "log1p_mature_count",
+          "rate_spread_z",
+          "usd_index_z",
+          "usd_index_20d_ret",
+          "fx_vol_percentile",
+          "fx_reserve_z",
+          "ci_gap",
+          "pd_gap"
+        ],
+        "coefficients": [
+          -0.3522845569978492,
+          -0.03127399398160933,
+          0.03241150286311772,
+          0.0488632959123148,
+          0.009370069552277724,
+          -0.05728321982527753,
+          -0.049257754302887806,
+          0.0,
+          -0.05532138879268316,
+          -0.030731614867541238,
+          -0.0035790317837170347,
+          0.010494525391690868,
+          -0.10261182131182546,
+          -0.09541263292416499,
+          -0.04473497734537195,
+          -0.0026018353620771034,
+          -0.2037975915980479,
+          0.03730872885543144
+        ],
+        "feature_mean": [
+          0.36153846153846153,
+          0.25,
+          0.25,
+          0.07692307692307693,
+          0.55,
+          0.5192307692307693,
+          0.0,
+          0.7232774062110832,
+          0.08238189323590352,
+          4.838319697159637,
+          -0.17730250975096223,
+          0.6264648459970811,
+          0.002478589451699556,
+          0.5308615384615383,
+          -0.11877791526127078,
+          0.0256723052251357,
+          -0.03775108205180788
+        ],
+        "feature_std": [
+          0.4804460452192981,
+          0.4330127018922193,
+          0.4330127018922193,
+          0.2664693550105969,
+          0.4974937185533104,
+          0.4996300406448691,
+          1.0,
+          0.09725120476569166,
+          0.05054495345894617,
+          0.647517994881606,
+          1.6978969154739982,
+          1.442871797426104,
+          0.01648754683528786,
+          0.30407538928177646,
+          1.2488816652730002,
+          0.2539600917614672,
+          0.39873370615174064
+        ],
+        "lam": 10.0,
+        "delta": 1.0,
+        "n_train": 260
+      },
+      "selected_lambda": 10.0,
+      "conformal": {
+        "window": 60,
+        "targets": [
+          0.8,
+          0.9
+        ],
+        "gamma": 0.02,
+        "gamma_note": "目标覆盖 90% 下综合分最低的 γ=0.02（覆盖 0.879，均宽 0.01925）",
+        "gamma_table": {
+          "0.001": {
+            "coverage": 0.8712121212121212,
+            "mean_width": 0.017235658363023005,
+            "score": 0.030511444624181108
+          },
+          "0.005": {
+            "coverage": 0.8636363636363636,
+            "mean_width": 0.017458552754202893,
+            "score": 0.038109491639056664
+          },
+          "0.01": {
+            "coverage": 0.8636363636363636,
+            "mean_width": 0.01739820049650106,
+            "score": 0.03810345641328648
+          },
+          "0.02": {
+            "coverage": 0.8787878787878788,
+            "mean_width": 0.019254626307605816,
+            "score": 0.02313758384288182
+          }
+        },
+        "min_interval_calibration": 10
+      },
+      "cp1_enabled": false,
+      "cp1_reason": "冲突有效性检验未通过，CP1 降级为 CP0"
+    },
+    "20": {
+      "strongest_baseline": "E1",
+      "baseline_fold_mean_mae": {
+        "E1": 0.012187651983227146,
+        "E2": 0.013479532565006192
+      },
+      "features": [
+        "is_entity_restrictions",
+        "is_dialogue",
+        "is_tariff",
+        "is_rhetoric",
+        "is_us_initiated",
+        "is_negative",
+        "same_family_ratio_top5",
+        "mean_semantic_top5",
+        "semantic_gap_top1_top5",
+        "log1p_mature_count",
+        "rate_spread_z",
+        "usd_index_z",
+        "usd_index_20d_ret",
+        "fx_vol_percentile",
+        "fx_reserve_z",
+        "ci_gap",
+        "pd_gap"
+      ],
+      "coefficients": [
+        {
+          "feature": "intercept",
+          "coefficient": -1.4345374048538746
+        },
+        {
+          "feature": "is_entity_restrictions",
+          "coefficient": -0.020322896896741834
+        },
+        {
+          "feature": "is_dialogue",
+          "coefficient": -0.05590314928697502
+        },
+        {
+          "feature": "is_tariff",
+          "coefficient": 0.11950289977150019
+        },
+        {
+          "feature": "is_rhetoric",
+          "coefficient": -0.09816527724357618
+        },
+        {
+          "feature": "is_us_initiated",
+          "coefficient": -0.016565914784291598
+        },
+        {
+          "feature": "is_negative",
+          "coefficient": -0.059255062413778856
+        },
+        {
+          "feature": "same_family_ratio_top5",
+          "coefficient": 0.0
+        },
+        {
+          "feature": "mean_semantic_top5",
+          "coefficient": 0.08935950548350835
+        },
+        {
+          "feature": "semantic_gap_top1_top5",
+          "coefficient": 0.044000500687673645
+        },
+        {
+          "feature": "log1p_mature_count",
+          "coefficient": -0.006653997235158072
+        },
+        {
+          "feature": "rate_spread_z",
+          "coefficient": 0.042038054747184174
+        },
+        {
+          "feature": "usd_index_z",
+          "coefficient": 0.00473923023423873
+        },
+        {
+          "feature": "usd_index_20d_ret",
+          "coefficient": 0.0807869348202679
+        },
+        {
+          "feature": "fx_vol_percentile",
+          "coefficient": -0.008662022021088341
+        },
+        {
+          "feature": "fx_reserve_z",
+          "coefficient": -0.0159787452969401
+        },
+        {
+          "feature": "ci_gap",
+          "coefficient": -0.14875930920159747
+        },
+        {
+          "feature": "pd_gap",
+          "coefficient": -0.03128344939531858
+        }
+      ],
+      "model_config": {
+        "feature_names": [
+          "is_entity_restrictions",
+          "is_dialogue",
+          "is_tariff",
+          "is_rhetoric",
+          "is_us_initiated",
+          "is_negative",
+          "same_family_ratio_top5",
+          "mean_semantic_top5",
+          "semantic_gap_top1_top5",
+          "log1p_mature_count",
+          "rate_spread_z",
+          "usd_index_z",
+          "usd_index_20d_ret",
+          "fx_vol_percentile",
+          "fx_reserve_z",
+          "ci_gap",
+          "pd_gap"
+        ],
+        "coefficients": [
+          -1.4345374048538746,
+          -0.020322896896741834,
+          -0.05590314928697502,
+          0.11950289977150019,
+          -0.09816527724357618,
+          -0.016565914784291598,
+          -0.059255062413778856,
+          0.0,
+          0.08935950548350835,
+          0.044000500687673645,
+          -0.006653997235158072,
+          0.042038054747184174,
+          0.00473923023423873,
+          0.0807869348202679,
+          -0.008662022021088341,
+          -0.0159787452969401,
+          -0.14875930920159747,
+          -0.03128344939531858
+        ],
+        "feature_mean": [
+          0.3657587548638132,
+          0.2529182879377432,
+          0.24124513618677043,
+          0.07782101167315175,
+          0.5486381322957199,
+          0.5136186770428015,
+          0.0,
+          0.7197787007237226,
+          0.07966427986260054,
+          4.822561733551173,
+          -0.14720014284808272,
+          0.650704754856095,
+          0.0024516331560712396,
+          0.5287315175097274,
+          -0.10781169176935403,
+          0.0559650924415871,
+          -0.043562139650789936
+        ],
+        "feature_std": [
+          0.4816422823053299,
+          0.4346845149811335,
+          0.42783866170905666,
+          0.2678897195028558,
+          0.4976287090660912,
+          0.49981449722432364,
+          1.0,
+          0.09624307886090083,
+          0.04950602518399062,
+          0.6494631242108236,
+          1.6844177289035343,
+          1.4336013291456648,
+          0.01657912279456089,
+          0.30498309243631233,
+          1.2519914313034333,
+          0.3200352139764873,
+          0.5162841781639826
+        ],
+        "lam": 10.0,
+        "delta": 1.0,
+        "n_train": 257
+      },
+      "selected_lambda": 10.0,
+      "conformal": {
+        "window": 60,
+        "targets": [
+          0.8,
+          0.9
+        ],
+        "gamma": 0.005,
+        "gamma_note": "目标覆盖 90% 下综合分最低的 γ=0.005（覆盖 0.864，均宽 0.04693）",
+        "gamma_table": {
+          "0.001": {
+            "coverage": 0.8636363636363636,
+            "mean_width": 0.0472025049146921,
+            "score": 0.041083886855105584
+          },
+          "0.005": {
+            "coverage": 0.8636363636363636,
+            "mean_width": 0.046926515428280365,
+            "score": 0.041056287906464414
+          },
+          "0.01": {
+            "coverage": 0.8625954198473282,
+            "mean_width": 0.04623635347132772,
+            "score": 0.04202821549980456
+          },
+          "0.02": {
+            "coverage": 0.8384615384615385,
+            "mean_width": 0.044508094060608884,
+            "score": 0.06598927094452244
+          }
+        },
+        "min_interval_calibration": 10
+      },
+      "cp1_enabled": false,
+      "cp1_reason": "冲突有效性检验未通过，CP1 降级为 CP0"
+    }
+  },
+  "primary_horizon": 20,
+  "dev_split_year": 2023,
+  "final_split_year": 2024,
+  "cp1_allowed": false,
+  "notes": [
+    "2023 是开发集，用来冻结参数；2024 是准留出集。",
+    "冻结后不得按 2024 结果改动任何一项；要改必须重新冻结并换 hash。",
+    "γ 只在 2020–2022 的 OOF 上选，不用 2024 覆盖率倒推。"
+  ],
+  "data_hashes": {
+    "pseudo_queries_h5": "b1a83d3d553d6462",
+    "pseudo_queries_h20": "4e001cd134f728d7",
+    "oof_predictions_h5": "fbd0a84c8b8adf21",
+    "oof_predictions_h20": "9e3eb601c1970d89",
+    "historical_events": "efcc2504b12c0ae6"
+  },
+  "config_hash": "7baa207a81f0fea8"
+}

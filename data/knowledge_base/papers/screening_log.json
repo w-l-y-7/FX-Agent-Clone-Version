@@ -1,0 +1,50 @@
+{
+  "_about": "文献筛查日志：记录了逐篇读过、但**没有**产出方向断言的论文，以及原因。这不是失败清单——写在这里恰恰是为了证明「看过而没有硬凑」。下游只读 cards/ 目录，本文件不进入 Claim 通道。",
+  "_method": "逐篇通读摘要、结果与结论部分，判断论文是否对候选特征给出明确的「特征 → USD/CNY 方向」断言。宁可返回空，不许从宽泛结论里硬推方向——编造方向会污染冲突检测，比没有文献更糟。",
+  "_screened_at": "2026-09-30",
+  "no_claim": [
+    {
+      "key": "nber_w12551",
+      "title": "Are Currency Appreciations Contractionary in China?",
+      "year": 2006,
+      "reason": "研究的是「人民币实际有效汇率冲击 → 中国产出」，因变量是产出不是汇率。它把汇率当自变量、产出当因变量，方向与候选特征对不上，无法转成「某特征 → USD/CNY」。"
+    },
+    {
+      "key": "nber_w14673",
+      "title": "China's Current Account and Exchange Rate",
+      "year": 2009,
+      "reason": "估计的是人民币 PPP 均衡汇率与失调程度、以及贸易流对汇率的弹性。因变量是经常账户/贸易余额，没有对候选特征给出汇率方向断言。"
+    },
+    {
+      "key": "nber_w17593",
+      "title": "The External Impact of China's Exchange Rate Policy: Evidence from Firm Level Data",
+      "year": 2011,
+      "reason": "事件研究，因变量是 44 国企业的股价回报。讲的是人民币升值如何影响海外企业估值，不是「什么驱动人民币」。"
+    },
+    {
+      "key": "arxiv_1303.4314",
+      "title": "Reinvestigating the Uncovered Interest Rate Parity Puzzle via Analysis of Multivariate Tail Dependence in Currency Carry Trades",
+      "year": 2013,
+      "reason": "做的是套息组合货币篮子的尾部相依建模与模型比较，检验的是风险补偿解释能否成立，没有对利差 → USD/CNY 的方向给出可引用的断言。"
+    },
+    {
+      "key": "nber_w26396",
+      "title": "Tariff Passthrough at the Border and at the Store: Evidence from US Trade Policy",
+      "year": 2019,
+      "reason": "研究关税与汇率冲击向进口价、零售价、出口价的**传导率**，因变量是价格不是汇率。它把汇率当自变量，方向不可逆。"
+    },
+    {
+      "key": "arxiv_2206.13751",
+      "title": "Estimating the Currency Composition of Foreign Exchange Reserves",
+      "year": 2022,
+      "reason": "方法论文，用隐马尔可夫模型 + 粒子滤波从储备估值波动反推币种构成。产出的是估计方法，不是「储备 → 汇率」的行为关系。"
+    }
+  ],
+  "summary": {
+    "screened": 21,
+    "cards_written": 7,
+    "no_claim": 6,
+    "not_yet_screened": 8,
+    "note": "未筛查的 8 篇均为 2023 年后发表，在决策时点 2023-01-01 会被 published_at 硬条件排除，对当前实验无影响。"
+  }
+}

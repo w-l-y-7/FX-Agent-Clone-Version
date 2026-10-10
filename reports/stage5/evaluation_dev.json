@@ -1,0 +1,2986 @@
+{
+  "split": "dev",
+  "config_hash": "7baa207a81f0fea8",
+  "horizons": {
+    "5": {
+      "horizon": 5,
+      "split": "dev",
+      "n": 64,
+      "n_oof_prefix": 141,
+      "excluded_seen_queries": [],
+      "majority_baseline": 0.556,
+      "metrics": {
+        "e1": {
+          "n": 64,
+          "mae": 0.0039906733169577545,
+          "median_ae": 0.002940903055794461,
+          "rmse": 0.005005977733247196,
+          "direction_accuracy": 0.5625,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.0039906733169577545,
+            "low": 0.0030446766497925987,
+            "high": 0.005112698449860035,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        },
+        "e2": {
+          "n": 64,
+          "mae": 0.004264943205916468,
+          "median_ae": 0.0032513376256677476,
+          "rmse": 0.005412988297000641,
+          "direction_accuracy": 0.5,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.004264943205916468,
+            "low": 0.0031928161116544793,
+            "high": 0.005481996217164204,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        },
+        "e3": {
+          "n": 64,
+          "mae": 0.0041156977224441815,
+          "median_ae": 0.00351191636432006,
+          "rmse": 0.005096764601588664,
+          "direction_accuracy": 0.53125,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.0041156977224441815,
+            "low": 0.0032660704914524263,
+            "high": 0.005111169456754845,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        },
+        "e4": {
+          "n": 64,
+          "mae": 0.004070750031024188,
+          "median_ae": 0.0034690840924400286,
+          "rmse": 0.0051287960834743886,
+          "direction_accuracy": 0.546875,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.004070750031024188,
+            "low": 0.0030577561227291624,
+            "high": 0.005223528013787637,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        }
+      },
+      "comparisons": {
+        "strongest_baseline": "e1",
+        "baseline_fold_mean_mae": {
+          "E1": 0.004245099331564479,
+          "E2": 0.004297196230546031
+        },
+        "e4_minus_strongest": {
+          "strongest_baseline": "e1",
+          "mean_delta_mae": 8.007671406643375e-05,
+          "bootstrap": {
+            "n_blocks": 12,
+            "mean": 8.007671406643375e-05,
+            "low": -0.00013133119518460981,
+            "high": 0.0003286052995534076,
+            "share_favourable": 0.2652,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        }
+      },
+      "conformal": {
+        "固定历史分位": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 0.828125,
+              "mean_width": 0.013263747687038587,
+              "median_width": 0.013263747687038589,
+              "interval_score": 0.01829088121855818
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 0.9375,
+              "mean_width": 0.019416424615729257,
+              "median_width": 0.019416424615729257,
+              "interval_score": 0.02240643018948391
+            }
+          },
+          "method": "固定历史分位"
+        },
+        "CP0": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 0.875,
+              "mean_width": 0.01594945664349654,
+              "median_width": 0.017545123407471355,
+              "interval_score": 0.019550729086034675
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 0.96875,
+              "mean_width": 0.02183132883279354,
+              "median_width": 0.022316083906665795,
+              "interval_score": 0.02415144513709032
+            }
+          },
+          "method": "CP0",
+          "degrade_reason": ""
+        },
+        "CP0+ACI": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 0.828125,
+              "mean_width": 0.014021437368888317,
+              "median_width": 0.015987205139820656,
+              "interval_score": 0.019497264985579035
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 0.96875,
+              "mean_width": 0.030177020205100085,
+              "median_width": 0.02835533644267187,
+              "interval_score": 0.03104852007864711
+            }
+          },
+          "method": "CP0+ACI",
+          "degrade_reason": ""
+        },
+        "CP1": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 0.875,
+              "mean_width": 0.01594945664349654,
+              "median_width": 0.017545123407471355,
+              "interval_score": 0.019550729086034675
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 0.96875,
+              "mean_width": 0.02183132883279354,
+              "median_width": 0.022316083906665795,
+              "interval_score": 0.02415144513709032
+            }
+          },
+          "method": "CP0（CP1 已降级）",
+          "degrade_reason": "冲突有效性检验未通过（四条判据未全部满足），CP1 自动降级为 CP0"
+        }
+      },
+      "gate_mean": 0.4390882319534716,
+      "gate_std": 0.0637944211800543,
+      "sample_ids": [
+        "hist_0281",
+        "hist_0282",
+        "hist_0283",
+        "hist_0284",
+        "hist_0285",
+        "hist_0286",
+        "hist_0287",
+        "hist_0288",
+        "hist_0289",
+        "hist_0290",
+        "hist_0291",
+        "hist_0292",
+        "hist_0293",
+        "hist_0294",
+        "hist_0295",
+        "hist_0296",
+        "hist_0297",
+        "hist_0298",
+        "hist_0299",
+        "hist_0300",
+        "hist_0301",
+        "hist_0302",
+        "hist_0303",
+        "hist_0304",
+        "hist_0305",
+        "hist_0306",
+        "hist_0307",
+        "hist_0308",
+        "hist_0309",
+        "hist_0310",
+        "hist_0311",
+        "hist_0312",
+        "hist_0313",
+        "hist_0314",
+        "hist_0315",
+        "hist_0316",
+        "hist_0317",
+        "hist_0318",
+        "hist_0319",
+        "hist_0320",
+        "hist_0321",
+        "hist_0322",
+        "hist_0323",
+        "hist_0324",
+        "hist_0325",
+        "hist_0326",
+        "hist_0327",
+        "hist_0328",
+        "hist_0329",
+        "hist_0330",
+        "hist_0331",
+        "hist_0332",
+        "hist_0333",
+        "hist_0334",
+        "hist_0335",
+        "hist_0336",
+        "hist_0337",
+        "hist_0338",
+        "hist_0339",
+        "hist_0340",
+        "hist_0341",
+        "hist_0342",
+        "hist_0343",
+        "hist_0344"
+      ],
+      "observations": [
+        {
+          "event_id": "hist_0281",
+          "query_date": "2023-01-10",
+          "event_family": "litigation",
+          "realized_abret": 0.001916660638665196,
+          "raw_return": -0.0017706427433157312,
+          "prediction": 0.0008656333207319269,
+          "e1_prediction": 0.0026971784946091845,
+          "interval_80": [
+            -0.005583169900662788,
+            0.010977526889881158
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.6646769092289305,
+          "neutral_mass": 0.1058611775572011,
+          "pairwise_dispersion_norm": 1.481868567287368,
+          "effective_sample_size": 9.994805521471413
+        },
+        {
+          "event_id": "hist_0282",
+          "query_date": "2023-01-18",
+          "event_family": "dialogue",
+          "realized_abret": 0.0016249462456264874,
+          "raw_return": -0.0031498158910431284,
+          "prediction": 0.0002666865628899205,
+          "e1_prediction": -0.0007890633054647688,
+          "interval_80": [
+            -0.009069411700736742,
+            0.0074912850898072045
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.8935014740105437,
+          "neutral_mass": 0.2955050094756257,
+          "pairwise_dispersion_norm": 0.9029467150146541,
+          "effective_sample_size": 9.979862853401043
+        },
+        {
+          "event_id": "hist_0283",
+          "query_date": "2023-01-30",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.00208022764671702,
+          "raw_return": 0.004710134194389148,
+          "prediction": 0.00133199453638762,
+          "e1_prediction": 0.0016351917050832735,
+          "interval_80": [
+            -0.0066451566901887,
+            0.009915540100355247
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.6439226959778319,
+          "neutral_mass": 0.4022200761856098,
+          "pairwise_dispersion_norm": 1.0947653462377045,
+          "effective_sample_size": 9.964564904029292
+        },
+        {
+          "event_id": "hist_0284",
+          "query_date": "2023-02-07",
+          "event_family": "dialogue",
+          "realized_abret": 0.004133271930265646,
+          "raw_return": 0.004257764158170696,
+          "prediction": 0.001974500373368164,
+          "e1_prediction": 0.001519905202915016,
+          "interval_80": [
+            -0.006760443192356957,
+            0.00980025359818699
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.8513279580962022,
+          "neutral_mass": 0.30049847939415186,
+          "pairwise_dispersion_norm": 1.0950962026513353,
+          "effective_sample_size": 9.980798357546956
+        },
+        {
+          "event_id": "hist_0285",
+          "query_date": "2023-02-10",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.010410989882170311,
+          "raw_return": 0.012044294769040675,
+          "prediction": 0.0006547855232680988,
+          "e1_prediction": 0.0007221601688632611,
+          "interval_80": [
+            -0.007558188226408712,
+            0.009002508564135234
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.6442597072248655,
+          "neutral_mass": 0.10352935273988106,
+          "pairwise_dispersion_norm": 1.7215986173317204,
+          "effective_sample_size": 9.988056306570398
+        },
+        {
+          "event_id": "hist_0286",
+          "query_date": "2023-02-13",
+          "event_family": "tariff",
+          "realized_abret": 0.001568801318176707,
+          "raw_return": 0.0041598921943430955,
+          "prediction": -0.0008457163498666593,
+          "e1_prediction": -0.000560948079250311,
+          "interval_80": [
+            -0.009333509782985989,
+            0.008211613624485366
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.9964729397839972,
+          "neutral_mass": 0.19672733693497307,
+          "pairwise_dispersion_norm": 2.0864991758360065,
+          "effective_sample_size": 9.960506891397783
+        },
+        {
+          "event_id": "hist_0287",
+          "query_date": "2023-02-16",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0037844302422726053,
+          "raw_return": 0.005867242687839225,
+          "prediction": 0.00013340715796686408,
+          "e1_prediction": 0.0011943154155557496,
+          "interval_80": [
+            -0.007578246288179928,
+            0.009966877119291426
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.883737664050645,
+          "neutral_mass": 0.10118215674811398,
+          "pairwise_dispersion_norm": 1.5470237944337757,
+          "effective_sample_size": 9.993582970734705
+        },
+        {
+          "event_id": "hist_0288",
+          "query_date": "2023-02-27",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0056308737837036,
+          "raw_return": -0.006475698183645462,
+          "prediction": 0.0023439624526568332,
+          "e1_prediction": 0.0023627287862067275,
+          "interval_80": [
+            -0.006409832917528949,
+            0.011135290489942405
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.6427486682911678,
+          "neutral_mass": 0.1024567476819922,
+          "pairwise_dispersion_norm": 1.7187777401005035,
+          "effective_sample_size": 9.977129982743731
+        },
+        {
+          "event_id": "hist_0289",
+          "query_date": "2023-03-02",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.006324461921705715,
+          "raw_return": 0.008872998870972593,
+          "prediction": 0.0022379713772400856,
+          "e1_prediction": 0.002743386787646876,
+          "interval_80": [
+            -0.006029174916088801,
+            0.011515948491382554
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.438056276289875,
+          "neutral_mass": 0.10382004629966385,
+          "pairwise_dispersion_norm": 1.599093000276538,
+          "effective_sample_size": 9.987429582587437
+        },
+        {
+          "event_id": "hist_0290",
+          "query_date": "2023-03-09",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.003322753280003311,
+          "raw_return": -0.009770584943830096,
+          "prediction": 0.00032982009125484394,
+          "e1_prediction": -0.00013847957749996365,
+          "interval_80": [
+            -0.00891104128123564,
+            0.008634082126235714
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.9946576369654156,
+          "neutral_mass": 0.4022524524274407,
+          "pairwise_dispersion_norm": 1.3135742507101373,
+          "effective_sample_size": 9.994754231448816
+        },
+        {
+          "event_id": "hist_0291",
+          "query_date": "2023-03-14",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0005179587887320252,
+          "raw_return": 0.00018915969443433767,
+          "prediction": 0.0003743374490535617,
+          "e1_prediction": 0.0014940851847732761,
+          "interval_80": [
+            -0.007278476518962402,
+            0.010266646888508953
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.7885531746518708,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.3613027890683276,
+          "effective_sample_size": 9.96158273597826
+        },
+        {
+          "event_id": "hist_0292",
+          "query_date": "2023-03-28",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0025877801144695758,
+          "raw_return": -0.0006245914735999447,
+          "prediction": 0.0014699945770780052,
+          "e1_prediction": 0.001462047855572696,
+          "interval_80": [
+            -0.007310513848162981,
+            0.010234609559308373
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.7943065908894582,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.8428304800214144,
+          "effective_sample_size": 9.99454000413812
+        },
+        {
+          "event_id": "hist_0293",
+          "query_date": "2023-03-31",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.00023143410155497752,
+          "raw_return": 0.00039293874521550975,
+          "prediction": 0.0015170476918874715,
+          "e1_prediction": 0.0021683512789010496,
+          "interval_80": [
+            -0.006604210424834628,
+            0.010940912982636726
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.8378468736607823,
+          "neutral_mass": 0.2958219733211897,
+          "pairwise_dispersion_norm": 1.4433171767833186,
+          "effective_sample_size": 9.980882792968133
+        },
+        {
+          "event_id": "hist_0294",
+          "query_date": "2023-04-07",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0028850129809186347,
+          "raw_return": -0.00376705355324769,
+          "prediction": 0.0007169325292841267,
+          "e1_prediction": 0.0008261343544074675,
+          "interval_80": [
+            -0.00794642734932821,
+            0.009598696058143145
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.9959994518842222,
+          "neutral_mass": 0.10652915744030587,
+          "pairwise_dispersion_norm": 0.9585046544949561,
+          "effective_sample_size": 8.983858367382746
+        },
+        {
+          "event_id": "hist_0295",
+          "query_date": "2023-04-12",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0016430230661634102,
+          "raw_return": 0.0019467689446768244,
+          "prediction": 0.0005993920937778363,
+          "e1_prediction": 0.001253793579906144,
+          "interval_80": [
+            -0.007518768123829534,
+            0.01002635528364182
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.7503333917134751,
+          "neutral_mass": 0.19540363294075566,
+          "pairwise_dispersion_norm": 1.6453550716849215,
+          "effective_sample_size": 9.983486437956506
+        },
+        {
+          "event_id": "hist_0296",
+          "query_date": "2023-04-14",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.004303626667199946,
+          "raw_return": 0.005883641141689155,
+          "prediction": 0.0008371830559549206,
+          "e1_prediction": 0.0014619398728615363,
+          "interval_80": [
+            -0.007310621830874141,
+            0.010234501576597214
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.7788773188143434,
+          "neutral_mass": 0.4974566798504331,
+          "pairwise_dispersion_norm": 1.0364286211727696,
+          "effective_sample_size": 9.995148876098433
+        },
+        {
+          "event_id": "hist_0297",
+          "query_date": "2023-04-19",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.005633451280510258,
+          "raw_return": 0.0034944755386714377,
+          "prediction": -0.0003242398252142575,
+          "e1_prediction": -8.731209260452592e-05,
+          "interval_80": [
+            -0.008859873796340203,
+            0.008685249611131152
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.5191504740381441,
+          "neutral_mass": 0.593818118172351,
+          "pairwise_dispersion_norm": 0.939650112239668,
+          "effective_sample_size": 9.995192348118556
+        },
+        {
+          "event_id": "hist_0298",
+          "query_date": "2023-04-27",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.001616829842201324,
+          "raw_return": 0.000635553437044134,
+          "prediction": -0.00032520915587347214,
+          "e1_prediction": -0.0005461531306619157,
+          "interval_80": [
+            -0.009318714834397593,
+            0.008226408573073761
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.8450479052384203,
+          "neutral_mass": 0.30342729675750935,
+          "pairwise_dispersion_norm": 1.4483588056276517,
+          "effective_sample_size": 9.98468864525217
+        },
+        {
+          "event_id": "hist_0299",
+          "query_date": "2023-05-10",
+          "event_family": "dialogue",
+          "realized_abret": 0.002479348603103478,
+          "raw_return": 0.010920279073798556,
+          "prediction": 0.0009926912036221781,
+          "e1_prediction": 0.0006348147011760956,
+          "interval_80": [
+            -0.008137747002559582,
+            0.009407376404911773
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.9112563588549861,
+          "neutral_mass": 0.0952986469914582,
+          "pairwise_dispersion_norm": 0.9909123345772491,
+          "effective_sample_size": 9.906599748646167
+        },
+        {
+          "event_id": "hist_0300",
+          "query_date": "2023-05-17",
+          "event_family": "entity_restrictions",
+          "realized_abret": 3.762668722995851e-05,
+          "raw_return": 0.006187040080017248,
+          "prediction": -0.0005066154801572575,
+          "e1_prediction": -0.0008818038355826976,
+          "interval_80": [
+            -0.009654365539318375,
+            0.00789075786815298
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.8764096217496478,
+          "neutral_mass": 0.0918518492178635,
+          "pairwise_dispersion_norm": 1.658512690371556,
+          "effective_sample_size": 9.91045762668987
+        },
+        {
+          "event_id": "hist_0301",
+          "query_date": "2023-05-22",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0009977755617372299,
+          "raw_return": 0.006870163859808764,
+          "prediction": 0.002339795539590731,
+          "e1_prediction": 0.0023051203619925873,
+          "interval_80": [
+            -0.0064674413417430895,
+            0.011077682065728265
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.6625923300176275,
+          "neutral_mass": 0.41421600649545715,
+          "pairwise_dispersion_norm": 1.4149694858612765,
+          "effective_sample_size": 9.875270432125507
+        },
+        {
+          "event_id": "hist_0302",
+          "query_date": "2023-05-25",
+          "event_family": "tariff",
+          "realized_abret": 0.009687562639116179,
+          "raw_return": 0.006974506974507078,
+          "prediction": -0.001081762179498851,
+          "e1_prediction": -0.0011797795422272077,
+          "interval_80": [
+            -0.009952341245962885,
+            0.007592782161508469
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.9802699172706066,
+          "neutral_mass": 0.19141930458518236,
+          "pairwise_dispersion_norm": 1.8283818729088746,
+          "effective_sample_size": 9.963870174704825
+        },
+        {
+          "event_id": "hist_0303",
+          "query_date": "2023-05-30",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0027560606106901133,
+          "raw_return": 0.003850439345002288,
+          "prediction": 0.0015354748700475529,
+          "e1_prediction": 0.0014490705027160925,
+          "interval_80": [
+            -0.007323751615956381,
+            0.010221892621388567
+          ],
+          "interval_width": 0.01754564423734495,
+          "n_calibration": 60,
+          "directional_conflict": 0.5647689220876346,
+          "neutral_mass": 0.29954891208379036,
+          "pairwise_dispersion_norm": 1.444820384896845,
+          "effective_sample_size": 9.994948503586714
+        },
+        {
+          "event_id": "hist_0304",
+          "query_date": "2023-05-31",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.002260820442017148,
+          "raw_return": 0.0027439667909661125,
+          "prediction": 0.0033082710050040967,
+          "e1_prediction": 0.004770690288557463,
+          "interval_80": [
+            -0.004002131830115011,
+            0.013543512407229938
+          ],
+          "interval_width": 0.01754564423734495,
+          "n_calibration": 60,
+          "directional_conflict": 0.4004232394801851,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.6171508637619487,
+          "effective_sample_size": 9.995149468013794
+        },
+        {
+          "event_id": "hist_0305",
+          "query_date": "2023-06-06",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.007259686728017951,
+          "raw_return": 0.005086126956472814,
+          "prediction": -0.0004915012511566237,
+          "e1_prediction": -0.0008270554434562225,
+          "interval_80": [
+            -0.009599877562128697,
+            0.007945766675216251
+          ],
+          "interval_width": 0.01754564423734495,
+          "n_calibration": 60,
+          "directional_conflict": 0.8905564490269188,
+          "neutral_mass": 0.1054550810491308,
+          "pairwise_dispersion_norm": 1.4125450275707214,
+          "effective_sample_size": 9.989528190046178
+        },
+        {
+          "event_id": "hist_0306",
+          "query_date": "2023-06-08",
+          "event_family": "rhetoric",
+          "realized_abret": 0.007395853714874922,
+          "raw_return": 0.003928446159242371,
+          "prediction": 0.0011081846780108884,
+          "e1_prediction": 0.0019030879022623548,
+          "interval_80": [
+            -0.00686973421641012,
+            0.010675910020934829
+          ],
+          "interval_width": 0.01754564423734495,
+          "n_calibration": 60,
+          "directional_conflict": 0.6205681804172485,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.5876835069048234,
+          "effective_sample_size": 9.987337039292484
+        },
+        {
+          "event_id": "hist_0307",
+          "query_date": "2023-06-09",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0029863130624505777,
+          "raw_return": -0.0010246908381409403,
+          "prediction": -0.0004854115111844543,
+          "e1_prediction": -0.002173995088547956,
+          "interval_80": [
+            -0.010946556792283634,
+            0.006598566615187721
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.4832463643650067,
+          "neutral_mass": 0.2001719910131764,
+          "pairwise_dispersion_norm": 1.3439562322878251,
+          "effective_sample_size": 9.973590163962314
+        },
+        {
+          "event_id": "hist_0308",
+          "query_date": "2023-06-12",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.005990423444789697,
+          "raw_return": 0.0021980791308489067,
+          "prediction": 0.0021486887290167083,
+          "e1_prediction": 0.0020512390000271222,
+          "interval_80": [
+            -0.006229109395244851,
+            0.010331587395299095
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.653072805442023,
+          "neutral_mass": 0.09851943783315976,
+          "pairwise_dispersion_norm": 1.815739389456695,
+          "effective_sample_size": 9.982774091806629
+        },
+        {
+          "event_id": "hist_0309",
+          "query_date": "2023-06-13",
+          "event_family": "dialogue",
+          "realized_abret": 0.0058694529250040255,
+          "raw_return": 0.002907626929098628,
+          "prediction": 0.0006358116848060834,
+          "e1_prediction": 0.0003302214682660713,
+          "interval_80": [
+            -0.007756520703208103,
+            0.008416963639740246
+          ],
+          "interval_width": 0.01617348434294835,
+          "n_calibration": 60,
+          "directional_conflict": 0.4093811219704313,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.0420853810689423,
+          "effective_sample_size": 9.984559066156471
+        },
+        {
+          "event_id": "hist_0310",
+          "query_date": "2023-06-16",
+          "event_family": "dialogue",
+          "realized_abret": 0.011519449843347039,
+          "raw_return": 0.01310982464028787,
+          "prediction": 0.0007986714368710693,
+          "e1_prediction": 0.0011019259715572508,
+          "interval_80": [
+            -0.006984816199916924,
+            0.009188668143031426
+          ],
+          "interval_width": 0.01617348434294835,
+          "n_calibration": 60,
+          "directional_conflict": 0.9045086440274054,
+          "neutral_mass": 0.10925248307426627,
+          "pairwise_dispersion_norm": 1.4981775599778844,
+          "effective_sample_size": 9.978825795892034
+        },
+        {
+          "event_id": "hist_0311",
+          "query_date": "2023-06-19",
+          "event_family": "dialogue",
+          "realized_abret": 0.00928020932871533,
+          "raw_return": 0.012181663244066332,
+          "prediction": 0.0010778952623137887,
+          "e1_prediction": 0.00045592266946818964,
+          "interval_80": [
+            -0.007824425725803783,
+            0.008736271064740163
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.9992863071140697,
+          "neutral_mass": 0.191596910767394,
+          "pairwise_dispersion_norm": 1.3279613772188743,
+          "effective_sample_size": 9.982960302876927
+        },
+        {
+          "event_id": "hist_0312",
+          "query_date": "2023-07-07",
+          "event_family": "dialogue",
+          "realized_abret": -0.004954719057706496,
+          "raw_return": -0.013976443264764549,
+          "prediction": 0.002020206635846236,
+          "e1_prediction": 0.0009238707198449445,
+          "interval_80": [
+            -0.007848690983890733,
+            0.009696432423580622
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.732054274800671,
+          "neutral_mass": 0.197183018276734,
+          "pairwise_dispersion_norm": 0.8091327657715347,
+          "effective_sample_size": 9.986006425452267
+        },
+        {
+          "event_id": "hist_0313",
+          "query_date": "2023-07-13",
+          "event_family": "dialogue",
+          "realized_abret": -0.003550803452375603,
+          "raw_return": 0.0029189128795286123,
+          "prediction": 0.0027505331564797084,
+          "e1_prediction": 0.0018872081299622446,
+          "interval_80": [
+            -0.006885353573773433,
+            0.010659769833697923
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.7097889447770263,
+          "neutral_mass": 0.09159783975225119,
+          "pairwise_dispersion_norm": 1.4375409432956072,
+          "effective_sample_size": 9.941562920569359
+        },
+        {
+          "event_id": "hist_0314",
+          "query_date": "2023-07-20",
+          "event_family": "dialogue",
+          "realized_abret": -0.010728026665835909,
+          "raw_return": -0.0056676553731324075,
+          "prediction": 0.003761904576581718,
+          "e1_prediction": 0.003449641555500026,
+          "interval_80": [
+            -0.005322920148235651,
+            0.012222203259235703
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.5753961305852806,
+          "neutral_mass": 0.29813488967504603,
+          "pairwise_dispersion_norm": 1.6485847404563525,
+          "effective_sample_size": 9.995385303967979
+        },
+        {
+          "event_id": "hist_0315",
+          "query_date": "2023-07-25",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0014038216735029483,
+          "raw_return": 0.004175716387585071,
+          "prediction": 0.0021235500593833104,
+          "e1_prediction": 0.0015811677920164198,
+          "interval_80": [
+            -0.007191654326656054,
+            0.010353989910688893
+          ],
+          "interval_width": 0.01754564423734495,
+          "n_calibration": 60,
+          "directional_conflict": 0.5027262223518223,
+          "neutral_mass": 0.20005986153288793,
+          "pairwise_dispersion_norm": 0.7082208419247201,
+          "effective_sample_size": 9.995895621034267
+        },
+        {
+          "event_id": "hist_0316",
+          "query_date": "2023-07-26",
+          "event_family": "dialogue",
+          "realized_abret": -0.004805494142141351,
+          "raw_return": 0.003887350728528638,
+          "prediction": 0.0013377136213931495,
+          "e1_prediction": -0.001014930853834681,
+          "interval_80": [
+            -0.009787752972507155,
+            0.0077578912648377935
+          ],
+          "interval_width": 0.01754564423734495,
+          "n_calibration": 60,
+          "directional_conflict": 0.6619819057129358,
+          "neutral_mass": 0.09803828433002422,
+          "pairwise_dispersion_norm": 1.643093469826619,
+          "effective_sample_size": 9.991440847859355
+        },
+        {
+          "event_id": "hist_0317",
+          "query_date": "2023-08-03",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.001279551585207121,
+          "raw_return": 0.002461923638639618,
+          "prediction": 0.003177847446707095,
+          "e1_prediction": 0.003839979304961751,
+          "interval_80": [
+            -0.004932842813710724,
+            0.012612801423634225
+          ],
+          "interval_width": 0.01754564423734495,
+          "n_calibration": 60,
+          "directional_conflict": 0.5185992247885101,
+          "neutral_mass": 0.20657735731253787,
+          "pairwise_dispersion_norm": 1.9723496172936616,
+          "effective_sample_size": 9.978751326551457
+        },
+        {
+          "event_id": "hist_0318",
+          "query_date": "2023-08-11",
+          "event_family": "rhetoric",
+          "realized_abret": 0.0034234267751940897,
+          "raw_return": 0.007685927564279771,
+          "prediction": 0.0006234907661003587,
+          "e1_prediction": 4.349632374035163e-05,
+          "interval_80": [
+            -0.008729325794932123,
+            0.008816318442412825
+          ],
+          "interval_width": 0.01754564423734495,
+          "n_calibration": 60,
+          "directional_conflict": 0.8874105291969768,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.0290813992262613,
+          "effective_sample_size": 8.99657914953748
+        },
+        {
+          "event_id": "hist_0319",
+          "query_date": "2023-08-21",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.006606626940389512,
+          "raw_return": -0.002720846607145444,
+          "prediction": 0.0010675367952953632,
+          "e1_prediction": 0.00039736291033937843,
+          "interval_80": [
+            -0.008375459208333096,
+            0.009170185029011853
+          ],
+          "interval_width": 0.01754564423734495,
+          "n_calibration": 60,
+          "directional_conflict": 0.8701894514761225,
+          "neutral_mass": 0.10358052354722053,
+          "pairwise_dispersion_norm": 1.4415172437836232,
+          "effective_sample_size": 9.982856548108488
+        },
+        {
+          "event_id": "hist_0320",
+          "query_date": "2023-08-29",
+          "event_family": "dialogue",
+          "realized_abret": -0.005036871047774948,
+          "raw_return": 0.002235173123071643,
+          "prediction": -0.0005956439644099014,
+          "e1_prediction": -0.0015103429029336808,
+          "interval_80": [
+            -0.010282904606669358,
+            0.007262218800801997
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.7385321432954608,
+          "neutral_mass": 0.20009668132974523,
+          "pairwise_dispersion_norm": 1.6298265058238692,
+          "effective_sample_size": 9.967632686255486
+        },
+        {
+          "event_id": "hist_0321",
+          "query_date": "2023-08-31",
+          "event_family": "dialogue",
+          "realized_abret": -0.0014118379107440938,
+          "raw_return": 0.005143750685833615,
+          "prediction": 0.0011196015123643233,
+          "e1_prediction": 0.001314320504112903,
+          "interval_80": [
+            -0.007458241199622774,
+            0.01008688220784858
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.8218142219035007,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 3.055557028429339,
+          "effective_sample_size": 9.976665386579311
+        },
+        {
+          "event_id": "hist_0322",
+          "query_date": "2023-09-06",
+          "event_family": "tariff",
+          "realized_abret": -0.003677638610619053,
+          "raw_return": -0.004036451206830605,
+          "prediction": -0.00013494203779989503,
+          "e1_prediction": -0.002282845229169216,
+          "interval_80": [
+            -0.011055406932904892,
+            0.006489716474566461
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.5960637825873936,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.373662325982017,
+          "effective_sample_size": 9.952461457361444
+        },
+        {
+          "event_id": "hist_0323",
+          "query_date": "2023-09-11",
+          "event_family": "dialogue",
+          "realized_abret": -0.003452045570309311,
+          "raw_return": 0.00019202809096641182,
+          "prediction": -0.0010140113758618022,
+          "e1_prediction": -0.0015144989027376717,
+          "interval_80": [
+            -0.01028706060647335,
+            0.007258062800998006
+          ],
+          "interval_width": 0.017545123407471355,
+          "n_calibration": 60,
+          "directional_conflict": 0.9991748303991606,
+          "neutral_mass": 0.1984430776044539,
+          "pairwise_dispersion_norm": 1.7151190085496284,
+          "effective_sample_size": 9.998103217352762
+        },
+        {
+          "event_id": "hist_0324",
+          "query_date": "2023-09-15",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0025525869019547573,
+          "raw_return": 0.004278383843942191,
+          "prediction": 0.0014382821138205412,
+          "e1_prediction": 0.0016029451669207612,
+          "interval_80": [
+            -0.006677403228351211,
+            0.009883293562192735
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.9143478282167841,
+          "neutral_mass": 0.1033931580439038,
+          "pairwise_dispersion_norm": 1.2053509366092083,
+          "effective_sample_size": 9.977822610856839
+        },
+        {
+          "event_id": "hist_0325",
+          "query_date": "2023-09-22",
+          "event_family": "dialogue",
+          "realized_abret": -0.004470368478557607,
+          "raw_return": -0.0010958603873866268,
+          "prediction": -0.001591697121560174,
+          "e1_prediction": -0.0016453496873976813,
+          "interval_80": [
+            -0.009925698082669654,
+            0.006634998707874292
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.741828763242879,
+          "neutral_mass": 0.19693121049238188,
+          "pairwise_dispersion_norm": 1.3024752850006063,
+          "effective_sample_size": 9.994563097859773
+        },
+        {
+          "event_id": "hist_0326",
+          "query_date": "2023-09-25",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0019057925536062773,
+          "raw_return": -0.002448398965927523,
+          "prediction": 0.0020151365825996723,
+          "e1_prediction": 0.001700061994775432,
+          "interval_80": [
+            -0.006580286400496541,
+            0.009980410390047404
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.6688345092078716,
+          "neutral_mass": 0.10195973551622627,
+          "pairwise_dispersion_norm": 1.1990684675211747,
+          "effective_sample_size": 9.988864076964353
+        },
+        {
+          "event_id": "hist_0327",
+          "query_date": "2023-09-27",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0016471657065876457,
+          "raw_return": -0.0020112740805604545,
+          "prediction": 0.0010813781029844088,
+          "e1_prediction": 0.0007914347413052959,
+          "interval_80": [
+            -0.0074889136539666775,
+            0.009071783136577269
+          ],
+          "interval_width": 0.016560696790543946,
+          "n_calibration": 60,
+          "directional_conflict": 0.805295375615498,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.389867735538128,
+          "effective_sample_size": 9.97043584164991
+        },
+        {
+          "event_id": "hist_0328",
+          "query_date": "2023-09-28",
+          "event_family": "rhetoric",
+          "realized_abret": -0.0017322982170683197,
+          "raw_return": 0.0005205336840086172,
+          "prediction": 0.0032939552988990573,
+          "e1_prediction": 0.0022044660766058505,
+          "interval_80": [
+            -0.005882276094868324,
+            0.010291208248080025
+          ],
+          "interval_width": 0.01617348434294835,
+          "n_calibration": 60,
+          "directional_conflict": 0.6361976310118527,
+          "neutral_mass": 0.09687287900812806,
+          "pairwise_dispersion_norm": 1.1023502099973939,
+          "effective_sample_size": 9.968493835846067
+        },
+        {
+          "event_id": "hist_0329",
+          "query_date": "2023-10-09",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.002299981603022759,
+          "raw_return": 0.0026466635583226594,
+          "prediction": 0.0015990764257149694,
+          "e1_prediction": 0.001292181776049695,
+          "interval_80": [
+            -0.006701420793860633,
+            0.009285784345960023
+          ],
+          "interval_width": 0.015987205139820656,
+          "n_calibration": 60,
+          "directional_conflict": 0.8776513170129456,
+          "neutral_mass": 0.09745939212782892,
+          "pairwise_dispersion_norm": 1.6686600735765387,
+          "effective_sample_size": 9.977533647855324
+        },
+        {
+          "event_id": "hist_0330",
+          "query_date": "2023-10-09",
+          "event_family": "dialogue",
+          "realized_abret": 0.002299981603022759,
+          "raw_return": 0.0026466635583226594,
+          "prediction": 0.00030283837789822307,
+          "e1_prediction": 0.0005721856091936761,
+          "interval_80": [
+            -0.007421416960716652,
+            0.008565788179104004
+          ],
+          "interval_width": 0.015987205139820656,
+          "n_calibration": 60,
+          "directional_conflict": 0.8688733623686975,
+          "neutral_mass": 0.1033375849932159,
+          "pairwise_dispersion_norm": 1.1051514855978284,
+          "effective_sample_size": 9.98693486093307
+        },
+        {
+          "event_id": "hist_0331",
+          "query_date": "2023-10-16",
+          "event_family": "dialogue",
+          "realized_abret": 0.0033101390138154385,
+          "raw_return": 0.0004786979415987158,
+          "prediction": 0.0004876795842017734,
+          "e1_prediction": 0.0004882751160024842,
+          "interval_80": [
+            -0.006515714734726406,
+            0.007492264966731375
+          ],
+          "interval_width": 0.014007979701457781,
+          "n_calibration": 60,
+          "directional_conflict": 0.9860315201560499,
+          "neutral_mass": 0.1842510225251551,
+          "pairwise_dispersion_norm": 1.2600074401692671,
+          "effective_sample_size": 9.970348415135504
+        },
+        {
+          "event_id": "hist_0332",
+          "query_date": "2023-10-17",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.00018355869908235028,
+          "raw_return": -0.0008477241341589004,
+          "prediction": 0.0016144543167448543,
+          "e1_prediction": 0.0009010461744719318,
+          "interval_80": [
+            -0.004977543603079508,
+            0.006779635952023372
+          ],
+          "interval_width": 0.01175717955510288,
+          "n_calibration": 60,
+          "directional_conflict": 0.883418424008053,
+          "neutral_mass": 0.09785270202777649,
+          "pairwise_dispersion_norm": 1.2585037341301664,
+          "effective_sample_size": 9.987616303660205
+        },
+        {
+          "event_id": "hist_0333",
+          "query_date": "2023-10-18",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0016331785078492666,
+          "raw_return": 0.0006976839628447529,
+          "prediction": 0.0006876650435880961,
+          "e1_prediction": 0.0004828798663295738,
+          "interval_80": [
+            -0.00523788350678521,
+            0.006203643239444357
+          ],
+          "interval_width": 0.011441526746229566,
+          "n_calibration": 60,
+          "directional_conflict": 0.7371109003335168,
+          "neutral_mass": 0.2054580069918138,
+          "pairwise_dispersion_norm": 1.4733882921200565,
+          "effective_sample_size": 9.98038021169731
+        },
+        {
+          "event_id": "hist_0334",
+          "query_date": "2023-10-20",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0017881578834598702,
+          "raw_return": 0.00021872863978122936,
+          "prediction": 0.0031656973700688222,
+          "e1_prediction": 0.003568065104781478,
+          "interval_80": [
+            -0.0021526982683333054,
+            0.009288828477896261
+          ],
+          "interval_width": 0.011441526746229566,
+          "n_calibration": 60,
+          "directional_conflict": 0.6650063129186652,
+          "neutral_mass": 0.09738805063455276,
+          "pairwise_dispersion_norm": 1.607604482809689,
+          "effective_sample_size": 9.995468478243005
+        },
+        {
+          "event_id": "hist_0335",
+          "query_date": "2023-10-24",
+          "event_family": "dialogue",
+          "realized_abret": -0.0019003912924785635,
+          "raw_return": 0.0013821416353059224,
+          "prediction": 0.0004725260747443239,
+          "e1_prediction": 0.0007821742652213181,
+          "interval_80": [
+            -0.004757057191516636,
+            0.006321405721959272
+          ],
+          "interval_width": 0.011078462913475908,
+          "n_calibration": 60,
+          "directional_conflict": 0.6643223251828305,
+          "neutral_mass": 0.0979673677110599,
+          "pairwise_dispersion_norm": 0.8168648070264232,
+          "effective_sample_size": 9.990216500282507
+        },
+        {
+          "event_id": "hist_0336",
+          "query_date": "2023-10-25",
+          "event_family": "dialogue",
+          "realized_abret": 0.0001390000337818397,
+          "raw_return": 0.0005058099794941207,
+          "prediction": 0.0007426076998694312,
+          "e1_prediction": 0.0006086846246018802,
+          "interval_80": [
+            -0.0049305468321360745,
+            0.006147916081339834
+          ],
+          "interval_width": 0.011078462913475908,
+          "n_calibration": 60,
+          "directional_conflict": 0.8461312696037935,
+          "neutral_mass": 0.3029571449918244,
+          "pairwise_dispersion_norm": 1.4961392390546047,
+          "effective_sample_size": 9.993691199686003
+        },
+        {
+          "event_id": "hist_0337",
+          "query_date": "2023-10-30",
+          "event_family": "dialogue",
+          "realized_abret": -0.0025106826095019656,
+          "raw_return": -0.005793932768515919,
+          "prediction": 9.464478615487485e-05,
+          "e1_prediction": 0.0005245350719972925,
+          "interval_80": [
+            -0.005014696384740662,
+            0.0060637665287352465
+          ],
+          "interval_width": 0.011078462913475908,
+          "n_calibration": 60,
+          "directional_conflict": 0.8979250898048662,
+          "neutral_mass": 0.10140666898127389,
+          "pairwise_dispersion_norm": 1.319620960180736,
+          "effective_sample_size": 9.991009112498913
+        },
+        {
+          "event_id": "hist_0338",
+          "query_date": "2023-11-16",
+          "event_family": "dialogue",
+          "realized_abret": -0.011064812251738807,
+          "raw_return": -0.015293387574984552,
+          "prediction": 0.0016941096487113724,
+          "e1_prediction": 0.0018735205412654832,
+          "interval_80": [
+            -0.0036657109154724712,
+            0.007412751998003437
+          ],
+          "interval_width": 0.011078462913475908,
+          "n_calibration": 60,
+          "directional_conflict": 0.9888309084407636,
+          "neutral_mass": 0.21059305255611055,
+          "pairwise_dispersion_norm": 1.580854631844764,
+          "effective_sample_size": 9.956394030509518
+        },
+        {
+          "event_id": "hist_0339",
+          "query_date": "2023-11-30",
+          "event_family": "dialogue",
+          "realized_abret": 0.003576199288051309,
+          "raw_return": 0.0028467255644368805,
+          "prediction": 6.389430592138194e-05,
+          "e1_prediction": 0.0007047196795950756,
+          "interval_80": [
+            -0.005016043693519707,
+            0.006425483052709859
+          ],
+          "interval_width": 0.011441526746229566,
+          "n_calibration": 60,
+          "directional_conflict": 0.6024594475238401,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 2.4364834168499336,
+          "effective_sample_size": 9.96625807733615
+        },
+        {
+          "event_id": "hist_0340",
+          "query_date": "2023-12-08",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0019119569359124415,
+          "raw_return": -0.008658371388271968,
+          "prediction": 0.0016879628972496057,
+          "e1_prediction": 0.0029083735116417994,
+          "interval_80": [
+            -0.002812389861472984,
+            0.008629136884756583
+          ],
+          "interval_width": 0.011441526746229566,
+          "n_calibration": 60,
+          "directional_conflict": 0.6481228623311739,
+          "neutral_mass": 0.0969470032684207,
+          "pairwise_dispersion_norm": 1.3273845967567588,
+          "effective_sample_size": 9.987245837908045
+        },
+        {
+          "event_id": "hist_0341",
+          "query_date": "2023-12-15",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.009641144879832406,
+          "raw_return": 0.005719357065378183,
+          "prediction": 0.000853503796925229,
+          "e1_prediction": 0.0019520852817338761,
+          "interval_80": [
+            -0.0035871461750040783,
+            0.00749131673847183
+          ],
+          "interval_width": 0.011078462913475908,
+          "n_calibration": 60,
+          "directional_conflict": 0.8837281664994161,
+          "neutral_mass": 0.09970782926562842,
+          "pairwise_dispersion_norm": 1.82923676152496,
+          "effective_sample_size": 9.997202375362999
+        },
+        {
+          "event_id": "hist_0342",
+          "query_date": "2023-12-19",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0022251927247532418,
+          "raw_return": 0.0001399874011336344,
+          "prediction": 0.0010972644458335785,
+          "e1_prediction": 0.0010010054068384123,
+          "interval_80": [
+            -0.004719757966276371,
+            0.006721768779953195
+          ],
+          "interval_width": 0.011441526746229566,
+          "n_calibration": 60,
+          "directional_conflict": 0.8860133089194366,
+          "neutral_mass": 0.10807109598300753,
+          "pairwise_dispersion_norm": 1.463954669965228,
+          "effective_sample_size": 9.992348790454761
+        },
+        {
+          "event_id": "hist_0343",
+          "query_date": "2023-12-22",
+          "event_family": "tariff",
+          "realized_abret": -0.006967535179774284,
+          "raw_return": -0.006625299399100837,
+          "prediction": 0.0006166346731431522,
+          "e1_prediction": 0.0004693540704238172,
+          "interval_80": [
+            -0.005251409302690966,
+            0.0061901174435386
+          ],
+          "interval_width": 0.011441526746229566,
+          "n_calibration": 60,
+          "directional_conflict": 0.6585865155964763,
+          "neutral_mass": 0.1001054402632304,
+          "pairwise_dispersion_norm": 2.0232863584957865,
+          "effective_sample_size": 9.97581757843548
+        },
+        {
+          "event_id": "hist_0344",
+          "query_date": "2023-12-26",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0047237462226731525,
+          "raw_return": -0.00015396458814465053,
+          "prediction": 0.0005642152743306126,
+          "e1_prediction": 0.0005258059573931425,
+          "interval_80": [
+            -0.005352783820158297,
+            0.006404395734944583
+          ],
+          "interval_width": 0.01175717955510288,
+          "n_calibration": 60,
+          "directional_conflict": 0.8968935923164216,
+          "neutral_mass": 0.09382382019394225,
+          "pairwise_dispersion_norm": 1.0518791111364092,
+          "effective_sample_size": 9.972363013164482
+        }
+      ]
+    },
+    "20": {
+      "horizon": 20,
+      "split": "dev",
+      "n": 64,
+      "n_oof_prefix": 141,
+      "excluded_seen_queries": [],
+      "majority_baseline": 0.556,
+      "metrics": {
+        "e1": {
+          "n": 64,
+          "mae": 0.008738399060864703,
+          "median_ae": 0.00850466237289713,
+          "rmse": 0.010827988259913506,
+          "direction_accuracy": 0.53125,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.008738399060864703,
+            "low": 0.006776477493627716,
+            "high": 0.011058122029127806,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        },
+        "e2": {
+          "n": 64,
+          "mae": 0.01006595008361696,
+          "median_ae": 0.009895845158911213,
+          "rmse": 0.011774936446556139,
+          "direction_accuracy": 0.59375,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.01006595008361696,
+            "low": 0.008307972037565626,
+            "high": 0.011497517324061414,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        },
+        "e3": {
+          "n": 64,
+          "mae": 0.009336878359163338,
+          "median_ae": 0.008885321101249483,
+          "rmse": 0.011324639564450687,
+          "direction_accuracy": 0.515625,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.009336878359163338,
+            "low": 0.007356596609818013,
+            "high": 0.011607443286648034,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        },
+        "e4": {
+          "n": 64,
+          "mae": 0.008571313652884265,
+          "median_ae": 0.008789240708960238,
+          "rmse": 0.010627944527328214,
+          "direction_accuracy": 0.5625,
+          "mae_bootstrap": {
+            "n_blocks": 12,
+            "mean": 0.008571313652884265,
+            "low": 0.006771132465444017,
+            "high": 0.010722150053515582,
+            "share_favourable": 0.0,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        }
+      },
+      "comparisons": {
+        "strongest_baseline": "e1",
+        "baseline_fold_mean_mae": {
+          "E1": 0.012187651983227146,
+          "E2": 0.013479532565006192
+        },
+        "e4_minus_strongest": {
+          "strongest_baseline": "e1",
+          "mean_delta_mae": -0.00016708540798043958,
+          "bootstrap": {
+            "n_blocks": 12,
+            "mean": -0.00016708540798043958,
+            "low": -0.0004521991077811647,
+            "high": 0.0001332605425747723,
+            "share_favourable": 0.8614,
+            "seed": 20260929,
+            "resamples": 5000,
+            "unit": "月份分块"
+          }
+        }
+      },
+      "conformal": {
+        "固定历史分位": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 0.953125,
+              "mean_width": 0.043537887762263,
+              "median_width": 0.043537887762263,
+              "interval_score": 0.04488393614718704
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 1.0,
+              "mean_width": 0.052698583331877255,
+              "median_width": 0.05269858333187725,
+              "interval_score": 0.052698583331877255
+            }
+          },
+          "method": "固定历史分位"
+        },
+        "CP0": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 0.953125,
+              "mean_width": 0.042242553023498226,
+              "median_width": 0.04536505076293097,
+              "interval_score": 0.04300392543333041
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 1.0,
+              "mean_width": 0.05593568128812991,
+              "median_width": 0.06143126621968967,
+              "interval_score": 0.05593568128812991
+            }
+          },
+          "method": "CP0",
+          "degrade_reason": ""
+        },
+        "CP0+ACI": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 0.9375,
+              "mean_width": 0.04051742446958206,
+              "median_width": 0.04480800822494649,
+              "interval_score": 0.041845531648431425
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 1.0,
+              "mean_width": 0.05678581708247836,
+              "median_width": 0.061790841782601025,
+              "interval_score": 0.05678581708247836
+            }
+          },
+          "method": "CP0+ACI",
+          "degrade_reason": ""
+        },
+        "CP1": {
+          "targets": {
+            "0.8": {
+              "target_coverage": 0.8,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 0.953125,
+              "mean_width": 0.042242553023498226,
+              "median_width": 0.04536505076293097,
+              "interval_score": 0.04300392543333041
+            },
+            "0.9": {
+              "target_coverage": 0.9,
+              "n": 64,
+              "n_with_interval": 64,
+              "n_evaluable": 64,
+              "coverage": 1.0,
+              "mean_width": 0.05593568128812991,
+              "median_width": 0.06143126621968967,
+              "interval_score": 0.05593568128812991
+            }
+          },
+          "method": "CP0（CP1 已降级）",
+          "degrade_reason": "冲突有效性检验未通过（四条判据未全部满足），CP1 自动降级为 CP0"
+        }
+      },
+      "gate_mean": 0.1680571307283018,
+      "gate_std": 0.03806107864470303,
+      "sample_ids": [
+        "hist_0281",
+        "hist_0282",
+        "hist_0283",
+        "hist_0284",
+        "hist_0285",
+        "hist_0286",
+        "hist_0287",
+        "hist_0288",
+        "hist_0289",
+        "hist_0290",
+        "hist_0291",
+        "hist_0292",
+        "hist_0293",
+        "hist_0294",
+        "hist_0295",
+        "hist_0296",
+        "hist_0297",
+        "hist_0298",
+        "hist_0299",
+        "hist_0300",
+        "hist_0301",
+        "hist_0302",
+        "hist_0303",
+        "hist_0304",
+        "hist_0305",
+        "hist_0306",
+        "hist_0307",
+        "hist_0308",
+        "hist_0309",
+        "hist_0310",
+        "hist_0311",
+        "hist_0312",
+        "hist_0313",
+        "hist_0314",
+        "hist_0315",
+        "hist_0316",
+        "hist_0317",
+        "hist_0318",
+        "hist_0319",
+        "hist_0320",
+        "hist_0321",
+        "hist_0322",
+        "hist_0323",
+        "hist_0324",
+        "hist_0325",
+        "hist_0326",
+        "hist_0327",
+        "hist_0328",
+        "hist_0329",
+        "hist_0330",
+        "hist_0331",
+        "hist_0332",
+        "hist_0333",
+        "hist_0334",
+        "hist_0335",
+        "hist_0336",
+        "hist_0337",
+        "hist_0338",
+        "hist_0339",
+        "hist_0340",
+        "hist_0341",
+        "hist_0342",
+        "hist_0343",
+        "hist_0344"
+      ],
+      "observations": [
+        {
+          "event_id": "hist_0281",
+          "query_date": "2023-01-10",
+          "event_family": "litigation",
+          "realized_abret": 0.0027881166862158487,
+          "raw_return": 0.005798854984359281,
+          "prediction": 0.001011054614216128,
+          "e1_prediction": 0.0009383873351451811,
+          "interval_80": [
+            -0.021744138046320305,
+            0.023620912716610667
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.7419846444300889,
+          "neutral_mass": 0.1988622365824342,
+          "pairwise_dispersion_norm": 1.4536307785059592,
+          "effective_sample_size": 9.99409516452286
+        },
+        {
+          "event_id": "hist_0282",
+          "query_date": "2023-01-18",
+          "event_family": "dialogue",
+          "realized_abret": 0.0051457280776933245,
+          "raw_return": 0.01966786448397717,
+          "prediction": -0.0013687333574283842,
+          "e1_prediction": -0.002475248244522912,
+          "interval_80": [
+            -0.025157773625988398,
+            0.020207277136942575
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.9051535264607977,
+          "neutral_mass": 0.10178319636166981,
+          "pairwise_dispersion_norm": 1.503309109855644,
+          "effective_sample_size": 9.979862853401043
+        },
+        {
+          "event_id": "hist_0283",
+          "query_date": "2023-01-30",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.015868264653866655,
+          "raw_return": 0.03156382379950817,
+          "prediction": -8.584596234979878e-05,
+          "e1_prediction": 0.001031964025595962,
+          "interval_80": [
+            -0.021650561355869524,
+            0.02371448940706145
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.7535586873495651,
+          "neutral_mass": 0.19436403064156416,
+          "pairwise_dispersion_norm": 1.4603983877111362,
+          "effective_sample_size": 9.964564904029292
+        },
+        {
+          "event_id": "hist_0284",
+          "query_date": "2023-02-07",
+          "event_family": "dialogue",
+          "realized_abret": 0.006125917943853872,
+          "raw_return": 0.020507985149390118,
+          "prediction": 0.005347433463662701,
+          "e1_prediction": 0.005716916482311708,
+          "interval_80": [
+            -0.01696560889915378,
+            0.028399441863777193
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.5675272173718319,
+          "neutral_mass": 0.29677299981663424,
+          "pairwise_dispersion_norm": 1.639928846294061,
+          "effective_sample_size": 9.980798357546956
+        },
+        {
+          "event_id": "hist_0285",
+          "query_date": "2023-02-10",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.017981309238676885,
+          "raw_return": 0.024323887115986764,
+          "prediction": -0.0012600819358519768,
+          "e1_prediction": -0.0008230482247292822,
+          "interval_80": [
+            -0.02350557360619477,
+            0.021859477156736203
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.8757644528367708,
+          "neutral_mass": 0.09584950551088389,
+          "pairwise_dispersion_norm": 1.7749724002166798,
+          "effective_sample_size": 9.988056306570398
+        },
+        {
+          "event_id": "hist_0286",
+          "query_date": "2023-02-13",
+          "event_family": "tariff",
+          "realized_abret": 0.010968388258516523,
+          "raw_return": 0.01075127067129511,
+          "prediction": -0.0002644978233473567,
+          "e1_prediction": -0.00031881322113906733,
+          "interval_80": [
+            -0.023001338602604553,
+            0.02236371216032642
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.8872482745746015,
+          "neutral_mass": 0.10316657248865142,
+          "pairwise_dispersion_norm": 2.1491749302192944,
+          "effective_sample_size": 9.960506891397783
+        },
+        {
+          "event_id": "hist_0287",
+          "query_date": "2023-02-16",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.006879435394702863,
+          "raw_return": 0.007326755794266893,
+          "prediction": -0.0023024043129595967,
+          "e1_prediction": -0.0022861080457683746,
+          "interval_80": [
+            -0.02496863342723386,
+            0.020396417335697112
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.7606088743451258,
+          "neutral_mass": 0.20032409056641287,
+          "pairwise_dispersion_norm": 1.4019362432172287,
+          "effective_sample_size": 9.993582970734705
+        },
+        {
+          "event_id": "hist_0288",
+          "query_date": "2023-02-27",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.00015036787554563794,
+          "raw_return": -0.011845789360327319,
+          "prediction": 0.0007287695954074167,
+          "e1_prediction": 0.0019405748738792275,
+          "interval_80": [
+            -0.02074195050758626,
+            0.024623100255344713
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.8774246472092224,
+          "neutral_mass": 0.09859896862151502,
+          "pairwise_dispersion_norm": 1.4964686357597121,
+          "effective_sample_size": 9.990589126188137
+        },
+        {
+          "event_id": "hist_0289",
+          "query_date": "2023-03-02",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.012920871171886526,
+          "raw_return": -0.00441478736647094,
+          "prediction": -0.0004863184507212098,
+          "e1_prediction": 3.0014646323918936e-05,
+          "interval_80": [
+            -0.022652510735141566,
+            0.022712540027789406
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.7571841753029236,
+          "neutral_mass": 0.19401501964191958,
+          "pairwise_dispersion_norm": 1.713706567882892,
+          "effective_sample_size": 9.993573706841413
+        },
+        {
+          "event_id": "hist_0290",
+          "query_date": "2023-03-09",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.006819956647514853,
+          "raw_return": -0.013558300692979919,
+          "prediction": -0.0031732778362304885,
+          "e1_prediction": -0.005745388477940215,
+          "interval_80": [
+            -0.028427913859405702,
+            0.01693713690352527
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.4362990134062875,
+          "neutral_mass": 0.10254652526963126,
+          "pairwise_dispersion_norm": 1.4280239324229176,
+          "effective_sample_size": 9.994754231448816
+        },
+        {
+          "event_id": "hist_0291",
+          "query_date": "2023-03-14",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.010572744523506603,
+          "raw_return": 0.0015569297926520953,
+          "prediction": 0.0007349771635554306,
+          "e1_prediction": 0.0010036214817109319,
+          "interval_80": [
+            -0.021678903899754555,
+            0.023686146863176417
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.769460128460595,
+          "neutral_mass": 0.5056043161773125,
+          "pairwise_dispersion_norm": 1.0673366788487315,
+          "effective_sample_size": 9.96158273597826
+        },
+        {
+          "event_id": "hist_0292",
+          "query_date": "2023-03-28",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.007903798635523315,
+          "raw_return": 0.005258188684726717,
+          "prediction": 0.002810255601091775,
+          "e1_prediction": 0.002918330034144748,
+          "interval_80": [
+            -0.01976419534732074,
+            0.025600855415610232
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.7872505436400814,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.7418463976046727,
+          "effective_sample_size": 9.994252606579064
+        },
+        {
+          "event_id": "hist_0293",
+          "query_date": "2023-03-31",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.010190997476542571,
+          "raw_return": 0.006534425800067023,
+          "prediction": 0.009561857274015506,
+          "e1_prediction": 0.010247233880908362,
+          "interval_80": [
+            -0.012435291500557125,
+            0.03292975926237385
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.5966311159125757,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.6906516010177366,
+          "effective_sample_size": 9.980882792968133
+        },
+        {
+          "event_id": "hist_0294",
+          "query_date": "2023-04-07",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.007160241316929723,
+          "raw_return": 0.006908688949006425,
+          "prediction": -0.0014448825671247686,
+          "e1_prediction": -0.0017496832710790003,
+          "interval_80": [
+            -0.024432208652544488,
+            0.020932842110386485
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.9660693694156105,
+          "neutral_mass": 0.33784810902073903,
+          "pairwise_dispersion_norm": 0.9616544020643494,
+          "effective_sample_size": 8.983858367382746
+        },
+        {
+          "event_id": "hist_0295",
+          "query_date": "2023-04-12",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.00026171865047415477,
+          "raw_return": 0.010067991631798945,
+          "prediction": 0.0020089131106606913,
+          "e1_prediction": 0.002594984196573356,
+          "interval_80": [
+            -0.02008754118489213,
+            0.025277509578038843
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.5705139637268877,
+          "neutral_mass": 0.29661629152454533,
+          "pairwise_dispersion_norm": 1.3091699553144618,
+          "effective_sample_size": 9.983486458450953
+        },
+        {
+          "event_id": "hist_0296",
+          "query_date": "2023-04-14",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.00944448520111852,
+          "raw_return": 0.021753412657858018,
+          "prediction": -6.344089054530655e-05,
+          "e1_prediction": -0.00027902587332757347,
+          "interval_80": [
+            -0.02296155125479306,
+            0.022403499508137914
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.855858350001292,
+          "neutral_mass": 0.3034398058122515,
+          "pairwise_dispersion_norm": 1.3162658174789017,
+          "effective_sample_size": 9.995148876098433
+        },
+        {
+          "event_id": "hist_0297",
+          "query_date": "2023-04-19",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.007113702850924218,
+          "raw_return": 0.019400864193950706,
+          "prediction": 0.003970917108152978,
+          "e1_prediction": 0.004157931466557446,
+          "interval_80": [
+            -0.01852459391490804,
+            0.026840456848022932
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.5929601986664517,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.122417204655298,
+          "effective_sample_size": 9.995192348118556
+        },
+        {
+          "event_id": "hist_0298",
+          "query_date": "2023-04-27",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.003138915143411119,
+          "raw_return": 0.024122141815082765,
+          "prediction": -0.0023131829571635737,
+          "e1_prediction": -0.0027440589802171485,
+          "interval_80": [
+            -0.025426584361682634,
+            0.01993846640124834
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.7377990065430475,
+          "neutral_mass": 0.20589399697428823,
+          "pairwise_dispersion_norm": 1.010689914687687,
+          "effective_sample_size": 9.984377119216614
+        },
+        {
+          "event_id": "hist_0299",
+          "query_date": "2023-05-10",
+          "event_family": "dialogue",
+          "realized_abret": 0.007395431962985831,
+          "raw_return": 0.02933741640064147,
+          "prediction": 0.0036839963852718424,
+          "e1_prediction": 0.0030633080097452435,
+          "interval_80": [
+            -0.019619217371720243,
+            0.02574583339121073
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.9053154903054732,
+          "neutral_mass": 0.12281255462218355,
+          "pairwise_dispersion_norm": 1.6880299627544029,
+          "effective_sample_size": 9.906599748646167
+        },
+        {
+          "event_id": "hist_0300",
+          "query_date": "2023-05-17",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.016622107621383417,
+          "raw_return": 0.022733442880617405,
+          "prediction": 7.296585578601858e-05,
+          "e1_prediction": -0.0019006366452596463,
+          "interval_80": [
+            -0.02458316202672513,
+            0.02078188873620584
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.6091787731093015,
+          "neutral_mass": 0.38493008905740395,
+          "pairwise_dispersion_norm": 1.3560807820922012,
+          "effective_sample_size": 9.91045762668987
+        },
+        {
+          "event_id": "hist_0301",
+          "query_date": "2023-05-22",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.017603333399575836,
+          "raw_return": 0.018192421483841814,
+          "prediction": 0.01634769778972657,
+          "e1_prediction": 0.016730939403806766,
+          "interval_80": [
+            -0.00595158597765872,
+            0.03941346478527225
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.1956715002440209,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.40297104554747,
+          "effective_sample_size": 9.875270432125507
+        },
+        {
+          "event_id": "hist_0302",
+          "query_date": "2023-05-25",
+          "event_family": "tariff",
+          "realized_abret": 0.025942510180453467,
+          "raw_return": 0.021687462863933638,
+          "prediction": 0.0010551826089522725,
+          "e1_prediction": 0.00040642998577084617,
+          "interval_80": [
+            -0.02227609539569464,
+            0.023088955367236333
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.8681345547404985,
+          "neutral_mass": 0.1003327517370914,
+          "pairwise_dispersion_norm": 2.187576755694679,
+          "effective_sample_size": 9.963870174704825
+        },
+        {
+          "event_id": "hist_0303",
+          "query_date": "2023-05-30",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.020993191966169514,
+          "raw_return": 0.021466551952723067,
+          "prediction": -0.0027716880408437867,
+          "e1_prediction": -0.004685112041787429,
+          "interval_80": [
+            -0.028368819162838857,
+            0.018998595079263998
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.8847786897260022,
+          "neutral_mass": 0.0986329741246211,
+          "pairwise_dispersion_norm": 1.4820825375285724,
+          "effective_sample_size": 9.994948503586714
+        },
+        {
+          "event_id": "hist_0304",
+          "query_date": "2023-05-31",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.022024669407910993,
+          "raw_return": 0.02188137620488284,
+          "prediction": 0.010171234061311707,
+          "e1_prediction": 0.00969321630381806,
+          "interval_80": [
+            -0.01584286389086456,
+            0.03522929649850068
+          ],
+          "interval_width": 0.05107216038936524,
+          "n_calibration": 60,
+          "directional_conflict": 0.6707163476865889,
+          "neutral_mass": 0.09805549605412996,
+          "pairwise_dispersion_norm": 1.4641800393371638,
+          "effective_sample_size": 9.995149468013794
+        },
+        {
+          "event_id": "hist_0305",
+          "query_date": "2023-06-06",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.019241593876076823,
+          "raw_return": 0.01813864613482452,
+          "prediction": 0.0006525495949469752,
+          "e1_prediction": -0.0002919318981985487,
+          "interval_80": [
+            -0.02582801209288117,
+            0.02524414829648407
+          ],
+          "interval_width": 0.05107216038936524,
+          "n_calibration": 60,
+          "directional_conflict": 0.8866555440501084,
+          "neutral_mass": 0.10115332340195284,
+          "pairwise_dispersion_norm": 1.1626045725449743,
+          "effective_sample_size": 9.989528190046178
+        },
+        {
+          "event_id": "hist_0306",
+          "query_date": "2023-06-08",
+          "event_family": "rhetoric",
+          "realized_abret": 0.017658937744154963,
+          "raw_return": 0.014815854086285496,
+          "prediction": 0.006235629457933506,
+          "e1_prediction": 0.006502260254190391,
+          "interval_80": [
+            -0.01903381994049223,
+            0.032038340448873014
+          ],
+          "interval_width": 0.05107216038936524,
+          "n_calibration": 60,
+          "directional_conflict": 0.6900069052460593,
+          "neutral_mass": 0.10063482597184853,
+          "pairwise_dispersion_norm": 1.35405697564349,
+          "effective_sample_size": 9.987337039292484
+        },
+        {
+          "event_id": "hist_0307",
+          "query_date": "2023-06-09",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.015779189300943918,
+          "raw_return": 0.010443424432559967,
+          "prediction": 0.00032836731105783865,
+          "e1_prediction": -0.0005885410089169382,
+          "interval_80": [
+            -0.024272248129968366,
+            0.02309516611213449
+          ],
+          "interval_width": 0.047367414242102855,
+          "n_calibration": 60,
+          "directional_conflict": 0.9906891024271579,
+          "neutral_mass": 0.41688073115041413,
+          "pairwise_dispersion_norm": 1.0706459639907902,
+          "effective_sample_size": 9.973590163962314
+        },
+        {
+          "event_id": "hist_0308",
+          "query_date": "2023-06-12",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.018124494248820865,
+          "raw_return": 0.006622238400582514,
+          "prediction": 0.0019980200550804702,
+          "e1_prediction": 0.0016903998196099693,
+          "interval_80": [
+            -0.020992125561855517,
+            0.024372925201075455
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.7353362985642364,
+          "neutral_mass": 0.19576608423303207,
+          "pairwise_dispersion_norm": 1.8480010704006509,
+          "effective_sample_size": 9.982774091806629
+        },
+        {
+          "event_id": "hist_0309",
+          "query_date": "2023-06-13",
+          "event_family": "dialogue",
+          "realized_abret": 0.01620757106612131,
+          "raw_return": 0.0009226123909640283,
+          "prediction": 0.0013503733508230045,
+          "e1_prediction": 0.000731986977108673,
+          "interval_80": [
+            -0.021950538404356814,
+            0.02341451235857416
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.887616205107165,
+          "neutral_mass": 0.09943675452441544,
+          "pairwise_dispersion_norm": 1.0790954251948548,
+          "effective_sample_size": 9.98314173510472
+        },
+        {
+          "event_id": "hist_0310",
+          "query_date": "2023-06-16",
+          "event_family": "dialogue",
+          "realized_abret": 0.01617100158272205,
+          "raw_return": 0.007714141187050494,
+          "prediction": -0.005143223980558654,
+          "e1_prediction": -0.006536155521546749,
+          "interval_80": [
+            -0.029218680903012235,
+            0.016146369859918738
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.0,
+          "neutral_mass": 0.5111505430941506,
+          "pairwise_dispersion_norm": 0.7457435470200504,
+          "effective_sample_size": 9.978825795892034
+        },
+        {
+          "event_id": "hist_0311",
+          "query_date": "2023-06-19",
+          "event_family": "dialogue",
+          "realized_abret": 0.01577816734342305,
+          "raw_return": 0.008577455541119772,
+          "prediction": 0.0060167971144094974,
+          "e1_prediction": 0.006134323765960456,
+          "interval_80": [
+            -0.016572833338308342,
+            0.028841480870229252
+          ],
+          "interval_width": 0.045414314208537594,
+          "n_calibration": 60,
+          "directional_conflict": 0.6641176513662761,
+          "neutral_mass": 0.09406554994934281,
+          "pairwise_dispersion_norm": 1.7027225633083134,
+          "effective_sample_size": 9.982960302876927
+        },
+        {
+          "event_id": "hist_0312",
+          "query_date": "2023-07-07",
+          "event_family": "dialogue",
+          "realized_abret": -0.006794027058948198,
+          "raw_return": -0.007382216323822188,
+          "prediction": 0.0023396860939864316,
+          "e1_prediction": 0.0018816612417265795,
+          "interval_80": [
+            -0.020825495862542218,
+            0.024588818345995377
+          ],
+          "interval_width": 0.045414314208537594,
+          "n_calibration": 60,
+          "directional_conflict": 0.882486550045163,
+          "neutral_mass": 0.10023136163867907,
+          "pairwise_dispersion_norm": 1.1835496804969463,
+          "effective_sample_size": 9.985156879539488
+        },
+        {
+          "event_id": "hist_0313",
+          "query_date": "2023-07-13",
+          "event_family": "dialogue",
+          "realized_abret": -0.008293878184213309,
+          "raw_return": 0.006564062456356101,
+          "prediction": 0.009697937698795182,
+          "e1_prediction": 0.010275658712075138,
+          "interval_80": [
+            -0.012431498392193659,
+            0.032982815816343936
+          ],
+          "interval_width": 0.045414314208537594,
+          "n_calibration": 60,
+          "directional_conflict": 0.46597034776291935,
+          "neutral_mass": 0.10509650327695515,
+          "pairwise_dispersion_norm": 1.6583748073864994,
+          "effective_sample_size": 9.915328272309617
+        },
+        {
+          "event_id": "hist_0314",
+          "query_date": "2023-07-20",
+          "event_family": "dialogue",
+          "realized_abret": 0.0028528314280745447,
+          "raw_return": 0.017991672584980023,
+          "prediction": 0.000757067470415558,
+          "e1_prediction": 0.0003285884153464994,
+          "interval_80": [
+            -0.0223785686889223,
+            0.023035745519615295
+          ],
+          "interval_width": 0.045414314208537594,
+          "n_calibration": 60,
+          "directional_conflict": 0.8590177175762963,
+          "neutral_mass": 0.30591547525689133,
+          "pairwise_dispersion_norm": 1.0475374434302094,
+          "effective_sample_size": 9.995385301936006
+        },
+        {
+          "event_id": "hist_0315",
+          "query_date": "2023-07-25",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.007099896320432142,
+          "raw_return": 0.021999579625867183,
+          "prediction": 0.005784016941657423,
+          "e1_prediction": 0.004931034075020693,
+          "interval_80": [
+            -0.017776123029248105,
+            0.02763819117928949
+          ],
+          "interval_width": 0.045414314208537594,
+          "n_calibration": 60,
+          "directional_conflict": 0.6685728870997478,
+          "neutral_mass": 0.10104131151732872,
+          "pairwise_dispersion_norm": 1.2364899352485532,
+          "effective_sample_size": 9.995895621034267
+        },
+        {
+          "event_id": "hist_0316",
+          "query_date": "2023-07-26",
+          "event_family": "dialogue",
+          "realized_abret": 0.004206171238686841,
+          "raw_return": 0.019702435886679748,
+          "prediction": 0.00010439971048809211,
+          "e1_prediction": -0.0007855067965827899,
+          "interval_80": [
+            -0.023492663900851588,
+            0.021921650307686006
+          ],
+          "interval_width": 0.045414314208537594,
+          "n_calibration": 60,
+          "directional_conflict": 0.7412103643376646,
+          "neutral_mass": 0.19589483195710133,
+          "pairwise_dispersion_norm": 1.2122246996110988,
+          "effective_sample_size": 9.991440847859355
+        },
+        {
+          "event_id": "hist_0317",
+          "query_date": "2023-08-03",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.005321239775302196,
+          "raw_return": 0.014034355657555952,
+          "prediction": 0.008239484556241489,
+          "e1_prediction": 0.007729946216442869,
+          "interval_80": [
+            -0.014977210887825929,
+            0.030437103320711666
+          ],
+          "interval_width": 0.045414314208537594,
+          "n_calibration": 60,
+          "directional_conflict": 0.4853293328403673,
+          "neutral_mass": 0.20573418371368443,
+          "pairwise_dispersion_norm": 0.8875975414126002,
+          "effective_sample_size": 9.978751326551457
+        },
+        {
+          "event_id": "hist_0318",
+          "query_date": "2023-08-11",
+          "event_family": "rhetoric",
+          "realized_abret": 0.002217149530106065,
+          "raw_return": 0.014860381531656142,
+          "prediction": -0.0018980865529788248,
+          "e1_prediction": -0.0036014584578183614,
+          "interval_80": [
+            -0.02630861556208716,
+            0.019105698646450436
+          ],
+          "interval_width": 0.045414314208537594,
+          "n_calibration": 60,
+          "directional_conflict": 0.3364028861387125,
+          "neutral_mass": 0.3319906799502625,
+          "pairwise_dispersion_norm": 1.0852136584108845,
+          "effective_sample_size": 8.99657914953748
+        },
+        {
+          "event_id": "hist_0319",
+          "query_date": "2023-08-21",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.009901524914247815,
+          "raw_return": -0.0029942985274614697,
+          "prediction": -0.002700606647594473,
+          "e1_prediction": -0.004763149275882553,
+          "interval_80": [
+            -0.02747030638015135,
+            0.017944007828386243
+          ],
+          "interval_width": 0.045414314208537594,
+          "n_calibration": 60,
+          "directional_conflict": 0.76179220255103,
+          "neutral_mass": 0.20820760930518836,
+          "pairwise_dispersion_norm": 1.4946288209836465,
+          "effective_sample_size": 9.982856548108488
+        },
+        {
+          "event_id": "hist_0320",
+          "query_date": "2023-08-29",
+          "event_family": "dialogue",
+          "realized_abret": -0.011882236728823986,
+          "raw_return": 0.001288995543366589,
+          "prediction": -0.0029088791949580025,
+          "e1_prediction": -0.004486901755909845,
+          "interval_80": [
+            -0.02716942713737533,
+            0.018195623625555643
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.6571520622916396,
+          "neutral_mass": 0.1059795180530785,
+          "pairwise_dispersion_norm": 0.8799841754698242,
+          "effective_sample_size": 9.967632670355039
+        },
+        {
+          "event_id": "hist_0321",
+          "query_date": "2023-08-31",
+          "event_family": "dialogue",
+          "realized_abret": -0.011937131781152426,
+          "raw_return": 0.0013442335125644078,
+          "prediction": 0.004587021439283287,
+          "e1_prediction": 0.004088702516944266,
+          "interval_80": [
+            -0.01859382286452122,
+            0.02677122789840975
+          ],
+          "interval_width": 0.04536505076293097,
+          "n_calibration": 60,
+          "directional_conflict": 0.8854950709032832,
+          "neutral_mass": 0.30500100199554686,
+          "pairwise_dispersion_norm": 1.7307894341371808,
+          "effective_sample_size": 9.976665386579311
+        },
+        {
+          "event_id": "hist_0322",
+          "query_date": "2023-09-06",
+          "event_family": "tariff",
+          "realized_abret": -0.009566502475419061,
+          "raw_return": -0.00195665261890432,
+          "prediction": -0.00017062789703326453,
+          "e1_prediction": -0.0030245183780069867,
+          "interval_80": [
+            -0.02542852249048023,
+            0.019379485734466257
+          ],
+          "interval_width": 0.04480800822494649,
+          "n_calibration": 60,
+          "directional_conflict": 0.6883215075162101,
+          "neutral_mass": 0.0988968075933031,
+          "pairwise_dispersion_norm": 1.548147940667326,
+          "effective_sample_size": 9.952461457361444
+        },
+        {
+          "event_id": "hist_0323",
+          "query_date": "2023-09-11",
+          "event_family": "dialogue",
+          "realized_abret": -0.008422324692227668,
+          "raw_return": 0.003168463500946128,
+          "prediction": 0.0017007309889711512,
+          "e1_prediction": 0.00010167934594440333,
+          "interval_80": [
+            -0.022302324766528842,
+            0.022505683458417646
+          ],
+          "interval_width": 0.04480800822494649,
+          "n_calibration": 60,
+          "directional_conflict": 0.8900510667748218,
+          "neutral_mass": 0.09776198555110785,
+          "pairwise_dispersion_norm": 1.301971012475632,
+          "effective_sample_size": 9.998103217352762
+        },
+        {
+          "event_id": "hist_0324",
+          "query_date": "2023-09-15",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.005342028867487647,
+          "raw_return": 0.006314399306654117,
+          "prediction": 0.0037879441488418058,
+          "e1_prediction": 0.00209597069490708,
+          "interval_80": [
+            -0.019138736473132193,
+            0.02333067786294635
+          ],
+          "interval_width": 0.042469414336078544,
+          "n_calibration": 60,
+          "directional_conflict": 0.754353551130394,
+          "neutral_mass": 0.20086809025377508,
+          "pairwise_dispersion_norm": 1.5017052193219,
+          "effective_sample_size": 9.977822610856839
+        },
+        {
+          "event_id": "hist_0325",
+          "query_date": "2023-09-22",
+          "event_family": "dialogue",
+          "realized_abret": -0.000638534364223797,
+          "raw_return": 0.002438289361935242,
+          "prediction": -0.00152875175856574,
+          "e1_prediction": -0.0042314531142528715,
+          "interval_80": [
+            -0.023792128385744907,
+            0.015329222157239166
+          ],
+          "interval_width": 0.039121350542984074,
+          "n_calibration": 60,
+          "directional_conflict": 0.40383831502025236,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.2756439666570325,
+          "effective_sample_size": 9.993552594845978
+        },
+        {
+          "event_id": "hist_0326",
+          "query_date": "2023-09-25",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.004411266049365435,
+          "raw_return": 0.0009164398364087667,
+          "prediction": 0.007132133346610551,
+          "e1_prediction": 0.00570874193659897,
+          "interval_80": [
+            -0.013824783837676402,
+            0.025242267710874344
+          ],
+          "interval_width": 0.039067051548550745,
+          "n_calibration": 60,
+          "directional_conflict": 0.2914468294043395,
+          "neutral_mass": 0.30032015977245596,
+          "pairwise_dispersion_norm": 0.9041803015339216,
+          "effective_sample_size": 9.988864076964353
+        },
+        {
+          "event_id": "hist_0327",
+          "query_date": "2023-09-27",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.002866181610654679,
+          "raw_return": 0.001340849387040377,
+          "prediction": 0.005130512593868689,
+          "e1_prediction": 0.0035438728820034525,
+          "interval_80": [
+            -0.01598965289227192,
+            0.023077398656278825
+          ],
+          "interval_width": 0.039067051548550745,
+          "n_calibration": 60,
+          "directional_conflict": 0.5555764226520336,
+          "neutral_mass": 0.30524572142749024,
+          "pairwise_dispersion_norm": 0.9453547155431782,
+          "effective_sample_size": 9.97043584164991
+        },
+        {
+          "event_id": "hist_0328",
+          "query_date": "2023-09-28",
+          "event_family": "rhetoric",
+          "realized_abret": 0.008309300079407667,
+          "raw_return": 0.0017944713843454085,
+          "prediction": 0.009640239432300779,
+          "e1_prediction": 0.008407818324770878,
+          "interval_80": [
+            -0.01039653913863529,
+            0.027212175788177046
+          ],
+          "interval_width": 0.03760871492681234,
+          "n_calibration": 60,
+          "directional_conflict": 0.4243394341227068,
+          "neutral_mass": 0.09952830466072723,
+          "pairwise_dispersion_norm": 1.1128963232637439,
+          "effective_sample_size": 9.968493835846067
+        },
+        {
+          "event_id": "hist_0329",
+          "query_date": "2023-10-09",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.0027038542798637384,
+          "raw_return": -0.0022764049258111596,
+          "prediction": 0.005046931441758652,
+          "e1_prediction": 0.003320509105980498,
+          "interval_80": [
+            -0.01524902779030795,
+            0.021890046002268945
+          ],
+          "interval_width": 0.037139073792576895,
+          "n_calibration": 60,
+          "directional_conflict": 0.7262426808159149,
+          "neutral_mass": 0.20474234194271068,
+          "pairwise_dispersion_norm": 1.2574075958890962,
+          "effective_sample_size": 9.977533647855324
+        },
+        {
+          "event_id": "hist_0330",
+          "query_date": "2023-10-09",
+          "event_family": "dialogue",
+          "realized_abret": 0.0027038542798637384,
+          "raw_return": -0.0022764049258111596,
+          "prediction": 0.0025106250853783353,
+          "e1_prediction": 0.0014055851756544743,
+          "interval_80": [
+            -0.017163951720633973,
+            0.019975122071942922
+          ],
+          "interval_width": 0.037139073792576895,
+          "n_calibration": 60,
+          "directional_conflict": 0.6839261185391088,
+          "neutral_mass": 0.4009874114244188,
+          "pairwise_dispersion_norm": 0.6421438898343306,
+          "effective_sample_size": 9.98693486093307
+        },
+        {
+          "event_id": "hist_0331",
+          "query_date": "2023-10-16",
+          "event_family": "dialogue",
+          "realized_abret": -0.0010168806895591146,
+          "raw_return": -0.0025576147165427,
+          "prediction": 0.007195020489747597,
+          "e1_prediction": 0.007468440018063073,
+          "interval_80": [
+            -0.011101096878225374,
+            0.026037976914351522
+          ],
+          "interval_width": 0.037139073792576895,
+          "n_calibration": 60,
+          "directional_conflict": 0.8867008967859468,
+          "neutral_mass": 0.1023820365598304,
+          "pairwise_dispersion_norm": 1.7671946574164563,
+          "effective_sample_size": 9.970348415135504
+        },
+        {
+          "event_id": "hist_0332",
+          "query_date": "2023-10-17",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.008758065640251864,
+          "raw_return": -0.002789285860781865,
+          "prediction": 0.0025747300083819127,
+          "e1_prediction": 3.7010952574162094e-05,
+          "interval_80": [
+            -0.018532525943714285,
+            0.01860654784886261
+          ],
+          "interval_width": 0.037139073792576895,
+          "n_calibration": 60,
+          "directional_conflict": 0.8528267376928165,
+          "neutral_mass": 0.29781184102853486,
+          "pairwise_dispersion_norm": 1.6443576866347098,
+          "effective_sample_size": 9.986455891378966
+        },
+        {
+          "event_id": "hist_0333",
+          "query_date": "2023-10-18",
+          "event_family": "entity_restrictions",
+          "realized_abret": 8.270097671679404e-05,
+          "raw_return": -0.0096854950136116,
+          "prediction": -0.002920744013235562,
+          "e1_prediction": -0.006423264373928179,
+          "interval_80": [
+            -0.024992801270216625,
+            0.01214627252236027
+          ],
+          "interval_width": 0.037139073792576895,
+          "n_calibration": 60,
+          "directional_conflict": 0.6694882269799272,
+          "neutral_mass": 0.10060571504331545,
+          "pairwise_dispersion_norm": 1.3202735650994284,
+          "effective_sample_size": 9.98038021169731
+        },
+        {
+          "event_id": "hist_0334",
+          "query_date": "2023-10-20",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0010994110501154446,
+          "raw_return": -0.009364319890635797,
+          "prediction": 0.004906877479940594,
+          "e1_prediction": 0.003013506409564389,
+          "interval_80": [
+            -0.015509237857078674,
+            0.02153625067620745
+          ],
+          "interval_width": 0.037045488533286125,
+          "n_calibration": 60,
+          "directional_conflict": 0.7326831081603277,
+          "neutral_mass": 0.2025455212504451,
+          "pairwise_dispersion_norm": 1.4981154730110964,
+          "effective_sample_size": 9.995468478243005
+        },
+        {
+          "event_id": "hist_0335",
+          "query_date": "2023-10-24",
+          "event_family": "dialogue",
+          "realized_abret": -0.013712053745941817,
+          "raw_return": -0.02377009921313733,
+          "prediction": 0.000948255896370623,
+          "e1_prediction": 0.0007558266479285357,
+          "interval_80": [
+            -0.01567826778128236,
+            0.01718992107713943
+          ],
+          "interval_width": 0.03286818885842179,
+          "n_calibration": 60,
+          "directional_conflict": 0.9832762444473289,
+          "neutral_mass": 0.0,
+          "pairwise_dispersion_norm": 1.161005488556263,
+          "effective_sample_size": 9.989702065704028
+        },
+        {
+          "event_id": "hist_0336",
+          "query_date": "2023-10-25",
+          "event_family": "dialogue",
+          "realized_abret": -0.010676647163590422,
+          "raw_return": -0.022870813397129375,
+          "prediction": 0.0008902538852784487,
+          "e1_prediction": 0.00034788061881866396,
+          "interval_80": [
+            -0.01608621381039223,
+            0.01678197504802956
+          ],
+          "interval_width": 0.03286818885842179,
+          "n_calibration": 60,
+          "directional_conflict": 0.8450257875694898,
+          "neutral_mass": 0.3020452576095852,
+          "pairwise_dispersion_norm": 0.8311918420783101,
+          "effective_sample_size": 9.993691199686003
+        },
+        {
+          "event_id": "hist_0337",
+          "query_date": "2023-10-30",
+          "event_family": "dialogue",
+          "realized_abret": -0.007539583547000139,
+          "raw_return": -0.023162066138289195,
+          "prediction": 0.005080901798303787,
+          "e1_prediction": 0.0054007850755019024,
+          "interval_80": [
+            -0.011033309353708994,
+            0.021834879504712797
+          ],
+          "interval_width": 0.03286818885842179,
+          "n_calibration": 60,
+          "directional_conflict": 0.7447480094107033,
+          "neutral_mass": 0.20347189490972356,
+          "pairwise_dispersion_norm": 1.560947416128579,
+          "effective_sample_size": 9.991009112498913
+        },
+        {
+          "event_id": "hist_0338",
+          "query_date": "2023-11-16",
+          "event_family": "dialogue",
+          "realized_abret": 0.0010994386146161508,
+          "raw_return": -0.0167413638557542,
+          "prediction": -9.686079056474783e-05,
+          "e1_prediction": -0.002129215198078757,
+          "interval_80": [
+            -0.018496945507939615,
+            0.0142385151117821
+          ],
+          "interval_width": 0.03273546061972171,
+          "n_calibration": 60,
+          "directional_conflict": 0.8107491617697034,
+          "neutral_mass": 0.5204422887947877,
+          "pairwise_dispersion_norm": 0.9005944621251162,
+          "effective_sample_size": 9.951883765997508
+        },
+        {
+          "event_id": "hist_0339",
+          "query_date": "2023-11-30",
+          "event_family": "dialogue",
+          "realized_abret": 0.0077209248570479574,
+          "raw_return": -0.0035759360538493157,
+          "prediction": 0.0021086067299370933,
+          "e1_prediction": 0.0015590119029857497,
+          "interval_80": [
+            -0.014466822395110943,
+            0.017584846201082444
+          ],
+          "interval_width": 0.032051668596193385,
+          "n_calibration": 60,
+          "directional_conflict": 0.5714395466469557,
+          "neutral_mass": 0.3110005521821741,
+          "pairwise_dispersion_norm": 1.4540359253265258,
+          "effective_sample_size": 9.96625807733615
+        },
+        {
+          "event_id": "hist_0340",
+          "query_date": "2023-12-08",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.008821293834333615,
+          "raw_return": -0.00011172092113898024,
+          "prediction": 0.0034489284930724257,
+          "e1_prediction": 0.003063054516827858,
+          "interval_80": [
+            -0.01241252957218478,
+            0.018538638605840495
+          ],
+          "interval_width": 0.030951168178025276,
+          "n_calibration": 60,
+          "directional_conflict": 0.7374958295372072,
+          "neutral_mass": 0.19531809898147778,
+          "pairwise_dispersion_norm": 1.5778888884734676,
+          "effective_sample_size": 9.987245837908045
+        },
+        {
+          "event_id": "hist_0341",
+          "query_date": "2023-12-15",
+          "event_family": "entity_restrictions",
+          "realized_abret": 0.011073538803261247,
+          "raw_return": 0.010339921394057816,
+          "prediction": 0.0020015289466682787,
+          "e1_prediction": 0.002074386294222597,
+          "interval_80": [
+            -0.012761914334048096,
+            0.01691068692249329
+          ],
+          "interval_width": 0.029672601256541385,
+          "n_calibration": 60,
+          "directional_conflict": 0.8514452892962356,
+          "neutral_mass": 0.29788755069057316,
+          "pairwise_dispersion_norm": 1.0342905992637763,
+          "effective_sample_size": 9.997202375362999
+        },
+        {
+          "event_id": "hist_0342",
+          "query_date": "2023-12-19",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.0008109199657266742,
+          "raw_return": 0.007433331000209931,
+          "prediction": 0.001156134238420891,
+          "e1_prediction": 0.00010128344950566107,
+          "interval_80": [
+            -0.014735017178765032,
+            0.014937584077776353
+          ],
+          "interval_width": 0.029672601256541385,
+          "n_calibration": 60,
+          "directional_conflict": 0.8717761925044141,
+          "neutral_mass": 0.2964870812789693,
+          "pairwise_dispersion_norm": 1.4623991514714578,
+          "effective_sample_size": 9.992348790454761
+        },
+        {
+          "event_id": "hist_0343",
+          "query_date": "2023-12-22",
+          "event_family": "tariff",
+          "realized_abret": -0.004802929398259135,
+          "raw_return": 0.008054010897426744,
+          "prediction": 0.006369330301319512,
+          "e1_prediction": 0.006075601959385539,
+          "interval_80": [
+            -0.008760698668885153,
+            0.020911902587656232
+          ],
+          "interval_width": 0.029672601256541385,
+          "n_calibration": 60,
+          "directional_conflict": 0.651720963895793,
+          "neutral_mass": 0.1001054402632304,
+          "pairwise_dispersion_norm": 2.0035932582072875,
+          "effective_sample_size": 9.97581757843548
+        },
+        {
+          "event_id": "hist_0344",
+          "query_date": "2023-12-26",
+          "event_family": "entity_restrictions",
+          "realized_abret": -0.009686184150553638,
+          "raw_return": 0.002743369025124176,
+          "prediction": 0.006004915979101752,
+          "e1_prediction": 0.004714147197678873,
+          "interval_80": [
+            -0.009753733196191479,
+            0.019182027591549224
+          ],
+          "interval_width": 0.028935760787740704,
+          "n_calibration": 60,
+          "directional_conflict": 0.41452892469773706,
+          "neutral_mass": 0.09823581942560687,
+          "pairwise_dispersion_norm": 1.2425910675746779,
+          "effective_sample_size": 9.972363013164482
+        }
+      ]
+    }
+  }
+}

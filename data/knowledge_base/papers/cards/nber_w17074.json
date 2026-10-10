@@ -1,0 +1,23 @@
+{
+  "key": "nber_w17074",
+  "source_title": "Exchange Rates in Emerging Countries: Eleven Empirical Regularities from Latin America and East Asia",
+  "source_url": "https://www.nber.org/papers/w17074",
+  "published_at": "2011-05-01",
+  "evidence_type": "working_paper",
+  "methodology": "描述性综述归纳新兴市场汇率的十一条经验规律，辅以随机效应面板回归、周度面板回归与 REER 相关系数矩阵",
+  "sample_period": "1971-2010（美元 REER 与拉美 REER 相关分析为 1976.1-2010.11）",
+  "extraction_note": "claim_text 是从英文原文读出的中文转述；evidence_span 是论文原句，可逐字核对。方向判定由人工做出，不是规则抽取。",
+  "claims": [
+    {
+      "feature_id": "USD_Index",
+      "feature_name": "美元指数",
+      "effect_direction": "conditional",
+      "claim_text": "第十一条经验规律：2004 年以后，美元实际有效汇率与拉美大宗商品出口国货币的实际有效汇率显著负相关——美元走弱对应这些货币升值。外推到 USD/CNY 则方向为「美元指数上升 → USD/CNY 上升」。但论文明确把中国列为该规律的例外（人民币受管制，美元无法相对人民币下跌），所以对中国只能有条件成立，不能当作 USD/CNY 的确定方向。",
+      "evidence_span": "This means that since that time, real depreciations (appreciations) of the trade-weighted USD have been associated with real appreciations (depreciations) of the trade-weighted of the Latin American currencies.",
+      "currency_pair": "USD/CNY",
+      "forecast_horizon": 20,
+      "market_regime": "",
+      "policy_condition": "仅适用于拉美等大宗商品出口国；中国实行人民币汇率管制时论文明确将其列为例外"
+    }
+  ]
+}

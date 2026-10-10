@@ -1,0 +1,918 @@
+{
+  "horizon": 20,
+  "knowledge_base": {
+    "n_documents": 299,
+    "n_claims": 25,
+    "n_active_claims": 25,
+    "evidence_type_counts": {
+      "internal_note": 15,
+      "working_paper": 10
+    },
+    "relation_counts": {
+      "unrelated": 265,
+      "uncertain": 26,
+      "supports": 6,
+      "contradicts": 3
+    },
+    "note_claims": 15,
+    "literature": {
+      "n_cards": 7,
+      "n_claims": 10,
+      "span_verification": "all_passed",
+      "problems": [],
+      "distribution": {
+        "n_claims": 10,
+        "by_feature": {
+          "WTI_Futures_Price": 1,
+          "Transmission_Channels": 3,
+          "USD_Index": 2,
+          "China_FX_Reserves": 2,
+          "Event_Types": 2
+        },
+        "by_direction": {
+          "conditional": 4,
+          "negative": 5,
+          "positive": 1
+        },
+        "by_evidence_type": {
+          "working_paper": 10
+        },
+        "by_year": {
+          "2011": 1,
+          "2014": 1,
+          "2016": 1,
+          "2018": 1,
+          "2020": 2,
+          "2023": 2,
+          "2026": 2
+        }
+      },
+      "n_usable_at_origin": 6,
+      "extraction_model": "literature-card/manual"
+    },
+    "caveat": "知识库 = 4 份本项目自撰的机制说明（无发表日期，教科书级机制描述）+ 真实文献卡片。文献卡片是**语义阅读**产物，不是规则抽取；每条断言都附论文原文句子并逐字核查。观点数量级由语料决定。"
+  },
+  "feature_decisions": {
+    "USD_Index": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识不足度偏高（0.51），证据基础不够扎实",
+      "n_active_claims": 3,
+      "conflict_score": 0.0,
+      "ignorance_score": 0.513375892492264,
+      "context_applicability": 0.5,
+      "real_conflicts": 0,
+      "gain_mean": 0.00781838666416833,
+      "gain_by_fold": [
+        -0.01882319934297793,
+        0.03951255911640283,
+        0.0027658002190800914
+      ],
+      "gain_low": -0.019696087290489047,
+      "gain_high": 0.023499731439699904,
+      "sign_consistency": 0.6666666666666666,
+      "n_folds": 3
+    },
+    "CN_1Y_GovBond_Yield": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0043），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.004279399388251608,
+      "gain_by_fold": [
+        -0.030989095369307395,
+        0.03324680553931621,
+        -0.015095908334763635
+      ],
+      "gain_low": -0.034398927264073155,
+      "gain_high": 0.012229354061329934,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "US_1Y_Treasury_Yield": {
+      "status": "HUMAN_REVIEW",
+      "reason": "知识图里有 2 条 contradicts 边，属于真冲突，需要人工确认适用条件",
+      "n_active_claims": 3,
+      "conflict_score": 0.9182958340544894,
+      "ignorance_score": 0.5251785194231839,
+      "context_applicability": 0.5,
+      "real_conflicts": 2,
+      "gain_mean": -0.006312292015335682,
+      "gain_by_fold": [
+        -0.03029577352473392,
+        0.035175531801210747,
+        -0.023816634322483873
+      ],
+      "gain_low": -0.04011994223233689,
+      "gain_high": 0.010575105042898821,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "China_FX_Reserves": {
+      "status": "RESEARCH_ONLY",
+      "reason": "样本外增益不足（均值 -0.0015），不进入正式 FA",
+      "n_active_claims": 3,
+      "conflict_score": 0.0,
+      "ignorance_score": 0.512247077248488,
+      "context_applicability": 0.5,
+      "real_conflicts": 0,
+      "gain_mean": -0.0015051493163935955,
+      "gain_by_fold": [
+        -0.021949985291725833,
+        0.031618484912218935,
+        -0.014183947569673888
+      ],
+      "gain_low": -0.0305640195991528,
+      "gain_high": 0.015066202220044655,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "CN_CPI_MoM": {
+      "status": "RESEARCH_ONLY",
+      "reason": "样本外增益不足（均值 -0.0344），不进入正式 FA",
+      "n_active_claims": 2,
+      "conflict_score": 0.0,
+      "ignorance_score": 0.6239303661704856,
+      "context_applicability": 0.5,
+      "real_conflicts": 0,
+      "gain_mean": -0.03439988519283773,
+      "gain_by_fold": [
+        0.021208895512881604,
+        -0.13449874058437436,
+        0.010090189492979572
+      ],
+      "gain_low": -0.05230792253787477,
+      "gain_high": 0.02865341925378756,
+      "sign_consistency": 0.6666666666666666,
+      "n_folds": 3
+    },
+    "US_CPI_MoM": {
+      "status": "AUTO_REJECT",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益的 95% 分块区间整体为负（-0.3054, -0.0044）",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.12113065621995965,
+      "gain_by_fold": [
+        -0.31716873675715246,
+        -0.021255658982112666,
+        -0.024967572920613783
+      ],
+      "gain_low": -0.3054201334789,
+      "gain_high": -0.0043660681318611625,
+      "sign_consistency": 0.0,
+      "n_folds": 3
+    },
+    "WTI_Futures_Price": {
+      "status": "HUMAN_REVIEW",
+      "reason": "知识图里有 1 条 contradicts 边，属于真冲突，需要人工确认适用条件",
+      "n_active_claims": 6,
+      "conflict_score": 1.0,
+      "ignorance_score": 0.34963536251225913,
+      "context_applicability": 0.5,
+      "real_conflicts": 1,
+      "gain_mean": -0.0013568780503644,
+      "gain_by_fold": [
+        -0.02275367014976409,
+        0.0333516352480249,
+        -0.014668599249354007
+      ],
+      "gain_low": -0.030901623319393026,
+      "gain_high": 0.015222616123481927,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "China_Increasing_Purchases_of_US_Goods": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0014），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.0014346339957072428,
+      "gain_by_fold": [
+        -0.023825649107687287,
+        0.034716920230317465,
+        -0.015195173109751907
+      ],
+      "gain_low": -0.03138986714855764,
+      "gain_high": 0.015409724623778343,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "China_Restrictions_on_US_Enterprises": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0055），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.005462398182100169,
+      "gain_by_fold": [
+        -0.03828459936939636,
+        0.03485833420328701,
+        -0.012960929380191156
+      ],
+      "gain_low": -0.03741597638107158,
+      "gain_high": 0.013466858132193412,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "China_Reducing_Restrictions_on_US_Enterprises": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0006），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.0006310375512259669,
+      "gain_by_fold": [
+        -0.021381476364162554,
+        0.03462708962854136,
+        -0.015138725918056704
+      ],
+      "gain_low": -0.03088161340600166,
+      "gain_high": 0.016076713409225896,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "China_Tariff_Increases_on_the_US": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0011），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.0010566967319938642,
+      "gain_by_fold": [
+        -0.021177967529577287,
+        0.03561452836916511,
+        -0.017606651035569413
+      ],
+      "gain_low": -0.03224739628386494,
+      "gain_high": 0.014429528798601692,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "China_Litigation_or_Investigation_against_the_US": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；知识不足度偏高（1.00），证据基础不够扎实",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": 0.0005339521989650026,
+      "gain_by_fold": [
+        -0.01828301460430459,
+        0.03562001499565655,
+        -0.01573514379445695
+      ],
+      "gain_low": -0.030817168021726467,
+      "gain_high": 0.017540700452107975,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "China_Tariff_Relief_Policies_for_the_US": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；知识不足度偏高（1.00），证据基础不够扎实",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": 0.0008812651877942139,
+      "gain_by_fold": [
+        -0.020733016441158766,
+        0.03860661102345256,
+        -0.015229799018911151
+      ],
+      "gain_low": -0.030334049781835837,
+      "gain_high": 0.016767422402280716,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "China_Criticizing_the_US": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；知识不足度偏高（1.00），证据基础不够扎实",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": 0.00020012112063638675,
+      "gain_by_fold": [
+        -0.019181603488840817,
+        0.03536141730687287,
+        -0.01557945045612289
+      ],
+      "gain_low": -0.029914316533109397,
+      "gain_high": 0.016726528421926165,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "Sino_US_Dialogue": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；知识不足度偏高（1.00），证据基础不够扎实",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": 0.0001091369242779694,
+      "gain_by_fold": [
+        -0.020100854733232195,
+        0.03478545654448972,
+        -0.01435719103842362
+      ],
+      "gain_low": -0.029360811603554172,
+      "gain_high": 0.016275344256352773,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "US_Restrictions_on_Chinese_Enterprises": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0059），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.00588392083848014,
+      "gain_by_fold": [
+        -0.03623687198282185,
+        0.03412967926676546,
+        -0.015544569799384032
+      ],
+      "gain_low": -0.036460639115537666,
+      "gain_high": 0.011235711137915147,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "US_Reducing_Restrictions_on_Chinese_Enterprises": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0054），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.005406467604445071,
+      "gain_by_fold": [
+        -0.032643516948577825,
+        0.030972510623661437,
+        -0.014548396488418826
+      ],
+      "gain_low": -0.03590809330203121,
+      "gain_high": 0.012989938219015174,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "US_Tariff_Increases_on_China": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；知识不足度偏高（1.00），证据基础不够扎实",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": 0.000457903887958283,
+      "gain_by_fold": [
+        -0.013964359774379482,
+        0.03005927584956456,
+        -0.014721204411310232
+      ],
+      "gain_low": -0.030844933918661287,
+      "gain_high": 0.018637126997194775,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "US_Litigation_or_Investigation_against_China": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0018），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.0017621784410202935,
+      "gain_by_fold": [
+        -0.025248405005700986,
+        0.03376816223241686,
+        -0.013806292549776755
+      ],
+      "gain_low": -0.031131355408899372,
+      "gain_high": 0.015441618804882207,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "US_Tariff_Relief_Policies_for_China": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0017），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.0017130119594066205,
+      "gain_by_fold": [
+        -0.024843366765161717,
+        0.035235096472675274,
+        -0.015530765585733419
+      ],
+      "gain_low": -0.03289283787883479,
+      "gain_high": 0.01602423853183453,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "US_Removing_China_from_Currency_Manipulator_List": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0008），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.0008438299287574993,
+      "gain_by_fold": [
+        -0.022047091556682108,
+        0.03468797742241397,
+        -0.015172375652004357
+      ],
+      "gain_low": -0.031165773940960862,
+      "gain_high": 0.01603154929789846,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "US_Designating_China_as_Currency_Manipulator": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0004），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.0003836272965360473,
+      "gain_by_fold": [
+        -0.020707109966109815,
+        0.03478585079393053,
+        -0.01522962271742886
+      ],
+      "gain_low": -0.0306889284594244,
+      "gain_high": 0.016273181006889167,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "US_Criticizing_China": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0021），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.0021441221109253505,
+      "gain_by_fold": [
+        -0.018564964584909097,
+        0.026200435159040133,
+        -0.014067836906907088
+      ],
+      "gain_low": -0.030921890705394157,
+      "gain_high": 0.0163699942937254,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "China": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0061），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.006105425154320945,
+      "gain_by_fold": [
+        -0.03397367007323389,
+        0.030677766063257395,
+        -0.015020371452986342
+      ],
+      "gain_low": -0.03553512363301003,
+      "gain_high": 0.011835359447004984,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "Sino_US": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；知识不足度偏高（1.00），证据基础不够扎实",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": 0.00017759330027881706,
+      "gain_by_fold": [
+        -0.01995565197510687,
+        0.0348609535988344,
+        -0.014372521722891076
+      ],
+      "gain_low": -0.02924801047329463,
+      "gain_high": 0.016271311129110122,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "US": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0114），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.011403606625535656,
+      "gain_by_fold": [
+        -0.031212652900143193,
+        0.015345920321291076,
+        -0.018344087297754854
+      ],
+      "gain_low": -0.04220434736562974,
+      "gain_high": 0.010986718789190619,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "Positive_Events": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0013），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.0012800523854389542,
+      "gain_by_fold": [
+        -0.02174637741099326,
+        0.03264474261652667,
+        -0.014738522361850269
+      ],
+      "gain_low": -0.030491284213273965,
+      "gain_high": 0.015515076770338518,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "Negative_Events": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0127），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.012704107804556426,
+      "gain_by_fold": [
+        -0.032991155587383525,
+        0.012447240618495184,
+        -0.017568408444780935
+      ],
+      "gain_low": -0.041459393218193724,
+      "gain_high": 0.008469132247688041,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "Positive_Events_from_China": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0014），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.0013798215314421009,
+      "gain_by_fold": [
+        -0.024680270866165404,
+        0.03552711782092613,
+        -0.014986311549087028
+      ],
+      "gain_low": -0.031518619699285745,
+      "gain_high": 0.014812145907359997,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "Negative_Events_from_China": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0011），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.0011201042238651222,
+      "gain_by_fold": [
+        -0.023871160446039333,
+        0.037428818833699556,
+        -0.01691797105925559
+      ],
+      "gain_low": -0.0326575409045374,
+      "gain_high": 0.01442192707577797,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "Positive_Events_from_the_US": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0028），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.0028217690296814314,
+      "gain_by_fold": [
+        -0.025656432333032612,
+        0.03348550340473474,
+        -0.01629437816074642
+      ],
+      "gain_low": -0.03457883038698697,
+      "gain_high": 0.015512021629768825,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    },
+    "Negative_Events_from_the_US": {
+      "status": "RESEARCH_ONLY",
+      "reason": "知识库中没有该特征的观点，本次判断只依据样本外消融；样本外增益不足（均值 -0.0082），不进入正式 FA",
+      "n_active_claims": 0,
+      "conflict_score": null,
+      "ignorance_score": 1.0,
+      "context_applicability": 0.0,
+      "real_conflicts": 0,
+      "gain_mean": -0.008179382760119357,
+      "gain_by_fold": [
+        -0.028512174025838458,
+        0.020768295134340822,
+        -0.016794269388860437
+      ],
+      "gain_low": -0.037694997838106994,
+      "gain_high": 0.0111128439982134,
+      "sign_consistency": 0.3333333333333333,
+      "n_folds": 3
+    }
+  },
+  "selective_audit": {
+    "total": 32,
+    "automatic": 1,
+    "accepted": 0,
+    "rejected": 1,
+    "abstained": 31,
+    "human_review": 2,
+    "research_only": 29,
+    "insufficient_data": 0,
+    "machine_coverage": 0.03125,
+    "acceptance_rate": 0.0,
+    "abstention_rate": 0.96875,
+    "human_review_rate": 0.0625
+  },
+  "groups": {
+    "B0 全部候选": {
+      "features": [
+        "USD_Index",
+        "CN_1Y_GovBond_Yield",
+        "US_1Y_Treasury_Yield",
+        "China_FX_Reserves",
+        "CN_CPI_MoM",
+        "US_CPI_MoM",
+        "WTI_Futures_Price",
+        "China_Increasing_Purchases_of_US_Goods",
+        "China_Restrictions_on_US_Enterprises",
+        "China_Reducing_Restrictions_on_US_Enterprises",
+        "China_Tariff_Increases_on_the_US",
+        "China_Litigation_or_Investigation_against_the_US",
+        "China_Tariff_Relief_Policies_for_the_US",
+        "China_Criticizing_the_US",
+        "Sino_US_Dialogue",
+        "US_Restrictions_on_Chinese_Enterprises",
+        "US_Reducing_Restrictions_on_Chinese_Enterprises",
+        "US_Tariff_Increases_on_China",
+        "US_Litigation_or_Investigation_against_China",
+        "US_Tariff_Relief_Policies_for_China",
+        "US_Removing_China_from_Currency_Manipulator_List",
+        "US_Designating_China_as_Currency_Manipulator",
+        "US_Criticizing_China",
+        "China",
+        "Sino_US",
+        "US",
+        "Positive_Events",
+        "Negative_Events",
+        "Positive_Events_from_China",
+        "Negative_Events_from_China",
+        "Positive_Events_from_the_US",
+        "Negative_Events_from_the_US"
+      ],
+      "metrics": {
+        "n_features": 32,
+        "n_folds": 3,
+        "mae": 0.0884819150453482,
+        "mape": 0.013050999175194986,
+        "rmse": 0.1133039383177309,
+        "direction_accuracy": 0.4835674364293893,
+        "by_fold": [
+          {
+            "test_year": 2020,
+            "n_test": 243,
+            "mae": 0.09898254179803022,
+            "mape": 0.014281642549754192,
+            "rmse": 0.1266267766434669,
+            "direction_accuracy": 0.4691358024691358
+          },
+          {
+            "test_year": 2021,
+            "n_test": 243,
+            "mae": 0.04307792176775807,
+            "mape": 0.006675307544219602,
+            "rmse": 0.05351754883951482,
+            "direction_accuracy": 0.4609053497942387
+          },
+          {
+            "test_year": 2022,
+            "n_test": 242,
+            "mae": 0.12338528157025637,
+            "mape": 0.018196047431611167,
+            "rmse": 0.15976748947021102,
+            "direction_accuracy": 0.5206611570247934
+          }
+        ]
+      },
+      "operational_status": "FORECAST"
+    },
+    "B1 DA 复现（paper-described）": {
+      "features": [
+        "USD_Index",
+        "China_FX_Reserves",
+        "WTI_Futures_Price",
+        "China_Tariff_Increases_on_the_US",
+        "US_Tariff_Increases_on_China",
+        "US_Litigation_or_Investigation_against_China",
+        "China",
+        "US",
+        "Negative_Events",
+        "Negative_Events_from_the_US"
+      ],
+      "metrics": {
+        "n_features": 10,
+        "n_folds": 3,
+        "mae": 0.07865339770345857,
+        "mape": 0.011639716799795558,
+        "rmse": 0.09858018925385399,
+        "direction_accuracy": 0.5164382319264474,
+        "by_fold": [
+          {
+            "test_year": 2020,
+            "n_test": 243,
+            "mae": 0.07625564478991467,
+            "mape": 0.011089496771639375,
+            "rmse": 0.08827499630855712,
+            "direction_accuracy": 0.4897119341563786
+          },
+          {
+            "test_year": 2021,
+            "n_test": 243,
+            "mae": 0.03723053244824498,
+            "mape": 0.0057625625141998656,
+            "rmse": 0.04857080540196616,
+            "direction_accuracy": 0.5761316872427984
+          },
+          {
+            "test_year": 2022,
+            "n_test": 242,
+            "mae": 0.12247401587221607,
+            "mape": 0.018067091113547436,
+            "rmse": 0.15889476605103867,
+            "direction_accuracy": 0.4834710743801653
+          }
+        ]
+      },
+      "operational_status": "FORECAST"
+    },
+    "B2 仅样本外消融": {
+      "features": [
+        "USD_Index",
+        "China_Litigation_or_Investigation_against_the_US",
+        "China_Tariff_Relief_Policies_for_the_US",
+        "China_Criticizing_the_US",
+        "Sino_US_Dialogue",
+        "US_Tariff_Increases_on_China",
+        "Sino_US"
+      ],
+      "metrics": {
+        "n_features": 7,
+        "n_folds": 3,
+        "mae": 0.07727200997563112,
+        "mape": 0.011436650338585867,
+        "rmse": 0.09728706560820012,
+        "direction_accuracy": 0.5328878005645683,
+        "by_fold": [
+          {
+            "test_year": 2020,
+            "n_test": 243,
+            "mae": 0.07255555444026691,
+            "mape": 0.010553144310751264,
+            "rmse": 0.08433278173236357,
+            "direction_accuracy": 0.5349794238683128
+          },
+          {
+            "test_year": 2021,
+            "n_test": 243,
+            "mae": 0.03672963956162516,
+            "mape": 0.005685594494952894,
+            "rmse": 0.048450331736818814,
+            "direction_accuracy": 0.588477366255144
+          },
+          {
+            "test_year": 2022,
+            "n_test": 242,
+            "mae": 0.1225308359250013,
+            "mape": 0.018071212210053443,
+            "rmse": 0.159078083355418,
+            "direction_accuracy": 0.47520661157024796
+          }
+        ]
+      },
+      "operational_status": "FORECAST"
+    },
+    "E5 CIK-RAG 探索集": {
+      "features": [
+        "USD_Index",
+        "China_Litigation_or_Investigation_against_the_US",
+        "China_Tariff_Relief_Policies_for_the_US",
+        "China_Criticizing_the_US",
+        "Sino_US_Dialogue",
+        "US_Tariff_Increases_on_China",
+        "Sino_US"
+      ],
+      "metrics": {
+        "n_features": 7,
+        "n_folds": 3,
+        "mae": 0.07727200997563112,
+        "mape": 0.011436650338585867,
+        "rmse": 0.09728706560820012,
+        "direction_accuracy": 0.5328878005645683,
+        "by_fold": [
+          {
+            "test_year": 2020,
+            "n_test": 243,
+            "mae": 0.07255555444026691,
+            "mape": 0.010553144310751264,
+            "rmse": 0.08433278173236357,
+            "direction_accuracy": 0.5349794238683128
+          },
+          {
+            "test_year": 2021,
+            "n_test": 243,
+            "mae": 0.03672963956162516,
+            "mape": 0.005685594494952894,
+            "rmse": 0.048450331736818814,
+            "direction_accuracy": 0.588477366255144
+          },
+          {
+            "test_year": 2022,
+            "n_test": 242,
+            "mae": 0.1225308359250013,
+            "mape": 0.018071212210053443,
+            "rmse": 0.159078083355418,
+            "direction_accuracy": 0.47520661157024796
+          }
+        ]
+      },
+      "operational_status": "FORECAST"
+    },
+    "E6 CIK-RAG 严格信任集": {
+      "features": [],
+      "metrics": {
+        "n_features": 0,
+        "n_folds": 0,
+        "abstained": true,
+        "not_reported_reason": "没有 AUTO_ACCEPT 特征，系统保留判断，不生成预测"
+      },
+      "operational_status": "ABSTAIN"
+    }
+  },
+  "folds": [
+    [
+      2019,
+      2020
+    ],
+    [
+      2020,
+      2021
+    ],
+    [
+      2021,
+      2022
+    ]
+  ],
+  "decision_origin": "2023-01-01"
+}

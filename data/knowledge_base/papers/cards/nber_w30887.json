@@ -1,0 +1,31 @@
+{
+  "key": "nber_w30887",
+  "source_title": "International Capital Flow Pressures and Global Factors",
+  "source_url": "https://www.nber.org/papers/w30887",
+  "published_at": "2023-01-01",
+  "evidence_type": "working_paper",
+  "methodology": "Exchange Market Pressure index; panel regression across countries",
+  "sample_period": "1990s-2020s",
+  "extraction_note": "claim_text 是从英文原文读出的中文转述；evidence_span 是论文原句，可逐字核对。方向判定由人工做出，不是规则抽取。",
+  "claims": [
+    {
+      "feature_id": "Transmission_Channels",
+      "feature_name": "风险情绪传导",
+      "effect_direction": "negative",
+      "claim_text": "风险情绪恶化（VIX 上升）平均导致国际资本流出压力与贬值压力——这是跨国面板上的平均效应。",
+      "evidence_span": "deteriorated risk sentiment as reflected by positive changes",
+      "currency_pair": "USD/CNY",
+      "forecast_horizon": 20
+    },
+    {
+      "feature_id": "Transmission_Channels",
+      "feature_name": "风险情绪传导",
+      "effect_direction": "conditional",
+      "claim_text": "资本流压力对风险情绪的敏感度随时间演变、跨国差异显著，且在常态与极端压力期之间不同；避险货币地位与自证式汇率预期和套息交易融资货币相关，而与传统宏观特征的关联很弱。",
+      "evidence_span": "evolves over time, varies significantly across countries, and differs between normal time and extreme stress events",
+      "currency_pair": "USD/CNY",
+      "forecast_horizon": 20,
+      "market_regime": "varies"
+    }
+  ]
+}
